@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+    <main class="container two-column">
+      <section>
+        <div class="h-1">CHAPTER 11</div>
+        <h2>EVENT</h2>
+        <p>Event = something that happens in the browser</p>
+        <p>Examples:</p>
+        <ul>
+          <li>click</li>
+          <li>typing</li>
+          <li>scrolling</li>
+          <li>mouse move</li>
+        </ul>
+        <p>
+          <strong>SIMPLE DEFINITION</strong>
+          Event = user action or browser action
+        </p>
+        <h4>Real Life Analogy</h4>
+        <p>Doorbell</p>
+        <ul>
+          <li>someone presses button → event</li>
+          <li>you open door → response</li>
+        </ul>
+        <p>Same in JS:</p>
+        <ul>
+          <li>user clicks → event</li>
+          <li>your code runs → handler</li>
+        </ul>
+        <h2>EVENT HANDLING</h2>
+        <p><strong>Event handling</strong> = what to do when event happens</p>
+        <p>Example:</p>
+        <code>
+          <pre>
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", () => {
+  console.log("Button clicked!");
+});
+</pre
+          >
+        </code>
+        <h4>BREAK IT DOWN</h4>
+        <p>addEventListener <strong>Means</strong> "listen for this event"</p>
+        <p><strong>"click"</strong> is Event Type</p>
+        <p><strong>() => {}</strong> Function = what to do</p>
+        <h4>EVENT LISTENER (IMPORTANT)</h4>
+        <p>
+          <strong>Event Listener = a watcher </strong>it waits for event and
+          then runs code.
+        </p>
+        <h4>ADD EVENT (MAIN METHOD)</h4>
+        <code>
+          <pre>
+// Standard Way
+element.addEventListener("event", handler)
+
+// Example: 
+const box = document.querySelector(".box");
+
+box.addEventListener("mouseover", () => {
+  box.style.backgroundColor = "blue";
+});
+</pre
+          >
+        </code>
+        <h4>❌ OLD WAY (Avoid)</h4>
+        <code>
+          <pre>
+box.onclick = function() {};
+</pre
+          >
+        </code>
+        <p>Problem:</p>
+        <ul>
+          <li>only one event allowed</li>
+          <li>overrides previous</li>
+        </ul>
+        <h4>REMOVE EVENT (IMPORTANT)</h4>
+        <p>Sometimes you need to stop listening</p>
+        <p>Rule: same function reference needed</p>
+        <code>
+          <pre>
+function handleClick() {
+  console.log("Clicked!");
+}
+
+btn.addEventListener("click", handleClick);
+
+// remove it
+btn.removeEventListener("click", handleClick);
+</pre
+          >
+        </code>
+        <h4>❌ WRONG (Common mistake)</h4>
+        <code>
+          <pre>
+btn.removeEventListener("click", () => {})
+</pre
+          >
+        </code>
+        <ul>
+          <li>Doesn't work</li>
+          <li>Because function is different</li>
+        </ul>
+        <h4>Engineering Rule</h4>
+        <p>
+          Always store handler in variable/function if you plan to remove it
+        </p>
+        <code>
+          <pre>
+// REAL EXAMPLE (ADD + REMOVE)
+const btn = document.querySelector("button");
+
+function sayHello() {
+  console.log("Hello!");
+}
+
+btn.addEventListener("click", sayHello);
+
+// stop after 5 seconds
+setTimeout(() => {
+  btn.removeEventListener("click", sayHello);
+}, 5000);
+</pre
+          >
+        </code>
+        <h4>EVENT OBJECT (VERY IMPORTANT)</h4>
+        <code>
+          <pre>
+btn.addEventListener("click", (e) => {
+  console.log(e);
+})
+</pre
+          >
+        </code>
+        <p><strong>"e"</strong> Gives:</p>
+        <ul>
+          <li>target element</li>
+          <li>mouse position</li>
+          <li>key pressed</li>
+        </ul>
+        <code>
+          <pre>
+// Most used:
+e.target // Which element triggered event
+</pre
+          >
+        </code>
+        <h4>Final Mental Model</h4>
+        <ul>
+          <li>Event = Something happens</li>
+          <li>Listener = waiting for it</li>
+          <li>Handler = what you do</li>
+        </ul>
+        <h2>Types of Events</h2>
+        <p>
+          Instead of learning 100 events, we focus on the MOST USEFUL ones used
+          in real projects.
+        </p>
+        <h4>HOW TO THINK ABOUT EVENTS</h4>
+        <p>Events are grouped like this:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>What it means</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mouse Events</td>
+                <td>click, hover</td>
+              </tr>
+              <tr>
+                <td>Keyboard Events</td>
+                <td>Typing</td>
+              </tr>
+              <tr>
+                <td>Form Events</td>
+                <td>input, submit</td>
+              </tr>
+              <tr>
+                <td>Window events</td>
+                <td>load scroll</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4>MOUSE EVENTS (MOST USED)</h4>
+        <code>
+          <pre>
+// 1. click: user clicks something 
+btn.addEventListener("click", () => {
+  console.log("Clicked!");
+});
+
+// 2. dblclick: double click 
+btn.addEventListener("dblclick", () => {
+  console.log("Double clicked!");
+});
+
+// 3. mouseover: mouse enters element 
+box.addEventListener("mouseover", () => {
+  box.classList.add("hover");
+});
+
+// 4. mouseout: mouse leaves element 
+box.addEventListener("mouseout", () => {
+  box.classList.remove("hover");
+});
+</pre
+          >
+        </code>
+        <p>
+          <strong>Pro tip</strong>: for hover effects prefer CSS, Use JS only if
+          logic needed.
+        </p>
+        <h4>Keyboard events</h4>
+        <code>
+          <pre>
+// 1. keydown: when key is pressed 
+document.addEventListener("keydown", (e) => {
+  console.log(e.key);
+});
+
+// 2. keyup: when key is released 
+document.addEventListener("keyup", () => {
+  console.log("Key released");
+});
+
+// keyup example:
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    console.log("Submitted!");
+  }
+});
+</pre
+          >
+        </code>
+        <h4>Form Events (very important)</h4>
+        <code>
+          <pre>
+// 1. input: when user types
+input.addEventListener("input", (e) => {
+  console.log(e.target.value);
+});
+
+input.addEventListener("input"), (e) => {
+  console.log(e.data);
+}
+
+// 2. change: when input loses focus AND value changed 
+input.addEventListener("change", () => {
+  console.log("Changed");
+});
+
+select.addEventListener("change", (e) => {
+  console.log(e.target.value);
+});
+
+// Example program 
+let button = document.querySelector("button");
+const fileInput = document.querySelector("input");
+
+button.addEventListener("click", function(){
+  fileInput.click(); // Transform the click to input 
+});
+
+fileInput.addEventListener("change", function(e){
+  const file = e.target.files[0];
+  if (file){
+    button.textContent = file.name;
+  }
+})
+
+// 3. submit: form submit 
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // stop reload
+  console.log("Form submitted");
+});
+</pre
+          >
+        </code>
+        <h4>Window Events</h4>
+        <code>
+          <pre>
+// 0. keydown 
+window.addEventListener("keydown", function (e){
+  if (e.key === " "){
+    h1.textContent = "space";
+  }else{
+    h1.textContent = e.keys;
+  }
+})
+
+// 1. Load: when page fully loads 
+window.addEventListener("load", () => {
+  console.log("Page loaded");
+});
+
+// 2. scroll: when user scrolls 
+window.addEventListener("scroll", () => {
+  console.log("Scrolling...");
+});
+</pre
+          >
+        </code>
+        <h4>MOST IMPORTANT EVENTS</h4>
+        <p>if you remember only these you're strong:</p>
+        <ul>
+          <li>click</li>
+          <li>input</li>
+          <li>submit</li>
+          <li>keydown</li>
+          <li>mouseover</li>
+          <li>scroll</li>
+        </ul>
+        <h4>Program for Input event</h4>
+        <code>
+          <pre>
+let input = document.getElementById("#inputText");
+
+input.addEventListener("input", function(e){
+  if (e.data !== null){
+    console.log(e.data);
+  }
+})
+</pre
+          >
+        </code>
+        <h4>Program for change event</h4>
+        <code>
+          <pre>
+// HTML 
+&lt;h1>Selected Device is&lt;/h1>
+&lt;select>
+    &lt;option value="iphone">Iphone&lt;/option>
+    &lt;option value="macbook">Mac Book&lt;/option>
+    &lt;option value="lenevo">Lenovo&lt;/option>
+    &lt;option value="hp">HP&lt;/option>
+&lt;/select>
+
+
+// JavaScript 
+const select = document.querySelector("select");
+const h1 = document.querySelector("h1");
+select.addEventListener("change", function(e){
+  h1.textContent = "Device Selected"; // replace h1 text 
+  h1.textContent = `${e.target.value} Selected`;  // replace h1 text with selected value
+  console.log(e.target.value); // returns selected value 
+})
+</pre
+          >
+        </code>
+        <h4>Program For Inputs</h4>
+        <code>
+          <pre>
+// HMTL 
+&lt;form action="/action.php">
+    &lt;input type="text" placeholder="Your Name">
+    &lt;input type="text" placeholder="Your Picture">
+    &lt;input type="text" placeholder="Mastery in">
+    &lt;input type="text" placeholder="Describe Your Self">
+    &lt;button type="submit">SUBMIT&lt;/button>
+&lt;/form>
+
+
+// 🫵As you create a Card by JavaScript remove following structure
+&lt;div class="card">
+  &lt;div class="profile-picture">
+      &lt;img src="img1.png" alt="">
+  &lt;/div>
+  &lt;h2>Naseeb Khan&lt;/h2>
+  &lt;h4>Developer&lt;/h4>
+  &lt;p>
+    i'm Naseeb Khan working as a developer.
+  &lt;/p>
+&lt;/div>
+
+
+// JavaScript
+const form = document.querySelector("form");
+const inputs = document.querySelectorAll("input");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); 
+
+  // creating elements & adding classes
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const profile = document.createElement("div");
+  profile.classList.add("profile");
+
+  const h2 = document.createElement("h2");
+  h2.textContent = inputs[0].value;
+  
+  const img = document.createElement("img");
+  img.setAttribute("src", inputs[1].value);
+
+  const h4 = document.createElement("h4");
+  h4.textContent = inputs[2].value;
+
+  const p = documnet.createElement("p");
+  p.textContent = inputs[3].value;
+
+  // append childs into corresponding parents 
+  profile.appendChild(img);
+  card.appendChild(profile); 
+
+  card.appendChild(h2);
+  card.appendChild(h4);
+  card.appendChild(p);
+
+  // Make inputs empty
+  inputs.forEach((inputElement) => {
+    if (inputElement.type !== "submit"){
+      inputElement.value = "";
+    }
+  })
+});
+</pre
+          >
+        </code>
+        <h4>Window + Mousemove</h4>
+        <code>
+          <pre>
+window.addEventListener("mousemove", (e) => {
+  console.log(e.clientX, e.clientY);
+});
+
+// let's create custom cursor 
+const cursor = document.querySelector("div");
+
+window.addEventListener("mousemove", (e) => {
+  cursor.style.top = e.clientY + "px";
+  cursor.style.left = e.clientX + "px";
+});
+</pre
+          >
+        </code>
+        <a
+          href="#"
+          style="
+            background-color: rgb(255, 255, 255);
+            display: block;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 3rem;
+          "
+          class="back-to-top"
+          >Back To Top</a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© NaseebCodeStudio • Made with ❤️</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

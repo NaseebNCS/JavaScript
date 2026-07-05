@@ -1,0 +1,21 @@
+❓Questions:
+21. Operator kya hota hai?
+22. JavaScript mein kitne types ke operators hote hain?
+23. Arithmetic operators kaun se hote hain?
+24. Assignment operator kya hota hai?
+25. Comparison operator kya karta hai?
+26. == aur === mein difference kya hai?
+27. != aur !== mein difference kya hai?
+28. Logical operators kaun se hote hain?
+29. Logical AND (&&) kaise kaam karta hai?
+30. Logical OR (||) kaise kaam karta hai?
+31. Logical NOT (!) kya karta hai?
+32. Condition (if statement) kya hoti hai?
+33. if statement ka syntax kya hai?
+34. if–else statement kya hota hai?
+35. else if kab use hota hai?
+36. Nested if kya hota hai?
+37. Ternary operator kya hota hai?
+38. Ternary operator ka syntax kya hai?
+39. Truthy aur Falsy values kya hoti hain?
+40. Common mistake in conditions kya hoti hai?

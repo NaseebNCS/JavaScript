@@ -1,0 +1,1419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">CHAPTER 7</div>
+      <h2>Filter</h2>
+      <p>
+        In JavaScript, the .filter() method is used to create a new array containing only the elements that pass a
+        specific condition. It's like a "filter" that removes unwanted items and keeps only the ones you want.
+      </p>
+      <h4>How .filter() Works</h4>
+      <ol>
+        <li>You call .filter() on an array.</li>
+        <li> You provide a callback function that defines the condition.</li>
+        <li>The callback function is applied to each element in the array.</li>
+        <li>If the condition in the callback function returns true, the element is included in the new array.</li>
+        <li>If the condition returns false, the element is excluded.
+        </li>
+      </ol>
+      <h4>Syntax:</h4>
+      <code>
+<pre>
+const newArray = originalArray.filter(callbackFunction);
+</pre>
+</code>
+      <ul>
+        <li>originalArray: The array you want to filter.</li>
+        <li>callbackFunction: A function that tests each element.</li>
+        <li>newArray: A new array containing only the elements that passed the test.
+        </li>
+      </ul>
+      <h4>Callback Function</h4>
+      <p>
+        The callback function takes three arguments (though you usually only need the first one):
+      </p>
+      <ol>
+        <li>Element: The current element being processed.</li>
+        <li>Index (optional): The index of the current element.</li>
+        <li>Array (optional): The original array being filtered.</li>
+      </ol>
+      <code>
+<pre>
+const numbers = [1, 2, 3, 4, 5];
+
+const evenNumbers = numbers.filter((number) => {
+ return number % 2 === 0; // Keep only even numbers
+});
+
+console.log(evenNumbers); // Output: [2, 4]
+</pre>
+</code>
+      <h4>Key Points</h4>
+      <ol>
+        <li>Does Not Modify the Original Array: .filter() creates a new array and leaves the original array
+          unchanged.</li>
+        <li>Returns a New Array: The result is always a new array, even if no elements pass the condition (in
+          which case, it returns an empty array).</li>
+        <li>Condition-Based: Only elements that satisfy the condition are included in the new array.</li>
+      </ol>
+      <h4>Example 1: Filtering Numbers</h4>
+      <p>Filter out numbers greater than 10:
+      </p>
+      <code>
+<pre>
+const numbers = [5, 12, 8, 130, 44];
+
+const filteredNumbers = numbers.filter((number) => {
+ return number > 10;
+});
+
+console.log(filteredNumbers); // Output: [12, 130, 44]
+</pre>
+</code>
+      <h4>Example 2: Filtering Strings</h4>
+      <p>Filter out names that start with the letter "A":
+      </p>
+      <code>
+<pre>
+const names = ["Naseeb", "Bob", "Anna", "Lucky", "Ahmed"];
+
+const filteredNames = names.filter((name) => {
+   return name.startsWith("A");
+});
+
+console.log(filteredNames); // Output: ["Anna", "Ahmed"]
+</pre>
+</code>
+      <h4>Example 3: Filtering Objects</h4>
+      <p>Filter out users who are older than 18:
+      </p>
+      <code>
+<pre>
+const users = [
+ { name: "Naseeb", age: 23 },
+ { name: "Bob", age: 17 },
+ { name: "Lucky", age: 20 },
+];
+
+const adults = users.filter((user) => {
+ return user.age > 18;
+});
+
+console.log(adults);
+<span class="t-r">
+Output: [{ name: "Naseeb", age: 23 }, { name: "Lucky", age: 20 }]</span>
+</pre>
+</code>
+      <h4>Example 4: Filtering Falsy Values</h4>
+      <p>Remove all falsy values (false, 0, "", null, undefined, NaN) from an array:
+      </p>
+      <code>
+<pre>
+const mixedValues = [0, 1, false, true, "", "hello", null, undefined, NaN];
+
+const truthyValues = mixedValues.filter((value) => {
+ return value; // Only truthy values are kept
+});
+
+console.log(truthyValues); // Output: [1, true, "hello"]
+</pre>
+</code>
+      <h4>When to Use .filter()</h4>
+      <ul>
+        <li>When you want to extract specific elements from an array based on a condition.</li>
+        <li>When you want to create a new array without modifying the original array.</li>
+        <li>When working with arrays of objects and need to filter based on object properties.</li>
+      </ul>
+      <h2>Function Declarations VS Expressions</h2>
+      <p>
+        Here we are going to examine functions in more detail. We have function declarations and function
+        expressions. What are the differences between them? Let’s see with examples:
+      </p>
+      <p><strong>Example (Function Declaration):</strong></p>
+      <code>
+<pre>
+function walk() {
+console.log('walk');
+}
+</pre>
+</code>
+      <p>
+        This is what we call a function declaration.
+      </p>
+      <p>
+        There is another method to create a function, called a function expression.
+      </p>
+      <p>
+        <strong>Example (Function Expression):</strong>
+      </p>
+      <code>
+<pre>
+let run = function() {
+console.log('run');
+};
+</pre>
+</code>
+      <p>
+        Here, we defined a function. This function doesn’t have a name, and its syntax is very similar to a function
+        declaration, except it doesn’t include a name.
+      </p>
+      <p>However, we can assign it a name. When we assign a name to this function, it is referred to as a named
+        function expression. If we do not assign it a name, the function is called an anonymous function
+        expression.</p>
+      <p>One key difference is that in function declarations, we don’t use a terminator (;) at the end of the function
+        block, but in function expressions, we do.</p>
+      <h2>Hoisting</h2>
+      <p>
+        A key difference between function expressions and function declarations is that we can call a declared
+        function before its declaration.
+      </p>
+      <code>
+<pre>
+walk();
+function walk() {
+ console.log('walk');
+}
+</pre>
+</code>
+      <p>But we can’t call a function expression in the same way.</p>
+      <code>
+<pre>
+run();
+const run = function () {
+    console.log('run');
+}; 
+</pre>
+</code>
+      <p>
+        Here, we will get an error. It is the same as calling a variable before its declaration.
+      </p>
+      <code>
+<pre>
+console.log(n);
+let n = "NaseebCodeStudio"; 
+</pre>
+</code>
+      <p>
+        In this case, we will get an error message because we can’t call a variable before its declaration.
+      </p>
+      <p>
+        When JavaScript executes this code, it moves all the function declarations to the top. This process is called
+        hoisting. Hoisting means first declaration, then assignment.
+      </p>
+      <p>
+        For variables, hoisting works like this:
+      </p>
+      <code>
+<pre>
+let n = "NaseebCodeStudio";
+</pre>
+</code>
+      <p>
+        It moves the declaration part of the variable to the top, like this:
+      </p>
+      <code>
+<pre>
+let n;
+n = "NaseebCodeStudio";
+</pre>
+</code>
+      <p>
+        However, if we try to access the variable before its declaration, we will get an error or undefined.
+      </p>
+      <code>
+<pre>
+console.log(n); // Error: Cannot access 'n' before initialization 
+</pre>
+</code>
+      <p>
+        JavaScript breaks the statements into two parts declaration and assignment it moves the declaration at the
+        top and the assignment part is located on the same place.
+      </p>
+      <h2>Arguments</h2>
+      <p>
+        JavaScript is a dynamically typed language. For example, we can set let n = 1; and then change it to n = 'a';.
+        This is perfectly fine because it is one of the characteristics of a dynamically typed language. The same
+        concept applies to the arguments of a function.
+      </p>
+      <code>
+<pre>
+function sum(a, b) {
+ return a + b;
+}
+
+console.log(sum(1, 2)); // 3
+
+If we pass only one argument:
+function sum(a, b) {
+ return a + b;
+}
+
+console.log(sum(1)); 
+</pre>
+</code>
+      <p>
+        Here, the b parameter is set to undefined. Then, the operation a + b (which means 1 + undefined) results in
+        NaN. Similarly, if we don’t pass any arguments, we don’t get an error. On the other hand, we can also pass
+        additional arguments:
+      </p>
+      <code>
+<pre>
+function sum(a, b) {
+ return a + b;
+}
+
+console.log(sum(1, 2, 3, 4, 5)); // 3
+</pre>
+</code>
+      <p>
+        This is totally fine, but the operation generates 3 because only the first two arguments are used.
+      </p>
+      <p>
+        What if we want to handle a variable number of arguments? What if we want the flexibility to accept as
+        many arguments as needed to calculate the sum?
+      </p>
+      <p>
+        Every function in JavaScript has a special object called arguments:
+      </p>
+      <code>
+<pre>
+function sum(a, b) {
+ console.log(arguments); <span class="t-r">// This is the arguments object the function has itself</span>
+ return a + b;
+}
+
+console.log(sum(1, 2, 3, 4, 5)); // 3
+</pre>
+</code>
+      <p>
+        It looks like an array, but it is not an array—it is an object. The keys in the arguments object are the indexes
+        of the arguments passed to the function. The first argument is 1, the second is 2, and so on.
+      </p>
+      <p>If we want a function to work with a variable number of parameters, we can use a for...of loop with the
+        arguments object inside the function to handle all the arguments as one collection.</p>
+      <code>
+<pre>
+function sum(a, b) {
+ let total = 0;
+ for (let value of arguments) {
+ total += value;
+ }
+ return total;
+}
+
+console.log(sum(1, 2, 3, 4, 5, 6)); // 21
+</pre>
+</code>
+      <p>
+        Here, we iterate over the arguments object. Earlier, I mentioned that we can use the for...of loop on arrays,
+        but technically, this loop can be used on any object that has an iterator. Plain objects (created using the
+        object literal syntax) don’t have an iterator. However, these particular arguments object has a
+        Symbol.iterator, which means it is iterable, allowing us to use the for...of loop.
+      </p>
+      <p>
+        We can also remove the a and b parameters because they are not referenced anywhere in the function:
+      </p>
+      <code>
+<pre>
+function sum() {
+ let total = 0;
+ for (let value of arguments) {
+ total += value;
+ }
+ return total;
+}
+
+console.log(sum(1, 2, 3, 4, 5, 6)); // 21
+</pre>
+</code>
+      <h2>The Rest Operator </h2>
+      <p>
+        In modern JavaScript, if we have a function with a varying number of parameters, we can use the rest
+        operator. Let’s see how it works. We’ll modify the previous function to add parameters to it and prefix them
+        with three dots (...). This is what we call the rest operator. Don’t confuse it with the spread operator—they
+        look exactly the same. Earlier, we used the spread operator with arrays. The spread operator "spreads" an
+        array, meaning it takes its individual elements.
+      </p>
+      <p>
+        When we use the rest operator with the parameters of a function, we refer to it as the rest operator.
+      </p>
+      <code>
+<pre>
+function sum(...args) {
+ console.log(args);
+}
+
+console.log(sum(1, 2, 3, 4, 5));
+</pre>
+</code>
+      <p>
+        In the result, we can see that args is an array with five elements. This is a real array. If we remove the three
+        dots before args, it means the function will only have a single parameter named args.
+      </p>
+      <h4>Explanation:</h4>
+      <p>
+        When we apply the rest operator to a function’s parameter, we can pass a varying number of arguments.
+        The rest operator collects all the arguments and puts them in an array.
+      </p>
+      <p>
+        If we want to get the sum of all the numbers in that array, we can use the reduce method. Since args is an
+        array, we can use the .reduce method with two parameters and return the result.
+      </p>
+      <code>
+<pre>
+function sum(...args) {
+ return args.reduce((a, b) => a + b);
+}
+
+console.log(sum(1, 2, 3, 4, 5, 10)); // Output: 25
+</pre>
+</code>
+      <p>
+        In modern JavaScript, we can achieve the same result with less code. Instead of declaring a variable and
+        looping to get the result, we can use a single line of code. This approach is more elegant and professional.
+      </p>
+      <h4>Another Example:</h4>
+      <p>
+        Imagine we want a function to calculate the total price of items in a shopping cart. We also want to apply a
+        discount factor. Let’s pass a parameter for the discount (e.g., 10%), then return the total sum of the prices
+        multiplied by (1 - discount).
+      </p>
+      <code>
+<pre>
+function sum(discount, ...prices) {
+ const total = prices.reduce((a, b) => a + b);
+ return total * (1 - discount);
+}
+
+console.log(sum(0.1, 20, 30)); // Output: 45
+</pre>
+</code>
+      <h4>Important Note:</h4>
+      <p>
+        You can’t pass any parameters after the rest parameter. Doing so will result in an error. That’s why it’s called
+        the "rest" operator: it collects the rest of the parameters.
+      </p>
+      <h4>Example (Incorrect):</h4>
+      <code>
+<pre>
+function sum(discount, ...prices, someValue) {
+ const total = prices.reduce((a, b) => a + b);
+ return total * (1 - discount);
+}
+
+console.log(sum(0.1, 20, 30)); // Error
+</pre>
+</code>
+      <h4>Default Parameters</h4>
+      <p>
+        Sometimes, we want to supply default values to the parameters of a function. For example, consider a
+        function to calculate interest. The formula to calculate interest is:
+      </p>
+      <code>
+<pre>
+function interest(principal, rate, years) {
+ return principal * rate / 100 * years;
+}
+
+console.log(interest(10000, 3.5, 5)); // Output: 1750
+</pre>
+</code>
+      <p>
+        If we want default values for rate and years, we can use logical operators. If rate has a truthy value, we’ll
+        use
+        it; otherwise, a default value of 3.5 is used. Similarly for years.
+      </p>
+      <code>
+<pre>
+function interest(principal, rate, years) {
+ rate = rate || 3.5;
+ years = years || 5;
+ return principal * rate / 100 * years;
+}
+
+console.log(interest(10000)); // Output: 1750
+</pre>
+</code>
+      <h4>ES6 Default Parameters:</h4>
+      <p>With ES6, we can set default values directly in the function parameters.</p>
+      <code>
+<pre>
+function interest(principal, rate = 3.5, years = 5) {
+ return principal * rate / 100 * years;
+}
+
+console.log(interest(10000)); // Output: 1750
+</pre>
+</code>
+      <h4>Order of Default Parameters</h4>
+      <p>
+        If we set a default value for one parameter, the parameters following it must also have default values.
+        Otherwise, we might get unexpected results.
+      </p>
+      <h4>Example (Incorrect):</h4>
+      <code>
+<pre>
+function interest(principal, rate = 3.5, years) {
+ return principal * rate / 100 * years;
+}
+
+console.log(interest(10000)); // Output: NaN
+</pre>
+</code>
+      <p>
+        Here, the principal is 10000, rate is 3.5, but years is undefined, so the result is NaN.
+      </p>
+      <p>
+        If we pass a second parameter, the JavaScript engine might confuse whether it’s for rate or years.
+      </p>
+      <code>
+<pre>
+console.log(interest(10000, 5)); // Still incorrect
+</pre>
+</code>
+      <p>
+        To solve this, we can pass undefined for the parameter with a default value so it retains its default value,
+        while other parameters get assigned correctly.
+      </p>
+      <h4>Example (Correct):</h4>
+      <code>
+<pre>
+console.log(interest(10000, undefined, 5)); // Output: 1750
+</pre>
+</code>
+      <p>However, this approach is not very clean.</p>
+      <h4>Higher order of Functions</h4>
+      <p>
+        A Higher-Order Function is a function that takes another function as a parameter or returns a function.
+      </p>
+      <code>
+<pre>
+function greet() {
+  return "Hello!";
+}
+
+function higherOrder(fn) {
+  return fn();
+}
+
+console.log(higherOrder(greet));
+</pre>
+</code>
+      <p>
+        Function inside a function = Higher-Order Function
+      </p>
+      <h4>Closures</h4>
+      <p>
+        A closure is created when: <br>
+        An inner function remembers and uses variables of its outer function, even after the outer function has
+        finished.
+      </p>
+      <code>
+<pre>
+function outer() {
+  let topic = "JavaScript";
+
+  function inner() {
+    console.log(topic);
+  }
+
+  return inner;
+}
+
+let myFunc = outer();
+myFunc();
+</pre>
+</code>
+      <p>
+        <strong>Explanation:</strong>
+      </p>
+      <ul>
+        <li>outer() runs and returns inner()</li>
+        <li>Even after outer() is finished,</li>
+        <li>inner() still remembers the variable topic</li>
+        <li>This memory is called a closure</li>
+      </ul>
+      <p>Closure = function + its remembered variables</p>
+      <p>
+        <strong>Lexical Scoping</strong>
+        Where variables are accessible based on code position <br>
+        <strong>Closure</strong>
+        When a function remembers its outer variables
+      </p>
+      <code>
+<pre>
+function counter() {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+let increase = counter();
+increase(); // 1
+increase(); // 2
+increase(); // 3
+</pre>
+</code>
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li>count is not destroyed</li>
+        <li>Inner function remembers count</li>
+        <li>This is a closure in action</li>
+      </ul>
+      <h2>Getters and Setters</h2>
+      <p>We're going to learn about a special type of method in an object called getters and setters.
+      </p>
+      <p>
+        Let’s imagine we have a person object with two properties: firstName and lastName. Somewhere in the
+        code, we want to display the full name.
+      </p>
+      <code>
+<pre>
+const person = {
+ firstName: 'Naseeb',
+ lastName: 'Khan'
+};
+
+<span class="t-r">// We can display the full name using:</span>
+console.log(person.firstName + " " + person.lastName);
+
+<span class="output">OR:</span>
+console.log(`${person.firstName} ${person.lastName}`);
+</pre>
+</code>
+
+      <p>
+        However, the problem with this approach is that there might be multiple places in our application where we
+        want to display someone’s full name. With the current implementation, we need to repeat this logic multiple
+        times.
+      </p>
+      <p>
+        A better approach is to define a method in the object, call it fullName, and move the expression using
+        template literals into it. Let’s create another key-value pair and set it to a function:
+      </p>
+      <code>
+<pre>
+const person = {
+    firstName: 'Naseeb',
+    lastName: 'Khan',
+    fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+};
+
+console.log(person.fullName());
+</pre>
+</code>
+      <p>This way, we can get the full name by calling person.fullName().</p>
+      <h4>Problems with This Approach:</h4>
+      <p>
+        <strong>1. Read-only Access:</strong>
+        This method is read-only, meaning we can’t set the fullName property outside of the object. For
+        example, it would be great if we could set the fullName outside the object like this:
+      </p>
+      <code>
+<pre>
+person.fullName = 'Lucky Bhaskar’;
+</pre>
+</code>
+      <p>
+        It should automatically update firstName to "Lucky" and lastName to "Bhaskar".
+      </p>
+      <p>
+        <strong>2. Calling it Like a Method:</strong>
+        Currently, we need to call fullName() as a method. It would be more intuitive if we could treat it like a
+        property:
+      </p>
+      <code>
+<pre>
+console.log(person.fullName);
+</pre>
+</code>
+      <h4>Solution: Getters and Setters</h4>
+      <p>
+        Getters allow us to access object properties, and setters allow us to mutate or change them. In this object,
+        we will:
+      </p>
+      <ol>
+        <li>Define a getter for fullName so it can be accessed like a property.</li>
+        <li>Define a setter for fullName to update firstName and lastName when a new full name is assigned.</li>
+      </ol>
+
+      <h4>Implementation:</h4>
+      <code>
+<pre>
+const person = {
+ firstName: 'Naseeb',
+ lastName: 'Khan',
+ 
+ <span class="t-r">// Getter for fullName</span>
+ get fullName() {
+ return `${this.firstName} ${this.lastName}`;
+ },
+
+ <span class="t-r">// Setter for fullName</span>
+ set fullName(value) {
+ const parts = value.split(' ');
+ this.firstName = parts[0];
+ this.lastName = parts[1];
+ }
+};
+
+<span class="t-r">// Using the setter</span>
+person.fullName = 'Lucky Bhaskar';
+
+<span class="t-r">// Output the updated object</span>
+console.log(person);
+
+// Output: { firstName: 'Lucky', lastName: 'Bhaskar', fullName: [Getter/Setter] }
+</pre>
+</code>
+      <h4>Key Points:</h4>
+      <p>
+        <strong>Getter Syntax:</strong>
+        We use the get keyword to define a getter. The getter allows us to access fullName like a property:
+      </p>
+      <code>
+<pre>
+console.log(person.fullName); // Outputs: Lucky Bhaskar
+</pre>
+</code>
+      <p>
+        <strong>Setter Syntax:</strong>
+        We use the set keyword to define a setter. The setter splits the assigned full name and updates
+        firstName and lastName:
+      </p>
+      <code>
+<pre>
+person.fullName = 'Lucky Bhaskar';
+console.log(person.firstName); // Outputs: Lucky
+console.log(person.lastName); // Outputs: Bhaskar
+</pre>
+</code>
+      <p>
+        By using getters and setters, we improve code reusability and make the code more intuitive to read and use.
+      </p>
+      <h2>Try and Catch </h2>
+      <p>
+        In the previous topic, we assumed that the value passed to a parameter was always a string. But what
+        happens if we pass a Boolean? We get an error stating that split is not a function because split is a method
+        that belongs to strings. Booleans don’t have a split method. Similarly, if we pass null or undefined, we
+        encounter a different error: "Cannot read property 'split' of null."
+      </p>
+      <p>
+        This situation highlights the need for error handling. When dealing with such cases, it’s essential to validate
+        input values before executing logic. This approach is called defensive programming. By checking the
+        incoming value at the beginning, we can prevent errors and execute our logic safely.
+      </p>
+      <p>
+        Here’s an example of setting a full name on a person object:
+      </p>
+      <code>
+<pre>
+const person = {
+ firstName: 'Naseeb',
+ lastName: 'Khan',
+ set fullName(value) {
+ const parts = value.split(' ');
+ this.firstName = parts[0];
+ this.lastName = parts[1];
+ }
+};
+person.fullName = 'Lucky Bhasker';
+
+console.log(person);
+</pre>
+</code>
+      <p>Now, let's see what happens if we set the full name to null:
+      </p>
+      <code>
+<pre>
+person.fullName = null;
+console.log(person);
+</pre>
+</code>
+      <p>This throws an error because split cannot be called on null.
+      </p>
+      <h4>Handling Errors</h4>
+      <p>
+        To handle this scenario, we can check the value's type before proceeding:
+      </p>
+      <code>
+<pre>
+const person = {
+ firstName: 'Naseeb',
+ lastName: 'Khan',
+ set fullName(value) {
+  if (typeof value !== 'string') return;
+ const parts = value.split(' ');
+ this.firstName = parts[0];
+ this.lastName = parts[1];
+ }
+};
+
+person.fullName = null;
+console.log(person);
+</pre>
+</code>
+      <p>
+        Here, the person object retains the original firstName and lastName if the input is invalid.
+      </p>
+      <h4>Throwing Exceptions</h4>
+      <p>
+        Sometimes, we need to notify the application of an issue. This is where exceptions come in. In JavaScript,
+        we can throw an exception using the throw keyword and create an error object.
+      </p>
+      <p>Here’s how it works:</p>
+      <code>
+<pre>
+const person = {
+ firstName: 'Naseeb',
+ lastName: 'Khan',
+ set fullName(value) {
+ if (typeof value !== 'string') {
+ throw new Error('Value is not a string.');
+ }
+ const parts = value.split(' ');
+ this.firstName = parts[0];
+ this.lastName = parts[1];
+ }
+};
+
+try {
+ person.fullName = null;
+} catch (e) {
+ console.error(e);
+}
+</pre>
+</code>
+      <p>This approach throws an exception if the input value is not a string.</p>
+      <h4>Handling Empty Strings</h4>
+      <p>What if we pass an empty string? The split method will work, but firstName will become an empty string,
+        and lastName will be undefined. This behavior isn’t desirable.
+      </p>
+      <p>
+        To handle this, we can add another validation to ensure the input contains both a first and last name:
+      </p>
+      <code>
+<pre>
+const person = {
+ firstName: 'Naseeb',
+ lastName: 'Khan',
+ set fullName(value) {
+ if (typeof value !== 'string') {
+ throw new Error('Value is not a string.');
+ }
+
+ const parts = value.split(' ');
+if (parts.length !== 2) {
+ throw new Error('Enter a first and last name.');
+ }
+ this.firstName = parts[0];
+ this.lastName = parts[1];
+ }
+};
+try {
+ person.fullName = '';
+} catch (e) {
+ console.error(e);
+}
+try {
+ person.fullName = 'Naseeb'; // Missing last name
+} catch (e) {
+ console.error(e);
+}
+</pre>
+</code>
+      <p>Now, an exception is thrown if the input does not meet the required format.</p>
+      <h4>Explanation</h4>
+      <p>By validating input and throwing meaningful exceptions, we ensure the code behaves as expected, even in
+        edge cases. This defensive approach prevents unexpected errors and makes debugging easier.
+      </p>
+      <h4>Some More Interesting Functions</h4>
+      <p>
+        <strong>Issue with the First Function</strong>
+      </p>
+      <p>Your first function:</p>
+      <code>
+<pre>
+function sum(n1, n2) {
+ console.log(n1 + n2);
+}
+const result = sum(3, 4);
+console.log("Sum of Result", result); // Output: "Sum of Result undefined"
+</pre>
+</code>
+      <h4>Explanation:</h4>
+      <ul>
+        <li>The sum function logs the sum but does not return anything.</li>
+        <li>Since it doesn’t return a value, result is undefined.</li>
+      </ul>
+      <h4>Corrected Version to Store the Result</h4>
+      <p>
+        If you want to store the sum in a variable, you need to use return:
+      </p>
+      <code>
+<pre>
+function sum(n1, n2) {
+ return n1 + n2; // Returns the sum
+}
+const result = sum(3, 4);
+console.log("Sum of Result:", result); // Output: "Sum of Result: 7"
+</pre>
+</code>
+      <h2>Local vs Global Scope</h2>
+      <p>
+        In this lecture, we are going to explore the concept of scope, an important topic in JavaScript and
+        programming in general. Scope refers to the context in which variables are declared and determines where
+        these variables can be accessed. In JavaScript, a block is defined by curly braces {}. Variables declared
+        inside a block are not accessible outside of it.
+      </p>
+      <h4>Example 1: Basic Scope</h4>
+      <code>
+<pre>
+const message = "hello Naseeb";
+console.log(message); // Output: hello Naseeb
+</pre>
+</code>
+      <p>Here, the message variable is declared in the global scope, so it can be accessed anywhere in the code.
+      </p>
+      <p>
+        Now, let's declare the same variable inside a block:
+      </p>
+      <code>
+<pre>
+{
+ const message = "hello Naseeb";
+}
+console.log(message); <span class="t-r">// Output: ReferenceError: message is not defined</span>
+</pre>
+</code>
+      <p>
+        In this case, message is only accessible within the block where it is defined. Trying to access it outside the
+        block results in an error
+      </p>
+      <h4>Scope in Functions</h4>
+      <p>Variables declared inside a function are only accessible within that function.</p>
+      <code>
+<pre>
+function msg() {
+ const message = "hello Naseeb";
+}
+
+console.log(message); // Output: ReferenceError: message is not defined
+</pre>
+</code>
+      <p>
+        In this case, message is only accessible within the block where it is defined. Trying to access it outside the
+        block results in an error.
+      </p>
+      <h4>Scope in Functions</h4>
+      <p>
+        Variables declared inside a function are only accessible within that function.
+      </p>
+      <code>
+<pre>
+function msg() {
+ const message = "hello Naseeb";
+}
+
+console.log(message); // Output: ReferenceError: message is not defined
+</pre>
+</code>
+      <p>
+        The message constant is accessible only inside the msg function and not outside of it.
+      </p>
+      <h4>Scope in Conditional Blocks</h4>
+      <p>The same concept applies to conditionals such as if statements:
+      </p>
+      <code>
+<pre>
+function msg() {
+ const message = "hello Naseeb";
+ if (true) {
+ const another = "hi Naseeb";
+ }
+
+ console.log(another); <span class="t-r">// Output: ReferenceError: another is not defined</span>
+}
+</pre>
+</code>
+      <p>
+        Here, another is only accessible within the if block.
+      </p>
+      <h4>Scope in Loops</h4>
+      <p>
+        The same principle applies to loops or any other constructs that use {} braces.
+      </p>
+      <h4>Variable Shadowing</h4>
+      <p>
+        Confusion might arise when we use the same variable name in different scopes:
+      </p>
+      <code>
+<pre>
+function start() {
+ const message = "Hello Naseeb";
+}
+
+function stop() {
+ const message = "Hey Naseeb";
+}
+</pre>
+</code>
+      <p>
+        This code is valid because the message constants are declared in separate functions. Each message is
+        local to its function, and they do not interfere with each other. This is known as local scope
+      </p>
+      <h4>Global Scope</h4>
+      <p>
+        Now, let's discuss the global scope. Variables declared outside of any function or block are in the global
+        scope and can be accessed anywhere in the code.
+      </p>
+      <code>
+<pre>
+const color = 'red';
+
+function start() {
+ const message = "hello Naseeb";
+ console.log(color); // Output: red
+}
+start();
+</pre>
+</code>
+      <p>
+        Here, color is accessible inside the start function because it is declared in the global scope.
+      </p>
+      <h4>Local Variables Take Precedence</h4>
+      <p>
+        Local variables or constants take precedence over global ones when they share the same name:
+      </p>
+      <code>
+<pre>
+const color = 'red';
+
+function start() {
+ const message = "hello Naseeb";
+ const color = "black";
+ console.log(color); // Output: black
+}
+
+start();
+</pre>
+</code>
+      <p>
+        In this example, the local color variable inside the start function overrides the global color variable.
+      </p>
+      <h4>Best Practices</h4>
+      <p>
+        In JavaScript, it is considered bad practice to declare variables in the global scope. Global variables can be
+        accessed and modified from anywhere in the program, which can lead to unexpected bugs and issues.
+      </p>
+      <p>
+        Think of global variables like a toothbrush—you wouldn't want to share the same toothbrush with everyone.
+        Similarly, each function should have its own variables to avoid conflicts and maintain clean, modular code.
+      </p>
+      <p>
+        By keeping variables local to the functions or blocks where they are needed, you can reduce the risk of bugs
+        and make your code easier to understand and maintain.
+      </p>
+      <h2>Let vs Var</h2>
+      <p>
+        Before ES6, the only way to declare a variable in JavaScript was by using the var keyword. However, with the
+        introduction of ES6, let and const were introduced to address several issues associated with var.
+      </p>
+      <h4>Problems with var</h4>
+      <p>
+        <strong>1. Function Scope:</strong> Variables declared with var are function-scoped, meaning they are accessible
+        anywhere within the function they are declared in. This can lead to unintended behavior.
+      </p>
+      <p>
+        <strong>Example with let:</strong>
+      </p>
+      <code>
+<pre>
+function start() {
+ for (let i = 0; i &lt; 5; i++) {
+ console.log(i); // Output: 0, 1, 2, 3, 4
+ }
+ console.log(i); // Error: i is not defined
+}
+</pre>
+</code>
+      <p>
+        In this example, the variable i is only accessible within the for loop block. Trying to access it outside the
+        loop will result in an error.
+      </p>
+      <p>
+        <strong>Example with var:</strong>
+      </p>
+      <code>
+<pre>
+function start() {
+ for (var i = 0; i &lt; 5; i++) {
+ console.log(i);
+ }
+ console.log(i); // Output: 5
+}
+</pre>
+</code>
+      <p>
+        Here, the variable i is accessible outside the loop because var is function-scoped. Notice that 5 is
+        printed, which is beyond the loop condition (i &lt; 5). This behavior can cause bugs if not handled carefully
+      </p>
+      <p><strong>2. Lack of Block Scope:</strong> Unlike other programming languages, var does not respect block scope.
+      </p>
+      <code>
+<pre>
+function start() {
+ for (var i = 0; i &lt; 5; i++) {
+ if (true) {
+ var color = 'red';
+ }
+ }
+ console.log(color); // Output: red
+}
+</pre>
+</code>
+      <p>
+        Here, color is accessible outside the if block because var does not have block scope.
+      </p>
+      <h4>Using let:</h4>
+      <code>
+<pre>
+function start() {
+ for (let i = 0; i &lt; 5; i++) {
+  if (true) {
+ let color = 'red';
+ }
+ }
+ console.log(color); // Error: color is not defined
+}
+</pre>
+</code>
+      <p>
+        When using let, color is only accessible within the block where it was declared, preventing accidental
+        access outside its intended scope.
+      </p>
+      <p>
+        <strong>3. Global Scope Pollution:</strong> Declaring variables with var outside any function attaches them to
+        the
+        global window object in browsers.
+      </p>
+      <code>
+<pre>
+var color = 'red';
+let age = 23;
+
+console.log(window.color); // Output: red
+console.log(window.age); // Output: undefined
+</pre>
+</code>
+      <p>
+        The color variable becomes a property of the window object, which can lead to conflicts if other libraries or
+        scripts use the same variable name. In contrast, let does not attach variables to the window object,
+        reducing the risk of conflicts.
+      </p>
+      <p>
+        <strong>4. Functions and Global Scope:</strong> Functions declared in the global scope also become properties of
+        the
+        window object.
+      </p>
+      <code>
+<pre>
+function sayHi() {
+ console.log("Hi Naseeb");
+}
+
+console.log(window.sayHi); // Output: function sayHi() { console.log("Hi Naseeb"); }
+window.sayHi(); // Output: Hi Naseeb
+</pre>
+</code>
+      <p>This can cause issues when different scripts define functions with the same name, leading to unexpected
+        overwriting.</p>
+
+      <h2>The “this” Keyword</h2>
+      <p>
+        The this keyword is one of the features in JavaScript that confuses many developers. The confusion often
+        arises due to poor teaching materials and a lack of clear explanations. Let's clarify how this works with
+        some examples
+      </p>
+      <h4>What is this?</h4>
+      <p>
+        In JavaScript, this refers to the object that is executing the current function. The value of this depends on
+        how the function is called:
+      </p>
+      <ol>
+        <li>1. When a function is a method inside an object: <br>
+          If a function is defined as part of an object (a method), this refers to the object itself.</li>
+        <li>2. When a function is a regular function: <br>
+          If a function is not attached to any object (i.e., it's a standalone function), this refers to the global
+          object. In browsers, the global object is the window.</li>
+        <li>
+          3. When using strict mode ('use strict'): <br>
+          In strict mode, this in regular functions will be undefined instead of pointing to the global object.
+        </li>
+      </ol>
+      <h4>Example 1: this in an Object Method</h4>
+      <code>
+<pre>
+const video = {
+ title: 'a',
+ play() {
+ console.log(this);
+ }
+};
+
+video.play();
+</pre>
+</code>
+      <h4>Explanation</h4>
+      <p>
+        in this example, play() is a method of the video object. When we call video.play(), this inside the play()
+        method refers to the video object. Therefore, the console will output the video object.
+      </p>
+      <h4>Example 2: Adding Another Method</h4>
+      <p>We can add more methods to the same object, and this will still refer to the video object.
+      </p>
+      <code>
+<pre>
+const video = {
+ title: 'a',
+ play() {
+ console.log(this);
+ }
+};
+
+video.stop = function() {
+ console.log(this);
+};
+
+video.stop();
+</pre>
+</code>
+      <h4>Explanation:</h4>
+      <p>
+        Here, we've added a stop method to the video object. When we call video.stop(), this inside the stop method
+        still refers to the video object. So, the console will log onto the video object again.
+      </p>
+      <h4>Example 3: this in a Regular Function</h4>
+      <code>
+<pre>
+function showThis() {
+ console.log(this);
+}
+
+showThis(); // In browsers, this will log the global object (window)
+</pre>
+</code>
+      <p>
+        <strong>Explanation:</strong>
+        Since showThis() is a regular function and not part of any object, this refers to the global object (window in
+        browsers). If you're using strict mode ('use strict'), this will be undefined.
+      </p>
+      <h4>Example 4: Arrow Functions and this</h4>
+      <p>Arrow functions behave differently. They don't have their own this but inherit it from their surrounding
+        (lexical) scope.</p>
+      <code>
+<pre>
+const video = {
+ title: 'a',
+ play() {
+   const innerFunction = () => {
+    console.log(this);
+ };
+   innerFunction();
+ }
+};
+</pre>
+</code>
+      <p>
+        <strong>Explanation:</strong>
+        In this example, innerFunction is an arrow function inside the play method. Arrow functions inherit this from
+        their lexical scope, which in this case is the play method. So, this refers to the video object.
+      </p>
+      <h4>Overview of this Behavior</h4>
+      <ul>
+        <li>Inside an object method: this refers to the object.</li>
+        <li>In a regular function: this refers to the global object (window), or undefined in strict mode</li>
+        <li>In an arrow function: this inherits from the surrounding scope.</li>
+        <li>When using event listeners: The value of this depends on how the event handler is defined.
+        </li>
+      </ul>
+      <h2>Changing the Value of “this”</h2>
+      <p>
+        Hey there! Imagine you have a toy car, and you're the driver. But sometimes, you want your friend to drive
+        the car instead. In JavaScript, "this" is like the driver of the car—it tells who is in control. Let's see how
+        we
+        can change who drives the car using .call(), .apply(), and .bind()
+      </p>
+      <h4>1. Using .call()</h4>
+      <p>
+        .call() lets you call a function and tell it who "this" should be.
+      </p>
+      <code>
+<pre>
+function sayHello() {
+ console.log('Hello, my name is ' + this.name);
+}
+
+const person1 = { name: 'Naseeb' };
+const person2 = { name: 'Sara' };
+
+sayHello.call(person1); // Hello, my name is Naseeb
+sayHello.call(person2); // Hello, my name is Sara
+</pre>
+</code>
+      <p>
+        <strong>Explanation:</strong>
+      </p>
+      <ul>
+        <li>Think of "sayHello" as a toy car.</li>
+        <li>Using .call(person1) means Ali is driving the car.</li>
+        <li>Using .call(person2) means Sara is driving the car.</li>
+      </ul>
+
+      <h4>2. Using .apply()</h4>
+      <p>
+        .apply() is just like .call(), but instead of giving each argument one by one, you give them in an array.
+      </p>
+      <code>
+<pre>
+function introduce(greeting, age) {
+ console.log(greeting + ', my name is ' + this.name + ' and I am ' + age + ' years old.');
+}
+
+const person = { name: 'Naseeb' };
+
+introduce.apply(person, ['Hi', 7]); <span class="t-r">// Hi, my name is Naseeb and I am 7 years old.</span>
+</pre>
+</code>
+      <p>It’s like .call(), but you pack your things (arguments) in a bag (array) before giving them</p>
+      <h4>3. Using .bind()</h4>
+      <p>.bind() doesn’t run the function right away. It gives you a new function where "this" is already set.
+      </p>
+      <code>
+<pre>
+function sayGoodbye() {
+ console.log('Goodbye from ' + this.name);
+}
+
+const person = { name: 'Zara' };
+
+const goodbyeFromZara = sayGoodbye.bind(person);
+
+goodbyeFromZara(); // Goodbye from Zara
+</pre>
+</code>
+      <p>.bind() is like giving your friend the keys to your toy car and saying, "You can drive it anytime!"</p>
+      <h4>4. Arrow Functions and "this"</h4>
+      <p>
+        Arrow functions are a little different—they don’t change "this" like regular functions. They use "this" from the
+        place where they were created.
+      </p>
+      <code>
+<pre>
+const person = {
+ name: 'Naseeb',
+ greet: function() {
+ const arrowFunc = () => {
+ console.log('Hello, ' + this.name);
+ };
+ arrowFunc();
+ }
+};
+
+person.greet(); // Hello, Naseeb
+</pre>
+</code>
+      <p>
+        Arrow functions remember who "this" was when they were made. Even though it's inside another
+        function, "this" still points to Bilal.
+      </p>
+      <h2>IIFE</h2>
+      <p>
+        Sometimes, we want to execute a function immediately after defining it. Additionally, functions
+        can encounter issues due to global scope variable pollution. To prevent such issues, we use
+        Immediately Invoked Function Expressions (IIFE).
+      </p>
+      <code>
+<pre>
+Syntax:
+(function() {
+    // Function body
+})();
+</pre>
+</code>
+      <ul>
+        <li>The first set of parentheses () wraps the function definition.</li>
+        <li>The second set () immediately invokes (executes) the function.</li>
+        <li>The semicolon ; at the end ensures that if another IIFE follows, it doesn't cause a syntax error.</li>
+      </ul>
+      <h4>Example of a Named IIFE:</h4>
+      <code>
+<pre>
+(function ncs() {
+    console.log("I'm an Immediately Invoked Function Expression (IIFE).");
+})();
+</pre>
+</code>
+      <h4>Example of an Anonymous (No-Name) IIFE:</h4>
+      <code>
+<pre>
+((name) => {
+    console.log(`No-name IIFE function with a single parameter: ${name}`);
+})("Naseeb");
+</pre>
+</code>
+      <p>This ensures encapsulation and prevents global scope of pollution.</p>
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

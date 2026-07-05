@@ -1,0 +1,1851 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 8</div>
+      <h2>What is Object-Oriented Programming (OOP)?</h2>
+      <p>
+        Object-Oriented Programming (OOP) is a programming paradigm that is centered around objects rather
+        than functions. Unlike some programming tools and frameworks that come and go, OOP remains relevant
+        today because it is not a specific programming language or tool it is a style of programming, and a
+        paradigm used across multiple languages.
+      </p>
+      <p>
+        Several programming languages support OOP, including C#, Java, Ruby, Python, and JavaScript. However,
+        JavaScript’s object-oriented nature is somewhat controversial because it is primarily prototype-based rather
+        than class-based, like Java or C#. Nevertheless, modern JavaScript (ES6 and beyond) introduced class
+        syntax to support OOP concepts more explicitly
+      </p>
+      <p>
+        Understanding OOP is essential for serious developers, as it is a common topic in technical interviews and
+        widely used in frameworks and libraries, such as Angular.
+      </p>
+      <h4>Key Concepts of OOP in JavaScript</h4>
+      <p><strong>1. Classes and Objects:</strong> In JavaScript, classes provide a way to define objects with properties
+        and methods:
+      </p>
+      <code>
+<pre>
+class Person {
+ constructor(name, age) {
+ this.name = name;
+ this.age = age;
+ }
+
+ greet() {
+ console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+ }
+}
+
+const person1 = new Person("Naseeb", 24);
+person1.greet(); // Output: Hello, my name is Naseeb and I am 24 years old.
+</pre>
+</code>
+      <p>
+        <strong>2. Encapsulation:</strong>Encapsulation means bundling data and methods that operate on the data within
+        a single unit (a
+        class). You can use private properties (using #) to restrict direct access:
+      </p>
+      <code>
+<pre>
+class BankAccount {
+ #balance; // Private property
+
+ constructor(owner, balance) {
+ this.owner = owner;
+ this.#balance = balance;
+ }
+
+ deposit(amount) {
+ this.#balance += amount;
+ console.log(`Deposited ${amount}. New balance: ${this.#balance}`);
+ }
+
+ getBalance() {
+ return this.#balance;
+ }
+}
+
+const account = new BankAccount("Naseeb", 1000);
+account.deposit(500);
+console.log(account.getBalance()); // Output: 1500
+</pre>
+</code>
+      <p>
+        <strong>3. Inheritance:</strong> Inheritance allows a class to inherit properties and methods from another
+        class:
+      </p>
+      <code>
+<pre>
+class Animal {
+ constructor(name) {
+ this.name = name;
+  }
+ speak() {
+    console.log(`${this.name} makes a noise.`);
+ }
+}
+class Dog extends Animal {
+ speak() {
+    console.log(`${this.name} barks.`);
+ }
+}
+const myDog = new Dog("Buddy");
+myDog.speak(); // Output: Buddy barks.
+</pre>
+</code>
+      <p>
+        <strong>4. Polymorphism</strong>
+        Polymorphism allows methods to be overridden in derived classes:
+      </p>
+      <code>
+<pre>
+class Shape {
+  area() {
+  return 0;
+  }
+}
+
+class Circle extends Shape {
+ constructor(radius) {
+   super();
+    this.radius = radius;
+ }
+
+ area() {
+    return Math.PI * this.radius * this.radius;
+ }
+}
+
+const myCircle = new Circle(5);
+console.log(myCircle.area()); // Output: 78.54
+</pre>
+</code>
+      <p>
+        <strong>5. Abstraction</strong> Abstraction hides complex implementation details and exposes only what is
+        necessary:
+      </p>
+      <code>
+<pre>
+class Car {
+ constructor(model) {
+    this.model = model;
+ }
+ startEngine() {
+    console.log(`Starting engine of ${this.model}`);
+    this.#ignition(); // Private method
+ }
+ #ignition() {
+   console.log("Engine started...");
+ }
+}
+const myCar = new Car("Tesla Model S");
+myCar.startEngine();
+<span class="output">Output:</span>
+// Starting engine of Tesla Model S
+// Engine started...
+</pre>
+</code>
+      <h2>Cunstructor Function</h2>
+      <p>
+        This is the core system (constructor function): <br>
+        Bank Balance System (Logic / Blueprint)
+      </p>
+      <code>
+<pre>
+// SECTION 1: Create Account (Object Creation) 
+function BankBalance(customerName, balance = 0) {
+  this.customerName = customerName;
+  this.balance = balance;
+  this.accountNumber = Date.now();
+
+  this.deposite = (amount) => {
+    this.balance += amount;
+  };
+
+  this.withDraw = (amount) => {
+    this.balance -= amount;
+  };
+}
+// 👉🏼 This defines:
+// Customer name
+// Balance
+// Account number
+// Deposit & Withdraw functionality
+
+// SECTION 2: Create Account (Object Creation)
+const account1 = new BankBalance("Naseeb Khan", 5000);
+
+//👉 This creates a new bank account object
+
+// SECTION 3: Usage (Operations)
+account1.deposite(50000);
+account1.withDraw(50000);
+account1.withDraw(5000);
+
+console.log(account1);
+// 👉 This is where:
+// Money is deposited
+// Money is withdrawn
+// Final result is shown
+
+// 🔥 Now Convert into CLASS (Modern JavaScript)
+class BankBalance {
+  constructor(customerName, balance = 0) {
+    this.customerName = customerName;
+    this.balance = balance;
+    this.accountNumber = Date.now();
+  }
+
+  deposite(amount) {
+    this.balance += amount;
+  }
+
+  withDraw(amount) {
+    this.balance -= amount;
+  }
+}
+
+// 👉🏼 Usage with Class 
+const account1 = new BankBalance("Naseeb Khan", 5000);
+
+account1.deposite(50000);
+account1.withDraw(50000);
+account1.withDraw(5000);
+
+console.log(account1);
+
+
+// ⚠️prevent negative balance 
+withDraw(amount) {
+  if (amount > this.balance) {
+    console.log("Insufficient Balance");
+  } else {
+    this.balance -= amount;
+  }
+}
+</pre>
+</code>
+      <p>Video System Program in JS with constructor functions</p>
+      <code>
+<pre>
+// Example of Video System 
+function VideoManager(uploaderName) {
+  this.uploaderName = uploaderName;
+  this.videos = [];
+  this.channelId = Date.now();
+
+  // Upload video
+  this.uploadVideo = (videoTitle) => {
+    const video = {
+      id: Date.now(),
+      title: videoTitle
+    };
+    this.videos.push(video);
+    console.log(`Video "${videoTitle}" uploaded`);
+  };
+
+  // Delete video
+  this.deleteVideo = (videoId) => {
+    this.videos = this.videos.filter(video => video.id !== videoId);
+    console.log(`Video deleted with ID: ${videoId}`);
+  };
+}
+
+
+// Usage
+const channel1 = new VideoManager("Naseeb Khan");
+
+// Upload videos
+channel1.uploadVideo("JavaScript OOP Tutorial");
+channel1.uploadVideo("Constructor Function Explained");
+
+// Delete a video
+const firstVideoId = channel1.videos[0].id;
+channel1.deleteVideo(firstVideoId);
+
+console.log(channel1);
+</pre>
+</code>
+      <h2>Object vs Class</h2>
+      <p><strong>Object = Real Thing:</strong><br> An Object is an actual thing with data.</p>
+      <p>
+        👉 Example in real life: <br>
+        A car you own 🚗
+      </p>
+      <code>
+<pre>
+const car = {
+  brand: "Toyota",
+  color: "Red",
+  start() {
+    console.log("Car started");
+  }
+};
+</pre>
+</code>
+      <ul>
+        <li>This is a real usable thing</li>
+        <li>It has properties (brand, color)</li>
+        <li>It has behavior (start)</li>
+      </ul>
+      <p><strong>Class = Blueprint: </strong> <br>
+        A class is like a design or plan to create objects.
+      </p>
+      <p>
+        👉 Example in real life: <br>
+        A car factory design 🏭 (not the car itself)
+      </p>
+      <code>
+<pre>
+class Car {
+  constructor(brand, color) {
+    this.brand = brand;
+    this.color = color;
+  }
+
+  start() {
+    console.log("Car started");
+  }
+}
+
+// You can also store class in a variable with same syntax but no name class 
+</pre>
+</code>
+      <p>Creating Object from Class</p>
+      <code>
+<pre>
+const car1 = new Car("Toyota", "Red");
+const car2 = new Car("Honda", "Blue");
+</pre>
+</code>
+      <ul>
+        <li>car1 and car2 are objects</li>
+        <li>Car is the class</li>
+      </ul>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Object 🧱</th>
+              <th>Class 🏗️</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>What it is</td>
+              <td>Real thing</td>
+              <td>Blueprint/template</td>
+            </tr>
+            <tr>
+              <td>Usage</td>
+              <td>Direct use</td>
+              <td>Used to create objects</td>
+            </tr>
+            <tr>
+              <td>Example</td>
+              <td>One car</td>
+              <td>Car design</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>One Line Memory Trick</h4>
+      <ul>
+        <li>Class = Plan</li>
+        <li>Object = Product</li>
+      </ul>
+
+      <h2>ProtoTypes</h2>
+      <p>
+        In JavaScript, every object has a hidden property called a prototype.
+        <br>
+        👉 This prototype is like a backup object that provides properties and methods if they are not found in the
+        original object.
+      </p>
+
+      <p>
+        <strong>Simple Idea</strong>
+        Think of it like this:
+      </p>
+      <ul>
+        <li>You have a student object.</li>
+        <li>If the student doesn’t have a method like study(),</li>
+        <li>JavaScript will look into its prototype to find it.</li>
+      </ul>
+      <p>This is called the prototype chain.</p>
+      <p><strong>How to Access Prototype?</strong>
+        You can access it using:</p>
+      <code>
+<pre>object.__proto__</pre>
+</code>
+      <p>(Though in modern JS, Object.getPrototypeOf() is preferred.)</p>
+      <p><strong>Why Do We Use Prototype?</strong>
+        👉 To avoid repeating code (code duplication).
+        <br>
+        If many objects need the same method, we don’t define it again and again.
+        Instead, we put it in the prototype, and all objects share it.
+      </p>
+      <p>
+        🏦 Example: Bank Account <br>
+        ❌ Without Prototype (Bad - duplication)
+      </p>
+      <code>
+<pre>
+function BankAccount(name, balance) {
+  this.name = name;
+  this.balance = balance;
+
+  this.deposit = function(amount) {
+    this.balance += amount;
+  };
+}
+</pre>
+</code>
+      <p>👉 Problem: Every object gets its own copy of deposit() → wastes memory.</p>
+      <p><strong>With Prototype (Good - shared method)</strong></p>
+      <code>
+<pre>
+function BankAccount(name, balance) {
+  this.name = name;
+  this.balance = balance;
+}
+
+BankAccount.prototype.deposit = function(amount) {
+  this.balance += amount;
+};
+
+// Usage
+let acc1 = new BankAccount("Naseeb Khan", 1000);
+let acc2 = new BankAccount("Sara", 2000);
+
+acc1.deposit(500);
+console.log(acc1.balance); // 1500
+</pre>
+</code>
+      <p>👉 Both acc1 and acc2 share the same deposit method from prototype.</p>
+      <h4>Student Example Using Prototype</h4>
+      <h4>Step 1: Create a Constructor Function</h4>
+      <code>
+<pre>
+function Student(name, age) {
+  this.name = name;
+  this.age = age;
+}
+</pre>
+</code>
+      <h4>❌ Step 2: (Wrong Way – duplication)</h4>
+      <code>
+<pre>
+function Student(name, age) {
+  this.name = name;
+  this.age = age;
+
+  this.study = function() {
+    console.log(this.name + " is studying");
+  };
+}
+</pre>
+</code>
+      <p><strong>🚫 Problem:</strong> Every student gets its own copy of study() → wastes memory</p>
+      <h4>✅ Step 3: Use Prototype (Correct Way)</h4>
+      <code>
+<pre>
+Student.prototype.study = function() {
+  console.log(this.name + " is studying");
+};
+</pre>
+</code>
+      <p>👉 Now the method is shared by all students</p>
+      <h4>Step 4: Create Objects</h4>
+      <code>
+<pre>
+let s1 = new Student("Ali", 20);
+let s2 = new Student("Sara", 22);
+
+s1.study(); // Ali is studying
+s2.study(); // Sara is studying
+</pre>
+</code>
+      <p>👉 Both objects are using the same method from prototype</p>
+      <h4>How It Works (Simple)</h4>
+      <p>When you do:</p>
+      <code>
+<pre>
+s1.study();
+</pre>
+</code>
+      <p>
+        JavaScript checks:
+      </p>
+      <ol>
+        <li>
+          Does s1 have study()? ❌ No
+        </li>
+        <li>
+          Go to Student.prototype ✅ Found
+        </li>
+        <li>
+          Run it
+        </li>
+      </ol>
+      <h4>Add More Methods</h4>
+      <p>You can add more shared methods:</p>
+      <code>
+<pre>
+Student.prototype.play = function() {
+  console.log(this.name + " is playing");
+};
+</pre>
+</code>
+      <h4>Add More Properties</h4>
+      <code>
+<pre>
+Student.prototype.school = "NaseebCodeStudio School"; // always use prototypes for methods specially
+</pre>
+</code>
+      <h4>🔗 Prototype Chain</h4>
+      <code>
+<pre>s1 → Student.prototype → Object.prototype → null</pre>
+</code>
+
+      <h4>What is Prototype Chain?</h4>
+      <p>
+        If something is not found in an object:
+        <br>
+      <ol>
+        <li>JS looks inside the object</li>
+        <li>Then in its prototype</li>
+        <li>Then prototype’s prototype</li>
+        <li>And so on...</li>
+      </ol>
+      <br>
+      👉 This chain continues until it reaches null
+      </p>
+      <code>
+<pre>
+// Visual Idea
+acc1 → BankAccount.prototype → Object.prototype → null
+</pre>
+</code>
+      <h4>Important Points</h4>
+      <ul>
+        <li>Every object in JS has a prototype</li>
+        <li>Functions automatically get a prototype property</li>
+        <li>Methods added to prototype are shared</li>
+        <li>This helps save memory and improves performance</li>
+      </ul>
+      <p>Prototype in JavaScript is a way to share properties and methods between objects without duplicating code.</p>
+      <ul>
+        <li>Constructor → creates objects</li>
+        <li>Prototype → stores shared methods</li>
+        <li>Objects → use methods from prototype</li>
+      </ul>
+
+      <h2>What is a Module?</h2>
+      <p>A module is just a separate file where you keep some code.</p>
+      <p><strong>Think of it like:</strong> School bag with different sections</p>
+      <ul>
+        <li>One section for books 📚</li>
+        <li>One for lunch 🍎</li>
+        <li>One for pencils ✏️</li>
+      </ul>
+      <p>You don’t mix everything — you keep things organized.</p>
+      <h4>Imagine:</h4>
+      <ul>
+        <li>One friend is good at math ➗</li>
+        <li>One friend is good at drawing 🎨</li>
+      </ul>
+      <p>Instead of doing everything yourself:</p>
+      <ul>
+        <li>You ask the math friend for calculations</li>
+        <li>You ask the drawing friend for art</li>
+      </ul>
+      <p>That’s exactly how modules work</p>
+      <h4>Example</h4>
+      <p>📁 File 1: math.js</p>
+      <code>
+<pre>
+export function add(a, b) {
+  return a + b;
+}
+
+export function subtract(a, b) {
+  return a - b;
+}
+</pre>
+</code>
+      <p>👉 This file is a module that handles math.</p>
+      <p>📁 File 2: app.js</p>
+      <code>
+<pre>
+import { add, subtract } from "./math.js";
+
+console.log(add(2, 3));      // 5
+console.log(subtract(5, 2)); // 3
+</pre>
+</code>
+      <p>👉 We are using code from another file 🎉</p>
+      <h4>🔑 Two Important Words</h4>
+      <ol>
+        <li>
+          export 📤<br>
+          👉 Means: “Hey! Other files can use this”
+        </li>
+        <li>
+          import 📥 <br>
+          👉 Means: “I want to use that code”
+        </li>
+      </ol>
+      <h4>🍕 Another Fun Example</h4>
+      <p>📁 pizza.js</p>
+      <code>
+<pre>
+export function makePizza() {
+  console.log("🍕 Pizza is ready!");
+}
+</pre>
+</code>
+      <p>📁 main.js</p>
+      <code>
+<pre>
+import { makePizza } from "./pizza.js";
+
+makePizza();
+</pre>
+</code>
+      <h4>Why Modules Are Useful</h4>
+      <p>Without Modules:</p>
+      <ul>
+        <li>Big messy code 😵</li>
+        <li>Hard to understand</li>
+      </ul>
+      <p>With modules:</p>
+      <ul>
+        <li>Clean code ✨</li>
+        <li>Easy to manage</li>
+        <li>Reusable 🔁</li>
+      </ul>
+      <p>
+        Modules = splitting code into small files <br>
+        Helps keep things clean and organized <br>
+        You can reuse code anywhere
+      </p>
+
+      <h2>The 4 Pillars of OOP</h2>
+      <p>
+        Object-Oriented Programming (OOP) is a programming style that helps organize code in a more structured
+        and reusable way. Before OOP, procedural programming was used, where programs were divided into sets
+        of functions. Data was stored in variables, and functions operated on that data. While this approach is
+        simple, it can become messy as programs grow. You might end up with many functions scattered
+        everywhere, copying and pasting code, and making changes in one place that break other parts of the
+        program. This is called spaghetti code, and it becomes hard to maintain.
+      </p>
+      <p>
+        OOP solves this problem by grouping related variables and functions into units called objects. In OOP,
+        variables are called properties, and functions are called methods. For example, a car can be an object with
+        properties like make, model, and color, and methods like start(), stop(), and move(). Another example is
+        the localStorage object in browsers, which has properties and methods like setItem() and removeItem().
+      </p>
+      <h4>The 4 pillars of OOP are:</h4>
+      <ol>
+        <li>Encapsulation</li>
+        <li>Abstraction</li>
+        <li>Inheritance</li>
+        <li>Polymorphism</li>
+      </ol>
+      <code>
+<pre>
+// 🫱🏼 OverView 🫲🏼
+// 1️⃣ Object
+// A Student: Name, Age, Stud() 
+// Code:
+let student = {
+  name: "Naseeb Khan",
+  age: 24,
+  study: function(){
+    console.log(this.name, "is Studying...")
+  }
+};
+
+student.study(); // Naseeb Khan is Studying...
+
+// 2️⃣ Imagine You need 100 students, Bad way creating seperate objects so OOP repetition = Bad Practice 
+// Bad Code🧑🏼‍💻
+let student1 = {...}
+let student2 = {...}
+let student3 = {...}
+let student4 = {...}
+
+// 3️⃣ Class 
+// Design of an object on paper/Blueprint = Class 
+// Example: House Map🏠, Car Design🛻
+// Code🧑🏼‍💻 
+class Student{
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+  }
+
+  study(){
+    console.log(this.name + " is Studying at the age of " + this.age);
+  }
+}
+// ⚠️ Class Student is just a template or Blueprint
+
+// 4️⃣ Using Same Class / BluePrint to create objects
+// Code🧑🏼‍💻
+const stdnt1 = new Student("Naseeb Khan", 24);
+const stdnt2 = new Student("Rabi", 20);
+
+stdnt1.study(); // Output: Naseeb Khan is Studying at the age of 24
+
+// 5️⃣ Encapsulation (data protection)
+// Example: Using ATM you can't see inside system but only allowed actions like withdraw, balance inquire etc.
+// Code🧑🏼‍💻
+class BankAccount{
+  constructor(balance){
+    this.balance = balance;
+  }
+
+  deposite(amount){
+    this.balance += amount;
+  }
+
+  balanceInquiry(){
+    console.log("Your Balance is: " + this.balance);
+  }
+}
+
+const acct1 = new BankAccount(10000);
+acct1.balanceInquiry();
+
+// 6️⃣ Inheritance
+// Inherit Properties and methods from another class  / Extend Class 
+// Example: Animal and Dog => Dog Gets features of Animal 
+// Code🧑🏼‍💻
+class Animal{
+  eat(){
+    console.log("Eating...");
+  }
+
+  class Dog extends Animal {
+    bark(){
+      console.log("Barking...");
+    }
+  }
+}
+
+let dogeshBahi = new Dog();
+dogeshBahi.eat(); // From Parent Class / General Class
+dogeshBahi.bark(); // Own Method
+
+// 7️⃣ Polymorphism balance (Same Action, Different Behavior)
+// Example: JavaScript Course Outline, Teaching Method of Each teacher is different 
+// Code🧑🏼‍💻
+class Default {
+  teaching(){
+    console.log("Academic Teaching Method");
+  }
+}
+
+class Teacher extends Default {
+  teaching(){
+    console.log("Teacher Teaching in Own Style but same Course.");
+  }
+}
+
+const teacher1 = new Teacher();
+teacher1.teaching(); // Output: Teacher Teaching in Own Style but same Course.
+
+// 8️⃣ Abstraction (Hide Complexity)
+// Real Life: You drive a car, you don't know engine details (Details are Hidden)
+// Code🧑🏼‍💻
+class Car{
+  start(){
+    this.#igniteEngine(); 
+    console.log("Car Started...");
+  }
+
+  // Engine Details are Hidden
+  #igniteEngine(){
+    console.log("Engine Running...");
+  }
+}
+
+const car1 = new Car();
+car1.start(); 
+
+// 9️⃣ Real Project 
+// Let's Build a Car System 
+// Code🧑🏼‍💻
+
+class Car {
+  constructor(brand, speed){
+    this.brand = brand;
+    this.speed = speed;
+  }
+
+  accelerate(){
+    this.speed += 10;
+    console.log(this.brand + " speed: " + this.speed);
+  }
+}
+
+const car1 = new Car("Honda", 50);
+car1.accelerate(); // Honda Speed: 60
+car1.accelerate(); // Honda Speed: 70
+
+// 🔟 Static methods 
+// We Can use classes directly without creating Objects 
+// Code🧑🏼‍💻
+class MathUtils {
+  static add(a, b){
+    console.log(a + b);
+  }
+}
+
+// Like a Function
+MathUtils.add(2, 3); // 5
+
+// 1️⃣1️⃣ Private Fields 
+class Test {
+  #secret = "Hidden";
+
+  show(){
+    console.log(this.#secret);
+  }
+}
+
+const t1 = new Test();
+t1.show();
+</pre>
+</code>
+      <p>
+        Let’s focus on Encapsulation with examples.
+      </p>
+      <h4>Encapsulation</h4>
+      <p>
+        Encapsulation means grouping related variables (properties) and functions (methods) into an object. This
+        makes the code easier to maintain and reduces the number of parameters in functions.
+      </p>
+      <p>
+        <strong>Example 1: Procedural Programming (Without OOP)</strong>
+        In procedural programming, we use separate variables and functions. Here’s an example to calculate an
+        employee’s wage:
+      </p>
+      <code>
+<pre>
+let baseSalary = 30_000;
+let overtime = 10;
+let rate = 20;
+
+function getWage(baseSalary, overtime, rate) {
+    return baseSalary + (overtime * rate);
+}
+
+console.log(getWage(baseSalary, overtime, rate)); // Output: 30,200
+</pre>
+</code>
+      <p>
+        In this example, the getWage function has three parameters. If you need to change something, you have to
+        pass these parameters every time, which can get messy.
+      </p>
+      <p>
+        <strong>Example 2: OOP with Encapsulatio</strong>
+        In OOP, we group related variables and functions into an object. Here’s the same example using an object:
+      </p>
+      <code>
+<pre>
+let employee = {
+ baseSalary: 30_000,
+ overtime: 10,
+ rate: 20,
+ getWage: function() {
+    return this.baseSalary + (this.overtime * this.rate);
+ }
+};
+
+console.log(employee.getWage()); // Output: 30,200
+</pre>
+</code>
+      <strong>In this example:</strong>
+      <ul>
+        <li>The employee object has three properties (baseSalary, overtime, and rate) and one method
+          (getWage).</li>
+        <li>The getWage method has no parameters because it uses the object’s properties directly
+          (this.baseSalary, this.overtime, and this.rate).</li>
+      </ul>
+      <h4>Why Encapsulation is Better</h4>
+      <ol>
+        <li> Fewer Parameters: Functions in OOP often have fewer parameters because they use the object’s
+          properties. As Robert C. Martin (Uncle Bob) says, “The best functions are those with no parameters.”</li>
+        <li> Easier to Maintain: When related properties and methods are grouped together, it’s easier to
+          understand and change the code.</li>
+        <li>Less Spaghetti Code: Encapsulation helps avoid scattered functions and variables, making the code
+          cleaner and more organized.</li>
+      </ol>
+      <h4>Another Example: Car Object</h4>
+      <p>
+        <strong>Here’s another example of encapsulation with a car object:</strong>
+      </p>
+      <code>
+<pre>
+let car = {
+ make: "Toyota",
+ model: "Corolla",
+ color: "Red",
+ start: function() {
+   return "The " + this.color + " " + this.make + " " + this.model + " is starting.";
+ },
+ stop: function() {
+   return "The " + this.color + " " + this.make + " " + this.model + " is stopping.";
+ }
+};
+
+console.log(car.start()); // Output: The Red Toyota Corolla is starting.
+console.log(car.stop()); // Output: The Red Toyota Corolla is stopping.
+</pre>
+</code>
+      <p>
+        <strong>In this example:</strong>
+      </p>
+      <ul>
+        <li>The car object has properties (make, model, color) and methods (start, stop).</li>
+        <li>The methods use the object’s properties to perform actions.</li>
+      </ul>
+      <h2>Abstraction</h2>
+      <p>
+        Think of a DVD player as an object. Inside, it has a complex logic board, but on the outside, it only has a few
+        buttons. When you press a button, you don’t need to know what happens inside the DVD player. All that
+        complexity is hidden from you. This is an abstraction in practice.
+      </p>
+      <p>
+        In JavaScript, we can use the same technique with objects. We can hide some properties and methods
+        from the outside. This gives us two main benefits:
+      </p>
+      <ol>
+        <li>Simpler Interface: The object becomes easier to use because you only see what’s necessary.</li>
+        <li>Reduced Impact of Changes: If we change the inner, private methods, it won’t affect the outside
+          code because no external code depends on those methods</li>
+      </ol>
+      <code>
+<pre>
+class DVDPlayer {
+ <span class="t-r">// Private method (hidden from the outside)</span>
+ #playDisc() {
+ console.log("Playing the disc...");
+ }
+
+ <span class="t-r">// Public method (simple interface)</span>
+ play() {
+ this.#playDisc();
+ }
+}
+
+const player = new DVDPlayer();
+player.play(); // Output: Playing the disc...
+<span class="t-r">// player.#playDisc(); // This would cause an error because it's private</span>
+</pre>
+</code>
+      <h2>Inheritance</h2>
+      <p>
+        Inheritance is a mechanism that allows us to eliminate redundant code. For example, in HTML, elements
+        like text boxes, checkboxes, and dropdowns have common properties (hidden, innerHTML) and methods
+        (click(), focus()). Instead of redefining these for every element, we can define them once in a generic object
+        (like HTMLElement) and let other objects inherit these properties and methods.
+      </p>
+      <code>
+<pre>
+class HTMLElement {
+ constructor() {
+ this.hidden = false;
+ }
+
+ click() {
+ console.log("Element clicked!");
+ }
+
+ focus() {
+ console.log("Element focused!");
+ }
+}
+
+class TextBox extends HTMLElement {
+ type() {
+ console.log("Typing in the text box...");
+ }
+}
+
+const textBox = new TextBox();
+textBox.click(); // Output: Element clicked!
+textBox.type(); // Output: Typing in the text box...
+</pre>
+</code>
+      <h2>Polymorphism</h2>
+      <p>
+        "Poly" means many, and "morph" means form. So, polymorphism means "many forms." In object-oriented
+        programming, polymorphism allows us to avoid long if-else or switch-case statements. For example, all
+        HTML elements should have the ability to render themselves, but each element renders differently.
+      </p>
+      <p>
+        Without polymorphism, your code might look like this:
+      </p>
+      <code>
+<pre>
+switch (elementType) {
+ case 'select':
+    renderSelect();
+    break;
+ case 'text':
+    renderTextBox();
+    break;
+ case 'checkbox':
+    renderCheckbox();
+    break;
+ // ... and so on
+}
+</pre>
+</code>
+      <p>
+        With polymorphism, we can define a render() method for each object, and it will behave differently
+        depending on the object type. This simplifies the code:
+      </p>
+      <code>
+<pre>
+class Element {
+ render() {
+    console.log("Rendering a generic element...");
+ }
+}
+class Select extends Element {
+ render() {
+    console.log("Rendering a select box...");
+ }
+}
+class TextBox extends Element {
+ render() {
+    console.log("Rendering a text box...");
+ }
+}
+
+const elements = [new Select(), new TextBox()];
+elements.forEach(element => element.render());
+
+<span class="output">Output:</span>
+// Rendering a select box...// Rendering a text box...
+</pre>
+</code>
+      <h4>Benefits of OOP</h4>
+      <ol>
+        <li>Encapsulation: We group related variables and functions together, reducing complexity and making
+          the code reusable.</li>
+        <li>Abstraction: We hide unnecessary details and show only the essentials, reducing complexity and
+          isolating the impact of changes.</li>
+        <li>Inheritance: We eliminate redundant code by reusing properties and methods from a parent object.</li>
+        <li>Polymorphism: We can refactor ugly switch-case or if-else statements into cleaner, more
+          maintainable code.</li>
+      </ol>
+      <p>
+        By using these principles, your code becomes more organized, reusable, and easier to maintain.
+      </p>
+
+      <h2>APIs</h2>
+      <h4>Real Life Example</h4>
+      <p>
+        Imagine:
+      </p>
+      <ul>
+        <li>You are in a restaurant</li>
+        <li>You don’t go to the kitchen</li>
+        <li>You tell the waiter</li>
+        <li>The waiter brings your food</li>
+      </ul>
+      <p>👉 The waiter = API</p>
+      <p>An API (Application Programming Interface) is a messenger that:</p>
+      <ul>
+        <li>Takes your request</li>
+        <li>Goes to the server</li>
+        <li>Brings back the response</li>
+      </ul>
+      <h4>APIs in JavaScript</h4>
+      <p>
+        In JavaScript, we use APIs to:
+      </p>
+      <ul>
+        <li>Get weather data 🌦</li>
+        <li>Get user data 👤</li>
+        <li>Get products 🛒</li>
+        <li>Send form data 📩</li>
+        <li>Login users 🔐</li>
+      </ul>
+      <p>We mostly use:</p>
+      <code>
+<pre>
+fetch()
+</pre>
+</code>
+      <p>To talk to APIs.</p>
+      <p>fetch() in JavaScript is a built-in function used to request data from a server (like an API) and get a
+        response back.</p>
+      <h4>APIs Look Like</h4>
+      <p>
+        An API is usually a URL like this:
+      </p>
+      <code>
+<pre>
+https://jsonplaceholder.typicode.com/users
+</pre>
+</code>
+      <p>When you open this in a browser, you see:</p>
+      <code>
+<pre>
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username"	"Bret"
+    "email": "leanne@example.com"
+  }
+]
+</pre>
+</code>
+      <p>👉 This format is called JSON</p>
+      <h4>Structure of APIs in JSON</h4>
+      <p>
+        APIs can return data in the form of objects, arrays, or a combination of both. JSON objects are like
+        JavaScript objects, but they require keys to be enclosed in double quotes. <br>JSON = JavaScript Object Notation
+      </p>
+      <p>It looks like JavaScript objects:
+        <strong>Example JSON Object:</strong>
+      </p>
+      <code>
+<pre>
+{
+ "name": "Naseeb",
+ "age": 23
+}
+</pre>
+</code>
+      <ul>
+        <li>API Gives data in JSON</li>
+        <li>JavaScript understands JSON easily</li>
+      </ul>
+      <p>
+        In JSON, both keys and values are typically represented as strings, so it's important to use string literals for
+        keys. The JSON data can be stored in a variable for later use.
+      </p>
+
+      <h4>How to Use API in JavaScript</h4>
+      <p>Step 1: Use Fetch()</p>
+      <code>
+<pre>
+fetch("https://jsonplaceholder.typicode.com/users")
+</pre>
+</code>
+      <p>Step 2: Convert to JSON</p>
+      <code>
+<pre>
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json())
+</pre>
+</code>
+      <p>Step 3: Use the data</p>
+      <code>
+<pre>
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  });
+</pre>
+</code>
+      <h4>Practical Example</h4>
+      <code>
+<pre>
+// HTML 
+&lt;button onclick="getUsers()">Get Users<&lt;button>
+&lt;ul id="userList">&lt;/ul>
+
+// JavaScript
+function getUsers() {
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json())
+    .then(users => {
+      const list = document.getElementById("userList");
+      list.innerHTML = "";
+
+      users.forEach(user => {
+        const li = document.createElement("li");
+        li.textContent = user.name;
+        list.appendChild(li);
+      });
+    });
+}
+</pre>
+</code>
+      <p>When button clicked → users appear on screen.</p>
+      <h4>Types of API Requests</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>What it Does</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td>Get data</td>
+              <td>Get Users</td>
+            </tr>
+            <tr>
+              <td>POST</td>
+              <td>Send data</td>
+              <td>Register</td>
+            </tr>
+            <tr>
+              <td>PUT</td>
+              <td>Update data</td>
+              <td>Edit Profile</td>
+            </tr>
+            <td>DELETE</td>
+            <td>Remove Data</td>
+            <td>Delete User</td>
+          </tbody>
+        </table>
+      </div>
+      <h4>Example of POST</h4>
+      <code>
+<pre>
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    title: "Hello",
+    body: "This is my post",
+    userId: 1
+  })
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+});
+</pre>
+</code>
+      <ul>
+        <li>Method -> What type of request</li>
+        <li>Headers -> telling server it's JSON</li>
+        <li>Body -> the data we send</li>
+      </ul>
+
+      <h4>Formatting JSON</h4>
+      <p>
+        To format JSON properly, you can use tools like:
+      </p>
+      <ul>
+        <li><a href="https://jsonlint.com/">JSON Formatter & Validator
+          </a></li>
+        <li>Built-in JSON formatting in text editors like VS Code and Postman</li>
+        <li>JSON.stringify(data, null, 2) in JavaScript to format JSON with indentation</li>
+      </ul>
+
+      <h2>Execution Context </h2>
+      <ol>
+        <li>Execution Context
+          <ul>
+            <li>Definition: The environment where JavaScript code is executed.</li>
+            <li>Types:
+              <ul>
+                <li>Global Execution Context</li>
+                <li>Functional Execution Context</li>
+                <li>Eval Execution Context (rarely used)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Global Execution Context
+          <ul>
+            <li>Definition: The default or main execution context created when the script first runs.</li>
+            <li>Components
+              <ul>
+                <li>Global Object: In browsers, it’s the window object.</li>
+                <li>this Keyword: Refers to the global object in the global context.</li>
+                <li>Memory Allocation: Allocates memory for global variables and functions.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <code>
+<pre>
+let globalVar = "I am global"; // Global variable
+console.log(this); // Logs the global object (window in browsers)
+</pre>
+</code>
+      <ol start="3">
+        <li>Functional Execution Context
+          <ul>
+            <li>Definition: Created every time a function is called. It’s like a mini-kitchen for that function.</li>
+            <li>Components
+              <ul>
+                <li>Local Variables: Variables declared inside the function.</li>
+                <li>Arguments: Parameters passed to the function.</li>
+                <li>this Keyword: Refers to the object calling the function (or the global object if not specified)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <code>
+<pre>
+function greet(name) {
+ let message = "Hello, " + name; // Local variable
+ console.log(message);
+}
+
+greet("Naseeb"); // Calls the function, creates a new execution context
+</pre>
+</code>
+      <ol start="4">
+        <li> Eval Execution Context
+          <ul>
+            <li>Definition: Created when the eval() function is used to execute code dynamically.</li>
+            <li>Note: Rarely used because it can be risky and inefficient.</li>
+          </ul>
+        </li>
+      </ol>
+      <code>
+<pre>
+let x = 10;
+eval("let y = 20; console.log(x + y);"); // Logs 30
+</pre>
+</code>
+      <ol start="5">
+        <li>Memory Creation Phase
+          <ul>
+            <li>Definition: The first phase of execution where memory is allocated for variables and functions.</li>
+            <li>Behavior:
+              <ul>
+                <li>Variables are initialized with undefined.</li>
+                <li>Functions are stored in memory as-is.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <code>
+<pre>
+console.log(name); // undefined (memory allocated, but value not set yet)
+var name = "Naseeb";
+console.log(name); // "Naseeb" (value assigned during execution phase)
+</pre>
+</code>
+      <ol start="6">
+        <li>Execution Phase
+          <ul>
+            <li>Definition: The second phase where the code is executed line by line.</li>
+            <li>Behavior:
+              <ul>
+                <li>Variables are assigned values.</li>
+                <li>Functions are executed.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <code>
+<pre>
+let a = 5; // Memory allocated; value assigned
+let b = 10;
+console.log(a + b); // 15 (execution phase)
+</pre>
+</code>
+      <ol start="7">
+        <li>New Execution Context
+          <ul>
+            <li>
+              Definition: Created every time a function is called. It has its own memory and execution phase.
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <code>
+<pre>
+function addNumbers(x, y) {
+  let sum = x + y; // New execution context
+  return sum;
+}
+
+let result = addNumbers(3, 4); // Call the function
+console.log(result); // 7
+</pre>
+</code>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Execution Context</td>
+              <td>Environment where JavaScript code is executed.</td>
+              <td>Global, Functional, or Eval context.</td>
+            </tr>
+            <tr>
+              <td>Global Execution Context</td>
+              <td>Main execution context created when the script starts.</td>
+              <td>let globalVar = "I am global"; <br> console.log(this);</td>
+            </tr>
+            <tr>
+              <td>Functional Execution Context</td>
+              <td>Created when a function is called.</td>
+              <td>function greet(name) { console.log("Hello, " +
+                name); } greet("Naseeb");</td>
+            </tr>
+            <tr>
+              <td>Eval Execution Context</td>
+              <td>Created when eval() is used to execute code dynamically.</td>
+              <td>eval("let y = 20; console.log(y);");</td>
+            </tr>
+            <tr>
+              <td>Memory Creation Phase</td>
+              <td>Memory is allocated for variables and functions.</td>
+              <td>console.log(name); // undefined (before assignment).</td>
+            </tr>
+            <tr>
+              <td>Execution Phase</td>
+              <td>Code is executed line by line, and values are assigned.</td>
+              <td>let a = 5; console.log(a); // 5</td>
+            </tr>
+            <tr>
+              <td>New Execution Context</td>
+              <td>Created every time a function is called.</td>
+              <td>function add(x, y) { return x + y; } add(2, 3);</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>Stack and Heap Memory?</h2>
+      <p>
+        In JavaScript, memory refers to the system's ability to store and manage data during program execution.
+        Within memory, there are two main areas: the stack and the heap.
+      </p>
+      <ol>
+        <li>Stack:
+          <ul>
+            <li> The stack is a region of memory that is used for static memory allocation, which means that
+              memory allocation is determined at compile-time.
+            </li>
+            <li>It is a sequential data structure that operates in a Last In, First Out (LIFO) manner.</li>
+            <li>The stack is primarily used for storing primitive data types, function calls, and local variables.</li>
+            <li>Memory allocation and deallocation on the stack are automatic and managed by the program
+              execution.</li>
+          </ul>
+        </li>
+        <li>Heap:
+          <ul>
+            <li>The heap is a region of memory that is used for dynamic memory allocation, which means that
+              memory allocation is determined at run-time.</li>
+            <li>Stores reference data type.</li>
+            <li>It is a more flexible and less organized memory structure compared to the stack.</li>
+            <li>The heap is primarily used for storing objects, arrays, and other complex data structures.</li>
+            <li>Memory allocation and deallocation on the heap are manual and need to be managed explicitly by
+              the programmer.</li>
+            <li>Difference with an Example: Consider a scenario where we have a JavaScript function that creates
+              an array and a local variable.</li>
+          </ul>
+        </li>
+      </ol>
+      <h4>Code:</h4>
+      <code>
+<pre>
+function createArray() { let localVariable = 10; let myArray = [1, 2, 3, 4, 5]; } 
+</pre>
+</code>
+      <p>
+        <strong>In this example:</strong>
+      </p>
+      <ul>
+        <li> The localVariable is stored on the stack because it is a primitive data type (number) and its memory
+          allocation is determined at compile-time.</li>
+        <li>The myArray is stored on the heap because it is an array (an object) and its memory allocation is
+          determined at run-time.</li>
+      </ul>
+      <p>
+        Here's a breakdown of memory usage:
+        <br>
+        <strong>Stack:</strong>
+        Stores the memory address of the localVariable.
+        <br>
+        <strong>Heap:</strong> Stores the elements of the myArray (1, 2, 3, 4, 5) along with the memory addresses of
+        each element.
+      </p>
+      <h2>LIFO</h2>
+      <p>
+        LIFO stands for Last In, First Out. It’s like a stack of plates:
+      </p>
+      <ol>
+        <li>When you add a plate to the stack, you place it on top.</li>
+        <li>When you remove a plate, you take it from the top.</li>
+      </ol>
+      <p>
+        The last plate you put on the stack is the first one you take out. That’s LIFO!
+      </p>
+      <h4>How does LIFO work in JavaScript?</h4>
+      <p>
+        In JavaScript, the Call Stack (a place where function calls are managed) follows the LIFO principle. Here’s
+        how it works:
+      </p>
+      <ol>
+        <li>When a function is called, it’s added to the top of the stack.</li>
+        <li>When the function finishes, it’s removed from the top of the stack.</li>
+      </ol>
+      <p>
+        <strong>Example to Understand LIFO
+        </strong> Let’s say you have three functions: first, second, and third.
+      </p>
+      <code>
+<pre>
+function first() {
+ console.log("First function");
+ second(); // Call the second function
+}
+
+function second() {
+ console.log("Second function");
+ third(); // Call the third function
+}
+
+function third() {
+ console.log("Third function");
+}
+
+first(); // Start by calling the first function
+</pre>
+</code>
+      <h4>What Happens in the Call Stack?</h4>
+      <ol>
+        <li>Step 1: first() is called and added to the stack
+          <ul>
+            <li>Stack: [first]</li>
+          </ul>
+        </li>
+        <li>Step 2: Inside first(), second() is called and added to the stack.
+          <ul>
+            <li>Stack: [first, second]</li>
+          </ul>
+        </li>
+        <li>Step 3: Inside second(), third() is called and added to the stack.
+          <ul>
+            <li>Stack: [first, second, third]</li>
+          </ul>
+        </li>
+        <li>Step 4: third() finishes and is removed from the stack.
+          <ul>
+            <li>Stack: [first, second]</li>
+          </ul>
+        </li>
+        <li>Step 5: second() finishes and is removed from the stack.
+          <ul>
+            <li>Stack: [first]</li>
+          </ul>
+        </li>
+        <li>Step 6: first() finishes and is removed from the stack.
+          <ul>
+            <li>Stack: []</li>
+          </ul>
+        </li>
+      </ol>
+      <h4>Visualization of LIFO</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Steps</th>
+              <th>Action</th>
+              <th>Stack State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>first() is called</td>
+              <td>[first]</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>second() is called</td>
+              <td>[first, second]</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>third() is called</td>
+              <td>[first, second, third]</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>third() finishes </td>
+              <td>[first, second]</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>second() finishes</td>
+              <td>[first]</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>first() finishes </td>
+              <td>[]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>use strict</h2>
+      <p>
+        In JavaScript, 'use strict' is a directive that enables strict mode, a stricter version of JavaScript. It helps
+        you
+        write cleaner, safer, and more efficient code by catching common mistakes and preventing the use of
+        problematic features.
+      </p>
+      <h4>What is Strict Mode?</h4>
+      <p>
+        Strict mode is a way to opt into a restricted variant of JavaScript. It changes the behavior of the JavaScript
+        engine in the following ways:
+      </p>
+      <ol>
+        <li>Catches Silent Errors: Converts mistakes that JavaScript normally ignores into errors</li>
+        <li> Prevents Accidental Global: Stops you from accidentally creating global variables.</li>
+        <li>Disables Problematic Features: Disallows the use of deprecated or confusing features.</li>
+        <li> Improves Performance: Helps the JavaScript engine optimize your code.</li>
+      </ol>
+      <h4>How to Enable Strict Mode</h4>
+      <p>
+        You can enable strict mode by adding the string 'use strict' at the beginning of a script or a function.
+      </p>
+      <p><strong>1. Global Strict Mode</strong> Add 'use strict' at the top of your script to enable strict mode for the
+        entire file:
+      </p>
+      <code>
+<pre>
+'use strict';
+</pre>
+</code>
+      <p>
+        Your code here
+      </p>
+      <code>
+<pre>
+x = 10; // This will throw an error because 'x' is not declared
+</pre>
+</code>
+      <p>
+        <strong>2. Local Strict Mode</strong> Add 'use strict' inside a function to enable strict mode only for that
+        function:
+      </p>
+      <code>
+<pre>
+function myFunction() {
+    'use strict';
+
+ <span class="t-r">// Strict mode applies only to this function</span>
+    y = 20; // This will throw an error because 'y' is not declared
+}
+</pre>
+</code>
+      <h4>Key Features and Benefits of Strict Mode</h4>
+      <p>
+        <strong>1. Prevents Accidental Global
+        </strong>
+        In non-strict mode, if you forget to declare a variable with var, let, or const, JavaScript automatically
+        creates
+        a global variable. Strict mode prevents this:
+      </p>
+      <code>
+<pre>
+'use strict';
+
+x = 10; // Throws an error: "x is not defined"
+</pre>
+</code>
+      <p>
+        <strong>2. Disallows Duplicate Parameter Names</strong>
+        Strict mode prevents you from using duplicate parameter names in functions:
+      </p>
+      <code>
+<pre>
+'use strict';
+
+function myFunction(a, a) { <span class="t-r">// Throws an error: "Duplicate parameter name not allowed"</span>
+ console.log(a);
+}
+</pre>
+</code>
+      <p>
+        <strong>3. Prevents Deleting Variables, Functions, or Arguments</strong>
+        In strict mode, deleting variables, functions, or function arguments is not allowed:
+      </p>
+      <code>
+<pre>
+'use strict';
+
+let x = 10;
+delete x; // Throws an error: "Delete of an unqualified identifier in strict mode"
+</pre>
+</code>
+      <p>
+        <strong>4. Makes this Safer</strong>
+        In non-strict mode, if you call a function without specifying this, it defaults to the global object (window in
+        browsers). In strict mode, this is undefined in such cases:
+      </p>
+      <code>
+<pre>
+'use strict';
+
+function myFunction() {
+ console.log(this); // Output: undefined (instead of the global object)
+}
+
+myFunction();
+</pre>
+</code>
+      <p>
+        <strong>5. Disallows Octal Syntax</strong>
+        In non-strict mode, numbers with a leading zero (e.g., 0123) are treated as octal (base 8). Strict mode
+        disallows this:
+      </p>
+      <code>
+<pre>
+'use strict';
+
+let x = 0123; // Throws an error: "Octal literals are not allowed in strict mode"
+</pre>
+</code>
+      <p>
+        <strong>6. Prevents Writing to Read-Only Properties</strong>
+        Strict mode throws an error if you try to modify a read-only property:
+      </p>
+
+      <code>
+<pre>
+'use strict';
+
+const obj = {};
+Object.defineProperty(obj, 'x', { value: 42, writable: false });
+
+obj.x = 100; // Throws an error: "Cannot assign to read-only property 'x'"
+</pre>
+</code>
+      <p>
+        <strong>7. Disallows with Statement</strong>
+        The with statement is not allowed in strict mode because it can lead to confusing and unpredictable
+        behavior:
+      </p>
+      <code>
+<pre>
+'use strict';
+
+with (Math) { <span class="t-r">// Throws an error: "Strict mode code may not include a with statement"</span>
+ console.log(PI);
+}
+</pre>
+</code>
+      <h4>When to Use Strict Mode</h4>
+      <ol>
+        <li>Always: It's a good practice to use strict mode in all your JavaScript code.</li>
+        <li>Modern JavaScript: If you're using ES6+ (modern JavaScript), strict mode is automatically
+          enabled for modules and classes.</li>
+        <li>Legacy Code: If you're working with older code, enabling strict mode can help you identify and
+          fix issues.</li>
+      </ol>
+      <h4>Example: Strict Mode in Action</h4>
+      <p>
+        Here’s an example that demonstrates the benefits of strict mode:
+      </p>
+      <code>
+<pre>
+'use strict';
+
+// 1. Prevents accidental globals
+x = 10; // Error: x is not defined
+
+// 2. Disallows duplicate parameter names
+function myFunction(a, a) { // Error: Duplicate parameter name not allowed
+ console.log(a);
+}
+
+// 3. Prevents deleting variables
+let y = 20;
+delete y; // Error: Delete of an unqualified identifier in strict mode
+// 4. Makes `this` safer
+function myFunction() {
+ console.log(this); // undefined
+}
+myFunction();
+
+// 5. Disallows octal syntax
+let z = 0123; // Error: Octal literals are not allowed in strict mode
+
+// 6. Prevents writing to read-only properties
+const obj = {};
+Object.defineProperty(obj, 'x', { value: 42, writable: false });
+obj.x = 100; // Error: Cannot assign to read-only property 'x'
+</pre>
+</code>
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

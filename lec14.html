@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, Incellence, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+    <main class="container two-column">
+      <section>
+        <div class="h-1">Chapter 13</div>
+        <h2>Timer</h2>
+        <p>Timers and intervals are used everywhere in real apps:</p>
+        <ul>
+          <li>countdown timers</li>
+          <li>auto sliders</li>
+          <li>notifications</li>
+          <li>games</li>
+          <li>loading systems</li>
+          <li>deboince/throttle</li>
+        </ul>
+        <p>
+          If DOM gives life to UI, then timers control TIME itself in
+          JavaScript.
+        </p>
+        <h4>1. FIRST UNDERSTAND JAVASCRIPT NATURE</h4>
+        <p>
+          JavaScript is single-threaded, meaning it can only execute one task at
+          a time. Timers and intervals allow us to schedule tasks to run later
+          or repeatedly without blocking the main execution thread.
+        </p>
+        <p>JavaScript normally runs: Line by Line</p>
+        <p>Example:</p>
+        <code>
+          <pre>
+console.log("One");
+console.log("Two");
+console.log("Three");
+
+// Output:
+// One
+// Two
+// Three
+</pre
+          >
+        </code>
+        <h4>BUT WHAT IF YOU WANT:</h4>
+        <p>Run this After 3 seconds OR Run this every second</p>
+        <p>that's where timers come in.</p>
+        <h4>2. TWO MAIN TIMER FUNCTIONS</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>setTimeout</td>
+                <td>run ONCE after a delay</td>
+              </tr>
+              <tr>
+                <td>setInterval</td>
+                <td>run REPEATEDLY at regular intervals / run again and again</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+<h4>3. setTimeout() (RUN ONCE)</h4>
+        <p>
+          setTimeout schedules a function to run once after a specified delay in
+          milliseconds.
+        </p>
+<p>
+  Basic Syntax:
+</p>
+<code>
+<pre>
+setTimeout(function, delay, arg1, arg2, ...);
+</pre>
+</code>
+<p>Example:</p>
+<code>
+<pre>
+setTimeout(() => {
+  console.log("Hello after 3 seconds");
+}, 3000);
+</pre>
+</code>
+<h4>BREAK IT DOWN</h4>
+<p>3000 = 3 seconds (1000 milliseconds = 1 second)</p>
+ <table>
+            <thead>
+              <tr>
+                <th>Value</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1000</td>
+                <td>1 second</td>
+              </tr>
+              <tr>
+                <td>2000</td>
+                <td>2 seconds</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+<h4>🎮 Real Life Example</h4>
+<code>
+<pre>
+console.log("Loading...");
+
+setTimeout(() => {
+  console.log("Data Loaded");
+}, 2000);
+
+
+// Output:
+// Loading...
+// (wait 2 seconds)
+// Data Loaded
+</pre>
+</code>
+<h4>🔁 4. setInterval() (REPEAT FOREVER)</h4>
+<p>
+  setInterval schedules a function to run repeatedly at specified intervals in
+  milliseconds until it's stopped.
+</p>
+<p>Basic Syntax:</p>
+<code>
+<pre>
+setInterval(function, delay, arg1, arg2, ...);
+</pre>
+</code>
+<p>Example:</p>
+<code>
+<pre>
+setInterval(() => {
+  console.log("Tick...");
+}, 1000);
+
+
+// Output:
+// Tick...
+// Tick...
+// Tick...
+// (every 1 second)
+</pre>
+</code>
+<h4>MENTAL MODEL</h4>
+<p>setTimeout = "Do later once"</p>
+<p>setInterval = "Do later again and again"</p>
+<h4>5. STOPPING TIMERS (VERY IMPORTANT)</h4>
+<p>clearTimeout()</p>
+<code>
+<pre>
+const timer = setTimeout(() => {
+  console.log("Hello");
+}, 3000);
+
+clearTimeout(timer);
+</pre>
+</code>
+<p>Timer canceled❌</p>
+<p>clearInterval()</p>
+<code>
+<pre>
+const interval = setInterval(() => {
+  console.log("Running...");
+}, 1000);
+
+clearInterval(interval);
+</pre>
+</code>
+<p>Repeating stops</p>
+<h4>6. REAL COUNTDOWN EXAMPLE</h4>
+<code>
+<pre>
+let count = 5;
+
+const timer = setInterval(() => {
+  console.log(count);
+
+  count--;
+
+  if (count < 0) {
+    clearInterval(timer);
+    console.log("Done!");
+  }
+}, 1000);
+
+// Output: 
+// 5
+// 4
+// 3
+// 2
+// 1
+// 0
+// Done!
+</pre>
+</code>
+<h4>IMPORTANT CONCEPT → CALLBACK FUNCTION</h4>
+<code>
+<pre>
+() => {}
+</pre>
+</code>
+<p>This function runs LATER</p>
+<h4>7. JAVASCRIPT IS NON-BLOCKING</h4>
+<p>This is VERY important.</p>
+<p>Example:</p>
+<code>
+<pre>
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timer");
+}, 2000);
+
+console.log("End");
+
+// Output:
+// Start
+// End
+// (wait 2 seconds)
+// Timer
+</pre>
+</code>
+<p><strong>WHY?</strong> <br>
+Because JS says: “I’ll continue my work… timer can wait”
+</p>
+<h4>ENGINEERING MINDSET</h4>
+<p>
+  Timers are NOT magical pauses.
+  <br>
+  JavaScript schedules them in browser APIs/event loop and continues running other code.
+</p>
+<h4>8. COMMON REAL-WORLD USE CASES</h4>
+<p>Delay UI:</p>
+<code>
+<pre>
+setTimeout(() => {
+  modal.classList.add("show");
+}, 500);
+</pre>
+</code>
+<p>Auto Slider</p>
+<code>
+<pre>
+setInterval(() => {
+  nextSlide();
+}, 3000);
+</pre>
+</code>
+<p>Notification Auto Close</p>
+<code>
+<pre>
+setTimeout(() => {
+  notification.remove();
+}, 4000);
+</pre>
+</code>
+<h4>9. COMMON MISTAKES</h4>
+<code>
+<pre>
+// Mistake 1:
+setTimeout(myFunction(), 1000);
+// This runs myFunction immediately instead of after 1 second
+
+// Correct way:
+setTimeout(myFunction, 1000);
+
+// Mistake 2:
+// Forgetting to clear intervals:
+// Causes memory leaks, unwanted behavior and unncecessary resource usage
+const interval = setInterval(() => {
+  console.log("Running...");
+}, 1000);
+// If we never call clearInterval(interval), it will keep running forever
+
+// Mistake 3:
+// Creating intervals inside intervals
+setInterval(() => {
+  setInterval(() => {
+    console.log("Nested interval");
+  }, 1000);
+}, 2000);
+// This creates a new interval every 2 seconds, leading to exponential growth of intervals and crashing the browser
+</pre>
+</code>
+<h4>Auto Counter</h4>
+<code>
+<pre>
+const counter = document.querySelector("#counter");
+
+let num = 0;
+
+const interval = setInterval(() => {
+  num++;
+
+  counter.textContent = num;
+
+  if (num === 10) {
+    clearInterval(interval);
+  }
+}, 1000);
+</pre>
+</code>
+
+<h4>Downloading Bar</h4>
+<code>
+<pre>
+// HTML 
+&lt;h2>Downloading...&lt;/h2>
+
+&lt;div class="container">
+
+    &lt;div class="progress-bar">&lt;/div>
+
+&lt;/div>
+
+&lt;p id="percentText">0%&lt;/p>
+
+
+
+// CSS
+.container {
+    width: 300px;
+    height: 30px;
+    background: lightgray;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: green;
+}
+
+
+
+// JavaScript
+let count = 0;
+let seconds = 5;
+
+let progress = document.querySelector(".progress-bar");
+let percentText = document.querySelector("#percentText");
+
+let intv = setInterval(
+
+    function () {
+
+        if (count <= 99) {
+
+            count++;
+
+            progress.style.width = `${count}%`;
+
+            percentText.textContent = `${count}%`;
+
+        } else {
+
+            document.querySelector("h2").textContent = "Downloaded.";
+
+            clearInterval(intv);
+        }
+    },
+    (seconds * 1000) / 100
+);
+
+
+// Improvements in JS:
+let count = 0;
+let seconds = 5;
+
+const progress = document.querySelector(".progress-bar");
+const percentText = document.querySelector("#percentText");
+const heading = document.querySelector("h2");
+
+const intervalTime = (seconds * 1000) / 100;
+
+const intv = setInterval(() => {
+
+    if (count < 100) {
+
+        count++;
+
+        progress.style.width = `${count}%`;
+
+        percentText.textContent = `${count}%`;
+
+    } else {
+
+        heading.textContent = "Downloaded.";
+
+        clearInterval(intv);
+
+    }
+
+}, intervalTime);
+</pre>
+</code>
+<h4>Big Picture First</h4>
+<p>
+  <strong>Imagine:</strong> You download a file. You see 1%, 2%, 3%...100% and then "Downloaded". 
+</p>
+<p>
+  And the bar fills slowly. This code simulates that behvior.
+</p>
+<h4>STEP 1 — Creating Counter Variable</h4>
+<code>
+<pre>
+let count = 0;
+</pre>
+</code>
+<p>
+  <strong>What is this?</strong>
+  <br>This variable stores current percentage.
+<br>
+Initially: 0% Later: 1%, 2%, 3%...100%
+</p>
+<p><strong>Think of it like:</strong></p>
+<code>
+<pre>
+count = current progress
+</pre>
+</code>
+<h4>STEP 2 — Download Duration</h4>
+<code>
+<pre>
+let seconds = 5;
+
+// Meaning: Complete animation in 5 seconds
+// if you change 
+
+let seconds = 10; // it will take 10 seconds to reach 100%
+</pre>
+</code>
+<h4>STEP 3 — Selecting Progress Bar</h4>
+<code>
+<pre>
+let progress = document.querySelector(".progress-bar");
+
+// This selects HTML element having class:
+&lt;div class="progress-bar">&lt;/div>
+
+// Now JavaScript can control this element.
+// Think: progress = actual moving bar in the UI
+</pre>
+</code>
+<h4>STEP 4 — Selecting Percentage Text</h4>
+<code>
+<pre>
+let percentText = document.querySelector("#percentText");
+
+// this selects:
+&lt;div id="percentText">&lt;/div>
+
+// JavaScript will update text here.
+// Example: 25%, 67%, 100%
+</pre>
+</code>
+<h4>STEP 5 — setInterval() (MOST IMPORTANT)</h4>
+<code>
+<pre>
+let intv = setInterval(
+
+// setInterval() means: Run code again and again after some time.
+
+// Example: 
+setInterval(function () {
+    console.log("Hello");
+}, 1000);
+
+// Output every second:
+// Hello, Hello, Hello, Hello...
+</pre>
+</code>
+<h4>STEP 6 — Function Inside setInterval</h4>
+<code>
+<pre>
+function () {}
+
+// this function runs repeatedly Think:
+// repeat this logic many times until we say stop
+</pre>
+</code>
+<h4>STEP 7 — Checking Progress Limit</h4>
+<code>
+<pre>
+if (count <= 99)
+
+// Meaning:
+// if progress is below 100 keep increasing, when count becomes 100: condition becomes false, else block runs and we stop the timer
+</pre>
+</code>
+<h4>STEP 8 — Increasing Count</h4>
+<code>
+<pre>
+count++;
+
+// Example: if count is 0, after this line it becomes 1. If it's 1, it becomes 2. This increases progress by 1% every time this function runs.
+</pre>
+</code>
+<h4>STEP 9 — Increasing Progress Bar Width</h4>
+<code>
+<pre>
+progress.style.width = `${count}%`;
+
+// Very Important line, suppose:
+count = 50;
+// Then:
+progress.style.width = "50%";
+
+// CSS width becomes: 
+// width: 50%;
+
+// Bar fills visually.
+</pre>
+</code>
+<h4>STEP 10 — Updating Percentage Text</h4>
+<code>
+<pre>
+percentText.textContent = `${count}%`;
+
+// Changes text on screen.
+// Example:
+&lt;p>45%&lt;/p>
+
+// then:
+&lt;p>46%&lt;/p>
+</pre>
+</code>
+<h4>STEP 11 — Else Block</h4>
+<code>
+<pre>
+else { }
+
+// runs when: count > 99 (when we reach 100%)
+// meaning download completed
+</pre>
+</code>
+<h4>STEP 12 — Showing Downloaded Message</h4>
+<code>
+<pre>
+document.querySelector("h2").textContent = "Downloaded.";
+
+// suppose HTML:
+&lt;h2>Downloading...&lt;/h2>
+
+// after completion:
+&lt;h2>Downloaded&lt;/h2>
+</pre>
+</code>
+<h4>STEP 13 — clearInterval() (VERY IMPORTANT)</h4>
+<code>
+<pre>
+clearInterval(intv);
+
+// stop repeating process without this: 
+// interval keeps running forever, wastes memory, causes bugs
+
+// Think: Stop the repeating machine when download is done.
+</pre>
+</code>
+<h4>
+  STEP 14 — Interval Timing Formula
+</h4>
+<code>
+<pre>
+(seconds * 1000) / 100
+
+// This is Very smart logic.
+// we want: 100 increments in "seconds" seconds
+// so we divide total time by 100 to get time for each increment
+
+// 1 second = 1000 milliseconds
+// 5 * 1000 = 5000ms
+
+// Now divide by 100: 5000 / 100 = 50ms
+// meaning: run every 50ms to reach 100% in 5 seconds
+</pre>
+</code>
+<h4>visual Flow</h4>
+<code>
+<pre>
+Start
+ ↓
+count = 0
+ ↓
+Run interval every 50ms
+ ↓
+Increase count
+ ↓
+Update width
+ ↓
+Update text
+ ↓
+Reached 100?
+ ↓ No
+Repeat again
+ ↓ Yes
+Show Downloaded
+ ↓
+Stop interval
+</pre>
+</code>
+<h2>StopWatch App</h2>
+<p>
+  A Stopwatch App teaches REAL frontend engineering skills:
+</p>
+<ul>
+  <li>DOM Manipulation</li>
+  <li>Event Handling</li>
+  <li>Timer Functions</li>
+  <li>intervals</li>
+  <li>state management</li>
+  <li>UI udpates</li>
+  <li>clean architecture</li>
+</ul>
+<p>
+  We'll build it step by step like a professional engineer, focusing on clean code and best practices.
+</p>
+<h4>FINAL FEATURES</h4>
+<p>
+  Our stopwatch will have:
+</p>
+<ul>
+  <li>start</li>
+  <li>stop</li>
+  <li>reset</li>
+  <li>Live timer</li>
+  <li>Clean UI</li>
+  <li>Engineering Principles</li>
+</ul>
+<h4>STEP 1: THINK LIKE AN ENGINEER</h4>
+<p>
+  Before coding... 
+  <br>
+  We need State. 
+  <br>
+  State = current app data 
+  <br>
+  Our stopwatch needs:
+</p>
+ <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>seconds</td>
+                <td>current time</td>
+              </tr>
+              <tr>
+                <td>interval</td>
+                <td>repeating timer</td>
+              </tr>
+              <tr>
+                <td>isRunning</td>
+                <td>prevent multiple intervals</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+<h4>STEP 2: HTML STRUCTURE</h4>
+<code>
+<pre>
+&lt;div class="stopwatch">
+
+  &lt;h1 id="time">0&lt;/h1>
+
+  &lt;button id="startBtn">Start&lt;/button>
+  &lt;button id="stopBtn">Stop&lt;/button>
+  &lt;button id="resetBtn">Reset&lt;/button>
+
+&lt;/div>
+</pre>
+</code>
+<h4>STEP 3: BASIC CSS</h4>
+<code>
+<pre>
+.stopwatch {
+  width: 200px;
+  padding: 20px;
+  background: #f0f0f0;
+  text-align: center;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+</pre>
+</code>
+<h4>STEP 4: JAVASCRIPT LOGIC</h4>
+<code>
+<pre>
+const time = document.querySelector("#time");
+
+const startBtn = document.querySelector("#startBtn");
+const stopBtn = document.querySelector("#stopBtn");
+const resetBtn = document.querySelector("#resetBtn");
+</pre>
+</code>
+<h4>STEP 5: CREATE STATE VARIABLES</h4>
+<code>
+<pre>
+let seconds = 0;
+
+let interval = null;
+
+let isRunning = false;
+</pre>
+</code>
+<h4>WHY THESE VARIABLES?</h4>
+<p>
+  <strong>seconds:</strong> stores current timer value
+  <br>
+  <strong>interval:</strong> Stores setInterval ID needed for:
+</p>
+<code>
+<pre>
+clearInterval(interval);
+</pre>
+</code>
+<p>
+  <strong>isRunning:</strong> prevents bugs: multiple intervals running together
+</p>
+<h4>STEP 6: START FUNCTION</h4>
+<code>
+<pre>
+function startTimer() {
+
+  if (isRunning) return;
+
+  isRunning = true;
+
+  interval = setInterval(() => {
+
+    seconds++;
+
+    time.textContent = seconds;
+
+  }, 1000);
+}
+</pre>
+</code>
+<h4>BREAK IT DOWN</h4>
+<code>
+<pre>
+// important line: 
+if (isRunning) return;
+</pre>
+</code>
+<p>
+  <strong>Prevents this bug:</strong>
+  <br>
+  User clicks Start many times 😵 
+Without protection:
+</p>
+<code>
+<pre>
+1
+2
+4
+7
+10
+</pre>
+</code>
+<h4>STEP 7: STOP FUNCTION</h4>
+<code>
+<pre>
+function stopTimer() {
+
+  clearInterval(interval);
+
+  isRunning = false;
+}
+</pre>
+</code>
+<h4>STEP 8: RESET FUNCTION</h4>
+<code>
+<pre>
+function resetTimer() {
+
+  clearInterval(interval);
+
+  seconds = 0;
+
+  time.textContent = seconds;
+
+  isRunning = false;
+}
+</pre>
+</code>
+<h4>STEP 9: CONNECT BUTTONS</h4>
+<code>
+<pre>
+startBtn.addEventListener("click", startTimer);
+
+stopBtn.addEventListener("click", stopTimer);
+
+resetBtn.addEventListener("click", resetTimer);
+</pre>
+</code>
+<h4>FINAL COMPLETE CODE</h4>
+<code>
+<pre>
+const time = document.querySelector("#time");
+
+const startBtn = document.querySelector("#startBtn");
+const stopBtn = document.querySelector("#stopBtn");
+const resetBtn = document.querySelector("#resetBtn");
+
+let seconds = 0;
+let interval = null;
+let isRunning = false;
+
+function startTimer() {
+
+  if (isRunning) return;
+
+  isRunning = true;
+
+  interval = setInterval(() => {
+
+    seconds++;
+
+    time.textContent = seconds;
+
+  }, 1000);
+}
+
+function stopTimer() {
+
+  clearInterval(interval);
+
+  isRunning = false;
+}
+
+function resetTimer() {
+
+  clearInterval(interval);
+
+  seconds = 0;
+
+  time.textContent = seconds;
+
+  isRunning = false;
+}
+
+startBtn.addEventListener("click", startTimer);
+
+stopBtn.addEventListener("click", stopTimer);
+
+resetBtn.addEventListener("click", resetTimer);
+</pre>
+</code>
+        <a
+          href="#"
+          style="
+            background-color: rgb(255, 255, 255);
+            display: block;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 3rem;
+          "
+          class="back-to-top"
+          >Back To Top</a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© Incellence • Made with ❤️</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+    <main class="container two-column">
+      <section>
+        <div class="h-1">Chapter 10</div>
+        <h2>Control Attributes</h2>
+        <p>Attributes = extra information inside HTML elements.</p>
+        <code>
+          <pre>
+&lt;input type="text" id="username" value="Naseeb Khan" class="box">
+</pre
+          >
+        </code>
+        <p>Here:</p>
+        <ul>
+          <li>type="text is attribute</li>
+          <li>id="username" is attribute</li>
+          <li>value="Naseeb Khan" is attribute</li>
+          <li>class="box" is attribute</li>
+        </ul>
+        <p>
+          <strong>Simple:</strong><br />
+          Attributes = settings of an element
+        </p>
+        <h4>Why Manipulate Attributes</h4>
+        <p>To:</p>
+        <ul>
+          <li>change values</li>
+          <li>add new attributes</li>
+          <li>remove attributes</li>
+          <li>check attributes</li>
+        </ul>
+        <code>
+          <pre>
+// 1. Get Attribute
+let input = document.getElementById("username");
+
+console.log(input.getAttribute("value"));
+// Output: Naseeb Khan
+
+// 2. Set / Change Attribute 
+input.setAttribute("value", "NaseebCodeStudio");
+
+// Now: Value="NaseebCodeStudio"
+
+// 3. Add New Attribute
+input.setAttribute("placeholder", "Enter your name");
+
+// Adds: placeholder="Enter your name"
+
+// 4. Remove Attribute
+input.removeAttribute("class");
+
+// Removes: class="box"
+
+// 5. Check if Attribute Exists
+console.log(input.hasAttribute("id"));
+
+// Output: true
+
+// 6. Get All Attributes 
+console.log(input.attributes);
+
+// Returns Collection like: 
+// type="text"
+// id="username"
+// value="Ali"
+// class="box"
+
+// LOOP through attributes 
+for (let attr of input.attributes){
+  console.log(attr.name + " = " + attr.value);
+}
+</pre
+          >
+        </code>
+        <h4>Direct Property vs Attribute (IMPORTANT)</h4>
+        <code>
+          <pre>
+&lt;input id="box" value="Naseeb">
+
+let el = document.getElementById("boxy");
+
+// Attribute 
+console.log(el.getAttribute("value"));
+
+// Property 
+console.log(el.value);
+</pre
+          >
+        </code>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Property</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML value</td>
+                <td>Live value</td>
+              </tr>
+              <tr>
+                <td>Static</td>
+                <td>Can Change dynamically</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <code>
+          <pre>
+// Example  
+el.value = "Changed!";
+</pre
+          >
+        </code>
+        <p>
+          <strong>Now:</strong>
+        </p>
+        <ul>
+          <li>el.value is "Changed!"</li>
+          <li>getAttribute("value") is still "Naseeb"</li>
+        </ul>
+        <p>
+          <strong>Simple:</strong>
+          <br />
+          Attribute = original <br />
+          Property = current/live
+        </p>
+        <code>
+          <pre>
+// Example:
+&lt;img id="img" src="image1.jpg">
+
+let img = document.getElementById("img");
+
+// Change image
+img.setAttribute("src", "image2.jpg");
+
+// Check
+console.log(img.getAttribute("src"));
+</pre
+          >
+        </code>
+        <p>Image changes on screen</p>
+        <h4>Special Attributes (Shortcut way)</h4>
+        <p>Instead of:</p>
+        <code>
+          <pre>
+input.setAttribute("value", "NaseebCodeStudio");
+
+// You can do:
+input.value = "NaseebCodeStudio";
+</pre
+          >
+        </code>
+        <p>Common shortcuts:</p>
+        <code>
+          <pre>
+input.id
+input.className
+input.value
+img.src
+a.href
+</pre
+          >
+        </code>
+        <h4>Important Rule</h4>
+        <p><strong>Use:</strong></p>
+        <ul>
+          <li>setAttribute() used for custom attributes</li>
+          <li>direct property used for common ones</li>
+        </ul>
+
+        <h4>In Simple Words:</h4>
+        <ul>
+          <li>Attributes = element settings</li>
+          <li>getAttribute → read</li>
+          <li>setAttribute → change/add</li>
+          <li>removeAttribute → delete</li>
+          <li>hasAttribute → check</li>
+          <li>attributes → list all</li>
+          <li>property ≠ attribute</li>
+        </ul>
+        <p>
+          <strong>Easy Analogy:</strong>
+          <br />
+          Element = mobile phone 📱 <br />
+          Attributes = settings (brightness, volume, name)
+          <br />
+          You can:
+        </p>
+        <ul>
+          <li>change settings</li>
+          <li>remove settings</li>
+          <li>check settings</li>
+        </ul>
+
+        <h4>Engineer Tip</h4>
+        <p>In real Projects:</p>
+        <ul>
+          <li>Use .value, .src, .href (faster)</li>
+          <li>Use setAttribute() for custom stuff</li>
+        </ul>
+
+        <h2>Control Elements</h2>
+        <p>
+          Dynamic DOM manipulation means:
+          <br />
+          Creating, adding, and removing elements using JavaScript at runtime
+        </p>
+        <p>
+          💡 Real apps (YouTube, Facebook, Todo apps)
+          <br />
+          👉 don’t have static HTML they build UI dynamically
+        </p>
+        <p>
+          <strong>Think like this:</strong>
+          <br />
+          👉 DOM = LEGO blocks 🧱 <br />
+          👉 JavaScript = your hands ✋
+        </p>
+        <p>You can:</p>
+        <ul>
+          <li>create new block</li>
+          <li>attach it anywhere</li>
+          <li>remove it anytime</li>
+        </ul>
+        <h4>CREATE ELEMENT</h4>
+        <code>
+          <pre>
+const div = document.createElement("div");
+</pre
+          >
+        </code>
+        <p>
+          👉 This creates element in memory only <br />
+          👉 NOT visible yet ❌
+        </p>
+        <p>Add content</p>
+        <code>
+          <pre>
+div.textContent = "Hello Naseeb";
+</pre
+          >
+        </code>
+        <p>Add class (best practice)</p>
+        <code>
+          <pre>
+div.classList.add("box");
+</pre
+          >
+        </code>
+        <h4>ADDING ELEMENTS TO DOM</h4>
+        <p>appendChild (classic)</p>
+        <code>
+          <pre>
+parent.appendChild(div);
+
+// 👉 Adds element at the end
+</pre
+          >
+        </code>
+        <p>append (modern & flexible)</p>
+        <code>
+          <pre>
+parent.append(div);
+</pre
+          >
+        </code>
+        <p>Difference:</p>
+        <ul>
+          <li>appendChild → only elements</li>
+          <li>append → text + multiple items</li>
+        </ul>
+        <h4>PREPEND (VERY IMPORTANT)</h4>
+        <code>
+          <pre>
+parent.prepend(div);
+
+// 👉 Adds element at the start
+</pre
+          >
+        </code>
+        <h4>VISUAL UNDERSTANDING</h4>
+        <code>
+          <pre>
+// Before:
+&lt;ul>
+  &lt;li>Item 1&lt;/li>
+&lt;/ul>
+
+
+// After append:
+&lt;ul>
+  &lt;li>New Item&lt;/li>
+  &lt;li>Item 1&lt;/li>
+&lt;/ul>
+
+
+// After prepend:
+&lt;ul>
+  &lt;li>New Item&lt;/li>
+  &lt;li>Item 1&lt;/li>
+&lt;/ul>
+</pre
+          >
+        </code>
+
+        <h4>COMPLETE REAL EXAMPLE</h4>
+        <code>
+          <pre>
+const list = document.querySelector("ul");
+
+// create element
+const li = document.createElement("li");
+
+// add content
+li.textContent = "Learning DOM from NaseebCodeStudio";
+
+// add class
+li.classList.add("task");
+
+// append to list
+list.append(li);
+</pre
+          >
+        </code>
+        <h4>REMOVING ELEMENTS</h4>
+        <code>
+          <pre>
+// Simple remove
+li.remove();
+
+// Remove from parent
+parent.removeChild(li);
+// 👉 Old but still used sometimes
+</pre
+          >
+        </code>
+        <h4>REAL PROJECT (Add + Remove Todo)</h4>
+        <code>
+          <pre>
+const input = document.querySelector("#input");
+const btn = document.querySelector("#btn");
+const list = document.querySelector("#list");
+
+btn.addEventListener("click", () => {
+  const value = input.value.trim();
+  if (!value) return;
+
+  const li = document.createElement("li");
+  li.textContent = value;
+
+  list.append(li);
+  input.value = "";
+});
+
+// remove item (PRO WAY)
+list.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    e.target.remove();
+  }
+});
+</pre
+          >
+        </code>
+        <h4>ENGINEERING MINDSET</h4>
+        <p>
+          ❌ Beginner Thinking: 👉 “Just create and append”
+          <br />
+          ✅ Engineer Thinking: 👉 “How will this scale with 1000 elements?”
+        </p>
+        <h4>BEST PRACTICES</h4>
+        <p>1. Avoid Multiple DOM Access: ❌ Bad:</p>
+        <code>
+          <pre>
+document.querySelector("ul").append(li);
+</pre
+          >
+        </code>
+        <p>✔️ Good:</p>
+        <code>
+          <pre>
+const list = document.querySelector("ul");
+list.append(li);
+</pre
+          >
+        </code>
+        <p>2. Use Document Fragment (PERFORMANCE 🔥): For multiple elements:</p>
+        <code>
+          <pre>
+const fragment = document.createDocumentFragment();
+
+for (let i = 0; i &lt; 5; i++) {
+  const li = document.createElement("li");
+  li.textContent = "Item " + i;
+  fragment.append(li);
+}
+
+list.append(fragment);
+</pre
+          >
+        </code>
+        <p>WHY?</p>
+        <ul>
+          <li>reduces reflow</li>
+          <li>faster rendering</li>
+        </ul>
+        <h2>Control CSS</h2>
+        <p>You can change styles in JavaScript in 2 main ways:</p>
+        <ol>
+          <li>.style → direct styling</li>
+          <li>classList → CSS-based styling (PRO way)</li>
+        </ol>
+        <h4>.style (Direct Styling)</h4>
+        <p>
+          <strong>Think like this:</strong> i'm directly painting the element
+          with JS
+        </p>
+        <p>Basic Example:</p>
+        <code>
+          <pre>
+const box = document.querySelector(".box");
+
+box.style.color = "red";
+box.style.backgroundColor = "black";
+</pre
+          >
+        </code>
+        <h4>Important Rule:</h4>
+        <p>CSS → background-color (kabab-case)</p>
+        <p>JS → backgroundColor (camelCase)</p>
+        <p>Real Example:</p>
+        <code>
+          <pre>
+box.style.width = "200px";
+box.style.padding = "10px";
+box.style.borderRadius = "10px";
+</pre
+          >
+        </code>
+        <h4>Problems with .style</h4>
+        <ul>
+          <li>❌ Hard to manage in big apps</li>
+          <li>❌ Mixes design with logic</li>
+          <li>❌ Not reusable</li>
+        </ul>
+        <p>That’s why professionals avoid it for major styling</p>
+        <h4>classList (PROFESSIONAL WAY)</h4>
+        <p>
+          <strong>Think like this:</strong> "JS controls behavior, CSS controls
+          design"
+        </p>
+        <code>
+          <pre>
+// CSS
+.red {
+  color: red;
+}
+
+.active {
+  background: black;
+  color: white;
+}
+
+// JavaScript
+const box = document.querySelector(".box");
+
+box.classList.add("red");
+</pre
+          >
+        </code>
+        <h4>classList Methods (MASTER THESE)</h4>
+        <code>
+          <pre>
+// 1. add()
+box.classList.add("active"); // add class
+
+// 2. remove()
+box.classList.remove("active"); // remove class 
+
+// 3. toggle()
+box.classList.toggle("active"); // if class exist → remove if not → add
+
+// 4. contains()
+box.classList.contains("active"); // Check if class exists 
+</pre
+          >
+        </code>
+        <h4>.style vs classList (IMPORTANT)</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>.style</th>
+                <th>classList</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Use case</td>
+                <td>small changes</td>
+                <td>real apps</td>
+              </tr>
+              <tr>
+                <td>Maintainable</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>Reusable</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>Clean Code</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+<h4>ENGINEERING RULE (REMEMBER THIS)</h4>
+<p>
+  <strong>Use .style for:</strong>
+  quick dynamic values (width, height, position)
+  <br>
+  <strong>Use classList for:</strong>
+  UI states (active, hidden, dark, open)
+</p>
+
+<h4>Best Practices</h4>
+<code>
+<pre>
+// 1. NEVER mix logic + design
+// ❌ Bad:
+box.style.color = "red";
+
+// ✔️ Good:
+box.classList.add("error");
+
+// 2. Use meaningful class names
+// ✔️ active, hidden, open, error
+// ❌ redBox123
+
+// 3. Think in STATES
+// UI = states
+    // active / inactive
+    // open / closed
+    // visible / hidden
+
+// 4. Keep CSS powerful
+// Let CSS handle:
+    // animations
+    // colors 
+    // layout 
+
+// 5. Avoid inline styles in large apps
+</pre>
+</code>
+<h4>Final Mental Model</h4>
+<p> <strong>.style</strong> = quick control
+<br> <strong>classList</strong> = real engineering solution</p>    
+        <a
+          href="#"
+          style="
+            background-color: rgb(255, 255, 255);
+            display: block;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 3rem;
+          "
+          class="back-to-top"
+          >Back To Top</a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© NaseebCodeStudio • Made with ❤️</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

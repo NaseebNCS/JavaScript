@@ -1,0 +1,21 @@
+❓Questions❓
+1. JavaScript kya hota hai?
+2. JavaScript kahan use hota hai?
+3. JavaScript aur HTML ka difference kya hai?
+4. Browser JavaScript ko kaise samajhta hai?
+5. JavaScript file ka extension kya hota hai?
+6. JavaScript ka output kaise show karte hain?
+7. console.log() kya karta hai?
+8. JavaScript case-sensitive hoti hai ya nahi?
+9. Comment kya hota hai?
+10. Variable kya hota hai?
+11. var, let aur const mein difference kya hai?
+12. const kab use karte hain?
+13. Data type kya hota hai?
+14. JavaScript ke primitive data types kaun se hain?
+15. String kya hoti hai?
+16. Number data type kya hota hai?
+17. Boolean data type kya hota hai?
+18. Undefined ka matlab kya hai?
+19. Null kya hota hai?
+20. typeof operator kya karta hai?

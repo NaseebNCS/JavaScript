@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 12</div>
+      <h2>Event bubbling & capturing</h2>
+      <h4>1. CORE IDEA (Understand First)</h4>
+        <p>
+            When you click something in the DOM…
+        </p>
+<ul>
+    <li>the event doesn't stay there</li>
+    <li>it travels through elements</li>
+</ul>
+      <h4>TWO PHASES</h4>
+      <ol>
+        <li>Capturing phase (top → down)</li>
+        <li>Bubbling phase (bottom → up) ← default & most important</li>
+      </ol>
+<h4>REAL LIFE ANALOGY</h4>
+<p><strong>Imagine:</strong>
+You tap a child👶
+<br>
+<strong>Then message goes:</strong> child → parent → grandparent
+<br>That is bubbling
+</p>
+<h4>2. SIMPLE HTML STRUCTURE</h4>
+<code>
+<pre>
+&lt;div id="parent">
+  &lt;button id="child">Click Me&lt;/button>
+&lt;/div>
+</pre>
+</code>
+<h4>3. BUBBLING (DEFAULT BEHAVIOR 🔥)</h4>
+<code>
+<pre>
+const parent = document.querySelector("#parent");
+const child = document.querySelector("#child");
+
+parent.addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+child.addEventListener("click", () => {
+  console.log("Child clicked");
+});
+</pre>
+</code>
+<p>What happens when you click button?</p>
+<code>
+<pre>
+Child clicked
+Parent clicked
+</pre>
+</code>
+<p><strong>💡 Why?</strong> 
+    <br>Event starts at child <br> then moves up to parent</p>
+<p>This is BUBBLING</p>
+<h4>4. CAPTURING (OPPOSITE DIRECTION)</h4>
+<p>Event Goes:</p>
+<code>
+<pre>
+parent → child
+</pre>
+</code>
+<h4>Enable capturing 👇</h4>
+<code>
+<pre>
+parent.addEventListener("click", () => {
+  console.log("Parent clicked (capture)");
+}, true);
+
+// Now output: 
+// Parent clicked
+// Child clicked
+</pre>
+</code>
+<p>Because capturing runs first</p>
+<h4>RULE (REMEMBER THIS)</h4>
+<ul>
+    <li>Default = bubbling (false)</li>
+    <li>Capturing = true</li>
+</ul>
+<h4>5. EVENT FLOW (FULL PICTURE)</h4>
+<p>When you click:</p>
+<code>
+<pre>
+1. Capturing (top → down)
+2. Target (actual element)
+3. Bubbling (bottom → up)
+</pre>
+</code>
+<h4>6. stopPropagation() (VERY IMPORTANT)</h4>
+<p>Stops event from moving further</p>
+<code>
+<pre>
+child.addEventListener("click", (e) => {
+  console.log("Child clicked");
+  e.stopPropagation();
+});
+</pre>
+</code>
+<p>Now output: Child clicked</p>
+<p>Parent will NOT run</p>
+<h4>7. REAL USE CASE (Modal / Dropdown)</h4>
+<ul>
+    <li>click inside → don’t close</li>
+    <li>Click outside → close</li>
+</ul>
+<code>
+<pre>
+document.addEventListener("click", () => {
+  console.log("Close modal");
+});
+
+modal.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+</pre>
+</code>
+<p>This is real-world usage 🔥</p>
+<h4>8. EVENT DELEGATION (BUILT ON BUBBLING)</h4>
+<p>This is why bubbling is powerful</p>
+<code>
+<pre>
+const list = document.querySelector("ul");
+
+list.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    console.log("Clicked:", e.target.textContent);
+  }
+});
+</pre>
+</code>
+<p>
+    👉 You add ONE listener <br>
+👉 but handle many elements
+</p>
+<h4>🧠 ENGINEERING MINDSET</h4>
+<p>❌ <strong>Beginner Thinking</strong>
+
+👉 “Add event to every element”</p>
+<p>
+    ✅ <strong>Engineer Thinking</strong>
+
+👉 “Use bubbling → handle from parent”
+</p>
+<h4>COMMON MISTAKES</h4>
+<ul>
+    <li>Not understanding bubbling</li>
+    <li>Forgetting stopPropagation()</li>
+    <li>Adding too many listeners</li>
+    <li>Misusing capturing (rarely needed)</li>
+</ul>
+<h4>BEST PRACTICES</h4>
+<ol>
+    <li>Use bubbling by default</li>
+    <li>Use event delegation for lists</li>
+    <li>Use stopPropagation carefully</li>
+    <li>Avoid capturing unless special case</li>
+</ol>
+<h4>🧠 FINAL MENTAL MODEL</h4>
+<p>Event is like a wave</p>
+<ul>
+    <li>goes down (capturing)</li>
+    <li>hits target</li>
+    <li>goes up (bubbling)</li>
+</ul>
+<h4>Practice Programs:</h4>
+<code>
+<pre>
+// 1. Event Bubbling in Action
+// change bg color (home work)
+&lt;ol>
+    &lt;li>HTML&lt;/li>
+    &lt;li>CSS&lt;/li>
+    &lt;li>JavaScript&lt;/li>
+    &lt;li>Reactjs&lt;/li>
+    &lt;li>Nodejs&lt;/li>
+    &lt;li>Expressjs&lt;/li>
+    &lt;li>Nextjs&lt;/li>
+    &lt;li>MongoDB&lt;/li>
+&lt;/ol>
+
+document.querySelector("ol").addEventListener("click", (targetElement) => {
+    targetElement.target.style.textDecoration = "line-through"; // basic 
+    targetElement.target.classList.toggle("textDecoration");
+});
+
+// 2. character counter
+&lt;h1>I'll Count Your Character: &lt;b>0&lt;/b>&lt;/h1>
+&lt;input type="text">
+
+let input = document.querySelector("input");
+let b = document.querySelector("b");
+
+input.addEventListener("input", () => {
+  input.value; // get value 
+  input.value.length; // get value length 
+
+  b.textContent = input.value.length; // replace 0 to dynamic value 
+});
+
+// advanced version:
+// solve logical problem (home work)
+input.addEventListener("input", () => {
+  const remaining = input.value.length - 10;
+  b.textContent = remaining;
+
+  if (remaining &lt; 0){
+    b.style.color = "red";
+  }
+});
+</pre>
+</code>
+<h2>Form Validation</h2>
+<p>
+  <strong>Form validation </strong>= checking user input before sending data
+</p>
+<p>Example:</p>
+<ul>
+  <li>Empty name ❌</li>
+  <li>Invalid email ❌</li>
+  <li>Short Password ❌</li>
+</ul>
+<p><strong>Goal</strong>: Stop bad data early</p>
+<h4>The Core Concept</h4>
+<p>We use Events to trigger validation:</p>
+<ul>
+  <li>submit → when form is submitted</li>
+  <li>input → when user types</li>
+  <li>blur → when user leaves field</li>
+</ul>
+<p>Example:</p>
+<code>
+<pre>
+const input = document.querySelector("input");
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (input.value.length >  2){
+    document.querySelector(".hide").style.display = "block";
+  }else{
+    document.querySelector(".hide").style.display = "none";
+  }
+})
+</pre>
+</code>
+<h4>Two Ways to of Validation in HTML</h4>
+<ol>
+  <li>Inline Validation (built-in attributes)</li>
+  <li>Pattern validation (regex-based rule)</li>
+</ol>
+<p>Both are HTML-level validation (no JS needed)</p>
+<h4>Inline Validation (Simple & Built-in)</h4>
+<p>This is the easiest way just add attributes inside inputs.</p>
+<code>
+<pre>
+&lt;form>
+  &lt;input type="text" required placeholder="Enter name">
+  &lt;input type="email" required placeholder="Enter email">
+  &lt;input type="password" minlength="6" required placeholder="Password">
+  &lt;button type="submit">Submit&lt;/button>
+&lt;/form>
+</pre>
+</code>
+<h4>What’s happening?</h4>
+<ul>
+  <li>required → must fill</li>
+  <li>type="email" → browser checks email format</li>
+  <li>minlength="6" → password must be 6+ chars</li>
+</ul>
+<h4>Browser Automatically:</h4>
+<ul>
+  <li>Shows error message</li>
+  <li>Stops form submission</li>
+</ul>
+<h4>Pros of Inline Validation</h4>
+<ul>
+  <li>Super easy</li>
+  <li>No JavaScript needed</li>
+  <li>Fast to implement</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+  <li>Limited control</li>
+  <li>Default browser messages (not customizable easily)</li>
+  <li>Not flexible for complex rules</li>
+</ul>
+<h4>Pattern Validation (Advanced HTML Validation)</h4>
+<p>
+  Now we level up: <br> pattern lets you define custom rules using regex
+</p>
+<code>
+<pre>
+&lt;form>
+  &lt;input 
+    type="text" 
+    pattern="[A-Za-z]{3,}" 
+    placeholder="At least 3 letters"
+    required
+  >
+
+  &lt;button type="submit">Submit&lt;/button>
+&lt;/form>
+</pre>
+</code>
+<h4>What this means:</h4>
+<code>
+<pre>
+[A-Za-z]{3,}
+</pre>
+</code>
+<ul>
+  <li>A–Z or a–z only</li>
+  <li>Minimum 3 characters</li>
+</ul>
+<h4>Email Example (custom strict)</h4>
+<code>
+<pre>
+&lt;input 
+  type="email" 
+  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+  required
+>
+</pre>
+</code>
+<h4>Password Example</h4>
+<code>
+<pre>
+&lt;input 
+  type="password" 
+  pattern="(?=.*[A-Z])(?=.*[0-9]).{6,}"
+  placeholder="1 uppercase + 1 number"
+  required
+>
+</pre>
+</code>
+<h4>Custom Error Message (Important Trick)</h4>
+<p>By default browser shows ugly messages 😅</p>
+<p>Use This: </p>
+<code>
+<pre>
+&lt;input 
+  type="text" 
+  pattern="[A-Za-z]{3,}" 
+  oninvalid="this.setCustomValidity('Minimum 3 letters required')"
+  oninput="this.setCustomValidity('')"
+  required
+>
+</pre>
+</code>
+<h4>What’s happening:</h4>
+<ul>
+  <li>oninvalid → runs when validation fails</li>
+  <li>oninput → clears message when user types</li>
+</ul>
+<h4>Final Thought:</h4>
+<p><strong>HTML validation is like:</strong> First defense layer</p>
+<p><strong>JavaScript validation is: </strong>Second Defense layer</p>
+<p><strong>Backend validation is:</strong> Final security layer</p>
+
+<h4>Basic Form Validation Program</h4>
+<code>
+<pre>
+// HTML + CSS 
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+  &lt;title>Form Validation&lt;/title>
+  &lt;style>
+    .error {
+      color: red;
+      display: none;
+    }
+    #resultMessage {
+      color: green;
+      margin-top: 10px;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+
+&lt;form>
+  &lt;div>
+    &lt;label>Email&lt;/label>&lt;br>
+    &lt;input type="text" id="email">
+    &lt;div id="emailError" class="error">&lt;/div>
+  &lt;/div>
+
+  &lt;br>
+
+  &lt;div>
+    &lt;label>Password:&lt;/label>&lt;br>
+    &lt;input type="password" id="password">
+    &lt;div id="passwordError" class="error">&lt;/div>
+  &lt;/div>
+
+  &lt;br>
+
+  &lt;button type="submit">Submit&lt;/button>
+&lt;/form>
+
+&lt;p id="resultMessage">&lt;/p>
+
+
+// JavaScript
+let email = document.querySelector("#email");
+let password = document.querySelector("#password");
+let form = document.querySelector("form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  document.querySelector("#emailError").textContent = "";
+  document.querySelector("#passwordError").textContent = "";
+
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^])[A-Za-z\d@$!%*?&#^]{8,}$/;
+
+  let emailans = emailRegex.test(email.value);
+  let passwordans = passwordRegex.test(password.value);
+
+  let isValid = true;
+
+  if (!emailans) {
+    document.querySelector("#emailError").textContent = "Email is incorrect";
+    document.querySelector("#emailError").style.display = "initial";
+    isValid = false;
+  }
+
+  if (!passwordans) {
+    document.querySelector("#passwordError").textContent =
+      "Password is incorrect";
+    document.querySelector("#passwordError").style.display = "initial";
+    isValid = false;
+  }
+
+  if (isValid) {
+    document.querySelector("#resultMessage").textContent =
+      "Everything is correct";
+  }
+});
+</pre>
+</code>
+<h4>Explanation</h4>
+<code>
+<pre>
+// 1. Getting elements from HTML
+let email = document.querySelector("#email");
+let password = document.querySelector("#password");
+let form = document.querySelector("form");
+</pre>
+</code>
+<p>Here we are grabbing</p>
+<ul>
+  <li>email input field</li>
+  <li>password input field</li>
+  <li>the form</li>
+</ul>
+<p>Think of this as: “Hey JS, connect me with these HTML elements.”</p>
+<code>
+<pre>
+// 2. Listening to form submit
+form.addEventListener("submit", function (e) {})
+</pre>
+</code>
+<p><strong>This means: </strong>When user clicks submit button, this function runs.</p>
+<code>
+<pre>
+// 3. prevent page reload
+e.preventDefault();
+</pre>
+</code>
+<p>By Default, form refreshes page after submit.</p>
+<p><strong>We stop it because:</strong> We want to validate first, then decide what to do.</p>
+<code>
+<pre>
+// 4. Clear previous errors
+document.querySelector("#emailError").textContent = "";
+document.querySelector("#passwordError").textContent = "";
+</pre>
+</code>
+<p>Every time user submits:</p>
+<ul>
+  <li>Old error messages are removed</li>
+  <li>fresh validation starts</li>
+</ul>
+<code>
+<pre>
+// 5. Email Regex (pattern check)
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+</pre>
+</code>
+<p>
+  <strong>This checks:</strong>
+  proper email format like:
+</p>
+<ul>
+  <li>xyz@gmail.com</li>
+  <li>user@yahoo.com</li>
+</ul>
+<code>
+<pre>
+// 6. Password Regex
+const passwordRegex =
+/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^])[A-Za-z\d@$!%*?&#^]{8,}$/;
+</pre>
+</code>
+<p>This means password must have:</p>
+<ul>
+  <li>at least 1 lowercase</li>
+  <li>at least 1 uppercase</li>
+  <li>at least 1 number</li>
+  <li>at least 1 special character</li>
+  <li>minimum 8 characters</li>
+</ul>
+<code>
+<pre>
+// 7. Testing values
+let emailans = emailRegex.test(email.value);
+let passwordans = passwordRegex.test(password.value);
+</pre>
+</code>
+<p>.test() checks:</p>
+<ul>
+  <li>if input matches patter → true</li>
+  <li>Otherwise → false</li>
+</ul>
+<code>
+<pre>
+// 8. Validation flag
+let isValid = true;
+</pre>
+</code>
+<p>Assume everything is correct initially.</p>
+<code>
+<pre>
+// 9. Email error check
+if (!emailans) {
+  document.querySelector("#emailError").textContent = "Email is incorrect";
+  document.querySelector("#emailError").style.display = "initial";
+  isValid = false;
+}
+</pre>
+</code>
+<p>If email is wrong:</p>
+<ul>
+  <li>Show error message</li>
+  <li>Mark form invalid</li>
+</ul>
+<code>
+<pre>
+// 10. Password error check
+if (!passwordans) {
+  document.querySelector("#passwordError").textContent = "Password is incorrect";
+  document.querySelector("#passwordError").style.display = "initial";
+  isValid = false;
+}
+</pre>
+</code>
+<p>Same logic for password</p>
+<code>
+<pre>
+// 11. Final success check
+if (isValid) {
+  document.querySelector("#resultMessage").textContent =
+    "Everything is correct";
+}
+</pre>
+</code>
+<p><strong>If everything is correct</strong>: Show Success message</p>
+
+<h4>Step by Step Validations with JS</h4>
+<code>
+<pre>
+// Basic HTML Setup
+&lt;form id="myForm">
+  &lt;input type="text" id="username" placeholder="Enter username">
+  &lt;input type="email" id="email" placeholder="Enter email">
+  &lt;input type="password" id="password" placeholder="Enter password">
+  &lt;button type="submit">Submit&lt;/button>
+&lt;/form>
+
+&lt;p id="error">&lt;/p>
+
+// First Step: Handle Form Submit Event
+const form = document.getElementById("myForm");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault(); // stop form from submitting
+
+    console.log("Form submitted");
+});
+// 👉 event.preventDefault() = stop page reload
+
+// Access Input Values
+const username = document.getElementById("username").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+// Basic Validation (Empty Fields)
+if (username === "" || email === "" || password === "") {
+    document.getElementById("error").innerText = "All fields are required";
+}
+
+// Cleaner Approach (Professional Way)
+function showError(message) {
+    document.getElementById("error").innerText = message;
+}
+
+function clearError() {
+    document.getElementById("error").innerText = "";
+}
+
+// Validate Step-by-Step
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (username === "") {
+        showError("Username required");
+        return;
+    }
+
+    if (email === "") {
+        showError("Email required");
+        return;
+    }
+
+    if (password.length &lt; 6) {
+        showError("Password must be at least 6 characters");
+        return;
+    }
+
+    clearError();
+    console.log("Form is valid ✅");
+});
+
+// Notice: return stops further checks
+
+// Email Validation (Important)
+// simple Way: 
+function isValidEmail(email) {
+    return email.includes("@") && email.includes(".");
+}
+
+// Better (regex):
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+// Generate Regex: using AI tool ask it "create regex for email"
+
+
+// Use it:
+if (!isValidEmail(email)) {
+    showError("Invalid email");
+    return;
+}
+
+// Real-Time Validation (input event)
+const usernameInput = document.getElementById("username");
+
+usernameInput.addEventListener("input", function() {
+    if (this.value.length &lt; 3) {
+        showError("Username too short");
+    } else {
+        clearError();
+    }
+});
+// 👉 This gives instant feedback
+
+
+// Blur Event (Better UX)
+emailInput.addEventListener("blur", function() {
+    if (!isValidEmail(this.value)) {
+        showError("Invalid email format");
+    }
+});
+// 👉 User leaves field → validation runs
+
+
+// Highlight Errors (Pro UX)
+function setError(input) {
+    input.style.border = "2px solid red";
+}
+
+function setSuccess(input) {
+    input.style.border = "2px solid green";
+}
+
+// Use it:
+if (username === "") {
+    setError(usernameInput);
+} else {
+    setSuccess(usernameInput);
+}
+
+
+// Best Practice Structure (Engineering Mindset)
+// 1. Get values
+// 2. Validate each field
+// 3. Show errors
+// 4. Stop if invalid
+// 5. Submit if valid
+</pre>
+</code>
+<h4>Final Mini Project (Clean Version)</h4>
+<code>
+<pre>
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    if (username.value === "") {
+        setError(username);
+        isValid = false;
+    }
+
+    if (!isValidEmail(email.value)) {
+        setError(email);
+        isValid = false;
+    }
+
+    if (password.value.length &lt; 6) {
+        setError(password);
+        isValid = false;
+    }
+
+    if (isValid) {
+        console.log("Form submitted successfully 🎉");
+    }
+});
+</pre>
+</code>
+<h4>Prop Tips:</h4>
+<ul>
+  <li>Never trust frontend only (backend validation needed too)</li>
+  <li>Use trim() to remove spaces</li>
+  <li>Keep validation reusable (functions)</li>
+  <li>Don’t overuse alerts → use UI messages</li>
+</ul>
+
+<h4>Must Learn Concepts of Form validations</h4>
+<code>
+<pre>
+// 1. Basic Structure of a form 
+&lt;form id="signupForm">
+
+  &lt;input type="text" id="username" placeholder="Enter username">
+
+  &lt;input type="email" id="email" placeholder="Enter email">
+
+  &lt;input type="password" id="password" placeholder="Enter password">
+
+  &lt;button type="submit">Submit&lt;/button>
+
+&lt;/form>
+
+
+
+// 2. Accessing Form Elements
+// JavaScript first needs references to elements.
+const form = document.getElementById("signupForm");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+
+
+// 3. Understanding Form Submit Event
+// When user clicks submit button:
+form.addEventListener("submit", function(event) {
+
+});
+// This listens for form submission.
+
+
+
+// 4. preventDefault() — MOST IMPORTANT
+// By default:
+// form reloads page
+// sends data immediately
+// But during validation:
+// we want to STOP submission first.
+
+event.preventDefault();
+
+// Example:
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    console.log("Form submitted");
+
+});
+// Now page will NOT reload.
+
+
+
+// 5. Getting Input Values
+const usernameValue = username.value;
+// But usually we use:
+const usernameValue = username.value.trim();
+// Why trim()?
+// Because user may type:
+"      naseeb      "
+// trim removes extra spaces.
+
+
+
+// 6. Empty Field Validation
+// MOST COMMON validation.
+if (usernameValue === "") {
+    console.log("Username is required");
+}
+
+// Complete example:
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const usernameValue = username.value.trim();
+
+    if(usernameValue === "") {
+        alert("Username cannot be empty");
+    }
+
+});
+
+
+
+// 7. Length Validation
+// Example:
+// password must be at least 8 characters.
+if (password.value.length &lt; 8) {
+    console.log("Password must be at least 8 characters");
+}
+
+
+// 8. Email Validation
+// Simple Method
+if(!email.value.includes("@")) {
+    alert("Invalid email");
+}
+// But professional way uses Regex.
+
+
+
+// 9. Regex Validation (Very Important)
+// Regex = pattern matching system.
+// Example email pattern:
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Check:
+if(!emailPattern.test(email.value)) {
+    alert("Please enter valid email");
+}
+
+
+// 10. Understanding .test()
+emailPattern.test(email.value)
+// Returns: true/false
+
+// Example:
+console.log(emailPattern.test("abc@gmail.com"));
+// Output: true
+
+
+
+// 11. Showing Errors in UI (Better Than Alert)
+// instead of alerts:
+&lt;small id="usernameError">&lt;/small>
+
+// JavaScript:
+const usernameError = document.getElementById("usernameError");
+
+if(username.value.trim() === "") {
+    usernameError.textContent = "Username is required";
+}
+
+
+
+// 12. Clearing Previous Errors
+// VERY IMPORTANT.
+// Otherwise old errors stay visible.
+usernameError.textContent = "";
+// Example:
+usernameError.textContent = "";
+
+if(username.value.trim() === "") {
+    usernameError.textContent = "Username required";
+}
+
+
+
+// 13. Real-Time Validation (Powerful Concept)
+// Validate while typing.
+// Using input event:
+username.addEventListener("input", function() {
+
+    if(username.value.trim() === "") {
+        usernameError.textContent = "Required";
+    } else {
+        usernameError.textContent = "";
+    }
+
+});
+
+
+
+// 14. Blur Event Validation
+// blur runs when input loses focus.
+// Example:
+email.addEventListener("blur", function() {
+
+    if(email.value === "") {
+        alert("Email required");
+    }
+
+});
+
+
+
+// 15. Focus Event
+// When user enters input.
+email.addEventListener("focus", function() {
+    console.log("User started typing");
+});
+
+// Useful for: Hints, Helper message, UI effects etc.
+
+
+
+// 16. Preventing Submission if Errors Exist
+// Professional approach:
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let isValid = true;
+
+    if(username.value.trim() === "") {
+        isValid = false;
+    }
+
+    if(password.value.length &lt; 8) {
+        isValid = false;
+    }
+
+    if(isValid) {
+        console.log("Form Submitted");
+    }
+
+});
+
+
+
+// 17. Reusable Validation Functions (Professional Engineering Mindset)
+// Instead of repeating code:
+function showError(element, message) {
+    element.textContent = message;
+}
+// Usage:
+showError(usernameError, "Username required");
+
+
+
+// 18. Validation Flow (Very Important Concept)
+// Professional validation flow:
+// 1. User types data
+// 2. JS reads values
+// 3. JS checks conditions
+// 4. If invalid → show error
+// 5. If valid → clear error
+// 6. If all fields valid → submit form
+</pre>
+</code>
+<h4>Full Practical Example:</h4>
+<code>
+<pre>
+&lt;form id="form">
+
+    &lt;input type="text" id="username" placeholder="Username">
+    &lt;small id="usernameError">&lt;/small>
+
+    &lt;br>&lt;br>
+
+    &lt;input type="email" id="email" placeholder="Email">
+    &lt;small id="emailError">&lt;/small>
+
+    &lt;br>&lt;br>
+
+    &lt;input type="password" id="password" placeholder="Password">
+    &lt;small id="passwordError">&lt;/small>
+
+    &lt;br>&lt;br>
+
+    &lt;button type="submit">Submit&lt;/button>
+
+&lt;/form>
+
+
+// JavaScript
+const form = document.getElementById("form");
+
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+const usernameError = document.getElementById("usernameError");
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("passwordError");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    // clear old errors
+    usernameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+
+    let isValid = true;
+
+    // username validation
+    if(username.value.trim() === "") {
+        usernameError.textContent = "Username required";
+        isValid = false;
+    }
+
+    // email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailPattern.test(email.value)) {
+        emailError.textContent = "Invalid email";
+        isValid = false;
+    }
+
+    // password validation
+    if(password.value.length &lt; 8) {
+        passwordError.textContent = "Password too short";
+        isValid = false;
+    }
+
+    // final submit
+    if(isValid) {
+        alert("Form submitted successfully");
+    }
+
+});
+</pre>
+</code>
+<code>
+<pre>
+// 19. Password Mathch Validation
+if(password.value !== confirmPassword.value) {
+    alert("Passwords do not match");
+}
+
+
+
+// 20. Checkbox Validation
+&lt;input type="checkbox" id="terms">
+
+if(!terms.checked) {
+    alert("Accept terms first");
+}
+// .checked returns true/false for checkboxes and radio buttons.
+
+
+
+// 21. Number Only Validation
+const numberPattern = /^[0-9]+$/;
+// check:
+numberPattern.test(phone.value)
+
+
+
+// 22. FormData Object (Advanced & Useful) Professional forms use:
+const formData = new FormData(form);
+
+// Get Values: 
+formData.get("email");
+</pre>
+</code>
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

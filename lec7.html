@@ -1,0 +1,1919 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 6</div>
+      <h2>Math</h2>
+      <p>
+        We have learned a lot about objects, so now let's explore built-in objects in JavaScript. One of the most
+        important built-in objects is Math, which provides properties and methods for mathematical constants and
+        functions.
+      </p>
+      <strong>Key Properties and Methods of Math</strong>
+      <h4>Common Properties</h4>
+      <p>
+        Math.PI: Represents the ratio of the circumference of a circle to its diameter (approximately
+        3.14159).
+      </p>
+      <h4>Commonly Used Methods</h4>
+      <p>
+        <strong>Math.abs()</strong>
+        Returns the absolute value of a given number
+      </p>
+      <code>
+<pre>
+console.log(Math.abs(-7)); // Output: 7
+</pre>
+</code>
+      <p>
+        <strong>Math.random()</strong>
+        Generates a random number between 0 (inclusive) and 1 (exclusive).
+      </p>
+      <code>
+<pre>
+console.log(Math.random()); // Output: a random number between 0 and 1
+</pre>
+</code>
+      <strong>Using Math.random() for a range:</strong>
+      <code>
+<pre>
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+console.log(getRandomArbitrary(5, 10)); <span class="t-r">// Output: a random number between 5 and 10</span>
+</pre>
+</code>
+      <code>
+<pre>
+console.log(Math.random() * 10); <span class="t-r">// value between 0-10 decimal is included</span>
+console.log((Math.random() * 10) + 1); <span class="t-r">// value between 1-10 decimal is included</span>
+
+const maxNum = 5;
+const minNum = 15;
+consoel.log(math.floor(Math.random() * (max – min + 1)) + min); <span class="t-r">// values between 5 - 15</span>
+</pre>
+</code>
+
+      <p>
+        <strong>Math.round()</strong>
+        Rounds a decimal value to the nearest integer.
+      </p>
+      <code>
+<pre>
+console.log(Math.round(1.9)); // Output: 2
+</pre>
+</code>
+      <p>
+        <strong>Math.max()</strong>
+        Returns the maximum value among the given numbers.
+      </p>
+      <code>
+<pre>
+console.log(Math.max(1, 2, 3, 4)); // Output: 4
+</pre>
+</code>
+      <p>
+        <strong>Math.min()</strong>
+        Returns the minimum value among the given numbers.
+      </p>
+      <code>
+<pre>
+console.log(Math.min(-1, 0, -4)); // Output: -4
+</pre>
+</code>
+      <p>
+        <strong>Math.floor()</strong>
+        Rounds a number down to the nearest integer.
+      </p>
+      <code>
+<pre>
+console.log(Math.floor(4.7)); // Output: 4
+</pre>
+</code>
+      <p>
+        <strong>Math.ceil()</strong>
+        Rounds a number up to the nearest integer.
+      </p>
+      <code>
+<pre>
+console.log(Math.ceil(4.1)); // Output: 5
+</pre>
+</code>
+      <p><strong>Math.sqrt()</strong>Returns the square root of a number.
+      </p>
+      <code>
+<pre>
+console.log(Math.sqrt(16)); // Output: 4
+</pre>
+</code>
+      <p>
+        <strong>Math.pow()</strong>
+        Returns the base raised to the power of the exponent.
+      </p>
+      <code>
+<pre>
+console.log(Math.pow(2, 3)); // Output: 8
+</pre>
+</code>
+      <p>
+        <strong>
+          Math.trunc()
+        </strong>
+        Returns the integer part of a number by removing any fractional digits.
+      </p>
+      <code>
+<pre>
+console.log(Math.trunc(4.9)); // Output: 4
+</pre>
+</code>
+      <h2>String</h2>
+      <p>A string is an inbuilt object in JavaScript.
+      </p>
+      <code>
+<pre>
+const message = "Hello";
+
+<span class="output">OR</span>
+const message = ‘Hello’;
+</pre>
+</code>
+      <p>
+        Now, let's see what happens when we write “message.” we will get a bunch of methods and properties.
+        While a string is a primitive type, primitive types typically do not have methods or properties—only objects
+        do. However, in JavaScript, we see properties and methods when using dot notation with strings.
+      </p>
+      <h4>Primitive Strings vs. Object Strings</h4>
+      <p>In JavaScript, there are two types of strings:</p>
+      <strong>1. String Primitive:</strong>
+      <code>
+<pre>
+const message = "Hello";
+</pre>
+</code>
+      <strong>2. String Object:</strong>
+      <code>
+<pre>
+const message1 = new String("Hello");
+</pre>
+</code>
+      <strong>Checking the Type</strong>
+      <p>Let's find the type of each:</p>
+      <code>
+<pre>
+console.log(typeof message); <span class="t-r">// Output: "string"</span>
+console.log(typeof message1); <span class="t-r">// Output: "object"</span>
+console.log(message.__proto__); <span class="t-r">// all prototypes of string</span>
+</pre>
+</code>
+      <p>When we use dot notation with a primitive string, the JavaScript engine internally wraps it with a string
+        object. Although we don’t see this process, it allows us to work with primitive strings as if they were
+        objects.</p>
+
+      <h4>Exploring Properties and Methods</h4>
+      <strong>.length</strong>
+      <code>
+<pre>
+const message = 'This is my first message';
+console.log(message.length); <span class="t-r">// Returns the number of characters in the string</span>
+</pre>
+</code>
+      <p>This is useful for input fields when you need to limit the number of characters or enforce a specific range.
+      </p>
+      <strong>Accessing Characters by Index</strong>
+      <code>
+<pre>
+const message = 'This is my first message';
+
+console.log(message[0]); // Outputs 'T'
+</pre>
+</code>
+      <strong>Checking for Substrings</strong>
+      <code>
+<pre>
+const message = 'This is my first message';
+
+console.log(message.includes("my")); <span class="t-r">// Returns true or false</span>
+</pre>
+</code>
+      <p>
+        This method checks if the string contains a specific word. Note that the search is case-sensitive.
+      </p>
+      <strong>Checking the Start of a String</strong>
+      <code>
+<pre>
+const message = 'This is my first message';
+
+console.log(message.startsWith("This")); <span class="t-r">// Returns true or false</span>
+</pre>
+</code>
+      <strong>Checking the End of a String</strong>
+      <code>
+<pre>
+const message = 'This is my first message';
+
+console.log(message.endsWith("e")); <span class="t-r">// Returns true or false</span>
+</pre>
+</code>
+      <strong>Finding the Index of a Substring</strong>
+      <code>
+<pre>
+const message = 'This is my first message';
+
+console.log(message.indexOf("my")); <span class="t-r">// Returns the index of the substring or -1 if not found</span>
+</pre>
+</code>
+      <strong>Replacing Parts of a String</strong>
+      <code>
+<pre>
+console.log(message.replace("first", "second")); <span class="t-r">// Returns a new string with the replacement</span>
+</pre>
+</code>
+      <p>Note: This method does not modify the original string but returns a new one.
+      </p>
+      <strong>Accessing a part of String</strong>
+      <code>
+<pre>
+const name = “NaseebCodeStudio”;
+console.log(name.substring(0,5)); <span class="t-r">// Returns Naseeb</span>
+</pre>
+</code>
+      <strong>Accessing a part of String with negative values</strong>
+      <code>
+<pre>
+const name = “NaseebCodeStudio”;
+console.log(name.slice(-11, -1)); <span class="t-r">// Returns bCodeStudi</span>
+</pre>
+</code>
+      <strong>Changing Case</strong>
+      <code>
+<pre>
+console.log(message.toUpperCase()); <span class="t-r">// Converts the string to uppercase</span>
+console.log(message.toLowerCase()); <span class="t-r">// Converts the string to lowercase</span>
+</pre>
+</code>
+      <strong>Trimming Whitespace</strong>
+      <code>
+<pre>
+console.log(message.trim()); <span class="t-r">// Removes whitespace from both ends</span>
+
+console.log(message.trimLeft()); <span class="t-r">// Removes whitespace from the left side</span>
+
+console.log(message.trimRight()); <span class="t-r">// Removes whitespace from the right side</span>
+</pre>
+</code>
+      <p>These methods are helpful for cleaning up input data.
+      </p>
+      <h2>Numbers</h2>
+      <p>
+        Numbers in JavaScript are used to work with numeric values. <br>
+        We can declare numbers in two ways:
+      </p>
+      <code>
+<pre>
+const firstNumber = 99; // Primitive number
+const secondNumber = new Number(99); // Object number
+</pre>
+</code>
+      <p>There are several methods available to work with numbers:</p>
+
+      <p><strong>Converting a Number to a String</strong> The .toString() method converts a number to a string.</p>
+      <code>
+<pre>
+console.log(firstNumber.toString()); // Output: '99'
+</pre>
+</code>
+
+      <p><strong>Formatting a Number with Fixed Decimals</strong> The .toFixed() method formats a number to a specified
+        number of decimal places.
+      </p>
+      <code>
+<pre>
+console.log(firstNumber.toFixed(2)); // Output: '99.00'
+</pre>
+</code>
+      <p>
+        <strong>Setting Precision with .toPrecision()</strong>
+        The .toPrecision() method rounds a number to a specified number of significant digits.
+      </p>
+      <code>
+<pre>
+const thirdNumber = 99.99;
+console.log(thirdNumber.toPrecision(3)); // Output: '100'
+</pre>
+</code>
+      <ul>
+        <li>If the number before the decimal has 2 digits, it stays as it is.
+        </li>
+        <li>If the number before the decimal has 3 or more digits, the decimal value adjusts accordingly.</li>
+      </ul>
+      <p>
+        <strong>Making Numbers Readable with .toLocaleString()</strong>
+        The .toLocaleString() method formats a number with commas for better readability, and it can adapt
+        to specific locales (e.g., en-IN, en-US, en-PKR).
+      </p>
+      <code>
+<pre>
+const fourthNumber = 9999999;
+console.log(fourthNumber.toLocaleString()); // Output: '9,999,999'
+</pre>
+</code>
+      <strong>Example with locale:</strong>
+      <code>
+<pre>
+console.log(fourthNumber.toLocaleString('en-IN')); // Output: '99,99,999'
+</pre>
+</code>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Purpose</th>
+              <th>Example</th>
+              <th>Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>.toString()</td>
+              <td>Converts a number to a string</td>
+              <td>99.toString()</td>
+              <td>'99'</td>
+            </tr>
+            <tr>
+              <td>.toFixed(n)</td>
+              <td>Formats a number to n decimal
+                places</td>
+              <td>99.123.toFixed(2)</td>
+              <td>'99.12'</td>
+            </tr>
+            <tr>
+              <td>.toPrecision(n)</td>
+              <td>Rounds to n significant digits</td>
+              <td>99.99.toPrecision(3)</td>
+              <td>'100'</td>
+            </tr>
+            <tr>
+              <td>.toLocaleString(locale)</td>
+              <td>Formats with commas based
+                on locale</td>
+              <td>9999999.toLocaleString('en-IN')</td>
+              <td>'99,99,999'</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Escape Notation</h2>
+      <p>Escape notations are special characters. If we want to use them, we need to encode them using escape
+        sequences. For example, if you have a single quote in your string, the JavaScript engine might get confused
+        and think it marks the end of the string.
+      </p>
+      <code>
+<pre>
+<span class="output">Incorrect code:</span>
+const message = 'This is my 'first message';
+</pre>
+</code>
+      <p>Here, the JavaScript engine gets confused. It thinks the second single quote ends the string.
+      </p>
+      <p>To fix this, we need to prefix the single quote inside the string with a backslash (\), which is the escape
+        character.</p>
+      <code>
+<pre>
+<span class="output">Corrected code using escape notation:</span>
+const message = 'This is my \'first message';
+</pre>
+</code>
+      <p>Now, \' is an escape sequence that allows a single quote to be part of the string.</p>
+      <code>
+<pre>
+console.log(message); // Output: This is my 'first message'
+</pre>
+</code>
+      <p>Another escape sequence is \n, which represents a new line.
+      </p>
+      <p><strong>Example with \n:</strong></p>
+      <code>
+<pre>
+const multilineMessage = 'This is line one.\nThis is line two.';
+console.log(multilineMessage);
+
+<span class="output">Output:</span>
+// This is line one.
+// This is line two.
+</pre>
+</code>
+      <p>A useful method you can use with strings is .split(). If you apply it to a string, it converts the string into
+        an
+        array. Each word or segment is separated into a different element of the array based on the delimiter you
+        specify</p>
+      <p><strong>Example with .split():</strong></p>
+      <code>
+<pre>
+const words = message.split(' ');
+console.log(words);
+
+// Output: ['This', 'is', 'my', "'first", "message'"]
+</pre>
+</code>
+      <h2>Template Literals:</h2>
+      <p>We have learned to use \n for inserting a new line in a string. However, I don't like this approach because it
+        doesn't allow us to visualize what the output will look like when we print the string. The output and the code
+        won't look similar.
+      </p>
+      <code>
+<pre>
+const message = 'This is my\nfirst message';
+
+<span class="output">Output</span>
+// This is my
+// first message
+</pre>
+</code>
+      <p>But both the code and output are different.
+      </p>
+      <p>What if we want the output and the code to look the same? We can concatenate the string using the +
+        operator and use the Enter key to align the content in a new line. We can also shift the first line to the
+        second line using Enter. This approach will look somewhat like the output.</p>
+      <p>However, we still have the backslash \n, which creates some visual noise in the code. If we want the first
+        word in a string to be in single quotes, we will need to use a backslash \'.</p>
+      <p>To make our code cleaner and easier to read, we use template literals.
+      </p>
+      <h4>What are Template Literals?</h4>
+      <p>In JavaScript ES6, template literals are introduced using backticks (`). These make our code cleaner and
+        easier to visualize.
+      </p>
+      <p>
+        <strong>Example of a Template Literal:</strong>
+      </p>
+      <code>
+<pre>
+const anotherMsg = `This is my first message`;
+</pre>
+</code>
+      <p>Where we need a new line, we can simply press Enter:</p>
+      <code>
+<pre>
+const anotherMsg = `This is my
+                    first message`;
+</pre>
+</code>
+      <p>If we want to surround the first word in single quotes, we can write:
+      </p>
+      <code>
+<pre>
+const anotherMsg = `'This' is my first message`;
+</pre>
+</code>
+      <p>No need to use backslashes (\') or the + operator.
+      </p>
+      <h4>Use Case: Writing Email Templates</h4>
+      <p>This is particularly useful when we want to send email messages in our applications. Here's an example of
+        writing an email template using template literals:
+      </p>
+      <code>
+<pre>
+const email = `Hi Lucky,
+                    Thank you for joining my mailing list.
+              Regards,
+                    Naseeb Khan`;
+</pre>
+</code>
+      <p>There is no need to use + or backslash characters.
+      </p>
+      <h4>Placeholders in Template Literals</h4>
+      <p>Another benefit of template literals is the ability to use placeholders inside a string.
+      </p>
+      <p>If we want to include dynamic names in the email, we can use variables:
+      </p>
+      <code>
+<pre>
+const receiver = "Lucky";
+
+const sender = "Naseeb Khan";
+
+const email = `Hi ${receiver},
+Thank you for joining my mailing list.
+Regards,
+${sender}`;
+</pre>
+</code>
+      <p>${} are placeholders for variables or expressions. We can also add any type of expression, such as:
+      </p>
+      <code>
+<pre>
+const sum = `The result of 2 + 2 is ${2 + 2}`;
+</pre>
+</code>
+      <p>We can even use functions within template literals:
+      </p>
+      <code>
+<pre>
+const greet = (name) => `Hello, ${name}!`;
+const message = greet('Lucky'); // Output: "Hello, Lucky!"
+</pre>
+</code>
+      <h2>Date & Time</h2>
+      <p>To work with dates in JavaScript, we use the Date object. There are different ways to create a Date object.
+      </p>
+      <h4>Creating a Date Object</h4>
+      <p><strong>1. Default Constructor:</strong></p>
+      <code>
+<pre>
+const date1 = new Date();
+</pre>
+</code>
+      <p>This is a “constructor” function. When we use parentheses, we can see different versions of the Date
+        constructor in code editors (e.g., IntelliSense). Use the up and down arrows to cycle through these options.
+      </p>
+      <p>If the Date constructor is called without any parameters, it returns the current date and time:
+      </p>
+      <code>
+<pre>
+const now = new Date();
+</pre>
+</code>
+      <p><strong>2. Constructor with a Single Parameter (String or Number):</strong></p>
+      <p>You can pass a string to represent a specific date and time
+      </p>
+      <code>
+<pre>
+const date1 = new Date('November 20, 2024 03:00');
+
+<span class="t-r">The following are also other formats accepted by date object:</span>
+YYYY-MM-DDTHH:mm:ss.sssZ
+2024-20-21
+new Date(year,month)
+new Date(year,month,day)
+new Date(year,month,day,hours)
+new Date(year,month,day,hours,minutes)
+new Date(year,month,day,hours,minutes,seconds)
+new Date(year,month,day,hours,minutes,seconds,ms)
+</pre>
+</code>
+      <p>Alternatively, you can pass a number that represents the milliseconds that have elapsed since January 1,
+        1970, or pass another Date object:n</p>
+
+      <code>
+<pre>
+const date2 = new Date(1700000000000); <span class="t-r">// Example using milliseconds</span>
+</pre>
+</code>
+      <p>
+        <strong>Constructor with Numeric Parameters:</strong>
+      </p>
+      <p>This method allows passing numbers for the year, month, day, hour, etc.:
+      </p>
+      <code>
+<pre>
+const date2 = new Date(2024, 11, 20, 9);
+</pre>
+</code>
+      <p>
+        Important Note: The month parameter is zero-based, meaning 11 corresponds to December. Months start
+        at index 0, where 0 is January.
+      </p>
+      <p>There are various ways to create a Date object. All Date objects come with a set of get and set methods.
+      </p>
+      <h4>Get Methods</h4>
+      <p>
+        The following methods retrieve specific components of a date:
+      </p>
+      <code>
+<pre>
+const now = new Date();
+</pre>
+</code>
+      <p>
+        <strong>Examples of get methods:</strong>
+      </p>
+      <code>
+<pre>
+console.log(now.getDate()); <span class="t-r">// Returns the day of the month (1-31)</span>
+console.log(now.getDay()); <span class="t-r">// Returns the day of the week (0-6, where 0 is Sunday)</span>
+console.log(now.getFullYear()); <span class="t-r">// Returns the year (e.g., 2024)</span>
+console.log(now.getMonth()); <span class="t-r">// Returns the month (0-11, where 0 is January)</span>
+console.log(now.getHours()); <span class="t-r">// Returns the hour (0-23)</span>
+console.log(now.getMinutes()); <span class="t-r">// Returns the minutes (0-59)</span>
+console.log(now.getSeconds()); <span class="t-r">// Returns the seconds (0-59)</span>
+console.log(now.getTime()); <span class="t-r">// Returns the time in milliseconds since Jan 1, 1970</span>
+console.log(now.getTimezoneOffset()); <span class="t-r">// Returns the time zone offset in minutes</span>
+</pre>
+</code>
+      <h4>Set Methods</h4>
+      <p>These methods allow modifying date components:</p>
+      <code>
+<pre>
+const now = new Date();
+</pre>
+</code>
+      <p>
+        <strong>Examples of set methods:</strong>
+      </p>
+      <code>
+<pre>
+now.setDate(15); // Sets the day of the month to 15
+now.setFullYear(2020); // Sets the year to 2020
+now.setMonth(5); // Sets the month to June (remember, 0 is January)
+console.log(now); // Outputs the updated date
+</pre>
+</code>
+      <h4>Converting Dates to Strings</h4>
+      <p>Date objects can be converted to strings using the following methods:
+      </p>
+      <p>
+        <strong>toDateString():</strong>
+        Converts the date to a readable string format:
+      </p>
+      <code>
+<pre>
+console.log(now.toDateString()); // Example output: "Thu May 15 2024"
+</pre>
+</code>
+      <p>
+        <strong>toTimeString():</strong>
+        Converts the time to a readable string format:
+      </p>
+      <code>
+<pre>
+console.log(now.toTimeString()); // Example output: "03:00:00 GMT+0500 (Pakistan
+Standard Time)"
+</pre>
+</code>
+      <p>
+        <strong>toISOString():</strong>
+        Converts the date to an ISO 8601 format, which is commonly used in modern applications:
+      </p>
+      <code>
+<pre>
+console.log(now.toISOString()); // Example output: "2024-05-15T03:00:00.000Z"
+</pre>
+</code>
+      <p><strong>.toString();</strong></p>
+      <p><strong>.toLocaleString();</strong>This format is useful for transferring date and time between clients and
+        servers in web or mobile
+        applications.</p>
+      <p>
+        Additional “toString” Methods in Date
+      </p>
+      <p>
+        <strong>toLocaleDateString()</strong> Converts the date part of the Date object into a string, formatted based
+        on the user's locale (or a
+        specified locale).
+      </p>
+      <code>
+<pre>
+const now = new Date();
+console.log(now.toLocaleDateString()); <span class="t-r">// Example: "11/19/2024" (format depends on your locale)</span>
+
+console.log(now.toLocaleDateString('en-GB')); <span class="t-r">// Example: "19/11/2024" (DD/MM/YYYY for UK)</span>
+</pre>
+</code>
+
+      <h4>Converting milliseconds in a readable format:</h4>
+      <p>Setting a specific year</p>
+      <code>
+<pre>
+const date = new Date();
+date.setFullYear(2025);
+</pre>
+</code>
+      <p>Convert to readable format</p>
+      <code>
+<pre>
+console.log(date.toString()); // Full readable format
+console.log(date.toLocaleString()); // Localized format
+console.log(date.toDateString()); // Short readable format
+console.log(date.toISOString()); // ISO 8601 format
+
+<span class="output">OR</span>
+let date = new Date(); // Set the year (e.g., 2025)
+let milliseconds = date.setFullYear(2025); // Convert milliseconds back to a readable date
+let readableDate = new Date(milliseconds);
+console.log('Milliseconds:', milliseconds); // Milliseconds
+console.log('Readable Date:', readableDate.toString()); // Readable format
+</pre>
+</code>
+
+      <h2>Finding Elements (Primitives):</h2>
+      <p>Finding elements depends on whether you are storing primitives or references in an array. Let's start with
+        primitives. We have an array for testing:</p>
+      <code>
+<pre>
+const numbers = [1, 2, 3, 4];
+</pre>
+</code>
+      <p>
+        To find elements in an array, there is the .indexOf() method, which returns the index of the element if it
+        exists in the array. If not, it returns -1.
+      </p>
+      <code>
+<pre>
+console.log(numbers.indexOf(2)); // Output: 1
+</pre>
+</code>
+      <p>
+        Similar to .indexOf(), there is another method called .lastIndexOf(). It returns the last index of the given
+        element if it exists. If not, it also returns -1
+      </p>
+      <code>
+<pre>
+const searchLastNumber = [1, 2, 3, 4, 1];
+console.log(searchLastNumber.lastIndexOf(1)); // Output: 4
+</pre>
+</code>
+      <p>If we want the result to be true or false, we can write a program like this:
+      </p>
+      <code>
+<pre>
+const result = numbers.indexOf(1) !== -1;
+console.log(result); // Output: true
+</pre>
+</code>
+      <p>
+        This method is considered old. We now have a newer and simpler way to achieve the same result using the
+        .includes() method:
+      </p>
+      <code>
+<pre>
+console.log(numbers.includes(1)); // Output: true
+</pre>
+</code>
+      <p>
+        All these methods have an optional second parameter, which specifies the starting index for the search.
+      </p>
+      <code>
+<pre>
+console.log(numbers.indexOf(1, 2)); // Output: -1
+</pre>
+</code>
+      <p>
+        Here, we are searching for 1 starting from index 2. The second parameter is the location where the search
+        begins.
+      </p>
+      <h2>Finding Elements (Objects)</h2>
+      <p>
+        Finding primitives is different from finding reference (or object) types. Let's see how:
+      </p>
+      <code>
+<pre>
+const courses = [
+    { id: 1, name: 'Naseeb' },
+    { id: 2, name: 'Lucky' }
+];
+</pre>
+</code>
+      <p>Let's try to find the course with the name 'Lucky' in this array. The includes method we learned earlier won't
+        work here.</p>
+      <code>
+<pre>
+const result = courses.includes({ id: 2, name: 'Lucky' });
+console.log(result); // Output: false
+</pre>
+</code>
+      <p>
+        This happens because the object in the array is different from the object we are searching for using the
+        includes() method. These are two different objects with two different references in memory.
+      </p>
+      <p>
+        Objects are reference types, and when we check for equality, their references are compared. In this case,
+        they have two different references, which is why we get false.
+      </p>
+      <h4>Finding Objects Using find Method:</h4>
+      <p>
+        If we have an array of reference types (like objects), we can use the find method. The find method takes a
+        function as an argument. This function is called a predicate or callback function.
+      </p>
+      <p>
+        The predicate function is used to determine if a given element exists in the array. It takes a parameter
+        (representing an element in the array) and should return a Boolean value (true or false).
+      </p>
+      <code>
+<pre>
+const course = courses.find(function(course) {
+ return course.name === 'Lucky';
+});
+
+console.log(course);
+// Output: { id: 2, name: 'Lucky' }
+</pre>
+</code>
+      <p>
+        If the element exists in the array, the find method returns the complete element. If it doesn’t exist, it
+        returns
+        undefined.
+      </p>
+      <h4>Finding the Index Using findIndex Method:</h4>
+      <p>Similarly, there is another method called findIndex. This method returns the index of the searched element.
+        If the element isn’t found, it returns -1.
+      </p>
+      <code>
+<pre>
+const index = courses.findIndex(function(course) {
+ return course.name === 'Lucky';
+});
+
+console.log(index);
+// Output: 1
+
+<span class="t-r">// If the element is not found in the array:</span>
+const index = courses.findIndex(function(course) {
+ return course.name === 'a';
+});
+
+console.log(index);
+// Output: -1
+</pre>
+</code>
+      <h2>Arrow Functions:</h2>
+      <h4>Regular Function</h4>
+      <code>
+<pre>
+function addNumbers(a, b) {
+ return
+}
+</pre>
+</code>
+      <h4>What it does:</h4>
+      <ul>
+        <li>It takes two numbers as inputs (a and b).</li>
+        <li>
+          It returns their sum (a + b).
+        </li>
+      </ul>
+      <h4>Arrow Function</h4>
+      <ul>
+        <li>const addNumbers = (a, b) => { return a + b; }</li>
+        <li>const addNumbers = (a, b) => a + b;</li>
+      </ul>
+      <h4>Explanation of changes:</h4>
+      <ol>
+        <li>Function name: Instead of using the function keyword, we assign the function to a variable
+          called addNumbers.</li>
+        <li>Arrow syntax: The => replaces the function keyword and tells JavaScript this is an arrow
+          function.</li>
+        <li>Return keyword: For one-line functions, you don't need to explicitly write return or use curly
+          braces ({}). The expression after the arrow is automatically returned.
+        </li>
+      </ol>
+      <h4>Previous Example:</h4>
+      <p>
+        In the last lecture, we learned about a predicate function, which is passed to the find method.
+      </p>
+
+      <code>
+<pre>
+const courses = [
+ { id: 1, name: "Naseeb" },
+ { id: 2, name: "Khan" },
+];
+
+const course = courses.find(function (course) {
+ return course.name === "Naseeb";
+});
+</pre>
+</code>
+      <p>
+        In ES6, there is a shorter and clearer way to write the same code using arrow functions. Whenever you want
+        to pass a function as a callback or as an argument to another method, you can use the arrow function
+        syntax.
+      </p>
+      <h4>In an arrow function:</h4>
+      <ul>
+        <li>The function keyword is removed.</li>
+        <li>The parameters are separated from the function body using a fat arrow (=>).</li>
+        <li>If there is a single parameter, you can write it without parentheses.</li>
+        <li>If there are no parameters, you need to use empty parentheses (()).</li>
+        <li>If the function contains a single line of code and returns a value, you can make the code shorter
+          by removing the return keyword and curly braces, placing the expression directly after the arrow.</li>
+      </ul>
+      <p>
+        <strong>Example using arrow function:</strong>
+      </p>
+      <code>
+<pre>
+const course = courses.find(course => course.name === "Naseeb");
+</pre>
+</code>
+      <p>
+        Here, we say course "goes to" course.name === "Naseeb". Finally, we are finding the course with the name
+        equal to "Naseeb".
+      </p>
+      <h2>Adding Elements</h2>
+      <p>We can add elements to an array, but we can't reassign an array declared with the const keyword.
+      </p>
+      <code>
+<pre>
+const numbers = [3, 4, 5];
+</pre>
+</code>
+      <p>If we try to reassign this array, we will get an error.</p>
+      <code>
+<pre>
+numbers = []; // This will throw an error.
+</pre>
+</code>
+      <p>
+        However, it is perfectly fine to modify the content of this array. Arrays are objects in JavaScript. By using
+        dot
+        notation, we can access all the properties and methods defined for arrays.
+      </p>
+      <code>
+<pre>
+numbers.push(6, 7, 8, 9); // Adds elements to the end of the array.
+numbers.unshift(0, 1, 2); // Adds elements to the beginning of the array.
+numbers.splice(2, 0, 3, 4); // Adds elements to the middle of the array.
+</pre>
+</code>
+
+      <h4>Explanation of Methods:</h4>
+      <p>
+        <strong>Adding elements at the end of an array:</strong>
+        Use the .push() method. It allows you to pass one or more arguments, which will be placed at the
+        end of the array.
+      </p>
+      <code>
+<pre>
+numbers.push(6, 7, 8, 9);
+</pre>
+</code>
+      <p>
+        <strong>Adding elements at the beginning of an array:</strong>
+        Use the .unshift() method. It pushes all existing elements to the right and adds new elements to the
+        left of the array.
+      </p>
+      <code>
+<pre>
+numbers.unshift(0, 1, 2);
+</pre>
+</code>
+      <p>
+        <strong>Adding elements to the middle of an array:</strong>
+        Use the .splice() method. This method requires three arguments:
+      </p>
+      <ul>
+        <li>First: The position where you want to add or delete elements.</li>
+        <li>Second: The number of elements to delete (if any).</li>
+        <li>Third: The new elements to add at the specified position.</li>
+      </ul>
+      <code>
+<pre>
+numbers.splice(2, 0, 3, 4); // Adds 3 and 4 at index 2.
+</pre>
+</code>
+      <h2>Removing Array Elements:</h2>
+      <p>
+        To remove elements from an array, there are three common methods. In the previous topic, we learned
+        three ways of adding elements to an array; similarly, here we have three ways to remove elements from an
+        array
+      </p>
+      <p>
+        <strong>Removing the last element: .pop()</strong>
+        The .pop() method removes the last element from an array and returns it.
+      </p>
+      <code>
+<pre>
+const numbers = [1, 2, 3, 4];
+const last = numbers.pop();
+
+console.log(numbers); // Output: [1, 2, 3]
+console.log(last); // Output: 4
+</pre>
+</code>
+      <p>
+        <strong>Removing the first element: .shift()</strong>
+        If we want to remove the first element from an array, we use the .shift() method. Similar to .pop(), it
+        removes an element from the array and returns it.
+      </p>
+      <code>
+<pre>
+const numbers = [1, 2, 3, 4];
+const first = numbers.shift();
+console.log(numbers); // Output: [2, 3, 4]
+console.log(first); // Output: 1
+</pre>
+</code>
+      <p>
+        <strong>Removing an element from the middle: .splice()</strong>
+        To remove an element from the middle of an array, we use the .splice() method.
+      </p>
+      <ul>
+        <li>The first parameter specifies the starting index for removal.</li>
+        <li>The second parameter specifies the number of elements to remove.</li>
+      </ul>
+      <code>
+<pre>
+const numbers = [1, 2, 3, 4, 5];
+numbers.splice(2, 1); // Removes 1 element starting at index 2
+console.log(numbers); // Output: [1, 2, 4, 5]
+</pre>
+</code>
+      <p>If we want to delete multiple elements from an array, we can adjust the second parameter.
+      </p>
+      <code>
+<pre>
+const numbers = [1, 2, 3, 4, 5];
+numbers.splice(2, 3); // Removes 3 elements starting at index 2
+console.log(numbers); // Output: [1, 2]
+numbers.splice(2); // Remove all elements after index 2
+</pre>
+</code>
+      <h2>Emptying an Array</h2>
+      <p>
+        In the previous lesson, we learned how to remove an element from an array. But what about emptying an
+        entire array? How do we remove all the elements from an array? Let's explore several solutions:
+      </p>
+      <h4>Solution 1: Reassigning to an Empty Array</h4>
+      <code>
+<pre>
+et numbers = [1, 2, 3, 4];
+numbers = [];
+</pre>
+</code>
+      <p>Now the numbers array is empty. However, note that the original array still exists in memory. If there are no
+        other references to this array, it will eventually be removed by the garbage collector.
+      </p>
+      <p>If another variable is referencing the same array, the original array will not be garbage collected.
+      </p>
+      <code>
+<pre>
+let numbers = [1, 2, 3, 4];
+let numbers1 = numbers;
+numbers = [];
+</pre>
+</code>
+      <p>
+        Here, numbers array is reassigned to a new empty array. However, numbers1 is still pointing to the original
+        array. This solution works well when there are no other references to the original array.
+      </p>
+      <h4>Solution 2: Setting length to 0</h4>
+      <code>
+<pre>
+let numbers = [1, 2, 3, 4];
+numbers.length = 0;
+</pre>
+</code>
+      <p>
+        This will empty the array, and any other variables referencing the original array will also reflect the change
+        (i.e., they will also appear empty). It doesn’t matter how many references exist; all of them will lead to an
+        empty array.
+      </p>
+      <h4>Solution 3: Using splice()</h4>
+      <code>
+<pre>
+let numbers = [1, 2, 3, 4];
+numbers.splice(0, numbers.length);
+</pre>
+</code>
+      <h4>Here:</h4>
+      <ul>
+        <li>0 indicates where to start removing elements.</li>
+        <li>numbers.length specifies how many elements to remove.</li>
+      </ul>
+      <p>
+        After this, the numbers array will be empty.
+      </p>
+      <h4>Solution 4: Using pop() in a Loop</h4>
+      <code>
+<pre>
+let numbers = [1, 2, 3, 4];
+
+while (numbers.length > 0) {
+ numbers.pop();
+}
+</pre>
+</code>
+      <p>
+        The pop() method removes elements from the end of the array one at a time. The loop continues until the
+        array is empty.
+      </p>
+      <p>Note: This method is not recommended for large arrays due to its performance cost.
+      </p>
+      <h4>Which one to use:</h4>
+      <ul>
+        <li>Use Solution 1 if you are okay with reassigning the array and there are no other references.</li>
+        <li>Use Solution 2 if you want to empty all references pointing to the original array.</li>
+        <li>Use Solution 3 for flexibility with partial or complete array removal.</li>
+        <li>Avoid Solution 4 for performance reasons, especially with large arrays.
+        </li>
+      </ul>
+      <h2>Combining and Slicing Arrays</h2>
+      <h4>Combining Arrays</h4>
+      <p>
+        In JavaScript, arrays can be combined using the concat() method. This method does not modify the original
+        arrays but returns a new array that is the combination of the input arrays.
+      </p>
+      <code>
+<pre>
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+<span class="t-r">// Combining both arrays into a new array</span>
+const combined = first.concat(second);
+console.log(combined); <span class="t-r">// Output: [1, 2, 3, 4, 5, 6]</span>
+</pre>
+</code>
+      <p>
+        The concat() method creates a new array by combining the input arrays. The original arrays remain
+        unchanged.
+      </p>
+      <h4>Slicing Arrays</h4>
+      <p>The slice() method is used to extract a portion of an array into a new array. This method takes two optional
+        parameters:</p>
+      <ol>
+        <li>Start Index - The index where slicing begins.</li>
+        <li>End Index - The index where slicing ends (not inclusive).</li>
+      </ol>
+      <p>
+        <strong>1. Slicing a Specific Range:</strong>
+      </p>
+      <code>
+<pre>
+const sliced = combined.slice(2, 4);
+console.log(sliced); // Output: [3, 4]
+</pre>
+</code>
+      <p>This starts slicing from index 2 and ends before index 4.</p>
+      <p>
+        <strong>2. Slicing from an Index to the End:</strong>
+      </p>
+      <code>
+<pre>
+const sliced = combined.slice(2);
+console.log(sliced); // Output: [3, 4, 5, 6]
+</pre>
+</code>
+      <p>This starts slicing from index 2 and continues to the end of the array.</p>
+      <p>
+        <strong>3. Creating a Copy of the Array:</strong>
+      </p>
+      <code>
+<pre>
+const copy = combined.slice();
+console.log(copy); // Output: [1, 2, 3, 4, 5, 6]
+</pre>
+</code>
+      <p>If no parameters are passed, slice() creates a copy of the entire array.</p>
+      <h4>Understanding Primitive and Reference Types</h4>
+      <p>When working with concat() and slice(), it’s important to understand how primitive and reference types
+        behave:</p>
+      <h4>1. Primitive Types:</h4>
+      <ul>
+        <li>If the array contains primitive values (e.g., numbers, strings), these are copied by value to the
+          new array.</li>
+      </ul>
+      <h4>2. Reference Types:</h4>
+      <p>
+        If the array contains objects, the objects themselves are not copied. Instead, their references
+        are copied. This means the original and new arrays share the same objects.
+      </p>
+      <code>
+<pre>
+const first = [{ id: 1 }];
+const second = first.concat([]);
+first[0].id = 10;
+</pre>
+</code>
+      <p>
+        The change in the original array reflects in the combined array because objects are copied by reference.
+      </p>
+      <code>
+<pre>
+console.log(first); // Output: [{ id: 10 }]
+console.log(second); // Output: [{ id: 10 }]
+The same principle applies to the slice() method:
+</pre>
+</code>
+      <ul>
+        <li>Primitive types are copied by value.</li>
+        <li>Reference types are copied by reference.</li>
+      </ul>
+      <h4>Recap</h4>
+      <ul>
+        <li>Use concat() to combine arrays into a new array</li>
+        <li>Use slice() to extract parts of an array or create a copy.</li>
+        <li>Understand the difference between copying primitive and reference types to avoid unintended
+          side effects.</li>
+      </ul>
+      <h2>The Spread Operator</h2>
+      <p>
+        In the last topic, we learned how to use the “.concat()” method to combine arrays. However, there is another
+        way to achieve the same result using the spread operator in ES6. Let's explore why this approach is cleaner.
+      </p>
+      <code>
+<pre>
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+</pre>
+</code>
+      <h4>Previous Method:</h4>
+      <p>
+        Using the “.concat()” method:
+      </p>
+      <code>
+<pre>
+const combined = first.concat(second);
+</pre>
+</code>
+      <h4>Spread Operator:</h4>
+      <p>
+        Using the spread operator, the same result can be achieved as:
+      </p>
+      <code>
+<pre>
+const combined = [...first, ...second];
+</pre>
+</code>
+      <p>Here, we have the first array followed by the second array.</p>
+      <h4>Why Use the Spread Operator?</h4>
+      <p>
+        With the spread operator, we have more flexibility. For example, if we want to add elements between the
+        arrays, at the start, or at the end, we can do so easily:
+      </p>
+      <code>
+<pre>
+const combined = [...first, 'a', ...second, 'b'];
+</pre>
+</code>
+      <p>
+        If we wanted to achieve the same thing using the .concat() method, it would be more complex.
+      </p>
+      <h4>Copying an Array</h4>
+      <p>
+        The “.slice()” method, when used without parameters, returns a copy of an array.
+      </p>
+      <p>
+        <strong>Old Method with “.slice()”:</strong>
+      </p>
+      <code>
+<pre>
+const copy = combined.slice(); // Returns a copy of the combined array.
+</pre>
+</code>
+      <p>
+        Using the spread operator in ES6, the same result can be achieved more concisely:
+      </p>
+      <code>
+<pre>
+const copy = [...combined]; // Returns a copy of the combined array.
+</pre>
+</code>
+      <h4>Conclusion</h4>
+      <p>
+        The spread operator provides a cleaner and more flexible approach for array operations such as combining
+        or copying arrays in modern JavaScript.
+      </p>
+      <h2>Iterating an Array</h2>
+      <p>
+        We have learned various loops in JavaScript. If we want to iterate over an array, we can use the for...of loop.
+      </p>
+      <code>
+<pre>
+const numbers = [1, 2, 3];
+for (let number of numbers) {
+ console.log(number); // Output: 1, 2, 3
+}
+</pre>
+</code>
+      <p>
+        For each iteration, the number variable is set to one of the elements in the numbers array. Similarly, there is
+        another way to iterate over an array, commonly seen in tutorials, which uses the forEach method. All arrays
+        have the .forEach() method, which takes a callback function as a parameter. This callback function also
+        takes an argument, in this case, number.
+      </p>
+      <code>
+<pre>
+numbers.forEach(function(number) {
+ console.log(number);
+});
+</pre>
+</code>
+      <p>
+        When we call the .forEach() method, the callback function passed to it is executed for each element in the
+        array. Each element is passed as an argument to this function. We can simplify this code by using the arrow
+        function syntax. This allows us to remove the function keyword and use a fat arrow (=>) between the
+        parameter and the body of the function.
+      </p>
+      <code>
+<pre>
+numbers.forEach((number) => {
+ console.log(number);
+});
+</pre>
+</code>
+      <p>If there is a single parameter, we don’t need to use parentheses around the parameter:
+      </p>
+      <code>
+<pre>
+numbers.forEach(number => console.log(number); );
+</pre>
+</code>
+      <p>
+        The callback function passed to the forEach method can also optionally take a second parameter, which is
+        the index of each element in the array. This allows us to print the index along with the element.
+      </p>
+      <code>
+<pre>
+numbers.forEach((number, index) => {
+ console.log(`Index: ${index}, Value: ${number}`);
+});
+</pre>
+</code>
+      <h2>Join & Split Arrays</h2>
+      <p>
+        Another useful method of arrays is the join() method.
+        <br>
+        We want to join the elements of an array, and that's where the join() method comes in handy. When we use
+        .join() or any other method, we might notice a question mark (?) in the guidelines provided by the code
+        editor. This question mark indicates that the parameter is optional.
+      </p>
+      <p>
+        The type of the join() parameter is a string. We can optionally pass a string to the method, which will act as
+        a separator between the elements of the array. It's important to note that the join() method returns a string.
+      </p>
+      <code>
+<pre>
+const numbers = [1, 2, 3];
+const joined = numbers.join(',');
+console.log(joined);
+// Output: "1,2,3"
+</pre>
+</code>
+      <h4>The split() Method</h4>
+      <p>
+        Another handy method, similar to join(), is the split() method. However, the split() method is not a part of
+        arrays but is instead a method of strings.
+      </p>
+      <code>
+<pre>
+const message = "Subscribe To NaseebCodeStudio";
+const parts = message.split(' ');
+console.log(parts);
+// Output: ["Subscribe", "To", "NaseebCodeStudio"]
+</pre>
+</code>
+      <p>
+        The split() method breaks the original string into individual words or characters, depending on the delimiter
+        passed to it, and returns an array.
+      </p>
+      <h4>Joining the Split Parts</h4>
+      <p>
+        We can use the join() method on the resulting array to combine the parts again using a different separator.
+      </p>
+      <code>
+<pre>
+const combined = parts.join('_');
+console.log(combined);
+// Output: "Subscribe_To_NaseebCodeStudio"
+</pre>
+</code>
+      <p>This technique is particularly helpful when creating an URL slug.
+      </p>
+      <h4>Example of URL Slug Creation</h4>
+      <p>
+        Let's consider a search query on Google, such as:
+      </p>
+      <h3>Query:</h3>
+      <h4>what is JavaScript?</h4>
+      <p>
+        Google converts the spaces in this query into different types of slugs. For example:
+        https://www.google.com/search?q=what+is+javascript&rlz
+      </p>
+      <p>In the URL slug, all the white spaces are replaced with +.</p>
+      <h4>Creating a Custom URL Slug</h4>
+      <p>
+        To convert a string into a URL-friendly slug, we can use split() to break the string and join() to combine it
+        with a new separator:
+      </p>
+      <code>
+<pre>
+const query = "what is javascript";
+const queryParts = query.split(' ');
+const urlSlug = queryParts.join('+');
+console.log(urlSlug);
+
+// Output: "what+is+javascript"
+</pre>
+</code>
+      <h4>Recap</h4>
+      <p>
+        To convert strings into URL slugs or manipulate them effectively:
+      </p>
+      <ol>
+        <li>Split the string using split().</li>
+        <li>Join the parts using join() with the desired separator.</li>
+      </ol>
+      <p>
+        This method ensures flexible manipulation of strings and arrays in JavaScript.
+      </p>
+      <h2>Sorting Arrays</h2>
+      <p>
+        It is very easy to sort numbers and strings in an array in ascending or descending order using the .sort() and
+        .reverse() methods.
+      </p>
+      <code>
+<pre>
+const numbers = [1, 3, 4, 2];
+const letters = ['A', 'C', 'B'];
+</pre>
+</code>
+      <h4>Sort numbers in ascending order</h4>
+      <code>
+<pre>
+numbers.sort(); 
+console.log(numbers); // Output: [1, 2, 3, 4]
+</pre>
+</code>
+      <h4>Reverse the order (descending)</h4>
+      <code>
+<pre>
+numbers.reverse();
+console.log(numbers); // Output: [4, 3, 2, 1]
+</pre>
+</code>
+      <h4>Sort letters in ascending order</h4>
+      <code>
+<pre>
+letters.sort();
+console.log(letters); // Output: ['A', 'B', 'C']
+
+let ascending = letters.sort(function(x, y){
+  return a - b;
+})
+
+let descending = letters.sort(function(x, y){
+  return b - a;
+})
+</pre>
+</code>
+      <h4>Reverse the order (descending)</h4>
+      <code>
+<pre>
+etters.reverse();
+console.log(letters); // Output: ['C', 'B', 'A'
+</pre>
+</code>
+      <p>
+        These methods are very easy to use with numbers and strings. However, when we have objects in an array,
+        they don't work by default. We need to do some extra work.
+      </p>
+      <h4>Example with Objects:</h4>
+      <code>
+<pre>
+const courses = [
+    { id: 3, name: 'ReactJS' },
+    { id: 1, name: 'Node.js' },
+    { id: 2, name: 'JavaScript' }
+];
+</pre>
+</code>
+      <ul>
+        <li>Attempting to sort without a comparison function won't work as expected</li>
+        <li>Sorting requires a comparison function to determine the order.
+        </li>
+      </ul>
+      <p>The .sort() method optionally takes a comparison function. This function compares two items (a and b) and
+        determines their order. If a should appear before b, it returns -1; if a should appear after b, it returns 1; if
+        they are equal, it returns 0.</p>
+      <h4>Example of Sorting with a Comparison Function:</h4>
+      <code>
+<pre>
+courses.sort(function (a, b) {
+ if (a.name &lt; b.name) return -1;
+ if (a.name > b.name) return 1;
+ return 0;
+});
+
+console.log(courses);
+
+<span class="output">Output: </span>
+[
+    { id: 2, name: 'JavaScript' },
+    { id: 1, name: 'Node.js' },
+    { id: 3, name: 'ReactJS' }
+]
+</pre>
+</code>
+      <p>
+        However, this sorting is case-sensitive. To exclude case sensitivity, we can convert the name properties to
+        the same case using .toLowerCase() or .toUpperCase()
+      </p>
+      <h4>Example of Case-Insensitive Sorting:</h4>
+      <code>
+<pre>
+courses.sort(function (a, b) {
+ const nameA = a.name.toLowerCase(); // Convert to lowercase
+ const nameB = b.name.toLowerCase(); // Convert to lowercase
+
+ if (nameA &lt; nameB) return -1;
+ 
+ if (nameA > nameB) return 1;
+   return 0;
+});
+
+console.log(courses);
+
+<span class="output">Output (case-insensitive):</span>
+[
+    { id: 2, name: 'JavaScript' },
+    { id: 1, name: 'Node.js' },
+    { id: 3, name: 'ReactJS' }
+]
+</pre>
+</code>
+      <p>Now, our sort algorithm will work properly, ignoring case sensitivity.
+      </p>
+      <h4>Note:</h4>
+      <p>If you want to understand how the comparison works with upper-case and lower-case letters, refer to the
+        ASCII table. In ASCII, uppercase letters have lower values than lowercase letters (A-Z comes before a-z),
+        which is why converting both to the same case ensures consistent sorting.</p>
+      <h2>Testing the Elements of an Array</h2>
+      <p>There are two new methods in JavaScript called every and some. These methods are used to check
+        whether there are positive values in an array or not. They are very useful methods.</p>
+      <h4>1. every Method:</h4>
+      <p>
+        In every method, we pass a callback function. IntelliSense shows that this callback function can
+        take three parameters:
+      </p>
+      <ul>
+        <li>The first parameter is the value, which represents the current element in the array.</li>
+        <li>The second parameter is the index, which is the index of the current element in the array.</li>
+        <li>The third parameter is the array itself.</li>
+      </ul>
+      <p>While using this function, we don’t need to pass all the parameters. We can use only the ones we need.
+      </p>
+      <p>
+        In the example below, we are going to check whether all the values in the array are positive numbers:
+      </p>
+      <code>
+<pre>
+const numbers = [1, 2, 3];
+const allPositive = numbers.every(function (value) {
+    return value >= 0;
+});
+
+console.log(allPositive); // true
+</pre>
+</code>
+      <h4>How it works:</h4>
+      <p>
+        When this function runs, it will start checking each value in the array. As soon as it finds a value that does
+        not match the criteria (in this case, value >= 0), it will stop searching and return false.
+      </p>
+      <h4>2. some Method:</h4>
+      <p>
+        Some method works similarly but has a different purpose. It checks whether at least one element in
+        the array matches the criteria.
+      </p>
+      <code>
+<pre>
+const numbers = [1, -1, 2, 3];
+
+const atLeastOnePositive = numbers.some(function (value) {
+ return value >= 0;
+});
+
+console.log(atLeastOnePositive); // true
+</pre>
+</code>
+      <h4>How it works:</h4>
+      <p>
+        As soon as the function finds a number that matches the criteria (in this case, value >= 0), it will terminate
+        and return true. It doesn’t matter what values come after the first matching element in the array.
+      </p>
+      <h4>Recap:</h4>
+      <p>
+        <strong>every Method:</strong>
+      </p>
+      <ul>
+        <li>Checks if all elements in an array meet a specified condition.</li>
+        <li>Stops as soon as it finds an element that doesn't match the condition.</li>
+      </ul>
+      <code>
+<pre>
+const numbers = [1, 2, 3];
+const allPositive = numbers.every(value => value >= 0);
+console.log(allPositive); // true
+</pre>
+</code>
+      <p>
+        <strong>some Method:</strong>
+      </p>
+      <ul>
+        <li>Checks if at least one element in an array meets a specified condition.</li>
+        <li>Stops as soon as it finds an element that matches the condition.
+        </li>
+      </ul>
+      <code>
+<pre>
+const numbers = [1, -1, 2, 3];
+const atLeastOnePositive = numbers.some(value => value >= 0);
+console.log(atLeastOnePositive); // true
+</pre>
+</code>
+      <h4>Key Difference:</h4>
+      <ul>
+        <li>every ensures all elements satisfy the condition.</li>
+        <li>some checks for at least one matching element.</li>
+      </ul>
+      <p>Both methods are efficient because they stop processing as soon as the condition is met (or not).
+      </p>
+      <h2>Filtering an Array</h2>
+      <p>
+        To filter an array based on certain criteria, let's say we only need the positive numbers from an array. We are
+        going to use the filter method. When we call the filter method, it iterates over the array and executes a
+        callback function for each number/element. If the element meets the criteria, it will be added to a new array.
+      </p>
+      <h4>How to Use:</h4>
+      <p>
+        Here, we need to pass a callback function to the filter method. This function has three parameters: value,
+        index, and array. Depending on our requirements, we can use these parameters. In this example, we just
+        want to check if the number is positive
+      </p>
+      <code>
+<pre>
+const numbers = [1, -1, 2, 3];
+
+<span class="t-r">// Using a regular function</span>
+const filtered = numbers.filter(function(value) {
+ return value >= 0;
+});
+console.log(filtered); // Output: [1, 2, 3]
+
+<span class="t-r">// Using an arrow function</span>
+const filteredArrow = numbers.filter(n => n >= 0);
+console.log(filteredArrow); // Output: [1, 2, 3]
+</pre>
+</code>
+      <p>
+        Both approaches are valid, but using an arrow function is considered good practice because it is more
+        concise and readable.
+      </p>
+      <h2>Mapping an Array</h2>
+      <p>
+        Another very useful method in JavaScript is the map method. Using this method, we can map each item in
+        an array to something else. In the last topic, we had an array that was filtered using the filter function. Now,
+        let’s say we want to construct some HTML markup using the elements in that array. Here, we are mapping
+        each element into a bullet point. To achieve this, we use the
+        &lt;ul> or &lt;ol> tags with &lt;li> elements.
+        or if we want to create another array based on old array we use map.
+      </p>
+      <code>
+<pre>
+const numbers = [1, -1, 2, 3]; // Original array
+const filtered = numbers.filter(n => n >= 0); // Filter positive numbers
+const items = filtered.map(n => '&lt;li>' + n + '&lt;/li>'); // Map each number to an &lt;li> element
+console.log(items);
+</pre>
+</code>
+      <p>
+        At this point, we have an array of strings. We can use the join method to combine the elements of this array
+        into a single string.
+      </p>
+      <code>
+<pre>
+const html = items.join(); // Joins the array into a single string
+console.log(html);
+</pre>
+</code>
+      <p>
+        Now, instead of an array, we have a string.
+        <br>
+        Note: By default, the join method uses a comma as a separator.
+        <br>However, we don’t want commas in our
+        HTML markup. Let’s combine the elements with an empty string as a separator:
+      </p>
+      <code>
+<pre>
+const html = items.join(''); // Join with no separator
+</pre>
+</code>
+      <p>The only thing remaining is wrapping this in a &lt;ul> element. Here’s the simple approach:
+      </p>
+      <code>
+<pre>
+const html = '&lt;ul>' + items.join('') + '&lt;/ul>'; // Wrap in &lt;ul> tags
+</pre>
+</code>
+      <h4>Destructuring Array</h4>
+      <p>
+        Destructuring means taking specific values from an array and storing them in variables.
+        It is like picking selected items from an array, not filtering or changing the original array.
+      </p>
+<code>
+<pre>
+let arr = [1, 2, 3, 4];
+let [a, b] = arr;
+
+console.log(a, b); // 1 2
+
+let [x, y, , z] = arr; 
+console.log(x, y, z); // 1 2 4
+</pre>
+</code>
+      <h4>Mapping Objects:</h4>
+      <p>
+        We can also use the map method to map an array into objects.
+      </p>
+      <code>
+<pre>
+const numbers = [1, 2, 3]; // Original array
+const filtered = numbers.filter(n => n >= 0); // Filter positive numbers
+const items = filtered.map(n => {
+ const obj = { value: n }; // Create an object for each element
+ return obj;
+});
+</pre>
+</code>
+      <p>
+        Technically, we don’t need to declare the object as a separate constant. We can simplify this:
+      </p>
+      <code>
+<pre>
+const items = filtered.map(n => {
+ return { value: n }; // Directly return the object
+});
+</pre>
+</code>
+      <p>
+        We can simplify further since the body of the arrow function has only a single line of code:
+      </p>
+      <code>
+<pre>
+const items = filtered.map(n => { value: n });
+</pre>
+</code>
+      <p>
+        However, this will not work as expected because the curly braces are treated as a code block instead of an
+        object. To fix this, we need to wrap the object in parentheses to ensure it is returned as an object:
+      </p>
+      <code>
+<pre>
+const items = filtered.map(n => ({ value: n })); // Correct syntax
+</pre>
+</code>
+
+      <h4>Key Notes:</h4>
+      <ol>
+        <li>Both the map and filter methods return new arrays; they do not modify the original array.</li>
+        <li>These methods are chainable, meaning you can call one method after another.</li>
+      </ol>
+      <h4>Example of Chaining:</h4>
+      <code>
+<pre>
+const numbers = [1, -1, 2, 3];
+const items = numbers
+ .filter(n => n >= 0) // Filter positive numbers
+ .map(n => ({ value: n })); // Map to objects
+</pre>
+</code>
+      <p>In this example, the filtered array is used only once, so we don’t need to explicitly store the intermediate
+        result in a constant. Here’s the same logic written with chaining:
+      </p>
+      <code>
+<pre>
+const items = numbers
+ .filter(n => n >= 0)
+ .map(n => ({ value: n })); // Chained methods
+</pre>
+</code>
+      <p>
+        When chaining multiple methods, it’s good practice to write each method call on a new line. This makes the
+        code cleaner and more readable:
+      </p>
+      <code>
+<pre>
+const items = numbers
+ .filter(n => n >= 0) // Filter positive numbers
+ .map(n => ({ value: n })) // Map to objects
+ .filter(obj => obj.value > 1) // Filter objects with a value > 1
+ .map(obj => obj.value); // Extract the `value` propert
+</pre>
+</code>
+      <h4>Explanation:</h4>
+      <ol>
+        <li>filter(n => n >= 0): Filters the array to include only positive numbers.</li>
+        <li>map(n => ({ value: n })): Maps each number to an object with a value property.</li>
+        <li>filter(obj => obj.value > 1): Filters objects to include only those with a value greater than 1.</li>
+        <li>map(obj => obj.value): Maps the filtered objects back into an array of numbers.</li>
+      </ol>
+      <p>
+        This demonstrates how filter and map can be combined to process data in a clean, functional style.
+      </p>
+      <h2>Reducing an Array</h2>
+      <p>
+        Once again, we have an array with numbers, and we want to calculate the sum of all the numbers in this
+        array. This is like calculating the total price of items in a shopping cart, where each number represents the
+        price of an item in the cart.
+      </p>
+      <p>
+        Here is an algorithm to calculate the sum of all the numbers in the array:
+      </p>
+      <ol>
+        <li>Start with a variable called sum, initialized to 0.</li>
+        <li>Loop over the array, get each number (or element), and add it to sum.</li>
+      </ol>
+      <code>
+<pre>
+const numbers = [1, 2, 3, 4];
+
+let sum = 0;
+for (let n of numbers) {
+  sum += 
+}
+
+console.log(sum); // Output: 10
+</pre>
+</code>
+      <p>
+        There is a cleaner and more elegant way to write the same code using the reduce method. All arrays in
+        JavaScript have a reduce method. With the reduce method, we can reduce all the elements in an array into
+        a single value. That single value can be anything, such as a sum, product, or concatenated string.
+      </p>
+      <p>
+        The reduce method takes a callback function with two parameters:
+      </p>
+      <ol>
+        <li>accumulator: A variable that stores the accumulated result.</li>
+        <li>currentValue: A variable that holds the current element being processed in the array.</li>
+      </ol>
+      <p>
+        The currentValue represents the current element of the array, and we add it to the accumulator. Simply put,
+        we return accumulator + currentValue in the callback function.
+      </p>
+      <p>
+        Lastly, we initialize the accumulator to 0.
+      </p>
+      <code>
+<pre>
+const sum = numbers.reduce((accumulator, currentValue) => {
+ return accumulator + currentValue;
+}, 0);
+
+console.log(sum); // Output: 10
+</pre>
+</code>
+      <p>
+        If we don’t initialize the accumulator (for example, by omitting 0 as the second argument to the reduce
+        method), it will, by default, be initialized to the first element of the array.
+      </p>
+      <h4>How this program works:</h4>
+      <ul>
+        <li>The reduce method iterates through the array.</li>
+        <li>The accumulator starts with the value you provide (or the first element if no initial value is
+          provided).</li>
+        <li>For each element in the array, the currentValue is added to the accumulator.</li>
+        <li>This process continues until all elements in the array are processed.</li>
+        <li>The final value of the accumulator is returned.</li>
+      </ul>
+      <p>This approach is concise and preferred in many cases when working with arrays.</p>
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

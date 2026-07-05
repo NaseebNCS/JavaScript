@@ -1,0 +1,494 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  overflow-x: hidden;
+  color: var(--white);
+  background: url(Incelllence.jpeg), #0b0d0e;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) #301a1a;
+}
+
+/* typography  */
+ul,
+ol,
+a,
+p,
+dd,
+dl,
+dt,
+span,
+code,
+pre,
+strong,
+details,
+summary {
+  font-size: 1.5rem;
+}
+
+strong {
+  padding-top: 1rem;
+}
+
+dl {
+  margin-top: 2rem;
+}
+
+dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+dd {
+  margin-left: 10%;
+}
+
+/* container */
+.container {
+  width: 768px;
+  margin: auto;
+  padding: 0 18px;
+}
+@media screen and (max-width: 780px) {
+  .h-1,
+  h1 {
+    text-align: center;
+  }
+  .container {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .h-1,
+  h1 {
+    text-align: center;
+  }
+  .container {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .h-1,
+  h1 {
+    text-align: center;
+  }
+  .container {
+    width: 350px;
+  }
+  h2 {
+    font-size: 2.2rem;
+  }
+  ul,
+  ol,
+  a,
+  p,
+  dd,
+  dl,
+  dt,
+  span,
+  code,
+  pre,
+  strong,
+  details,
+  summary {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .h-1,
+  h1 {
+    text-align: center;
+  }
+  .container {
+    width: 300px;
+  }
+  h2 {
+    font-size: 2.1rem;
+  }
+  ul,
+  ol,
+  a,
+  p,
+  dd,
+  dl,
+  dt,
+  span,
+  code,
+  pre,
+  strong,
+  details,
+  summary {
+    font-size: 1.1rem;
+  }
+}
+:root {
+  --white: #fff;
+  --red: #f00;
+  --dark: #000;
+  --aqua: aqua;
+}
+
+::marker {
+  color: var(--red);
+  font-weight: bold;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::selection {
+  color: var(--red);
+  background-color: var(--white);
+}
+h1 {
+  font-size: 2rem;
+}
+.h-1 {
+  font-size: 2.986rem;
+  font-weight: bold;
+  margin-top: 15px;
+  color: var(--red);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.488rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--red);
+  text-transform: capitalize;
+}
+
+.t-r {
+  color: var(--red);
+}
+.t-g {
+  color: greenyellow;
+}
+
+.output {
+  border-left: 10px solid var(--red);
+  padding-left: 10px;
+  color: var(--red);
+}
+
+.padding-left {
+  padding-left: 5%;
+}
+
+img {
+  margin-block: 2rem;
+  width: 95%;
+}
+
+header {
+  background: linear-gradient(to top, rgb(84, 9, 9), black);
+  flex-direction: column;
+  padding: 15px 40px;
+  color: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  border-radius: 0 0 20px 20px;
+  cursor: pointer;
+}
+header a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
+header a:hover {
+  text-decoration: underline;
+}
+
+main {
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  width: 768px;
+}
+
+section {
+  margin-top: 8rem;
+}
+
+a {
+  color: var(--aqua);
+  font-style: italic;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 0, 0);
+}
+a:visited {
+  color: var(--red);
+}
+
+h3 {
+  font-size: 2.074rem;
+  margin: 2rem 0 0;
+  padding: 5px;
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 5px;
+  border-left: 5px solid var(--white);
+  border-right: 2px solid var(--white);
+}
+
+h4 {
+  font-size: 1.728rem;
+  margin-top: 15px;
+  margin-bottom: -6px;
+  border-left: 5px solid var(--red);
+  padding-left: 5px;
+}
+h5 {
+  font-size: 1.44rem;
+}
+h6 {
+  font-size: 1.2rem;
+}
+ul,
+ol {
+  margin: 1rem 0 0.5rem 1.2rem;
+  list-style-position: inside;
+}
+
+p {
+  padding-top: 1rem;
+}
+
+code {
+  cursor: pointer;
+  margin-block: 1rem;
+  padding: 2%;
+  color: var(--aqua);
+  background: linear-gradient(to right, #003c467b, rgba(0, 0, 0, 0.532));
+  display: block;
+  border-radius: 20px;
+  border-left: 5px solid var(--red);
+  border-top: 1px solid rgba(255, 0, 0, 0.411);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.411);
+  position: relative;
+}
+
+/* Copy button */
+code::after {
+  content: "Copy";
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  background: #5f0000;
+  color: var(--white);
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+code:hover::after {
+  background: var(--red);
+}
+pre {
+  overflow: auto;
+  max-height: 30vh;
+  padding-block: 20px;
+  font-family: monospace;
+  scrollbar-width: thin; /* auto | thin | none */
+  scrollbar-color: #f80303 #301a1a; /* thumb | track */
+}
+
+.ncs_brand_icon {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  box-shadow: rgb(0, 0, 0) 0 0 20px;
+  background-image: url(Incellence.jpeg);
+  background-position: center;
+  background-size: cover;
+  z-index: 999999;
+}
+.ncs_shadow-box {
+  box-shadow: 0 0 10px red;
+  animation: pulseShadow 3s infinite alternate ease-in-out;
+}
+
+@keyframes pulseShadow {
+  0% {
+    box-shadow:
+      -10px -10px 20px red,
+      10px 10px 20px rgb(255, 0, 0);
+  }
+
+  50% {
+    box-shadow:
+      10px -10px 20px rgb(254, 0, 0),
+      -10px 10px 20px rgba(255, 0, 0, 0.988);
+  }
+
+  100% {
+    box-shadow:
+      -10px -10px 20px red,
+      10px 10px 20px rgb(255, 0, 0);
+  }
+}
+
+footer {
+  color: var(--white);
+  text-align: center;
+  font-size: 2rem;
+  margin: 5rem 0;
+}
+
+/* printing  */
+@media print {
+  h3 {
+    color: black;
+    margin-top: 3rem;
+  }
+
+  main section,
+  p,
+  a,
+  span,
+  .output,
+  .t-r {
+    color: black;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  code,
+  pre {
+    background: transparent;
+    color: black;
+  }
+  code::after {
+    display: none;
+  }
+  @page {
+    size: A4;
+  }
+  .back-to-top {
+    visibility: hidden;
+  }
+  footer {
+    color: rgb(0, 0, 0);
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.ncs-logo-icon {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  bottom: 20px;
+  z-index: 999;
+  right: 20px;
+  border-radius: 50%;
+  box-shadow: rgb(0, 0, 0) 0 0 20px;
+  background-image: url(Incellence.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.ncs-shadow-box {
+  box-shadow: 0 0 10px red;
+  animation: ncsPulseShadow 3s infinite alternate ease-in-out;
+}
+
+@keyframes ncsPulseShadow {
+  0% {
+    box-shadow:
+      -10px -10px 20px red,
+      10px 10px 20px rgb(255, 0, 0);
+  }
+
+  50% {
+    box-shadow:
+      10px -10px 20px rgb(254, 0, 0),
+      -10px 10px 20px rgba(255, 0, 0, 0.988);
+  }
+
+  100% {
+    box-shadow:
+      -10px -10px 20px red,
+      10px 10px 20px rgb(255, 0, 0);
+  }
+}
+
+/* table  */
+.table-container {
+  margin-top: 3rem;
+  width: 100%;
+  overflow-x: auto;
+  background: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th,
+td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #2b2b2b;
+}
+
+th {
+  background: #ff1e1e;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+td {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+}
+
+tr:hover {
+  background: rgba(255, 30, 30, 0.15);
+}

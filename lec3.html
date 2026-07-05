@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 2</div>
+      <h2>CONTAINERS / VARIABELS</h2>
+      <p>
+        In programming, variables are one of the most important concepts in JavaScript (JS) and in any other
+        programming language. A variable is like a container that stores data temporarily in a computer's memory,
+        making it easier to access and manage that data later. <br>You can think of variables like boxes in your kitchen
+        where you store different ingredients such as salt or sugar, and you label each box according to what's
+        inside. Similarly, in programming, we store data in a location and give that location a name, so we can use
+        that name to retrieve the data in the future.
+      </p>
+
+      <h4>How to Declare a Variable?</h4>
+      <p>
+        Before the ES6 update in JavaScript, variables were declared using the var keyword. However, this caused
+        some issues which we will discuss later in the course. After ES6, it became a good practice to use the let
+        keyword to declare variables. To declare a variable, you need to:
+      </p>
+      <ol>
+        <li>Use the let, var, const keyword.</li>
+        <li>Give the variable a name (also called an "identifier").</li>
+        <li>Optionally, assign a value to it</li>
+      </ol>
+      <p>The line ends with a semicolon ;.</p>
+      <code>
+<pre>
+let name;
+console.log(name); // Output: undefined
+</pre>
+</code>
+      <p>By default, if you don't assign a value to a variable in JavaScript, it will be undefined</p>
+      <p>You can also assign a value at the time of declaring the variable:
+      </p>
+      <code>
+<pre>
+let name = "NaseebKhan";
+console.log(name); // Output: NaseebKhan
+</pre>
+</code>
+      <p>In this example, we declared a variable using let, named it name, and assigned the string "NaseebKhan" to
+        it.</p>
+      <h4>Rules for Naming Variables</h4>
+      <p>There are some important rules to follow when naming variables in JavaScript:</p>
+      <p>
+        1. No reserved keywords: You cannot use JavaScript reserved keywords like if, var, const, let, etc., as
+        variable names.
+      </p>
+      <code>
+<pre>
+let if = 'NaseebKhan'; <span class="t-r">// This will give an error.</span>
+</pre>
+</code>
+      <p>2. Meaningful names: Always use meaningful names for variables so it's clear what they represent. </p>
+      <code>
+<pre>
+let a; <span class="t-r">// Not meaningful</span>
+let $; <span class="t-r">// Not meaningful</span>
+let _; <span class="t-r">// Not meaningful</span>
+let firstName; <span class="t-g">// Meaningful</span>
+</pre>
+</code>
+      <p>
+        3. Cannot start with a number: A variable name cannot begin with a number
+      </p>
+      <code>
+<pre>
+let 1name; <span class="t-r">// Invalid</span>
+</pre>
+</code>
+      <p>back to the rule no 2 1name is meaningless.</p>
+      <p>
+        4. No spaces or hyphens: Variable names cannot contain spaces or hyphens. If you have multiple
+        words in a variable name, use camelCase or snake_case.
+      </p>
+      <code>
+<pre>
+et firstName; // camelCase (preferred in JavaScript)
+let first_name; // snake_case (less common in JavaScript)
+</pre>
+</code>
+      <p>
+        5. Case-sensitive: Variable names are case-sensitive, which means name and Name are considered
+        two different variables:
+      </p>
+      <code>
+<pre>
+let name;
+let Name;
+</pre>
+</code>
+
+      <h4>Declaring Multiple Variables</h4>
+      <p>There are two ways to declare multiple variables:</p>
+      <p>1. Single line: You can declare multiple variables in a single line separated by commas.
+      </p>
+      <code>
+<pre>
+let firstName = "Naseeb", lastName = "Khan";
+</pre>
+</code>
+      <p>2. Multiple lines (modern best practice): It's better practice to declare each variable on its own line for
+        clarity.</p>
+      <code>
+<pre>
+let firstName = "Naseeb";
+let lastName = "Khan";
+</pre>
+</code>
+      <p>By following these rules and best practices, you will write cleaner and more readable code.</p>
+
+      <h2>Constant</h2>
+      <p>In JavaScript, we use the let or const keywords to declare variables.</p>
+      <p>Using let: When you declare a variable with let, it means you can change its value later</p>
+      <code>
+<pre>
+let interestRate = 0.3;
+interestRate = 1; // Now interestRate is 1
+</pre>
+</code>
+      <p>You can assign a new value to interestRate because you used let.
+      </p>
+      <p>Using const: In some cases, you might not want the value of a variable to change, because if it
+        changes, it can create bugs or errors in your program. In such cases, you use const to declare the
+        variable, which makes it a constant. This means the value cannot be changed once it's set.
+      </p>
+      <code>
+<pre>
+const interestRate = 0.3;
+interestRate = 1; // This will make an error
+</pre>
+</code>
+      <p>In this example, trying to change the value of interestRate will result in an error, because it's declared with
+        const.</p>
+      <h4>Best Practice:</h4>
+      <ul>
+        <li>Use const when you know the value of the variable should never change.
+        </li>
+        <li>Use let if you need to change the value of the variable later.</li>
+      </ul>
+      <p>
+        This helps you avoid errors and bugs in your code by preventing unwanted changes to important values.
+      </p>
+      <h4>Declaration VS Initialization</h4>
+      <p>Declaration means creating a variable.</p>
+      <p>
+        Initialization means giving a value to a variable for the first time.
+      </p>
+      <p>
+        The var keyword (from ES5) has some issues: it becomes part of the window object, and it allows redeclaration
+        and reassignment multiple times, which can cause bugs.
+      </p>
+
+      <h2>Primitive types </h2>
+      <p>
+        Primitive types are the basic building blocks in JavaScript. We've already learned how to declare and
+        initialize variables, but you might be wondering what types of values we can store in them. You've seen how
+        to use strings, but JavaScript offers more data types.
+      </p>
+      <p>Their values can contain only a single thing (be it a string or a number or whatever)</p>
+      <h4>There are two main categories of data types in JavaScript:</h4>
+      <ol>
+        <li>Primitive (or Value) Types</li>
+        <li>Reference (or Object) Types</li>
+      </ol>
+      <h4>In this section, we'll focus on primitive types. These include:
+      </h4>
+      <ul>
+        <li>String: A sequence of characters.</li>
+        <li>Number/BigInt: Represents both integers and floating-point numbers.</li>
+        <li>Boolean: Can be either true or false.</li>
+        <li>Undefined: A variable that hasn't been given a value yet.</li>
+        <li>Null: Represents an empty or non-existent value.</li>
+        <li>Symbol: for unique identifiers. (helpful in react)</li>
+      </ul>
+      <p>Let’s break it down with some examples:</p>
+      <h4>String</h4>
+      <p> sequence of text characters covered by single quotes ‘ or double quotes “</p>
+      <code>
+<pre>
+let name = "NaseebKhan"; // This is a string literal with double quotes.
+let name = 'NaseebKhan'; // This is also a string literal with single quotes.
+let name = `NaseebKhan`; // This is another string literal with back tic
+</pre>
+</code>
+      <h4>Number</h4>
+      <p>
+        Any numerical value, either integer or floating-point.
+      </p>
+      <code>
+<pre>
+let age = 24; // This is a number literal.
+</pre>
+</code>
+      <h4>BigInt</h4>
+      <p>JavaScript's number type can’t safely represent integers larger than (253
+        - 1) which equals
+        9007199254740991 or smaller than -(253
+        - 1). </p>
+      <p>The number type can store larger integers (up to 1.7976931348623157 * 10308),
+        but outside the safe integer range, precision is lost.To represent such large numbers precisely, we need to
+        use the BigInt type. In BigInt, we append "n" to the end of the number, like 1234566356534543554345n.</p>
+      <p>These will result in precision loss due to exceeding the safe integer range:</p>
+      <code>
+<pre>
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992 (incorrect due to precision
+loss)
+</pre>
+      </code>
+      <p>To correctly handle larger integers, use BigInt:</p>
+      <code>
+<pre>
+console.log(9007199254740991n + 2n); // 9007199254740993n
+console.log(Infinity); // infinity is a number which is larger than any number
+</pre>
+</code>
+      <h4>Boolean</h4>
+      <p>This type has only two values: true or false and is typically used for logical operations.</p>
+      <code>
+<pre>
+let isApproved = true; // This is a Boolean literal.
+</pre>
+</code>
+      <p>You would use Booleans, for example, to track if an order is approved, where the value can either be true
+        (approved) or false (not approved). true and false are reserved keywords, so you cannot use them as variable
+        names.</p>
+      <h4>Undefined</h4>
+      <p>
+        A variable that has been declared but not initialized automatically gets the undefined value.
+      </p>
+      <code>
+<pre>
+let firstName; // Since we didn't assign a value, it's undefined by default.
+let firstName = undefined; // both are the same
+</pre>
+</code>
+      <p>You can also explicitly set a variable to undefined, but this is not common practice</p>
+      <h4>Null</h4>
+      <p>
+        This is used when you want to intentionally clear or reset a variable to "nothing."
+      </p>
+      <code>
+<pre>
+let lastName = null; // This explicitly sets the variable to null.
+</pre>
+</code>
+      <p>
+        Think like you have a store website or app where a user hasn’t selected a product yet, you might initialize
+        the variable as null. Later, when they select, you can assign the chosen product to this variable.
+      </p>
+      <code>
+  <pre>let selectedProduct = null;</pre>
+</code>
+      <p>In ES6, JavaScript introduced another primitive type called Symbol.</p>
+      <p>These are the basic primitive types in JavaScript, and they form the foundation for handling simple data in
+        your programs.</p>
+      <h4>Symbol</h4>
+      <p>
+        In JavaScript, the Symbol data type is used to create unique identifiers. Even if two symbols are created
+        with the same description, they are guaranteed to be unique.
+      </p>
+      <code>
+<pre>
+const name = Symbol('Naseeb'); // Create a symbol with the description 'Naseeb'
+const anotherName = Symbol('Naseeb'); // Another symbol with the same description
+
+// Compare the two symbols
+console.log(name === anotherName); // Output: false
+</pre>
+</code>
+      <p>
+        Here, even though both name and anotherName have the same description ('Naseeb'), they are unique
+        symbols. That’s why the comparison name === anotherName returns false. This ensures that symbols can
+        be used as unique identifiers.
+      </p>
+      <h2>Dynamic Typing</h2>
+      <p>
+        Dynamic typing in JavaScript means that the type of variable can change while the program is running. This
+        is different from statically typed languages, where the type of variable is fixed when you declare it and
+        cannot change later
+      </p>
+      <h4>Static vs Dynamic Typing</h4>
+      <p>1. Static Typing (Statically Typed Languages):
+        <br>In languages like C++ or Java, when you create a variable, you must define its type at the
+        time of declaration, and that type cannot change.
+      </p>
+      <code>
+<pre>
+string name = "Naseeb"; // This variable is always a string.
+</pre>
+</code>
+      <p>2. Dynamic Typing (Dynamically Typed Languages): <br>
+        In JavaScript (a dynamic language), the type of variable can change at runtime, meaning you
+        can first assign a string, and later change it to a number.
+      </p>
+      <code>
+<pre>
+let name = "Naseeb"; // At first, it's a string.
+name = 24; // Now, it’s a number.
+</pre>
+</code>
+      <p>In short, dynamic typing allows flexibility in JavaScript by letting the type of a variable change during
+        program execution.</p>
+      <h2>Checking Variable Type</h2>
+      <p>In JavaScript, you can check the type of a variable using the typeof unary operator.</p>
+      <code>
+<pre>
+let name = "Naseeb";
+console.log(typeof(name)); // Output: "string"
+
+let arr1 = [1, 2, 3];
+console.log(arr1 instanceof Array); // true
+</pre>
+</code>
+      <p>
+        Does arr1 belongs to Array,
+        instanceof works with only reference data types.
+      </p>
+      <p>Now, if you change the value of name to a number:</p>
+      <code>
+<pre>
+name = 24;
+console.log(typeof(name)); // Output: "number"
+</pre>
+</code>
+      <p>This is what makes JavaScript a dynamically typed language. The type of variable is determined at runtime
+        based on the value it holds.</p>
+      <h4>Numbers in JavaScript</h4>
+      <p>In JavaScript, there is only one type for numbers, whether they are whole numbers (integers) or decimal
+        numbers (floating points). Both 24 and 24.5 are considered numbers.</p>
+      <code>
+<pre>
+let number1 = 24; // This is a number.
+let number2 = 24.5; // This is also a number.
+</pre>
+</code>
+      <h4>Special Types: undefined and null</h4>
+      <p>undefined: This is both a type and a value. It represents a variable that has been declared but not
+        assigned a value yet.
+      </p>
+      <code>
+<pre>
+let x;
+console.log(typeof(x)); // Output: "undefined"
+</pre>
+</code>
+      <p>
+        null: This represents an intentional absence of any object value. Interestingly, the typeof null in
+        JavaScript returns "object."
+      </p>
+      <code>
+<pre>
+let y = null;
+console.log(typeof(y)); // Output: "object"
+</pre>
+</code>
+      <p>
+        NaN: Represents a data where a number is calculated with any non-number data:
+      </p>
+      <code>
+<pre>
+let y = 10; // number
+let x = “Naseeb”; // non-number
+let z = y / x;
+console.log(typeof(z)); // Output: "NaN"
+</pre>
+</code>
+
+      <h2>Type Conversion</h2>
+      <p>
+        When working with JavaScript, many operators and functions automatically change the type of value you
+        give them to match what they need.
+      </p>
+      <ul>
+        <li>The alert() function converts any value to a string because it displays text.
+        </li>
+        <li>Math operations (like addition or subtraction) convert values to numbers so calculations can
+          happen.</li>
+      </ul>
+
+      <p>But sometimes, you need to manually convert a value to a specific type</p>
+      <h4>Converting to a String (String Conversion)</h4>
+      <p>String conversion is used when we want to turn a value into text (a string).</p>
+      <ul>
+        <li>The alert() function automatically converts a value into a string to display it.</li>
+        <li>You can also manually convert a value to a string using the String() function.</li>
+      </ul>
+      <h4>Here’s how it works:</h4>
+      <code>
+<pre>
+let value = true;
+alert(typeof value); // Outputs: "Boolean" (the type of value is Boolean)
+
+value = String(value); // Converts the value to a string
+alert(typeof value); // Outputs: "string" (now the type is string)
+</pre>
+</code>
+      <h4>How does it convert?</h4>
+      <ul>
+        <li>true becomes "true" (a string).</li>
+        <li>false becomes "false".</li>
+        <li>null becomes "null".</li>
+      </ul>
+      <p>
+        String conversion is generally straightforward and works as expected.
+      </p>
+      <h4>Numeric / Number Conversion</h4>
+      <p>When working with numbers in JavaScript, values can be automatically or explicitly converted into numbers
+        depending on the context. Here's a simpler breakdown of how this works:</p>
+      <h4>Automatic Conversion in Math Operations</h4>
+      <p>JavaScript often converts strings to numbers automatically when performing mathematical operations.</p>
+      <code>
+<pre>
+alert("6" / "2"); // Result: 3 (strings "6" and "2" are automatically converted to numbers)
+</pre>
+</code>
+      <h4>Explicit Conversion to Numbers</h4>
+      <p>To manually convert a value into a number, you can use the Number(value) function.</p>
+      <code>
+<pre>
+let str = "123"; // This is a string
+alert(typeof str); // Output: "string"
+
+let num = Number(str); // Convert the string "123" to a number
+alert(typeof num); // Output: "number"
+</pre>
+</code>
+      <p>
+        Explicit conversion is particularly useful when you're getting input from a text field or other sources where
+        data is in string format, but you need to work with numbers.
+      </p>
+      <h4>What Happens with Invalid Conversions?</h4>
+      <p>
+        If you try to convert something that can't be understood as a number (like random text), the result is NaN
+        (Not a Number).
+      </p>
+      <code>
+<pre>
+let age = Number("this is not a number");
+alert(age); // Output: NaN (conversion failed)
+</pre>
+</code>
+      <h4>Rules for Numeric Conversion:</h4>
+      <p>Here’s what happens when different types of values are converted to numbers:</p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Value</th>
+              <th>Converted To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>undefined</td>
+              <td>NaN</td>
+            </tr>
+            <tr>
+              <td>null</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>true / false</td>
+              <td>1 (true) and 0 (false)</td>
+            </tr>
+            <tr>
+              <td>String (e.g., "123")</td>
+              <td>Whitespace at the start or end is ignored. If valid, it's converted</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <code>
+<pre>
+alert(Number(" 123 ")); // Result: 123 (whitespace is ignored)
+alert(Number("123z")); // Result: NaN (error due to "z")
+alert(Number(true)); // Result: 1
+alert(Number(false)); // Result: 0
+</pre>
+</code>
+      <h4>Note:</h4>
+      <ul>
+        <li>null converts to 0.</li>
+        <li>undefined converts to NaN.</li>
+      </ul>
+      <h4>Math Operators and Numeric Conversion</h4>
+      <p>
+        Most math operations (like addition, subtraction, division) will automatically convert non-number
+        values to numbers before performing the calculation.
+      </p>
+      <h4>Boolean Conversion</h4>
+      <p>Boolean conversion is a simple concept in JavaScript. It determines whether a value is true or false.</p>
+      <p>This happens automatically in logical operations (like if conditions) but can also be done explicitly using
+        Boolean(value).</p>
+      <h4>Here’s the rule:</h4>
+      <ul>
+        <li>“Empty” values (falsy values) like 0, an empty string "", null, undefined, and NaN are treated as
+          false.</li>
+        <li>Everything else is treated as true.</li>
+      </ul>
+      <code>
+<pre>
+alert(Boolean(1)); // true (1 is not empty)
+alert(Boolean(0)); // false (0 is an empty value)
+
+alert(Boolean("hello")); // true (non-empty string)
+alert(Boolean("")); // false (empty string)
+
+alert(Boolean("0")); // true (non-empty string, even though it’s just "0")
+alert(Boolean(" ")); // true (a string with spaces is still non-empty)
+</pre>
+</code>
+      <h4>Important:</h4>
+      <p>
+        Some programming languages (like PHP) consider "0" as false. However, in JavaScript, any non-empty
+        string including "0" or " " (spaces) is true.
+      </p>
+      <h4>Overview of Type Conversions in JavaScript</h4>
+      <p>
+        JavaScript often needs to convert one type of value into another. The three most common conversions are:
+      </p>
+      <h4>1. String Conversion</h4>
+      <ul>
+        <li>
+          Happens when we display a value (e.g., alert, console.log).
+        </li>
+        <li>
+          You can explicitly convert a value using String(value).
+        </li>
+      </ul>
+      <code>
+<pre>
+String(123); // "123"
+String(true); // "true"
+String(null); // "null"
+</pre>
+</code>
+      <h4>2. Numeric Conversion</h4>
+      <ul>
+        <li>Happens in math operations (e.g., addition, subtraction).</li>
+        <li>You can explicitly convert a value using Number(value).</li>
+        <li>Rules for conversion:</li>
+      </ul>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Value</th>
+              <th>Converts To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>undefined</td>
+              <td>NaN</td>
+            </tr>
+            <tr>
+              <td>null</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>true / false</td>
+              <td>1 / 0</td>
+            </tr>
+            <tr>
+              <td>Strings (e.g., "42")</td>
+              <td>Number equivalent if valid</td>
+            </tr>
+            <tr>
+              <td>Empty string ""</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Invalid strings</td>
+              <td>NaN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <code>
+<pre>
+Number("42"); // 42
+Number("hello"); // NaN
+Number(""); // 0
+</pre>
+</code>
+      <h4>3. Boolean Conversion</h4>
+      <ul>
+        <li>Happens in logical operations or explicitly with Boolean(value).</li>
+        <li>Rules for conversion:</li>
+      </ul>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Value</th>
+              <th>Converts To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0, null, undefined, NaN, ""</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>Any other value</td>
+              <td>true</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <code>
+<pre>
+Boolean(123); // true
+Boolean(0); // false
+Boolean(" "); // true
+</pre>
+</code>
+      <h4>Key Points to Remember</h4>
+      <ol>
+        <li>Falsy values: 0, null, undefined, NaN, and "" are false.</li>
+        <li>Truthful values: Anything else is true, including "0" and " " (a string with spaces).</li>
+        <li>
+          Common mistakes:
+          <ul>
+            <li>
+              undefined becomes NaN in numeric conversion, not 0.
+            </li>
+            <li>Strings like "0" or " " are true as Booleans.
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p>Objects behave differently and will be covered in the chapter on "Object to Primitive Conversion</p>
+
+      <h2>Reference Data Type</h2>
+      <p>
+        Now that we've explored all the basic (primitive) types, let's dive into reference types. In the reference
+        category, we have objects, arrays, and functions. But what exactly is an object?
+      </p>
+      <h4>Object</h4>
+      <p>
+        An object in JavaScript, or in other programming languages, is like real-world objects. Think of a person. A
+        person has a name, age, address, etc. These are called properties of a person. We use the same concept in
+        JavaScript. When we have multiple related pieces of information, instead of creating separate variables, we
+        can put them together inside an object.
+      </p>
+      <p>
+        Example, instead of writing:
+      </p>
+      <code>
+<pre>
+let name = "Naseeb";
+let age = 23;
+</pre>
+</code>
+      <p>
+        Both name and age are related to a person. Rather than declaring two separate variables, we can create a
+        single object to represent the person, making our code cleaner. Here’s how you can create an object:
+      </p>
+      <code>
+<pre>
+let person = { name: "Naseeb", age: 23 };
+</pre>
+</code>
+      <p>These curly braces {} are called object literals. Inside the object literal, we add one or more key-value
+        pairs,
+        where keys represent the properties of the object. In this example, name and age are the keys, and "Naseeb"
+        and 23 are the values. Each key-value pair is separated by a comma.</p>
+      <p>To print this object, we can use:</p>
+      <code>
+<pre>console.log(person);</pre>
+      </code>
+      <h4>There are two ways to work with the properties of an object</h4>
+      <p><strong>1. Dot notation:</strong> This is the more common way to access or change properties. For example, to
+        change
+        the name of the person:</p>
+      <code>
+<pre>
+person.name = "Khan";
+console.log(person.name); // print only a name of person which is now khan
+</pre>
+</code>
+      <p><strong>2. Bracket notation:</strong> Another way to access properties is by using brackets, passing the
+        property name
+        as a string. For example:
+      </p>
+      <code>
+<pre>
+person['name'] = 'NK';
+console.log(person.name);
+</pre>
+</code>
+      <p>Both methods work, and you can choose based on what feels best for your code.</p>
+      <h4>Array</h4>
+      <p>
+        In everyday applications, we often work with lists of objects. For example, you might have a list of products
+        in a shopping cart or a list of colors that a user has selected. In these situations, instead of creating
+        separate variables for each item, which would be inconvenient, we use an array to store everything in one
+        place.
+      </p>
+      <p>Imagine you have a list of colors. Instead of creating a new variable for each color, we can group
+        them into a single variable using an array. </p>
+      <code>
+<pre>let selectedColors = [ ];</pre>
+</code>
+      <p>The square brackets ( [ ] ) represent an empty array, which means there are no items in it yet. We can add
+        items to this array like this:
+      </p>
+      <code>
+<pre>
+let selectedColors = ['red', 'green', 'blue', ‘black’];
+</pre>
+</code>
+      <p>Now, if we print the array using console.log(selectedColors);, we get the list of colors. Each item in the
+        array
+        has a position number, called an index, that starts from 0. To access specific items, we use their index. </p>
+      <p>to print the first color:</p>
+      <code>
+<pre>
+console.log(selectedColors[0]); // Output: 'red'
+</pre>
+</code>
+      <p>JavaScript is a dynamic language, and arrays are also dynamic. This means we can change the size of the
+        array and add new items to it. For example, to add a new color:</p>
+      <code>
+<pre>
+selectedColors[4] = 'black';
+</pre>
+</code>
+      <p>Now the array has five items, and the fifth one is 'black'. Unlike other programming languages, where all
+        items in an array must be the same type, in JavaScript, we can store different types of data in a single array:
+      </p>
+      <code>
+<pre>
+let mixedArray = [1, 'a', true, null];
+</pre>
+</code>
+      <p>Arrays in JavaScript are technically objects and have built-in properties that we can access. For example, to
+        find the length of an array (the number of items it contains), we use the .length property:</p>
+      <code>
+<pre>
+console.log(selectedColors.length); // Output: 5
+</pre>
+</code>
+      <p>In summary, an array is a data structure that allows us to store and manage a list of items efficiently.</p>
+      <h2>Function</h2>
+      <p>In JavaScript, functions are one of the core building blocks. They are like small programs that you can use
+        over and over to perform a specific task or calculate something. You can think of a function as a set of
+        instructions that tell the computer what to do.
+      </p>
+      <h4>What is a Function?</h4>
+      <p>
+        A function in JavaScript (or in programming in general) is a collection of statements that perform a specific
+        task. Functions allow us to write code once and run it multiple times, potentially with different inputs. This
+        means we can make our code reusable and more efficient.
+      </p>
+      <h4>Creating a Function</h4>
+      <p>To create a function, you use the function keyword, followed by a name, parentheses (), and curly braces {}.
+        Inside the curly braces is the body of the function, where you write the logic or instructions. </p>
+      <p>Example, a simple function that prints a message to the console:</p>
+      <code>
+<pre>
+function greetings() {
+console.log("Hello NaseebCodeStudio");
+}
+</pre>
+</code>
+      <p>Here, we’ve declared a function, but it won't do anything until we call it by its name:</p>
+      <code>
+<pre>
+greetings(); // This will print "Hello NaseebCodeStudio" in the console
+</pre>
+</code>
+      <h4>Functions with Inputs (Parameters)</h4>
+      <p>A function can take inputs, called parameters. These parameters allow you to pass different values to the
+        function so it can act on them. For example, let’s create a function that greets a person by name:
+      </p>
+      <code>
+<pre>
+function greeting(name) {
+ console.log("Hello " + name);
+}
+</pre>
+</code>
+      <p>When we call this function, we can pass different names to get different results:</p>
+      <code>
+<pre>
+greeting("Naseeb"); // Prints "Hello Naseeb"
+greeting("Khan"); // Prints "Hello Khan"
+</pre>
+</code>
+      <p>In this example, name is the parameter, and "Naseeb" or "Khan" are the arguments passed when calling the
+        function.</p>
+      <h4>Parameters and Arguments</h4>
+      <ul>
+        <li><strong>Parameters</strong> are like placeholders or variables inside the function that store the values you
+          pass on
+          when calling the function.</li>
+        <li><strong>Arguments</strong> are the actual values you pass to the function when you call it.</li>
+      </ul>
+      <p>For example, in greeting(name), name is the parameter, and when you call greeting("Naseeb"), "Naseeb" is
+        the argument that gets passed to the name parameter.
+      </p>
+      <h4>Multiple Parameters</h4>
+      <p>A function can also take more than one parameter. For instance:</p>
+      <code>
+<pre>
+function greet(name, lastName=”Khan”) {
+ console.log("Hello " + name + " " + lastName);
+}
+</pre>
+</code>
+      <p>A function with parameters which holds default value “khan”, </p>
+      <code>
+<pre>
+function greet(name, lastName) {
+ console.log("Hello " + name + " " + lastName);
+}
+</pre>
+</code>
+      <p>Here, the function takes two parameters, name and lastName, and you can pass two arguments when
+        calling it:
+      </p>
+      <code>
+<pre>
+greet("Naseeb", "Khan"); // Prints "Hello Naseeb Khan"
+</pre>
+</code>
+      <p>In this case, name holds the value "Naseeb" and lastName holds the value "Khan"</p>
+      <h4>Overview:</h4>
+      <ul>
+        <li>A function is a block of code that performs a specific task.</li>
+        <li>You define a function using the function keyword, a name, and a body inside curly braces.</li>
+        <li> Functions can take parameters (inputs) that control how the function behaves.</li>
+        <li>Arguments are the actual values you pass when calling the function.</li>
+        <li>Functions help make your code reusable by allowing you to run the same code with different inputs.</li>
+      </ul>
+      <h2>What is the return keyword in JavaScript?</h2>
+      <p>The return keyword is used in a function to send back a result or value to wherever the function was
+        called. It essentially gives back the final output of the function to be used elsewhere in the code.
+      </p>
+      <code>
+<pre>
+function square(number) {
+return number * number;
+}
+</pre>
+</code>
+      <p>
+        In the example above, the function square takes a number, multiplies it by itself, and then sends that result
+        back using the return keyword.
+      </p>
+      <h4>How to Use return:</h4>
+      <p>To make use of the result, we need to store the returned value in a variable:</p>
+      <code>
+<pre>
+let result = square(2); // result will be 4
+console.log(result); // This prints 4
+</pre>
+</code>
+      <p>Alternatively, we can directly use the function inside console.log() without storing it in a variable:</p>
+      <code>
+<pre>console.log(square(2)); // This also prints 4</pre>
+</code>
+      <p>
+        Here, the JavaScript engine first calls the square function, gets the returned result (4), and then passes that
+        value to console.log() to print it.
+      </p>
+      <h4>How Many Functions Were Called?</h4>
+      <p>
+        in this example:
+      </p>
+      <code>
+<pre>console.log(square(2));</pre>
+</code>
+      <h4>Two functions were called:</h4>
+      <ol>
+        <li>
+          The square function, which calculates and returns the square of the number.
+        </li>
+        <li>The console.log() function, which prints the result to the console.</li>
+      </ol>
+      <h4>Real-Life Use of Functions</h4>
+      <p>In real-life applications, there can be thousands of functions working together. Each function is responsible
+        for a specific task, and they often return values that are passed to other functions to create complex logic
+        or functionality.</p>
+      <p>I hope this clears up how the return keyword works and how functions interact!</p>
+      <h3>It's Your Turn</h3>
+      <p>
+        Solve these <a href="Questions_part2.txt">Questions</a>.
+      </p>
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

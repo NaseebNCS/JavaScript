@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 9</div>
+      <h2>What’s a Host Environment?</h2>
+      <p>
+        That playground = Host Environment
+        <br>
+        A host environment is the place where JavaScript runs, and it gives JavaScript extra powers (tools) that are NOT
+        part of core JavaScript.
+      </p>
+      <h4>Example:</h4>
+      <p>
+        JavaScript Alone (Core JS)
+        <br>
+        By itself, JavaScript can:
+      </p>
+      <ul>
+        <li>Do math </li>
+        <li>Store Data </li>
+        <li>Run Logic</li>
+      </ul>
+      <h4>But it cannot:</h4>
+      <ul>
+        <li>Show a webpage</li>
+        <li>Access Buttons</li>
+        <li>Talk to internet</li>
+        <li>Use camera</li>
+      </ul>
+      <h4>Now Add Playground (Host Environment)</h4>
+      <p>
+        1. Browser (Like Google Chrome)
+        <br>
+        When JS runs inside a browser, it gets tools like:
+      </p>
+      <ul>
+        <li>document > access HTML</li>
+        <li>window > control browser</li>
+        <li>alert() > show popup</li>
+      </ul>
+      <p>Example:</p>
+      <code>
+<pre>
+document.body.style.background = "blue";
+</pre>
+</code>
+      <p>💡 This works ONLY in browser, not in pure JS!</p>
+      <p>
+        2. Server (like Node.js)
+        <br>
+        When JS runs in Node.js, it gets different tools:
+      </p>
+      <ul>
+        <li>fs > read/write files</li>
+        <li>http > create server</li>
+      </ul>
+      <p>
+        Example:
+      </p>
+      <code>
+<pre>
+const fs = require("fs");
+fs.writeFileSync("ncs.txt", "Hello!");
+</pre>
+</code>
+      <p>This will NOT work in browser!</p>
+      <h4>Key Idea</h4>
+      <ul>
+        <li>JS itself is small</li>
+        <li>Host environment makes it powerful</li>
+      </ul>
+      <h4>Simple Analogy</h4>
+      <ul>
+        <li>JavaScript = Player</li>
+        <li>Host Environment = Game World</li>
+      </ul>
+      <p>Different worlds > different abilities</p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Core JS</th>
+              <th>Browser</th>
+              <th>Node.js</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Variable</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+            <tr>
+              <td>DOM (HTML)</td>
+              <td>❌</td>
+              <td>✅</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td>File System</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>✅</td>
+            </tr>
+            <tr>
+              <td>Internet Requests</td>
+              <td>❌</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>JavaScript is the brain, host environment is the body.</p>
+      <img src="window_obj.png" alt="window object artchitecture.">
+      <h2>DOM</h2>
+      <h4>What is DOM</h4>
+      <p>
+        DOM = Document Object Model
+        <br>
+        Think of a website like a tree 🌳
+      </p>
+      <ul>
+        <li>The whole page = tree</li>
+        <li>Each part (heading, button, image) = node (branch/leaf)</li>
+      </ul>
+      <p>
+        <strong>So:</strong>Everything you see on a webpage = a DOM node
+      </p>
+      <p>
+        <strong>DOM means:</strong>
+        “A way for JavaScript to see and control your HTML”
+      </p>
+      <h4>What is a Node?</h4>
+      <p>Node = any element on the page</p>
+      <p>Example:</p>
+      <ul>
+        <li>&lt;h1> → node</li>
+        <li>&lt;p> → node</li>
+        <li>&lt;button> → node</li>
+        <li>even text → node</li>
+      </ul>
+      <p>
+        <strong>Simple:</strong>
+        If you can see it (or it exists in HTML), it’s a node.
+      </p>
+      <h4>🚪 Entry Point: document</h4>
+      <p>Before changing anything, we must enter the DOM</p>
+      <code>
+<pre>
+// The door is:
+document
+</pre>
+</code>
+      <p>
+        <strong>Think:</strong>
+        document = the whole website in JavaScript
+      </p>
+      <h4>🏠 Main Parts of the Page</h4>
+      <p>Your HTML looks like this:</p>
+      <code>
+<pre>
+&lt;html>
+  &lt;head>&lt;/head>
+  &lt;body>&lt;/body>
+&lt;/html>
+</pre>
+</code>
+      <p>JavaScript gives you direct access:</p>
+      <h4>1. &lt;html> → Full Page</h4>
+      <code>
+<pre>
+document.documentElement
+</pre>
+</code>
+      <p>This is the entire page</p>
+      <h4>2. &lt;body> → Visible Content</h4>
+      <code>
+<pre>
+document.body
+</pre>
+</code>
+      <p>This is what users actually see:</p>
+      <ul>
+        <li>text</li>
+        <li>images</li>
+        <li>buttons</li>
+      </ul>
+      <h4>3. &lt;head> → Hidden Setup</h4>
+      <code>
+<pre>
+document.head
+</pre>
+</code>
+      <p>
+        Contain:
+      </p>
+      <ul>
+        <li>title</li>
+        <li>links</li>
+        <li>scripts</li>
+      </ul>
+      <h4>DOM in Action</h4>
+      <p>
+        DOM allows us to do anything with elements
+        <br>
+        That means:
+      </p>
+      <ul>
+        <li>change text</li>
+        <li>change colors</li>
+        <li>add/remove elements</li>
+        <li>respond to click</li>
+      </ul>
+      <h4>DOM Manipulation</h4>
+      <p>
+        simple definition:
+        <br>
+        Changing anything in the DOM using JavaScript.
+      </p>
+      <p>Example:</p>
+      <code>
+<pre>
+// HTML
+&lt;p id="text">NaseebCodeStudio&lt;/p>
+
+// JavaScript
+document.getElementById("text").innerHTML = "Hi Naseeb Khan!";
+</pre>
+</code>
+      <p>You just did DOM Manipulation</p>
+      <code>
+<pre>
+document.body.style.backgroundColor = "blue";
+</pre>
+</code>
+      <p>
+        Page Background becomes blue.
+      </p>
+      <ul>
+        <li>DOM = Strucutre of your webpage</li>
+        <li>Everything = node</li>
+        <li>document = entry point</li>
+        <li>
+          You can access:
+          <ul>
+            <li>document.documentElement > &lt;html></li>
+            <li>document.body > &lt;body></li>
+            <li>document.head > &lt;head></li>
+          </ul>
+        <li>Changing anything = DOM Manipulation</li>
+        </li>
+      </ul>
+      <p>
+        Individual blocks in a wall are examples of nodes; the complete wall represents the DOM, and JavaScript is the
+        hand that moves or changes them.
+      </p>
+      <h2>Children, Parent, Siblings</h2>
+      <p>
+        Think of HTML like a family
+      </p>
+      <code>
+<pre>
+// HTML
+&lt;html>
+  &lt;body>
+    &lt;div>Begin&lt;/div>
+    &lt;ul>
+      &lt;li>
+        &lt;b>Information&lt;/b>
+      &lt;/li>
+    &lt;/ul>
+  &lt;/body>
+&lt;/html>
+</pre>
+</code>
+      <h4>1. Children (Direct kids)</h4>
+      <p>Children = direct inside elements</p>
+      <p>Example:</p>
+      <ul>
+        <li>&lt;body> has:
+          <ul>
+            <li>&lt;div></li>
+            <li>&lt;ul></li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        <strong>So:</strong>
+        &lt;div> and &lt;ul> are children of &lt;body>
+      </p>
+      <h4>2. Descendants (All kids + grandkids)</h4>
+      <p>Descendants = everything inside (deep)</p>
+      <p>So &lt;body> has:</p>
+      <ul>
+        <li>&lt;div></li>
+        <li>&lt;ul></li>
+        <li>&lt;li> inside &lt;ul></li>
+        <li>&lt;b> inside &lt;li></li>
+      </ul>
+      <p>
+        Children = Direct <br>
+        Descendants = All Levels
+      </p>
+      <h4>Visual Understanding</h4>
+      <code>
+<pre>
+<body>
+ ├── &lt;div>
+ └── &lt;ul>
+      └── &lt;li>
+           └── &lt;b>
+</pre>
+</code>
+      <h4>1. See the whole page</h4>
+      <code>
+<pre>
+console.log(document);
+</pre>
+</code>
+      <p>
+        Shows full DOM (Your entire website)
+      </p>
+      <h4>2. Get &lt;html></h4>
+      <code>
+<pre>
+console.log(document.documentElement);
+</pre>
+</code>
+      <h4>3. Get &lt;body></h4>
+      <code>
+<pre>
+console.log(document.body);
+</pre>
+</code>
+      <h4>4. Get &lt;head></h4>
+      <code>
+<pre>
+console.log(document.head);
+</pre>
+</code>
+      <h4>5. Get only Elements inside &lt;body></h4>
+      <code>
+<pre>
+console.log(document.body.children);
+</pre>
+</code>
+      <p>
+        Return:
+      </p>
+      <ul>
+        <li>&lt;div></li>
+        <li>&lt;ul></li>
+      </ul>
+      <p>6. No text spaces ignored</p>
+      <code>
+<pre>
+console.log(document.body.childNodes);
+</pre>
+</code>
+      <p>
+        Returns:
+      </p>
+      <ul>
+        <li>text (spaces, enters)</li>
+        <li>elements</li>
+        <li>comments</li>
+      </ul>
+      <p>
+        Important:
+        <br>
+        childNodes = Everything
+        <br>
+        children = Only elements
+      </p>
+      <h4>7. First Child</h4>
+      <code>
+<pre>
+console.log(document.body.firstChild);
+</pre>
+</code>
+      <h4>8. Last Child</h4>
+      <code>
+<pre>
+console.log(document.body.lastChild);
+</pre>
+</code>
+      <h4>Shortcut rule:</h4>
+      <code>
+<pre>
+elem.childNodes[0] === elem.firstChild
+elem.childNodes[elem.childNodes.length - 1] === elem.lastChild
+</pre>
+</code>
+      <h4>9. Get Parent</h4>
+      <code>
+<pre>
+console.log(document.body.parentNode);
+
+// Output:
+&lt;html>
+</pre>
+</code>
+      <h4>10. Previous Sibling</h4>
+      <code>
+<pre>
+console.log(document.body.previousSibling)
+</pre>
+</code>
+      <p>Usually &lt;head></p>
+      <h4>11. Next Sibling</h4>
+      <code>
+<pre>
+console.log(document.head.nextSibling)
+</pre>
+</code>
+      <p>&lt;body></p>
+      <h4>12. By ID</h4>
+      <code>
+<pre>
+console.log(document.getElementById("myId"));
+</pre>
+</code>
+      <h4>13. Shortcut (if ID exists)</h4>
+      <code>
+<pre>
+&lt;input id="elem">
+
+console.log(elem); // works directly
+</pre>
+</code>
+      <h4>14. Query Selector</h4>
+      <code>
+<pre>
+document.querySelector("input[type='text']");
+</pre>
+</code>
+      <p>Finds First Matching element</p>
+      <h4>15. Query All</h4>
+      <code>
+<pre>
+document.querySelectorAll("li");
+</pre>
+</code>
+      <p>Returns All &lt;li></p>
+      <h4>16. First Element from list</h4>
+      <code>
+<pre>
+document.querySelectorAll("li")[0];
+</pre>
+</code>
+      <h4>17. By Class</h4>
+      <code>
+<pre>
+document.getElementsByClassName("box");
+</pre>
+</code>
+      <h4>18. By Tag</h4>
+      <code>
+<pre>
+document.getElementsByTagName("div");
+</pre>
+</code>
+      <h4>Example Code</h4>
+      <code>
+<pre>
+// 1. Children vs Descendants
+// Directly Nested inside a parent 
+&lt;body>
+  &lt;div>Begin&lt;/div>   &lt;!-- child of body --&gt;
+  &lt;ul>...&lt;/ul>       &lt;!-- child of body --&gt;
+&lt;/body>
+
+// Descendants (all levels deep)
+// Children + children of children + … (the entire subtree).
+&lt;body>
+  &lt;ul>
+    &lt;li>
+      &lt;b>Info&lt;/b>  &lt;!-- descendant of body --&gt;
+    &lt;/li>
+  &lt;/ul>
+&lt;/body>
+
+// 2. A practical HTML to test everything
+&lt;!doctype html>
+&lt;html>
+&lt;head>
+  &lt;title>DOM Traversal&lt;/title>
+&lt;/head>
+&lt;body>
+  &lt;div id="box" class="card">Begin&lt;/div>
+
+  &lt;ul id="list">
+    &lt;li class="item">One&lt;/li>
+    &lt;li class="item">&lt;b>Two&lt;/b>&lt;/li>
+  &lt;/ul>
+
+  &lt;!-- a comment node --&gt;
+
+  &lt;script>
+    // Run after DOM is parsed (safe even if script is in &lt;head>)
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("document:", document);
+      console.log("documentElement (&lt;html>):", document.documentElement);
+      console.log("head:", document.head);
+      console.log("body:", document.body);
+
+      // ELEMENTS vs NODES
+      console.log("body.children (elements only):", document.body.children);
+      console.log("body.childNodes (includes text/comments):", document.body.childNodes);
+
+      console.log("body.firstChild (node):", document.body.firstChild);
+      console.log("body.lastChild (node):", document.body.lastChild);
+
+      // Better when you want only elements:
+      console.log("body.firstElementChild:", document.body.firstElementChild);
+      console.log("body.lastElementChild:", document.body.lastElementChild);
+
+      // SIBLINGS
+      console.log("body.previousSibling (node):", document.body.previousSibling);
+      console.log("head.nextSibling (node):", document.head.nextSibling);
+
+      // Better when you want only element siblings:
+      console.log("body.previousElementSibling:", document.body.previousElementSibling); // &lt;head>
+      console.log("head.nextElementSibling:", document.head.nextElementSibling);       // &lt;body>
+
+      // PARENT
+      console.log("body.parentNode:", document.body.parentNode); // &lt;html>
+      console.log("body.parentElement:", document.body.parentElement); // &lt;html>
+
+      // CHECK CHILDREN EXIST
+      console.log("body.hasChildNodes():", document.body.hasChildNodes());
+    });
+  &lt;/script>
+&lt;/body>
+&lt;/html>
+</pre>
+</code>
+      <ul>
+        <li>childNodes includes text nodes (like "\n " from formatting) and comments.</li>
+        <li>children includes elements only. </li>
+      </ul>
+      <code>
+<pre>
+// 3. Why do text nodes appear?
+// because formatting like:
+&lt;body>
+  &lt;div>Begin&lt;/div>
+&lt;/body>
+</pre>
+</code>
+      <p>The newline + spaces before &lt;div> becomes a text node.</p>
+      <p>That’s why:</p>
+      <ul>
+        <li>
+          body.childNodes might look like: [#text, div, #text, ul, #text, comment, #text, script]
+        </li>
+        <li>but body.children might look like: [div, ul, script]</li>
+      </ul>
+      <p>
+        4. firstChild vs firstElementChild (common confusion)
+      </p>
+      <ul>
+        <li>
+          elem.firstChild → might be a #text
+        </li>
+        <li>
+          elem.firstElementChild → guaranteed to be an element (or null)
+        </li>
+      </ul>
+      <p>So for real-world DOM work, you often want the *Element* versions:</p>
+      <ul>
+        <li>firstElementChild</li>
+        <li>lastElementChild</li>
+        <li>nextElementSibling</li>
+        <li>previousElementSibling</li>
+      </ul>
+      <code>
+<pre>
+// 5. Selecting elements (id, class, tag, name)
+// by id:
+const box = document.getElementById("box");
+console.log(box);
+</pre>
+</code>
+      <p>Note: console.log(elementId) sometimes works because some browsers expose id as a global variable in non-module
+        scripts, but it’s unreliable and not recommended.</p>
+      <code>
+<pre>
+// By CSS selector (most powerful)
+console.log(document.querySelector("#list"));        // first match
+console.log(document.querySelector(".item"));        // first .item
+console.log(document.querySelector("ul#list > li")); // first direct li child
+console.log(document.querySelector('input[type="text"]'));
+
+// All matches
+const items = document.querySelectorAll(".item"); // static NodeList
+console.log(items);
+console.log(items[0]);
+
+// By class name (live collection)
+const liveItems = document.getElementsByClassName("item"); // HTMLCollection (live)
+console.log(liveItems);
+
+// By tag name (live collection)
+console.log(document.getElementsByTagName("li"));
+
+// By name attribute (IMPORTANT: plural)
+// Your note has a small typo: it’s getElementsByName (plural), not getElementByName.
+&lt;input name="username" value="alice">
+&lt;script>
+  console.log(document.getElementsByName("username")); // NodeList-like collection
+&lt;/script>
+
+
+// 6. Getting id/type/value from on input 
+&lt;input type="text" id="elem" value="value">
+
+&lt;script>
+  const input = document.getElementById("elem");
+  alert(input.type);  // "text"
+  alert(input.id);    // "elem"
+  alert(input.value); // "value"
+&lt;/script>
+
+// 7. Script timing (why sometimes you can’t “see” elements)
+// If your &lt;script> runs before the browser parses the HTML below it, then code like:
+document.querySelector("#footer") // might be null if footer is below script
+
+
+// Fix Options:
+  // 1. put script at the end of &lt;body> (common)
+  // 2. Or use: 
+document.addEventListener("DOMContentLoaded", () => {
+  // safe DOM access here
+});
+</pre>
+</code>
+
+      <h2>DOM Collection</h2>
+      <p>
+        When you get multiple elements like:
+      </p>
+      <code>
+<pre>
+document.body.childNodes
+</pre>
+</code>
+      <p>
+        <strong>It looks like an array… but ❗</strong>
+        <br>
+        🚫 It is NOT a real array
+        <br>
+        ✅ It is a collection (array-like object)
+      </p>
+      <p>
+        <strong>Simple Meaning</strong>
+        <br>
+        Collection =
+        <br>
+        Looks like array, but behaves a little different
+      </p>
+      <h4>Why this Matters?</h4>
+      <p>Because:</p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Loop (for...of)</td>
+              <td>✅YES</td>
+            </tr>
+            <tr>
+              <td>.filter()</td>
+              <td>❌NO</td>
+            </tr>
+            <tr>
+              <td>.map()</td>
+              <td>❌NO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <code>
+<pre>
+// 1. Looping works 
+for (let node of document.body.childNodes) {
+  console.log(node);
+}
+</pre>
+</code>
+      <p>This Prints:</p>
+      <ul>
+        <li>text nodes</li>
+        <li>elements</li>
+        <li>everything inside &lt;body></li>
+      </ul>
+      <p>Why it works: Because collection is iterable</p>
+      <code>
+<pre>
+// 2. Array Methods don't work
+console.log(document.body.childNodes.filter);
+
+// output: undefined 
+</pre>
+</code>
+      <p>Because: it is not a real array.</p>
+
+      <h4>Solution: convert to real Array</h4>
+      <code>
+<pre>
+let nodes = Array.from(document.body.childNodes);
+
+nodes.filter(node => node.nodeType === 1);
+</pre>
+</code>
+      <p>Now .filter() works</p>
+      <p>
+        Simple Analogy:
+        <br>
+        Collection = Fake Juice box
+        <br>
+        Array = Real Juice
+        <br>
+        Fake looks same... but not same inside.
+      </p>
+      <h4>Siblings</h4>
+      <p>Elements with same parent</p>
+      <code>
+<pre>
+&lt;html>
+  &lt;head>&lt;/head>
+  &lt;body>&lt;/body>
+&lt;/html>
+</pre>
+</code>
+      <p>Both are children of &lt;html></p>
+      <p>So:
+        <br>
+        &lt;head> & &lt;body> = siblings
+      </p>
+      <code>
+<pre>
+// Types of siblings
+// next sibling (right side)
+console.log(document.head.nextSibling);
+
+// Output: &lt;body>
+
+// Previous Sibling (left side)
+console.log(document.body.previousSibling);
+
+// Output: &lt;head>
+
+// PARENT 
+// parent = who contains you
+console.log(document.body.parentNode);
+
+// Output: &lt;html>
+
+// Check (important concept)
+console.log(
+  document.body.parentNode === document.documentElement
+);
+
+// Output: true 
+// Meaning: &lt;html> is parent of &lt;body>
+
+
+// PRACTICAL 
+&lt;body>
+  &lt;h1>Hello&lt;/h1>
+  &lt;p>Paragraph&lt;/p>
+&lt;/body>
+
+// Get all nodes
+let nodes = document.body.childNodes;
+
+// Loop through them
+for (let node of nodes) {
+  console.log(node);
+}
+
+// Convert to array
+let arr = Array.from(nodes);
+
+// Filter only ELEMENTS
+let elementsOnly = arr.filter(node => node.nodeType === 1);
+
+console.log(elementsOnly);
+</pre>
+</code>
+      <h4>Important Hiddent thing</h4>
+      <p>
+        childNodes includes:
+      </p>
+      <ul>
+        <li>spaces</li>
+        <li>line breaks</li>
+        <li>comments</li>
+      </ul>
+      <p>That's why sometimes you see weird output</p>
+      <code>
+<pre>
+// Use this in real Projects:
+document.body.children
+// instead of:
+document.body.childNodes
+</pre>
+</code>
+      <p>
+        Why: children = clean (only elements)
+      </p>
+      <h4>Engineer Tip</h4>
+      <p>90% of time use:</p>
+      <code>
+<pre>
+document.querySelector()
+document.querySelectorAll()
+</pre>
+</code>
+      <h2>Access Textual Content</h2>
+      <p>
+        There are three ways to access an HTML element's text or content.
+      </p>
+      <ul>
+        <li>innerHTML</li>
+        <li>innerText</li>
+        <li>textContent</li>
+      </ul>
+      <p> 'Text' refers only to the plain text, whereas
+        'content' refers to everything inside the element, which can include both text and other HTML elements.</p>
+      <h4>Comparison</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Reads HTML?</th>
+              <th>Shows Hidden text?</th>
+              <th>Affects Styling?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>innerHTML</td>
+              <td>✅YES</td>
+              <td>✅YES</td>
+              <td>❌NO</td>
+            </tr>
+            <tr>
+              <td>innerText</td>
+              <td>❌NO</td>
+              <td>❌NO</td>
+              <td>✅YES</td>
+            </tr>
+            <tr>
+              <td>textContent</td>
+              <td>❌NO</td>
+              <td>✅YES</td>
+              <td>❌NO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <code>
+<pre>
+&lt;div id="box">
+  Hello &lt;b>Naseeb&lt;/b>
+  &lt;span style="display:none">Hidden&lt;/span>
+&lt;/div>
+
+// JavaScript 
+// 1. innerHTML
+console.log(document.getElementById("box").innerHTML);
+
+// Output: Hello &lt;b>Naseeb&lt;/b> &lt;span style="display:none">Hidden&lt;/span>
+</pre>
+</code>
+      <p><strong>Meaning:</strong>
+        it returns everything Including HTML tags, innerHTML says give me Exact HTML inside.
+      </p>
+      <code>
+<pre>
+// Changing the content of a box element
+document.getElementById("box").innerHTML = "&lt;h1>NaseebCodeStudio&lt;/h1>";
+</pre>
+</code>
+      <p>It will actually create an &lt;h1> element</p>
+      <code>
+<pre>
+// 2. innerText
+console.log(document.getElementById("box").innerText);
+
+// Output: Hello Naseeb
+</pre>
+</code>
+      <p>
+        <strong>Meaning:</strong>
+        it returns only visible text, <br>
+        Hiddent text is ignored <br>
+        HTML tags removed
+        <br>
+        innerHTML says Give me What user sees.
+      </p>
+      <code>
+<pre>
+// 3. textContent
+console.log(document.getElementById("box").textContent);
+
+// Output: Hello Naseeb Hidden
+</pre>
+</code>
+      <p>
+        <strong>textContent:</strong>
+        it returns all text <br>
+        includes hiddent text <br>
+        No HTML tags <br>
+        textContent says Give me all text, I don't care if hidden.
+      </p>
+      <h4>Easy Analogy</h4>
+      <p>Imagine a Box: <br>Inside:</p>
+      <ul>
+        <li>Text</li>
+        <li>Hidden text</li>
+        <li>Some HTML styling</li>
+      </ul>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>What it Does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>innerHTML</td>
+              <td>Shows full box with structure</td>
+            </tr>
+            <tr>
+              <td>innerText</td>
+              <td>Shows only what you see</td>
+            </tr>
+            <tr>
+              <td>textContent</td>
+              <td>Shows All text (even Hidden)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <code>
+<pre>
+// Practical Examples
+
+// 1. Change Text Only
+document.getElementById("box").innerText = "Hello User!";
+// safe, no HTML added 
+
+// 2. Add HTML
+document.getElementById("box").innerHTML = "&lt;b>Bold Text&lt;/b>";
+// Creates real &lt;b> tag
+
+// 3. Fast Text Change
+document.getElementById("box").textContent = "Fast update!";
+// Faster than innerText
+</pre>
+</code>
+      <h4>Important Difference (Real World)</h4>
+      <p>Speed:</p>
+      <ul>
+        <li>textContent is fastest</li>
+        <li>innerText is slower (because checks styling)</li>
+      </ul>
+      <h4>Styling Effect</h4>
+      <code>
+<pre>
+element.innerText
+// depends on CSS (visible or not)
+
+element.textContent
+// ignores CSS completely
+</pre>
+</code>
+      <h4>Security Warning</h4>
+      <code>
+<pre>
+innerHTML
+// can be dangerious if you insert user data 
+
+// Example:
+elemenet.innerHTML = userInput;
+</pre>
+</code>
+      <p>Can allow XSS attack</p>
+<h4>Engineer Tip</h4>
+<p>
+  In real projects: prefer to use textContent <br>
+  Avoid too much: <br>
+  innerHTML (unless really needed)
+</p>
+
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

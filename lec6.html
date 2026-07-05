@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 5</div>
+      <h2>Objects With OOP</h2>
+      <p>An object is a collection of key-value pairs. If we have properties that are highly related, we want to
+        encapsulate them inside an object. For example, let’s say we’re building an application that draws different
+        types of shapes, like circles, rectangles, and so on. We could declare multiple variables around circles.</p>
+      <p>In OOP object are used to Groups data and related functions together in one place.
+      </p>
+      <code>
+<pre>
+let radius = 1;
+let x = 1;
+let y = 1;
+</pre>
+</code>
+      <p>
+        Here, we are defining multiple variables, and these variables are highly related, representing a circle. A
+        better approach is to put these variables inside an object. This way, we can pass the object anywhere in the
+        program or any function, making all these variables available within that object. In an object, we can include
+        anything, such as other objects, Booleans, functions, etc.
+      </p>
+      <code>
+<pre>
+const circle = {
+ radius: 1,
+ x: 1,
+ y: 1,
+ location: {
+ x: 1,
+ y: 1
+ },
+ isVisible: true
+};
+</pre>
+</code>
+      <p>In this example, we have an object (circle) with another object inside (location) and additional values.
+        Objects are used to collect all related data in a single variable. But it’s not just about grouping related
+        variables; we can also have functions that operate on these radius, x, and y variables. For example, we
+        might have a function for drawing and another for moving a circle. These functions are highly related to the
+        radius, x, and y variables, so it makes sense to include them inside the object.
+      </p>
+      <p>With objects, we can access properties and functions anywhere in the program. Let's see how we can pass
+        functions as properties of objects. The value of a property in an object can be anything.
+      </p>
+      <code>
+<pre>
+const circle = {
+ radius: 1,
+ location: {
+ x: 1,
+ y: 1
+ },
+ isVisible: true,
+ draw: function() {
+ console.log('draw');
+ }
+};
+</pre>
+</code>
+      <p>
+        With this object, we don’t need variables outside of the object, like radius, x, and y. What we see here is
+        called "object-oriented style" in programming, which is also referred to as Object-Oriented Programming
+        (OOP). OOP is a programming style where we view a program as a collection of objects that communicate
+        with each other. For example, we have a circle object with a few properties and a function.
+      </p>
+      <p>In OOP terms, if a function is part of an object, we call that function a method. So, instead of saying
+        circle.draw(); as a property, we can say it’s a method of the circle object. When calling a function within an
+        object, we refer to it as method calling.</p>
+      <p>This is the difference between a function and a method: a method is simply a function that belongs to an
+        object. This example is an easy way to create an object, but if our application gets more complex, we may
+        use other ways to write objects.
+      </p>
+      <code>
+<pre>
+const dog = {
+  name: 'Buddy',
+ type: 'Dog',
+ bark: function() {
+ console.log('Woof! Woof!');
+ },
+ describe: function() {
+ console.log('This is a ' + this.type + ' named ' + this.name);
+ }
+};
+
+<span class="t-r">// Using the object</span>
+dog.bark(); // Output: 'Woof! Woof!'
+dog.describe(); // Output: 'This is a Dog named Buddy'
+</pre>
+</code>
+      <p>Here, in an object the key itself is a string, but we sometimes wrap it with double or single quotes. However,
+        most of the time, we write it directly without using string syntax.
+      </p>
+      <h4>Defining an Object</h4>
+      <code>
+<pre>
+const user = {
+ firstName: "Naseeb",
+ lastName: "Khan",
+ "full name": "Naseeb Khan",
+ location: "Pak",
+ [newSymbol]: "symbolKey",
+ email: "Naseebkhan.contact.me@gmail.com",
+ isLoggedIn: false,
+ lastLoginDays: ["Monday", "Tuesday", "Wednesday"]
+};
+
+
+console.log(user.email);
+console.log(user["email"]);
+</pre>
+</code>
+      <h4>How to Change Key Values of an Object
+      </h4>
+      <p>You can modify object properties like this:</p>
+      <code>
+<pre>
+user.email = "naseebkhan@google.com";
+</pre>
+</code>
+      <h4>Freezing an Object (Prevent Modifications)</h4>
+      <p>If you want to freeze an object to prevent any modifications:</p>
+      <code>
+<pre>
+Object.freeze(user);
+user["full name"] = "Lucky"; // This will not change the value
+</pre>
+</code>
+      <h4>Combining Objects</h4>
+      <p>You can combine multiple objects using different methods:
+      </p>
+      <p>
+        <strong>Using Object.assign()</strong>
+      </p>
+      <p>
+        This method merges all objects into the first one. Here, we create an empty object to store the combined
+        result:
+      </p>
+      <code>
+<pre>
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+
+const object3 = Object.assign({}, obj1, obj2);
+</pre>
+</code>
+      <h4>Using the Spread Operator (...)</h4>
+      <p>A modern and cleaner way to merge objects is by using the spread operator:</p>
+      <code>
+<pre>
+const object4 = { ...obj1, ...obj2 };
+</pre>
+</code>
+      <h4>Object Destructuring</h4>
+      <p>Destructuring is a shorthand technique that allows you to extract properties or methods from an object and
+        assign them to variables. It can also be used to give a property a new name.</p>
+      <code>
+<pre>
+const course = {
+ courseName: "JavaScript Mastery",
+ price: "9999",
+ courseInstructor: "Naseeb Khan"
+};
+</pre>
+</code>
+      <p>Basic destructuring to extract 'courseInstructor' property
+      </p>
+      <code>
+<pre>
+const { courseInstructor: instructor } = course;
+console.log(instructor); // Output: Naseeb Khan
+</pre>
+</code>
+      <h4>In the example above:</h4>
+      <ul>
+        <li>The first destructuring extracts the courseInstructor property directly.
+        </li>
+        <li>The second destructuring renames courseInstructor to instructor for easier reference.</li>
+      </ul>
+      <h4>Get, Set, and Delete Objects properties:</h4>
+      <code>
+<pre>
+let user = {};
+
+// set
+user["likes birds"] = true;
+
+// get
+alert(user["likes birds"]); // true
+
+// delete
+delete user["likes birds"];
+</pre>
+</code>
+      <h4>in keyword with Objects:</h4>
+      <code>
+<pre>
+let user = { name: "Naseeb", age: 23 };
+alert( "age" in user ); // true, user.age exists
+alert( "blabla" in user ); // false, user.blabla doesn't exist
+</pre>
+</code>
+
+      <h2>MAP</h2>
+      <p>
+        In JavaScript, a Map is a collection of key-value pairs where each key can be of any type (unlike objects,
+        where keys are limited to strings or symbols). You can use loops to iterate over the keys, values, or entries
+        (key-value pairs) in a Map. Let me guide you step by step in simple terms.
+      </p>
+      <strong>1. Creating a Map</strong>
+      <p>You can create a Map like this:</p>
+      <code>
+<pre>
+const myMap = new Map();
+</pre>
+</code>
+      <strong>2. Adding Key-Value Pairs</strong>
+      <p>Use the set() method to add key-value pairs to the Map:</p>
+      <code>
+<pre>
+myMap.set('name', 'Naseeb');
+
+myMap.set('age', 23);
+
+myMap.set('isStudent', false);
+</pre>
+</code>
+      <strong>Now, myMap contains:</strong>
+      <ul>
+        <li>Key: 'name', Value: 'Naseeb'</li>
+        <li>Key: 'age', Value: 23</li>
+        <li>Key: 'isStudent', Value: false</li>
+      </ul>
+      <strong>3. Looping Through a Map</strong>
+      <p>You can use loops to handle the values in a Map. Here are the common ways:
+      </p>
+      <strong>3.1. Loop through keys</strong>
+      <p>Use the keys() method to get all the keys and loop through them:
+      </p>
+      <code>
+<pre>
+for (let key of myMap.keys()) {
+ console.log(key); // Output: 'name', 'age', 'isStudent'
+}
+</pre>
+</code>
+      <strong>3.2 Loop through values</strong>
+      <p>Use the values() method to get all the values and loop through them:
+      </p>
+      <code>
+<pre>
+for (let value of myMap.values()) {
+ console.log(value); // Output: 'Naseeb', 23, false
+}
+</pre>
+</code>
+      <strong>3.3 Loop through key-value pairs (entries)</strong>
+      <p>Use the entries() method to get both keys and values:</p>
+      <code>
+<pre>
+for (let [key, value] of myMap.entries()) {
+  console.log(`Key: ${key}, Value: ${value}`);
+}
+
+<span class="output">Output:</span>
+Key: name, Value: Naseeb
+Key: age, Value: 23
+Key: isStudent, Value: false
+</pre>
+</code>
+      <strong>3.4 Using forEach</strong>
+      <p>You can also use the forEach method to loop through the Map:
+      </p>
+      <code>
+<pre>
+myMap.forEach((value, key) => {
+  console.log(`Key: ${key}, Value: ${value}`);
+});
+</pre>
+</code>
+
+      <strong>4. Checking if a Key Exists</strong>
+      <p>Use the has() method to check if a key exists in the Map:
+      </p>
+      <code>
+<pre>
+console.log(myMap.has('name')); // Output: true
+console.log(myMap.has('address')); // Output: false
+</pre>
+</code>
+
+      <strong>5. Getting a Value by Key</strong>
+      <p>Use the get() method to retrieve the value for a specific key:
+      </p>
+      <code>
+<pre>
+console.log(myMap.get('age')); // Output: 23
+</pre>
+</code>
+      <strong>6. Deleting a Key-Value Pair</strong>
+      <p>Use the delete() method to remove a key-value pair:
+      </p>
+      <code>
+<pre>
+myMap.delete('isStudent');
+console.log(myMap.has('isStudent')); // Output: false
+</pre>
+</code>
+      <strong>7. Clearing the Map</strong>
+      <p>Use the clear() method to remove all key-value pairs:
+      </p>
+      <code>
+<pre>
+myMap.clear();
+console.log(myMap.size); // Output: 0
+</pre>
+</code>
+
+      <strong>8. Getting the Size of the Map</strong>
+      <p>Use the size property to get the number of key-value pairs:
+      </p>
+      <code>
+<pre>
+console.log(myMap.size); // Output: 3 (before clearing)
+</pre>
+</code>
+      <h4>Example: Putting It All Together</h4>
+      <p>Here’s a complete example:
+      </p>
+      <code>
+<pre>
+const myMap = new Map();
+myMap.set('name', 'Naseeb');
+myMap.set('age', 23);
+myMap.set('isStudent', false);
+
+<span class="t-r">// Loop through keys</span>
+for (let key of myMap.keys()) {
+  console.log(key);
+}
+
+<span class="t-r">// Loop through values</span>
+for (let value of myMap.values()) {
+  console.log(value);
+}
+
+<span class="t-r">// Loop through entries</span>
+for (let [key, value] of myMap.entries()) {
+ console.log(`Key: ${key}, Value: ${value}`);
+}
+
+<span class="t-r">// Check if a key exists</span>
+console.log(myMap.has('name')); // true
+
+<span class="t-r">// Get a value by key</span>
+console.log(myMap.get('age')); // 23
+
+<span class="t-r">// Delete a key-value pair</span>
+myMap.delete('isStudent');
+
+<span class="t-r">// Clear the map</span>
+myMap.clear();
+console.log(myMap.size); // 0
+</pre>
+</code>
+
+      <h2>Factory function</h2>
+      <p>Creating Objects Using Factory Functions</p>
+      <p>
+        Introduction: We learned how to create an object using object literal syntax. However, in the previous code,
+        there were some issues that need fixing. Imagine we want to create two circle objects. If we copy and paste
+        the “object literal”, we’ll have code duplication, especially in the draw method. This approach is not ideal,
+        especially if the “draw” method contains multiple lines or if the object has more methods. To avoid
+        duplication, we use factory functions or constructor functions.
+      </p>
+      <strong>Original Object Literal Syntax Example</strong>
+      <code>
+<pre>
+const circle = {
+ radius: 1,
+ location: {
+  x: 1,
+  y: 1
+ },
+ isVisible: true,
+ draw: function() {
+  console.log('draw');
+ }
+};
+const circle2 = {
+ radius: 1,
+ location: {
+  x: 1,
+  y: 1
+ },
+ isVisible: true,
+ draw: function() {
+  console.log('draw');
+ }
+};
+</pre>
+</code>
+      <p>
+        In this code, creating a second circle object (circle2) results in duplicated code, especially the “draw”
+        method. If we want to make our “draw” method more complex, duplicating code would be inefficient and
+        hard to maintain. Instead, we can use a factory function to create circle objects dynamically.
+      </p>
+      <h4>Using Factory Functions</h4>
+      <p>
+        A factory function is a function that returns an object. It allows us to define the logic once and create
+        multiple objects based on that logic.
+      </p>
+      <strong>Basic Factory Function Example:</strong>
+      <code>
+<pre>
+function createCircle() {
+ return {
+  radius: 1,
+ location: {
+  x: 1,
+  y: 1
+ },
+ isVisible: true,
+ draw: function() {
+  console.log('draw');
+ }
+ };
+}
+</pre>
+</code>
+      <p>
+        This function returns a new circle object every time it is called. However, this code still hardcodes radius
+        and location, making it less flexible. Let’s improve it by passing radius and location as parameters.
+      </p>
+      <h4>Adding Parameters to the Factory Function</h4>
+      <p>
+        By passing radius and location as parameters, we make our factory function flexible, allowing us to create
+        circles with different properties:
+      </p>
+      <code>
+<pre>
+function createCircle(radius, location) {
+ return {
+    radius: radius,
+    location: location,
+    isVisible: true,
+ draw: function() {
+    console.log('draw');
+ }
+ };
+}
+</pre>
+</code>
+      <h4>Modern JavaScript Syntax</h4>
+      <p>
+        In modern JavaScript, if the key and value names are the same, we can simplify the code by omitting the
+        key-value pairs and just writing the variable name:
+      </p>
+      <code>
+<pre>
+function createCircle(radius, location) {
+ return {
+    radius,
+    location,
+    isVisible: true,
+ draw: function() {
+    console.log('draw');
+ }
+ };
+}
+</pre>
+</code>
+      <strong>Additionally, we can simplify the “draw” method by using a shorthand syntax:
+      </strong>
+      <code>
+<pre>
+function createCircle(radius, location) {
+ return {
+    radius,
+    location,
+    isVisible: true,
+ draw() {
+    console.log('draw');
+ }
+ };
+}
+</pre>
+</code>
+
+      <h4>Using the Factory Function</h4>
+      <p>
+        Now we can create multiple circle objects by calling “createCircle” with different values:
+      </p>
+      <code>
+<pre>
+const circle1 = createCircle(1, { x: 1, y: 1 });
+console.log(circle1);
+
+<span class="output">Output:</span>
+{
+ radius: 1,
+ location: { x: 1, y: 1 },
+ isVisible: true,
+ draw: [Function: draw]
+}
+</pre>
+</code>
+      <p>The beauty of this factory function is that we defined the “draw” method only once. We can create as many
+        circles as we want with different values, and they will all share the same “draw” method without code
+        duplication.</p>
+      <strong>Example 1:</strong>
+      <code>
+<pre>
+function createPet(name, type) {
+ return {
+    name,
+    type,
+ speak: function() {
+ console.log(this.type + ' named ' + this.name + ' says hello!');
+ }
+ };
+}
+
+<span class="t-r">// Creating objects using the function</span>
+const cat = createPet('Whiskers', 'Cat');
+const bird = createPet('Tweety', 'Bird');
+
+<span class="t-r">// Using the objects</span>
+cat.speak(); // Output: 'Cat named Whiskers says hello!'
+bird.speak(); // Output: 'Bird named Tweety says hello!'
+</pre>
+</code>
+
+      <strong>Example 2:</strong>
+      <code>
+<pre>
+function createCar(brand, model, year) {
+ return {
+    brand,
+    model,
+    year,
+ drive: function() {
+    console.log('Vroom! The ' + this.brand + ' ' + this.model + ' is driving.');
+ }
+ };
+}
+
+<span class="t-r">// Using the factory function to create car objects</span>
+const car1 = createCar('Toyota', 'Corolla', 2021);
+const car2 = createCar('Honda', 'Civic', 2024);
+
+<span class="t-r">// Accessing properties and methods</span>
+console.log(car1.brand); // Output: 'Toyota'
+car1.drive(); // Output: 'Vroom! The Toyota Corolla is driving.'
+
+console.log(car2.model); // Output: 'Civic'
+car2.drive(); // Output: 'Vroom! The Honda Civic is driving.'
+</pre>
+</code>
+      <strong>Example 3:</strong>
+      <code>
+<pre>
+function makeUser(name, age) {
+ return {
+    name, // same as name: name
+    age, // same as age: age
+ };
+}
+</pre>
+</code>
+      <h4>Creating user Object:</h4>
+      <code>
+<pre>
+let user = makeUser("Naseeb", 23);
+alert(user.name); // Naseeb
+</pre>
+</code>
+      <h2> Constructor function</h2>
+      <p>Just like a factory function, a constructor function's job is to construct or create an object. The naming
+        convention for constructors is different from factory functions. In factory functions, we use camel notation.
+        Camel notation is when names like “createCircle” are written with the first word in lowercase and
+        subsequent words capitalized (e.g., createCircle). This is called the camel case.</p>
+      <p>
+        In contrast, there is another naming convention called Pascal notation. In Pascal notation, each word starts
+        with an uppercase letter, like “CreateCircle”. When we want to create a constructor function, we should use
+        Pascal case because other JavaScript developers expect this convention when reading code.
+      </p>
+      <p>
+        Remember the previous program using a factory function? In the constructor function, we use the “this”
+        keyword. “this” is a keyword that references an object that is executing a piece of code. Imagine “this” as
+        referencing an empty object. Using dot notation, we can access, read, and set properties of this object. In
+        our new object, we want to add a property called radius and assign it a value from an argument passed to
+        the parameter.
+      </p>
+      <p>In JavaScript, objects are dynamic, so once we create them, we can add multiple properties and functions
+        to them.</p>
+      <strong>Example</strong>
+      <code>
+<pre>
+function Circle(radius) {
+ this.radius = radius;
+ this.draw = function() {
+ console.log('draw');
+ };
+}
+</pre>
+</code>
+      <strong>To create a circle object using this constructor function, we define:</strong>
+      <code>
+<pre>const circle = new Circle(1);</pre>
+</code>
+      <p>Using the new keyword, it creates a new JavaScript object, similar to const x = {};. We don’t need to return
+        this; because this is done automatically behind the scenes. When we use the new keyword, three things
+        happen:</p>
+      <ol>
+        <li>The “new” keyword creates an empty object.</li>
+        <li>It then sets this in the function to point to this new object.</li>
+        <li>It returns the new object automatically.</li>
+      </ol>
+      <h4>Factory Function Comparison:</h4>
+      <code>
+<pre>
+function createCircle(radius) {
+ return {
+    radius,
+    draw() {
+        console.log('draw');
+ }
+ };
+}
+</pre>
+</code>
+      <strong>To create an object using a factory function:</strong>
+      <code>
+<pre>const myCircle = createCircle(1);</pre>
+</code>
+      <p>In this case, we call the function to return an object.</p>
+      <strong>Example 2:</strong>
+      <code>
+<pre>
+function Car(brand, model, year) {
+ <span class="t-r">// `this` refers to the new object being created</span>
+ this.brand = brand;
+ this.model = model;
+ this.year = year;
+
+ <span class="t-r">// Method to describe the car</span>
+ this.drive = function() {
+ console.log('The ' + this.brand + ' ' + this.model + ' is driving.');
+ };
+}
+
+<span class="t-r">// Using the constructor function to create a new Car object</span>
+const myCar = new Car('Toyota', 'Corolla', 2021);
+console.log(myCar.brand); // Output: 'Toyota'
+myCar.drive(); // Output: 'The Toyota Corolla is driving.'
+
+<span class="t-r">// Creating another Car object</span>
+const anotherCar = new Car('Honda', 'Civic', 2023);
+console.log(anotherCar.model); // Output: 'Civic'
+anotherCar.drive(); // Output: 'The Honda Civic is driving.'
+</pre>
+</code>
+      <h2>Constructor vs. Factory Functions</h2>
+      <p>n constructor functions, we use the new operator and “this” keyword. Both patterns are good for creating
+        objects, but constructor functions may feel more familiar if you have experience in programming languages
+        like C# or Java. For example, with the constructor pattern, we can write new Circle(1);.
+      </p>
+      <strong>Constructor function:</strong>
+      <code>
+<pre>
+function Animal(name, type) {
+ this.name = name;
+ this.type = type;
+ this.speak = function() {
+ console.log(this.name + ' the ' + this.type + ' says hello!');
+ };
+}
+
+const dog = new Animal('Buddy', 'Dog');
+dog.speak(); // Output: 'Buddy the Dog says hello!'
+</pre>
+</code>
+      <strong>Factory function:</strong>
+      <code>
+<pre>
+function createAnimal(name, type) {
+ return {
+ name: name,
+ type: type,
+ speak: function() {
+ console.log(name + ' the ' + type + ' says hello!');
+ }
+ };
+}
+
+const cat = createAnimal('Whiskers', 'Cat');
+cat.speak(); // Output: 'Whiskers the Cat says hello!'
+</pre>
+</code>
+      <p>Note: Don't waste time debating between the two, just pick one and use it!</p>
+      <h2>Dynamic Nature of Objects</h2>
+      <p>One important concept to understand about JavaScript is that it is dynamic. This means that once we
+        create an object, we can always add new properties to it.
+      </p>
+      <strong>Example</strong>
+      <code>
+<pre>const circle = { radius: 1 };</pre>
+</code>
+      <p>Here, we have a single object circle with a single property, radius. Let's add a new property to it:
+      </p>
+      <code>
+<pre>
+circle.color = 'yellow';
+console.log(circle);
+</pre>
+</code>
+      <strong>Now, this object has two properties: radius and color.</strong>
+      <p>Similarly, we can add a method to this object:
+      </p>
+      <code>
+<pre>
+circle.draw = function() {};
+</pre>
+</code>
+      <p>We can also delete existing properties and methods from an object using the “delete” keyword. For
+        example:</p>
+      <code>
+<pre>
+delete circle.color;
+delete circle.draw;
+</pre>
+</code>
+      <p>A lot of developers find it confusing to use the const keyword to define a constant object, as they think it
+        makes the object completely unchangeable. However, as we can see, we have modified the circle object by
+        adding and removing properties.</p>
+      <p>So, what type of "constant" is this? Declaring an object with const circle means we cannot reassign the
+        variable circle itself. This variable remains constant in reference, meaning we cannot do something like:</p>
+      <code>
+<pre>
+circle = {};
+</pre>
+</code>
+      <p>
+        Attempting to reassign the entire circle variable will result in an error. However, we can still add, change,
+        and
+        remove properties within the circle object itself.
+      </p>
+      <h2>Constructor Property</h2>
+      <p>
+        <strong>Understanding the Constructor Property in JavaScript
+        </strong>
+        <br>Every object in JavaScript has a property called constructor, which references the function used to
+        construct or create that object. Let's explore this concept with two examples:
+      </p>
+      <code>
+<pre>
+<span class="t-r">// Factory function to create a circle object</span>
+function createCircle(radius) {
+ return {
+ radius,
+ draw: function() {
+ console.log('draw');
+ }
+ };
+}
+const circle = createCircle(1);
+
+<span class="t-r">// Constructor function to create a circle object</span>
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = function() {
+    console.log('draw');
+ };
+}
+const another = new Circle(1);
+
+<span class="t-r">// Examining the constructor property</span>
+console.log(another.constructor);
+
+<span class="t-r">// This returns the Circle function used to create the object</span>
+
+console.log(circle.constructor);
+<span class="t-r">
+// This will return: function Object() { [native code] }
+// This indicates that the object was created using the built-in Object constructor.
+</span>
+</pre>
+</code>
+      <h4>Explanation of Constructor Property</h4>
+      <p>
+        The constructor property of an object points to the function that was used to create it. When we call
+        console.log(another.constructor), it returns the Circle function, showing that the another object was created
+        using the Circle constructor.
+      </p>
+      <p>
+        When we call console.log(circle.constructor), it returns function Object() { [native code] }, which is a
+        built-in
+        constructor function. This is because circle was created using a factory function that returns an object
+        literal. The JavaScript engine internally uses the Object constructor for object literals.
+      </p>
+      <h4>Creating Objects with Object Literal Syntax</h4>
+      <p>Let's create an object using the object literal syntax:
+      </p>
+      <code>
+<pre>
+let x = {};
+</pre>
+</code>
+      <p>
+        Internally, the JavaScript engine translates this to:
+      </p>
+      <code>
+<pre>
+let x = new Object();
+</pre>
+</code>
+      <p>
+        This means that when we use object literal syntax, the JavaScript engine creates the object using the
+        Object constructor function.
+      </p>
+      <h4>Other Constructor Functions in JavaScript</h4>
+      <p>JavaScript provides a few other built-in constructors, such as:
+      </p>
+      <ul>
+        <li>new String();</li>
+        <li>new Boolean();</li>
+        <li>new Number();</li>
+      </ul>
+      <p>
+        However, using string literals (single quotes 'Naseeb', double quotes "Naseeb", and backticks `Naseeb`) is
+        cleaner and more concise than using the String constructor.
+      </p>
+      <p>For booleans, we use true and false directly instead of the Boolean constructor.
+      </p>
+      <h2>Functions Are Objects</h2>
+      <p>
+        One of the confusing concepts in JavaScript is that functions are objects. Here is an example:
+      </p>
+      <code>
+<pre>
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function() {
+    console.log('draw');
+ };
+}
+</pre>
+</code>
+      <p>We have this function, and when we type “Circle.” we will see all the members of the Circle function or Circle
+        object. The purple icons represent methods such as apply, bind, call, and toString, while the blue icons are
+        properties like arguments, caller, length, name, and prototype.</p>
+      <h4>Function Properties and Methods</h4>
+      <ul>
+        <li>Circle.name will return the name of the function.</li>
+        <li>Circle.length returns the number of parameters or arguments the function takes.</li>
+      </ul>
+      <p>In the last topic, we learned that every object in JavaScript has a constructor property that references the
+        function used to create that object. Here is an interesting part: who do you think created above object? We
+        can check this by using Circle.constructor.
+      </p>
+      <h4>Built-in Constructor</h4>
+      <p>JavaScript has a built-in Function constructor. When we use the standard function syntax to create a
+        function, the JavaScript engine internally uses this constructor to create the function object.</p>
+      <code>
+<pre>
+const Circle1 = new function(radius){
+  this.radius = radius;
+  this.draw = function() {
+    console.log('draw');
+ };
+}
+</pre>
+</code>
+      <p>
+        <strong>We can now call this function as:</strong>This creates a real circle object with its properties and
+        methods.
+      </p>
+      <h4>Calling Methods</h4>
+      <p>Let's see more methods available for our function. We can use Circle.call() to call the function. In the call()
+        method, the first argument is the value of this that we want to use.
+      </p>
+      <code>
+<pre>
+Circle.call({}, 1);
+</pre>
+</code>
+      <p>
+        In this example, {} is an empty object, and 1 is the parameter argument. If we have multiple arguments, we
+        can pass them explicitly:
+      </p>
+      <p>This expression is equivalent to:
+      </p>
+      <code>
+<pre>
+const another = new Circle(1);
+</pre>
+</code>
+      <p>
+        When we use the new operator, JavaScript internally creates an empty object and passes it as the first
+        argument to the call() method. This object determines the context of this. If we don't use the new operator,
+        the this keyword in the function by default points to the global object (which is window in browsers).
+      </p>
+      <code>
+<pre>
+const another = Circle(1);
+</pre>
+</code>
+      <p>To test this, we could rewrite the expression:
+      </p>
+      <code>
+<pre>
+Circle.call(window, 1);
+</pre>
+</code>
+      <p>Note: We don't typically pass window, but we are testing here.
+      </p>
+      <h4>apply() Method</h4>
+      <p>We also have the apply() method. This method is similar to call() but instead of passing arguments
+        individually, we pass them as an array:
+      </p>
+      <code>
+<pre>
+Circle.apply({}, [1, 2, 3]);
+</pre>
+</code>
+      <p>This is useful when you have an array of arguments in your application and want to pass them to the
+        function in one go.</p>
+      <h2>Value vs. Reference Types</h2>
+      <p>
+        In JavaScript, there are two categories of types: value types (also called primitives) and reference types.
+        Understanding how these two categories behave is crucial before moving on to more advanced topics like
+        prototypes.
+      </p>
+      <h4>Value (Primitive) Types</h4>
+      <p>Value types or primitives include:</p>
+      <ul>
+        <li>Number</li>
+        <li>String</li>
+        <li>Boolean</li>
+        <li>Undefined</li>
+        <li>Null</li>
+        <li>Symbol</li>
+      </ul>
+      <h4>Reference Types</h4>
+      <p>Reference types include:</p>
+      <ul>
+        <li>Object</li>
+        <li>Function</li>
+        <li>Array</li>
+      </ul>
+      <p>
+        In the previous topic, we learned that a function is an object, and the same goes for an array. In JavaScript,
+        there are essentially primitives and objects.
+      </p>
+      <h4>Behavior of Primitives and Objects</h4>
+      <p>Primitives and objects behave differently, and understanding this distinction is essential.</p>
+      <strong>Example with Primitives:</strong>
+      <code>
+<pre>
+let x = 10;
+let y = x;
+x = 20;
+</pre>
+</code>
+      <p>In this example, x and y are two independent variables. Here, x becomes 20, and y remains 10. They are
+        independent because when we work with primitives, the value (e.g., 10) is stored directly in the variable.
+        When we copy x into y, the value stored in x is copied to y. Therefore, they are completely independent of
+        each other.
+      </p>
+      <strong>Example with Reference Types</strong>
+      <code>
+<pre>
+let x = { value: 10 };
+let y = x;
+x.value = 20;
+</pre>
+</code>
+      <p>In this case, the values of both x and y will be 20. This is because when we use an object, the object itself
+        is
+        not stored in the variable. Instead, the object is stored somewhere else in memory, and the variable holds a
+        reference (or address) to that location in memory. When we copy x into y, the reference is copied, not the
+        actual object. Both x and y point to the same location in memory. Therefore, when we modify the object
+        using either x or y, the changes are immediately visible in the other variable.
+      </p>
+      <strong>Example 2:</strong>
+      <code>
+<pre>
+let number = 10;
+function increase(number) {
+ number++;
+}
+
+increase(number);
+console.log(number); // Output: 10
+</pre>
+</code>
+      <p>Here, the number did not increase when we called the increase function. This is because the
+        number variable’s value is copied into the "number" parameter, which is local to the function. The number
+        variable inside the function (number++) is completely independent of the original number variable that
+        stores the value 10.
+      </p>
+      <p>Inside a function it can’t take a value of external variables.</p>
+      <p>Within the function, we increment number by 1, so it becomes 11. However, after the function execution,
+        this incremented value goes out of the function scope. When we log number to the console, we are dealing
+        with the original number variable, not the one modified in the function.</p>
+
+      <p>Primitive values are copied by their value. Here, we are dealing with two independent copies, which is why
+        we see 10 in the console.</p>
+      <strong>Now, let’s change the number variable into an object.</strong>
+      <code>
+<pre>
+let obj = { value: 10 };
+function increase(obj) {
+ obj.value++;
+}
+increase(obj);
+console.log(obj); // Output: 11
+</pre>
+</code>
+      <p>Explanation: In this case, when we call the increase function and pass obj, this object is passed by its
+        reference. The local parameter inside the function points to the same object that we defined in the first line
+        of the code.</p>
+      <p>Here, we are not dealing with two independent copies. Instead, we have two variables (the original obj and
+        the parameter obj inside the function) that point to the same object. Any change we make to the object
+        within the function is reflected in the original obj.</p>
+      <p>This is why the output of console.log(obj) shows 11.
+      </p>
+      <h2>Enumerating Properties of an Object</h2>
+      <p>
+        In previous topics, we learned how to use for...in and for...of loops to iterate over the properties of an
+        object.
+        Let’s master these concepts for a deeper understanding.
+      </p>
+      <strong>Example</strong>
+      <code>
+<pre>
+const circle = {
+    radius: 1,
+    draw() {
+        console.log('draw');
+ }
+};
+</pre>
+</code>
+      <h4>Using for...in Loop</h4>
+      <p>
+        To iterate over the properties of the circle object, we use the for...in loop:
+      </p>
+      <code>
+<pre>
+for (let key in circle) {
+    console.log(key);
+}
+</pre>
+</code>
+      <p>
+        This loop will log the property names (radius, draw) to the console.
+      </p>
+      <h4>Accessing Property Values:</h4>
+      <p>If we want to access the values of the properties, we use bracket notation:
+      </p>
+      <code>
+<pre>
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+</pre>
+</code>
+      <p>This will print both the property names and their corresponding values.
+      </p>
+      <h4>Using for...of Loop:</h4>
+      <p>Attempting to use the for...of loop directly on an object will result in an error:
+      </p>
+      <code>
+<pre>
+for (let key of circle) {
+ console.log(key);
+}
+
+// Error: circle is not iterable
+</pre>
+</code>
+      <p>
+        <strongc>Explanation:</strong>
+          For...of loop can only be used with iterables such as arrays, strings, and maps. Since an object is not
+          inherently iterable, the for...of loop cannot be used directly with it.
+      </p>
+      <h4>Using Object.keys() Method:</h4>
+      <p>To make an object iterable, we can use the Object.keys() method, which returns an array of the object's
+        keys. Since arrays are iterable, we can then use the for...of loop:
+      </p>
+      <code>
+<pre>
+for (let key of Object.keys(circle)) {
+ console.log(key);
+}
+</pre>
+</code>
+      <p>This will output the property names as an array.
+      </p>
+      <h4>Background on Object Constructor:</h4>
+      <p>
+        Object is an inbuilt constructor function in JavaScript. When we create an object using the literal syntax,
+        such as:
+      </p>
+      <code>
+<pre>
+const x = { value: 1 };
+</pre>
+</code>
+      <strong>Internally, JavaScript calls Object():</strong>
+      <code>
+<pre>
+const x = new Object();
+</pre>
+</code>
+      <strong>Using Object.entries() Method:</strong>
+      <p>
+        The Object.entries() method returns an array of the object's own enumerable property [key, value] pairs. We
+        can iterate over these entries using the for...of loop:
+      </p>
+      <code>
+<pre>
+for (let entry of Object.entries(circle)) {
+ console.log(entry);
+}
+</pre>
+</code>
+      <p>This will output each key-value pair as an array (e.g., ['radius', 1], ['draw', function]).
+      </p>
+      <h4>Using the in Operator:</h4>
+      <p>To check if a specific property exists in an object, we use the in operator:
+      </p>
+      <code>
+<pre>
+if ('radius' in circle) {
+ console.log('yes');
+}
+</pre>
+</code>
+      <p>This checks if the circle object has the radius property and logs ‘yes’ if true.
+      </p>
+      <h2>Cloning an Object</h2>
+      <p>In the last topic, we learned how to enumerate the properties of an object. Using this technique, we can
+        copy all the properties of one object into another object.</p>
+      <h4>Example 1: Copying an Object Using a For-In Loop</h4>
+      <p>Consider the following circle object:</p>
+      <code>
+<pre>
+const circle = {
+    radius: 1,
+    draw() {
+      console.log('draw');
+ }
+};
+</pre>
+</code>
+      <p>
+        Now, let's create another circle object that is a copy of the original circle object. Initially, we start with
+        an
+        empty object:
+      </p>
+      <code>
+<pre>const another = {};</pre>
+</code>
+      <p>
+        We are going to use a for-in loop to iterate all the properties of the circle object and copy them into the
+        “another” object:
+      </p>
+      <code>
+<pre>
+for (let key in circle) {
+    another[key] = circle[key]; // Use bracket notation to access the key
+}
+</pre>
+</code>
+      <strong>Here, the left side (another[key]) is assigned the value of the right side (circle[key]). For example:
+      </strong>
+      <code>
+<pre>
+// another['radius'] = circle['radius'];
+</pre>
+</code>
+      <p>
+        In this line, we are reading the radius property from the circle object and assigning that value to the
+        “another“object. If we print the another object with console.log(another);, we will get the complete clone of
+        circle object
+      </p>
+      <p>
+        This method of copying/cloning an object is a bit old. In modern JavaScript, we have simpler ways to
+        achieve the same result.
+      </p>
+      <h4>Example 2: Copying an Object Using Object.assign()</h4>
+      <p>
+        A more modern way to clone an object is to use the Object.assign() method:
+      </p>
+      <code>
+<pre>
+  const another = Object.assign({}, circle);
+</pre>
+</code>
+      <p>
+        In this example, an empty object ({}) is created, and the properties of the circle object are copied into it and
+        assigned to the “another” variable. We can also add additional properties as needed:
+      </p>
+      <code>
+<pre>
+const another = Object.assign({ color: 'yellow' }, circle);
+console.log(another);
+</pre>
+</code>
+      <p>
+        here the color: ‘yellow’ property and the circle object is assigned to “another” object.
+      </p>
+      <h4>Example 3: Copying an Object Using the Spread Operator</h4>
+      <p>
+        The simplest way to clone objects in modern JavaScript is by using the spread operator (...):
+      </p>
+      <code>
+<pre>
+const another = { ...circle };
+</pre>
+</code>
+      <p>
+        This operator copies all the properties and methods of the circle object and places them inside the curly
+        braces, assigning them to the “another” variable. We will get the same result as before.
+      </p>
+      <h2>Garbage Collection</h2>
+      <p>
+        In low-level languages like C/C++, when creating an object, we allocate memory to it. When we are done, we
+        need to deallocate the memory. In JavaScript, we don't have this concept. We can easily create an object,
+        and at the time we initialize this object, memory is automatically allocated to it.
+      </p>
+      <code>
+<pre>
+let circle = {};
+console.log(circle);
+</pre>
+</code>
+      <p>
+        We can use objects, and when we are done, we don't need to deallocate the memory. In the JavaScript
+        engine, there is a feature called the garbage collector. This garbage collector is used to find variables or
+        constants that are no longer used and then deallocate the memory that was allocated to them earlier. As
+        JavaScript developers, we do not need to worry about memory allocation and deallocation; it is done
+        automatically behind the scenes.
+      </p>
+      <p>We have no control over when the garbage collector runs or what variables it removes from memory. In
+        complex algorithms, the garbage collector runs in the background, figures out which variables are no longer
+        in use, and automatically deallocates their memory.</p>
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

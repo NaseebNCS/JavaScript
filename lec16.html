@@ -1,0 +1,1572 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, Incellence, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a href="https://www.youtube.com/@Incellence/playlists" target="_blank">
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+    <main class="container two-column">
+      <section>
+        <div class="h-1">CHAPTER 15</div>
+        <h2>Lexical vs Dynamic Scoping</h2>
+        <h4>What is Scope?</h4>
+        <p>Scope = Where a variable can be used.</p>
+        <p>Example:</p>
+        <code>
+          <pre>
+let name = "Naseeb";
+
+function greet() {
+    console.log(name);
+}
+
+greet();
+
+// Output: Naseeb
+</pre
+          >
+        </code>
+        <p><strong>Why: </strong>Because name is visible inside greet().</p>
+        <h4>Real Life Example</h4>
+        <p>Imagine your home.</p>
+        <ul>
+          <li>Bedroom = one scope</li>
+          <li>Kitchen = another scope</li>
+          <li>Hall = another scope</li>
+        </ul>
+        <p>
+          If you keep your phone in the hall, everyone in the house can access
+          it.
+          <br />
+          If you keep money inside your bedroom drawer, only you can access it.
+          <br />
+          Variables work exactly like this.
+        </p>
+        <h4>There are Two Types of Scoping</h4>
+        <ol>
+          <li>Lexical Scope</li>
+          <li>Dynamic Scope</li>
+        </ol>
+        <h4>What does Lexical mean?</h4>
+        <p>
+          <strong>Lexical Means:</strong> Where the function is written in the
+          code. Same as where are you physically
+        </p>
+        <p>
+          JavaScript uses Lexical Scope.
+          <br />
+          It does NOT use Dynamic Scope.
+        </p>
+        <h4>Lexical Scope (JavaScript's Real Behavior)</h4>
+        <p>Example 1</p>
+        <code>
+          <pre>
+let fruit = "Mango";
+
+function showFruit() {
+    console.log(fruit);
+}
+
+showFruit();
+
+// Output: Mango
+</pre
+          >
+        </code>
+        <p>showFruit() looks outside itself and finds fruit.</p>
+        <p>Example 2</p>
+        <code>
+          <pre>
+let x = 10;
+
+function first() {
+    console.log(x);
+}
+
+function second() {
+    let x = 20;
+    first();
+}
+
+second();
+
+// Output: 10
+</pre
+          >
+        </code>
+        <p>Many beginners think output should be 20.</p>
+        <p>
+          Not! <br />
+          Let's understand.
+        </p>
+        <h4>Memory Picture:</h4>
+        <code>
+          <pre>
+Global Scope
+│
+├── x = 10
+│
+├── first()
+│
+└── second()
+     │
+     └── x = 20
+</pre
+          >
+        </code>
+        <p>
+          Inside second(), we call first().
+          <br />
+          But first() was CREATED in the global scope.
+          <br />
+          So when it needs x, it goes to where it was born (global scope).
+        </p>
+        <p>It finds:</p>
+        <code>
+          <pre>
+x = 10
+
+// Therefore Output: 10
+</pre
+          >
+        </code>
+        <h4>Golden Rule of Lexical Scope</h4>
+        <p>
+          A function remembers where it was created, NOT where it was called.
+        </p>
+        <p>Remember this line forever.</p>
+        <p>Another Example:</p>
+        <code>
+          <pre>
+let city = "Quetta";
+
+function outer() {
+
+    function inner() {
+        console.log(city);
+    }
+
+    inner();
+}
+
+outer();
+
+// Output: Quetta
+</pre
+          >
+        </code>
+        <p>Example 3:</p>
+        <code>
+          <pre>
+// Lexical Scope
+function nk1(){
+  let nk = "Naseeb";
+  
+  function nk2(){
+    console.log(nk); // Naseeb
+  }
+}
+
+// Dynamic Scope
+let nk = "Naseeb Khan";
+
+function newNk1(){
+    console.log(nk); // Naseeb Khan
+}
+
+function newNk2(){
+  let nk = "Lucky Khan";
+
+  newNk1();
+}
+
+newNk2(); // Naseeb Khan why because JS has lexical if it would have a dynamic scope we would get Lucky Khan
+</pre
+          >
+        </code>
+        <h4>Nested Functions</h4>
+        <code>
+          <pre>
+function parent() {
+
+    let money = 500;
+
+    function child() {
+        console.log(money);
+    }
+
+    child();
+}
+
+parent();
+
+// Output: 500
+</pre
+          >
+        </code>
+        <p>
+          <strong>Why: </strong>Because child function can see variables of its
+          parent.
+        </p>
+        <h4>Scope Chain</h4>
+        <code>
+          <pre>
+Global Scope
+    ↓
+Parent Scope
+    ↓
+Child Scope
+</pre
+          >
+        </code>
+        <p>Child first checks:</p>
+        <ol>
+          <li>Inside itself</li>
+          <li>Parent</li>
+          <li>Global</li>
+        </ol>
+        <p>If not Found: ReferenceError</p>
+        <p>Example:</p>
+        <code>
+          <pre>
+function parent() {
+
+    let age = 25;
+
+    function child() {
+        console.log(age);
+    }
+
+    child();
+}
+
+parent();
+
+// Output: 25
+</pre
+          >
+        </code>
+        <p>Child borrows variables from parent.</p>
+        <h4>What is Dynamic Scope?</h4>
+        <p>
+          Dynamic scope means: variable is found according to WHO called the
+          function.
+        </p>
+        <p>This is NOT how JavaScript Works.</p>
+        <p>Suppose JS had dynamic scope.</p>
+        <code>
+          <pre>
+let x = 10;
+
+function first() {
+    console.log(x);
+}
+
+function second() {
+    let x = 20;
+    first();
+}
+
+second();
+</pre
+          >
+        </code>
+        <p>Under Dynamic Scope:</p>
+        <p>Output would be: 20</p>
+        <p>Because first() was called by second().</p>
+        <p>
+          But JS says: "No, I don't care who called me. I care where i was
+          created.
+        </p>
+        <p>Therefore output is: 10</p>
+        <h4>Difference Between Lexical and Dynamic Scope</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Lexical Scope</th>
+                <th>Dynamic Scope</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Used by JavaScript</td>
+                <td>Not used by JavaScript</td>
+              </tr>
+              <tr>
+                <td>Depends on where function is written</td>
+                <td>Depends on who called function</td>
+              </tr>
+              <tr>
+                <td>Fixed at creation time</td>
+                <td>Changes at runtime</td>
+              </tr>
+              <tr>
+                <td>predictable</td>
+                <td>Can Change unexpectedly</td>
+              </tr>
+              <tr>
+                <td>Easier to understand</td>
+                <td>More confusing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4>Real Life ANALOGY</h4>
+        <p>
+          <strong>Lexical Scope:</strong> <br />
+          Imagine your home address.
+          <br />
+          You were born in Quetta.
+          <br />
+          Even if your friend from Karachi invites you, your home address is
+          still Quetta.
+          <br />
+          Functions Behaves like this.
+          <br />
+          They remember where they came from.
+        </p>
+        <p>
+          <strong>Dynamic Scope: </strong> <br />
+          Imagine changing your home address every time someone calls you.
+          <br />
+          Nk Calls > You live in Lahore.
+          <br />
+          Ak calls > You live in Karachi.
+          <br />
+          Naseeb calls > You live in Quetta.
+          <br />
+          That's why JavaScript uses Lexical Scope.
+        </p>
+        <h4>Closure Comes From Lexical Scope</h4>
+        <code>
+          <pre>
+function outer() {
+
+    let count = 0;
+
+    function inner() {
+        count++;
+        console.log(count);
+    }
+
+    return inner;
+}
+
+let myFunction = outer();
+
+myFunction();
+myFunction();
+myFunction();
+
+// Output: 
+// 1
+// 2
+// 3
+</pre
+          >
+        </code>
+        <p>
+          <strong>Why: </strong>Because inner() remembers the place where it was
+          created.
+          <br />
+          This memory is called Closure.
+          <br />
+          Closures are possible because JavaScript uses Lexical Scope.
+        </p>
+        <h4>Rules</h4>
+        <p>
+          <strong>Rule 1: </strong>Scope means where variables are accessible.
+        </p>
+        <p><strong>Rule 2: </strong>JavaScript uses Lexical Scope.</p>
+        <p>
+          <strong>Rule 3: </strong>A function remembers where it was created,
+          not where it was called.
+        </p>
+        <p>
+          <strong>Rule 4: </strong>Child functions can access parent variables.
+        </p>
+        <p>
+          <strong>Rule 5: </strong>Dynamic Scope depends on who called the
+          function but JavaScript does not use it.
+        </p>
+        <p>Final Example:</p>
+        <code>
+          <pre>
+let name = "Global";
+
+function show() {
+    console.log(name);
+}
+
+function test() {
+    let name = "Local";
+    show();
+}
+
+test();
+</pre
+          >
+        </code>
+        <p><strong>Question?</strong> What will be Printed?</p>
+        <p><strong>Answer:</strong> Global</p>
+        <p>
+          <strong>Because: </strong>show() remembers where it was Created
+          (global scope), not where it was Called (Inside test).
+        </p>
+        <h4>One-Line Memory Trick</h4>
+        <p><strong>Lexical Scope </strong>= Birth Place of Function</p>
+        <p><strong>Dynamic Scope </strong>= Caller of Function</p>
+        <p><strong>JS</strong> Always chooses Birth place.</p>
+
+        <h2>Synchronous vs Asynchronous JavaScript</h2>
+        <p>
+          This is one of the most important concepts in JavaScript.
+          <br />
+          If you understand this topic properly, then understanding Callbacks,
+          Promises, Async/Await, Fetch API, Event Loop becomes much easier.
+        </p>
+        <h4>What is Synchronous JavaScript?</h4>
+        <p>
+          <strong>The word synchronous means:</strong>
+          <br />
+          👉 Do one task at a time.<br />
+          👉 Wait for the current task to finish before starting the next task.
+          <br />
+          JavaScript executes code line by line.
+          <br />
+          Think of a single cashier at a shop.
+        </p>
+        <h4>Real Life Example</h4>
+        <p>You go to a cashier.</p>
+        <ol>
+          <li>First customer pays.</li>
+          <li>Then second customer pays.</li>
+          <li>Then third customer pays.</li>
+        </ol>
+        <p>Nobody can jump ahead.</p>
+        <p>Everything happens in order.</p>
+
+        <h4>Synchronous Code Example</h4>
+        <code>
+          <pre>
+console.log("Step 1");
+
+console.log("Step 2");
+
+console.log("Step 3");
+
+// Output
+Step 1
+Step 2
+Step 3
+</pre
+          >
+        </code>
+        <p>JavaScript reads:</p>
+        <code>
+          <pre>
+Line 1 → Execute
+Line 2 → Execute
+Line 3 → Execute
+</pre
+          >
+        </code>
+        <p>Simple.</p>
+        <h4>Problem with Synchronous Programming</h4>
+        <p>
+          Imagine a website needs data from a server.
+          <br />
+          The server takes 5 seconds.
+          <br />
+          If JavaScript waits for those 5 seconds, the whole website freezes.
+        </p>
+        <p><strong>Example</strong></p>
+        <code>
+          <pre>
+console.log("Start");
+
+waitFor5Seconds();
+
+console.log("End");
+
+// Output: 
+Start
+(wait 5 seconds)
+End
+</pre
+          >
+        </code>
+        <p>
+          User cannot interact during that wait.
+          <br />
+          This creates a bad user experience.
+        </p>
+        <h4>What is Asynchronous JavaScript?</h4>
+        <p>
+          <strong>Asynchronous means:</strong>
+          <br />
+          👉 Don't wait. <br />
+          👉 Start a task. <br />
+          👉 Continue other work. <br />
+          👉 Come back when the task finishes.
+        </p>
+<h4>Real Life Example</h4>
+<p>Suppose you order food in a restaurant.</p>
+<code>
+<pre>
+// Synchronous Way
+Order food
+Sit and do absolutely nothing
+Food arrives
+</pre>
+</code>
+<p>Waste of time.</p>
+<code>
+<pre>
+// Asynchronous Way
+Order food
+Talk with friends
+Check mobile
+Food arrives
+Eat
+</pre>
+</code>
+<p>
+  You continue doing other work.
+<br>
+This is exactly how asynchronous JavaScript works.
+</p>
+<h4>Asynchronous Code Example</h4>
+<code>
+<pre>
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Data Received");
+}, 3000);
+
+console.log("End");
+</pre>
+</code>
+<h4>Predict the Output</h4>
+<p>
+  Many Beginners think:
+</p>
+<code>
+<pre>
+Start
+(wait 3 seconds)
+Data Received
+End
+
+// Wrong ❌
+
+// Actual Output: 
+Start
+End
+Data Received
+</pre>
+</code>
+<p>
+  <strong>Why?</strong>
+
+Because JavaScript doesn't wait for setTimeout.
+<br>
+It schedules it and moves on.
+</p>
+
+
+
+
+
+
+<h2>Callback Pattern and Callback Hell in JavaScript</h2>
+<p>
+  Before learning Promises and Async/Await, you must understand callbacks because they were the original way JavaScript handled asynchronous operations.
+</p>
+<h4>What is a Callback?</h4>
+<p>
+  <strong>A callback is simply:</strong>
+ A function passed as an argument to another function. The function is called later when needed.
+<br>
+Think of it like giving your phone number to a delivery rider.
+<br>
+You tell him:
+"When you arrive, call me."
+<br>
+You don't keep waiting at the gate. You continue your work.
+<br>
+The rider's call is like a callback function.
+</p>
+<h4>Simple Callback Example</h4>
+<code>
+<pre>
+function greet(name, callback) {
+  console.log("Hello " + name);
+
+  callback();
+}
+
+function sayBye() {
+  console.log("Good Bye");
+}
+
+greet("Naseeb", sayBye);
+
+// Output:
+Hello Naseeb
+Good Bye
+</pre>
+</code>
+<h4>Why Callbacks Are Useful</h4>
+<p>
+  Imagine a website is loading user data.
+<br>
+Fetching data takes time.
+<br>
+We don't know exactly when the server will respond.
+<br>
+So we say:
+</p>
+<code>
+<pre>
+When data arrives,
+run this function.
+</pre>
+</code>
+<p>That function is the callback.</p>
+<h4>Practical Example</h4>
+<code>
+<pre>
+setTimeout(() => {
+  console.log("Data Loaded");
+}, 3000);
+
+// Output after 3 seconds: Data Loaded
+</pre>
+</code>
+<p>The arrow function is a callback.</p>
+<p>JavaScript says: Run this function later.</p>
+<h4>Real Website Example</h4>
+<p>Imagine a login system.</p>
+<code>
+<pre>
+function loginUser(callback) {
+  setTimeout(() => {
+    console.log("User Logged In");
+
+    callback();
+  }, 2000);
+}
+
+loginUser(() => {
+  console.log("Redirecting to Dashboard");
+});
+
+// Output: 
+User Logged In
+Redirecting to Dashboard
+</pre>
+</code>
+<h4>Real Lefe Flow:</h4>
+<code>
+<pre>
+User clicks Login
+↓
+Server verifies account
+↓
+Login successful
+↓
+Redirect dashboard
+</pre>
+</code>
+<p>The redirect function is the callback.</p>
+<p>Imagine an e-commerce website.</p>
+<code>
+<pre>
+// FLOW
+
+Get User
+↓
+Get Orders
+↓
+Get Order Details
+↓
+Process Payment
+↓
+Send Email
+</pre>
+</code>
+<p>Each step depends on the previous one.</p>
+<h4>What is Callback Hell?</h4>
+<p>
+  Callback Hell happens when callbacks become deeply nested.
+<br>
+Code starts moving to the right side again and again.
+<br>
+It becomes hard to read, debug, and maintain.
+</p>
+<h4>Example of Callback Hell</h4>
+<code>
+<pre>
+getUser(function(user) {
+
+  getOrders(user, function(orders) {
+
+    getOrderDetails(orders, function(details) {
+
+      processPayment(details, function(payment) {
+
+        sendEmail(payment, function() {
+
+          console.log("Done");
+
+        });
+
+      });
+
+    });
+
+  });
+
+});
+</pre>
+</code>
+<p>
+  Look at the indentation.
+<br>
+This shape is often called:
+</p>
+<code>
+  <pre>
+  Pyramid of Doom
+  </pre>
+</code>
+<p>Because the code keeps shifting right.</p>
+<h2>Why is This Bad?</h2>
+<p>1. Hard to Read</p>
+<p>
+  Finding logic becomes difficult.
+</p>
+<code>
+<pre>
+getUser(() => {
+  getOrders(() => {
+    getOrderDetails(() => {
+      processPayment(() => {
+        sendEmail(() => {
+
+        });
+      });
+    });
+  });
+});
+</pre>
+</code>
+<p>
+  2. Hard to Debug
+  <br>
+  If something fails:
+</p>
+<code>
+<pre>
+processPayment()
+</pre>
+</code>
+<p>You must trace through multiple levels.</p>
+<p>3. Hard to Maintain</p>
+<p>Adding another step means another nested callback.</p>
+<code>
+<pre>
+getUser(() => {
+  getOrders(() => {
+    getDetails(() => {
+      processPayment(() => {
+        sendEmail(() => {
+          updateInventory(() => {
+
+          });
+        });
+      });
+    });
+  });
+});
+</pre>
+</code>
+<p>Now it's even worse.</p>
+<h4>Real Website Example</h4>
+<p>Imagine a food delivery app.</p>
+<code>
+<pre>
+// FLOW
+
+Find User Location
+↓
+Find Nearby Restaurants
+↓
+Load Menu
+↓
+Place Order
+↓
+Process Payment
+↓
+Send Confirmation
+</pre>
+</code>
+<p>Old callback approach:</p>
+<code>
+<pre>
+getLocation(function(location) {
+
+  getRestaurants(location, function(restaurants) {
+
+    getMenu(restaurants, function(menu) {
+
+      placeOrder(menu, function(order) {
+
+        processPayment(order, function(payment) {
+
+          sendConfirmation(payment, function() {
+
+            console.log("Order Complete");
+
+          });
+
+        });
+
+      });
+
+    });
+
+  });
+
+});
+</pre>
+</code>
+<p>Very difficult to manage.</p>
+<h4>How JS solved callback hell</h4>
+<p>JavaScript introduced:</p>
+<ol>
+  <li>Promises</li>
+  <li>Async/Await</li>
+</ol>
+<p>Instead of:</p>
+<code>
+<pre>
+getUser(function(user) {
+
+});
+</pre>
+</code>
+<p>we can write:</p>
+<code>
+<pre>
+getUser()
+  .then(getOrders)
+  .then(getOrderDetails)
+  .then(processPayment)
+  .then(sendEmail);
+</pre>
+</code>
+<p>Much cleaner.</p>
+<p>And with Async/Await:</p>
+<code>
+<pre>
+const user = await getUser();
+const orders = await getOrders(user);
+const details = await getOrderDetails(orders);
+const payment = await processPayment(details);
+
+await sendEmail(payment);
+</pre>
+</code>
+<p>Looks almost like normal synchronous code while still being asynchronous.</p>
+<h2>Promises in JavaScript</h2>
+<p>
+  Today we are learning one of the most important JavaScript concepts.
+<br>
+Before Promises, developers used callbacks.
+<br>
+</p>
+<p>The problem was:</p>
+<code>
+<pre>
+getUser(() => {
+  getOrders(() => {
+    getDetails(() => {
+      processPayment(() => {
+        sendEmail(() => {
+
+        });
+      });
+    });
+  });
+});
+</pre>
+</code>
+<p>This became Callback Hell.
+<br>
+To solve this problem, JavaScript introduced Promises.</p>
+<h4>What is a Promise?</h4>
+<p>
+  A Promise is an object that represents the result of a future operation.
+<br>
+
+<strong>Simple:</strong>
+👉 A Promise is a guarantee that something will happen later.<br>
+
+Think about ordering food online.
+<br>
+When you place an order:
+</p>
+<code>
+<pre>
+Order Placed
+↓
+Restaurant Preparing Food
+↓
+Food Delivered OR Delivery Failed
+</pre>
+</code>
+<p>
+  You don't get the result immediately.
+<br>
+You wait.
+<br>
+This is exactly how a Promise works.
+</p>
+<h4>Real Life Exampleh4>
+  <p>
+    <strong>Imagine your friend says:</strong>
+
+"I promise I'll return your book tomorrow."
+<br>
+Now there are only 2 possibilities:
+  </p>
+<p>Success: Friend  returns book</p>
+<p>Promise fulfilled.</p>
+<p>Failure: Friend loses book</p>
+<p>Promise rejected.
+<br>
+JavaScript Promises work exactly the same way.</p>
+<h4>Promise States</h4>
+<p>A promise can be in 3 states.</p>
+<p>1. Pending</p>
+<p>Task is still running.</p>
+<p>
+Food is being prepared.
+</p>
+<p>2. Fulfilled (Resolved)</p>
+<p>Task completed successfully.</p>
+<p>Food delivered</p>
+<p>3. Rejected</p>
+<p>TAsk Failed.</p>
+<p>Delivery Failed</p>
+<h4>Creating a Promise</h4>
+<p>Syntax:</p>
+<code>
+<pre>
+const promise = new Promise((resolve, reject) => {
+
+});
+</pre>
+</code>
+<h4>What is resolve?</h4>
+<p>Used when everything succeeds.</p>
+<code>
+<pre>
+resolve("Success");
+
+// Means: 
+Task completed successfully
+</pre>
+</code>
+<h4>What is Rejected?</h4>
+<p>Used when something fails:</p>
+<code>
+<pre>
+reject("Failed");
+
+// Means: 
+Task Failed
+</pre>
+</code>
+<h4>First Promise Example</h4>
+<code>
+<pre>
+const myPromise = new Promise((resolve, reject) => {
+  resolve("Data Loaded Successfully");
+});
+
+// Here: 
+resolve(...)
+</pre>
+</code>
+<p>runs immediately.
+<br>
+So the Promise becomes:<strong>Fulfilled</strong></p>
+
+
+<h4>Reading the Result with .then()</h4>
+<p>To receive successful data:</p>
+<code>
+<pre>
+myPromise.then((result) => {
+  console.log(result);
+});
+
+// Output: 
+Data Loadedd Successfully
+</pre>
+</code>
+<h4>
+  Example: 
+</h4>
+
+<code>
+<pre>
+const myPromise = new Promise((resolve, reject) => {
+  resolve("Data Loaded Successfully");
+});
+
+myPromise.then((result) => {
+  console.log(result);
+});
+
+// Output: 
+Data Loaded Successfully
+</pre>
+</code>
+<h4>Understanding .then()</h4>
+<p>Think of .then() as saying:
+
+"When the Promise succeeds, do this."
+<br>
+Example:</p>
+<code>
+<pre>
+promise.then(() => {
+
+});
+
+// Meaning: 
+if successful, 
+run this code.
+</pre>
+</code>
+<h4>Reject Example</h4>
+<p>Let's create a failure.</p>
+<code>
+<pre>
+const myPromise = new Promise((resolve, reject) => {
+  reject("Server Error");
+});
+
+// Promise State: Rejected
+</pre>
+</code>
+<h4>Handling Errors with .catch()</h4>
+<p>To handle failure: </p>
+<code>
+<pre>
+myPromise.catch((error) => {
+  console.log(error);
+});
+
+// Output: Server Error
+</pre>
+</code>
+<h4>Example:</h4>
+<code>
+<pre>
+const myPromise = new Promise((resolve, reject) => {
+  reject("Server Error");
+});
+
+myPromise.catch((error) => {
+  console.log(error);
+});
+
+// Output: Server Error
+</pre>
+</code>
+<h4>Real Website</h4>
+<p>Suppose a website loads products.</p>
+<code>
+<pre>
+const productsPromise = new Promise((resolve, reject) => {
+
+  const productsLoaded = true;
+
+  if (productsLoaded) {
+    resolve("Products Loaded");
+  } else {
+    reject("Failed To Load Products");
+  }
+
+});
+
+// Success Handling: 
+productsPromise.then((message) => {
+  console.log(message);
+});
+
+// Output: Products Loaded 
+
+// Failure Handling:
+productsPromise.catch((error) => {
+  console.log(error);
+});
+
+// Output: Failed to Load Products 
+</pre>
+</code>
+<h4>Using Then and Catch Together</h4>
+<p>This is the most common pattern in real projects.</p>
+<code>
+<pre>
+const promise = new Promise((resolve, reject) => {
+
+  const success = true;
+
+  if (success) {
+    resolve("User Found");
+  } else {
+    reject("User Not Found");
+  }
+
+});
+
+promise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// Output: User Found 
+</pre>
+</code>
+<h4>Promise Chaining</h4>
+<p>One promise can pass data to another .then()</p>
+<code>
+<pre>
+Promise.resolve(10)
+  .then((num) => {
+    return num * 2;
+  })
+  .then((num) => {
+    return num * 3;
+  })
+  .then((num) => {
+    console.log(num);
+  });
+
+// Output: 60
+</pre>
+</code>
+<h2>Async/Await in JavaScript</h2>
+<p>Now you have learned:</p>
+<code>
+<pre>
+Synchronous vs Asynchronous
+↓
+Callbacks
+↓
+Callback Hell
+↓
+Promises
+</pre>
+</code>
+<p>Now let's learn the modern way used in almost every professional JavaScript application: <strong>Async/Await</strong></p>
+<h4>Why Do We Need Async/Await?</h4>
+<p>Look at this pormise code:</p>
+<code>
+<pre>
+fetch("/users")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+</pre>
+</code>
+<p>
+  Nothing wrong with it: 
+</p>
+<p>But Imagine:</p>
+<code>
+<pre>
+getUser()
+  .then(getOrders)
+  .then(getOrderDetails)
+  .then(processPayment)
+  .then(sendEmail)
+  .then(updateInventory)
+  .then(generateInvoice)
+  .catch(handleError);
+</pre>
+</code>
+<p>As applications grow, chains become harder to read.</p>
+<p>
+  JavaScript introduced Async/Await to make asynchronous code look like normal code.
+</p>
+<h4>What is async?</h4>
+<p>The async keyword is used before a function.</p>
+<code>
+<pre>
+async function myFunction() {
+
+}
+</pre>
+</code>
+<p>
+  This tells JavaScript:
+"This function will work with Promises."
+</p>
+<p>Example:</p>
+<code>
+<pre>
+async function greet() {
+  return "Hello";
+}
+</pre>
+</code>
+<p>
+  Looks like a normal return.
+<br>
+<br>
+But JavaScript secretly converts it into:
+</p>
+<code>
+<pre>
+Promise.resolve("Hello");
+</pre>
+</code>
+<h4>Proof:</h4>
+<code>
+<pre>
+async function greet() {
+  return "Hello";
+}
+
+greet().then((data) => {
+  console.log(data);
+});
+
+// Output: 
+Hello
+</pre>
+</code>
+<h4>What is await?</h4>
+<p>await means:
+Wait for a Promise to finish.
+<br>
+Get its result.
+
+Think of a restaurant.</p>
+
+<code>
+<pre>
+// Without await:
+
+Order food
+Keep doing work
+Food arrives later
+
+// With await:
+
+Order food
+Wait until food arrives
+Then continue
+</pre>
+</code>
+
+
+
+<h4>First Await Example</h4>
+<code>
+<pre>
+function getData() {
+  return Promise.resolve("User Data");
+}
+
+// Using Promise style:
+getData().then((data) => {
+  console.log(data);
+});
+
+// OutPut: User Data
+
+
+// 🚀 Now with await:
+async function showData() {
+  const data = await getData();
+
+  console.log(data);
+}
+
+showData();
+
+// Output: User Data
+</pre>
+</code>
+<p>Much cleaner.</p>
+<h4>How Await Works</h4>
+<code>
+<pre>
+const data = await getData();
+
+
+// JavaScript says:
+
+Pause this async function
+↓
+Wait for Promise
+↓
+Get result
+↓
+Continue execution
+</pre>
+</code>
+<h4>Real Website Example</h4>
+<p>Suppose a website loads user information.</p>
+<p>Promise style:</p>
+<code>
+<pre>
+fetch("/user")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+</pre>
+</code>
+<p>Async/Await style:</p>
+<code>
+<pre>
+async function loadUser() {
+  const response = await fetch("/user");
+
+  const data = await response.json();
+
+  console.log(data);
+}
+</pre>
+</code>
+<p>Most developers find this easier to read.</p>
+<h4>Multiple Async Operations</h4>
+<p>Imagine an e-commerce website.</p>
+<code>
+<pre>
+// Flow: 
+
+Get User
+↓
+Get Cart
+↓
+Get Products
+↓
+Show Checkout
+
+
+// Using Async/Await:
+
+async function checkout() {
+
+  const user = await getUser();
+
+  const cart = await getCart(user);
+
+  const products = await getProducts(cart);
+
+  console.log(products);
+
+}
+</pre>
+</code>
+<p>This looks almost like normal synchronous code.
+<br>
+But behind the scenes it is asynchronous.</p>
+<h4>Handling Errors with Try/Catch</h4>
+<p>With Promises:</p>
+<code>
+<pre>
+fetch("/user")
+  .then(...)
+  .catch(...)
+</pre>
+</code>
+<p>With Async/Await:</p>
+<code>
+<pre>
+try {
+
+}
+catch(error) {
+
+}
+</pre>
+</code>
+<p>Example:</p>
+<code>
+<pre>
+async function loadUser() {
+
+  try {
+
+    const response = await fetch("/user");
+
+    const data = await response.json();
+
+    console.log(data);
+
+  } catch (error) {
+
+    console.log("Something went wrong");
+
+  }
+
+}
+</pre>
+</code>
+<h4>Real Login Example</h4>
+<p>Imagine a login page:</p>
+<code>
+<pre>
+async function login() {
+
+  try {
+
+    const response = await fetch("/login");
+
+    const user = await response.json();
+
+    console.log("Welcome", user.name);
+
+  } catch (error) {
+
+    console.log("Login Failed");
+
+  }
+
+}
+</pre>
+</code>
+<p>Real websites use this pattern everywhere.</p>
+<h4>Real Production Example</h4>
+<p>
+  Suppose a shopping website.
+</br>
+When user opens product page:
+</p>
+<code>
+<pre>
+async function loadPage() {
+
+  try {
+
+    const product = await getProduct();
+
+    const reviews = await getReviews();
+
+    const seller = await getSeller();
+
+    displayPage(product, reviews, seller);
+
+  } catch(error) {
+
+    showError();
+
+  }
+
+}
+</pre>
+</code>
+<h4>Promise vs Async/Await</h4>
+<code>
+<pre>
+// Promise Style
+
+getUser()
+  .then((user) => {
+    return getOrders(user);
+  })
+  .then((orders) => {
+    return getProducts(orders);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+
+// Async/Await Style
+
+try {
+
+  const user = await getUser();
+
+  const orders = await getOrders(user);
+
+  const products = await getProducts(orders);
+
+} catch(error) {
+
+  console.log(error);
+
+}
+</pre>
+</code>
+<p>Most developers prefer the second version.</p>
+        <a
+          href="#"
+          style="
+            background-color: rgb(255, 255, 255);
+            display: block;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 3rem;
+          "
+          class="back-to-top"
+          >Back To Top</a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© Incellence • Made with ❤️</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

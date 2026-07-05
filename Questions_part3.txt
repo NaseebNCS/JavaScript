@@ -1,0 +1,258 @@
+❓Questions:
+Q1: What is JavaScript and why is it used in websites?
+Q2: Look at this code: 
+    console.log("Hello World");
+    Where will this output appear and why?
+Q3: Is JavaScript
+    - compiled
+    - interpreted 
+    - or both?
+Q4: What is the difference between:
+<script></script> and a .js file?
+Q5: Predict the output:
+    console.log(5 + 5);
+    console.log("5" + 5);
+    (Explain why.)
+Q6: What is the difference between JavaScript and HTML?
+Explain in simple words.
+Q7: What is the console in JavaScript and why do developers use it?
+Q8: Write one line of JavaScript code that prints: Welcome to JavaScript (use console)
+Q9: What is a variable in JavaScript?
+Q10: Look at the code:
+    x = 10;
+    console.log(x);
+Is this valid JavaScript?
+What value will be printed?
+Is this a good practice? Why / Why not?
+Q11: Write JavaScript code to:
+    - Store your name in a variable
+    - Print it in the console
+Q12: What is the difference between:
+var age = 20; and let age = 20;
+Q13: Predict the output:
+let a = 5;
+let b = "5";
+console.log(a == b);
+Q14: What does data type mean in JavaScript?
+Name any 3 data types.
+Q15: Predict the output:
+console.log(typeof 10);
+console.log(typeof "10");
+console.log(typeof true);
+Q16: What is the purpose of const in JavaScript?
+When should we use it?
+Q17: What will happen if you try to change a const variable?
+Explain in simple words.
+Q18: Predict the output:
+let x = 10;
+x = 20;
+console.log(x);
+Q19: Predict the output:
+const y = 10;
+y = 20;
+console.log(y);
+    (What type of error is it?)
+Q20: What is the difference between:
+let city = "Quetta"; and const city = "Quetta";
+Q21: Explain undefined in JavaScript with an example.
+Q22: Predict the output:
+let a;
+console.log(a);
+Q23: What is null in JavaScript?
+How is it different from undefined?
+Q24: Predict the output:
+console.log(typeof null);
+(and why is it strage?)
+Q25: What is an operator in JavaScript?
+Give 2 examples.
+Q26: Predict the output:
+console.log(10 + "20");
+console.log("10" - 5);
+Q27: What does NaN mean?
+When does it appear?
+Q28: Predict the output:
+console.log("hello" * 2);
+Q29: Explain the difference between:
+==   and   ===
+Q30: Predict the output:
+console.log(0 == false);
+console.log(0 === false);
+Q31: What is a Boolean value in JavaScript?
+Give 2 examples.
+Q32: Predict the output:
+console.log(10 > 5);
+console.log(5 > 10);
+Q33: What will this print?
+console.log(10 >= 10);
+console.log(10 <= 5);
+Q34: Explain the difference between:
+>   and   >=
+Q35: Predict the output:
+console.log(5 == "5");
+console.log(5 === "5");
+Q36: What is a comparison operator? (Name any 3)
+Q37: Predict the output: 
+console.log(true && false);
+console.log(true || false);
+Q38: Explain in simple words:
+    - && (AND)
+    - || (OR)
+    - ! (NOT)
+Q39: Predict the output:
+console.log(!true);
+console.log(!false);
+Q40: What is an if statement in JavaScript?
+Why do we use it?
+Q41: Predict the output:
+let age = 18;
+
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Minor");
+}
+Q42: Write JavaScript code:
+- If temperature is greater than 30
+- Print "Hot Weather"
+Q43: Predict the output:
+let num = 0;
+
+if (num) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+Q44: What are truthy and falsy values?
+Give 2 falsy examples.
+Q45: Write JavaScript code:
+- if a number is even
+- print "Even"
+- Else print "Odd"
+Q46: Predict the output:
+let score = 75;
+
+if (score >= 80) {
+  console.log("A Grade");
+} else if (score >= 60) {
+  console.log("B Grade");
+} else {
+  console.log("Fail");
+}
+Q47: What is the purpose of else if?
+When do we use it?
+Q48: Predict the output:
+let isLoggedIn = true;
+
+if (isLoggedIn) {
+  console.log("Welcome User");
+}
+Q49: Predict the output: 
+let isAdmin = false;
+
+if (isAdmin) {
+  console.log("Access Granted");
+} else {
+  console.log("Access Denied");
+}
+Q50: Write a JS code:
+- if marks is greater than or equal to 50 
+- Print "Pass"
+- Otherwise print "fail"
+Q51: Predict the output:
+let x = 5;
+
+if (x > 0 && x < 10) {
+  console.log("Between 1 and 9");
+}
+Q52: Predict the output:
+let username = "";
+
+if (username) {
+  console.log("Username exists");
+} else {
+  console.log("No username");
+}
+Q53: Why does this code print "No username"?
+Explain using truthy/falsy.
+Q54: Predict the output:
+console.log(true || false && false);
+Q55: Rewrite this using an if–else:
+let result = (age >= 18) ? "Adult" : "Minor";
+Q56: What is the ternary operator?
+Why do developers use it?
+Q57: Predict the output: 
+let num = -5;
+
+if (num > 0) {
+  console.log("Positive");
+} else if (num < 0) {
+  console.log("Negative");
+} else {
+  console.log("Zero");
+}
+Q58: Write js code:
+- if a number is divisible by both 3 and 5
+- print "FizzBuzz"
+Q59: Predict the output: 
+let value = null;
+
+if (value) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+Q60: In your own words: Why are conditions in programming?
+Q61: What is a loop in programming?
+Why do we use loops?
+Q62: Write a for loop that prints numbers from 1 to 5
+Q63: Predict the output:
+for (let i = 1; i <= 3; i++) {
+  console.log(i);
+}
+Q64: What is the role of:
+let i = 0;
+i < 5;
+i++
+inside a for loop?
+Explain each part.
+Q65: Predict the output:
+for (let i = 5; i >= 1; i--) {
+  console.log(i);
+}
+Q66: What is a while loop?
+When should we use it instead of a for loop?
+Q67: Predict the output:
+let i = 1;
+
+while (i <= 3) {
+  console.log(i);
+  i++;
+}
+Q68: What will happen if we forget to update the loop variable inside a while loop?
+Q69: What is a do...while loop?
+What makes it different from a while loop?
+Q70: Predict the output:
+let i = 5;
+
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+Q71: What does the break keyword do in a loop?
+Q72: Predict the output:
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) {
+    break;
+  }
+  console.log(i);
+}
+Q73: What does the continue keyword do?
+Q74: Predict the output:
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) {
+    continue;
+  }
+  console.log(i);
+}
+Q75: Write JavaScript code:
+Print all even numbers from 1 to 10

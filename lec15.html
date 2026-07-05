@@ -1,0 +1,1539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a href="https://www.youtube.com/@Incellence/playlists" target="_blank">
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+    <main class="container two-column">
+      <section>
+        <div class="h-1">Chapter 14</div>
+
+        <h2>Local Storage</h2>
+        <p>
+          If DOM is memory for the current page, then localStorage is memory for
+          the browser.
+        </p>
+        <p><strong>Without localStorage:</strong></p>
+        <code>
+          <pre>
+Refresh Page
+↓
+Everything Lost 😭
+</pre
+          >
+        </code>
+        <p><strong>With localStorage:</strong></p>
+        <code>
+          <pre>
+Refresh Page
+↓
+Data Still There 😎
+</pre
+          >
+        </code>
+        <p>This is why:</p>
+        <ul>
+          <li>Todo apps use it</li>
+          <li>Pomodoro apps use it</li>
+          <li>Dark mode settings use it</li>
+          <li>User preferences use it</li>
+        </ul>
+        <h4>1. WHAT IS localStorage?</h4>
+        <p>Think of localStorage as a small notebook 📒 inside the browser.</p>
+        <p>You can:</p>
+        <p>
+          ✅ Save data <br />
+          ✅ Read data <br />
+          ✅ Update data <br />
+          ✅ Delete data
+        </p>
+        <p>And the data remains even after:</p>
+        <ul>
+          <li>refresh</li>
+          <li>browser restart</li>
+          <li>computer restart</li>
+        </ul>
+        <p>(until user clears it)</p>
+        <h4>🎯 REAL LIFE EXAMPLE</h4>
+        <p>
+          Imagine a dark mode button.
+          <br />
+          Without localStorage:
+        </p>
+        <code>
+          <pre>
+Dark Mode ON
+↓
+Refresh
+↓
+Back to Light Mode
+</pre
+          >
+        </code>
+        <p>
+          Bad UX ❌
+          <br />
+          With localStorage:
+        </p>
+        <code>
+          <pre>
+Dark Mode ON
+↓
+Refresh
+↓
+Still Dark Mode
+</pre
+          >
+        </code>
+        <p>Professional UX ✅</p>
+
+        <h4>🧱 2. BASIC METHODS</h4>
+        <p>There are only 4 methods you must master.</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>setItem()</td>
+                <td>Save</td>
+              </tr>
+              <tr>
+                <td>getItem()</td>
+                <td>Read</td>
+              </tr>
+              <tr>
+                <td>removeItem()</td>
+                <td>Delete one</td>
+              </tr>
+              <tr>
+                <td>clear()</td>
+                <td>Delete all</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4>💾 3. SAVING DATA</h4>
+        <code>
+          <pre>
+localStorage.setItem("username", "Naseeb"); // even after removing this line the storage still have the data
+</pre
+          >
+        </code>
+        <p>Think:</p>
+        <code>
+          <pre>
+Key     → username
+Value   → Naseeb
+</pre
+          >
+        </code>
+        <p>Like:</p>
+        <code>
+          <pre>
+// JSON Format
+{
+  "username": "Naseeb"
+}
+</pre
+          >
+        </code>
+        <h4>📖 4. READING DATA</h4>
+        <code>
+          <pre>
+const user = localStorage.getItem("username");
+
+console.log(user);
+
+// Output: Naseeb
+</pre
+          >
+        </code>
+        <h4>❌ 5. REMOVING DATA</h4>
+        <code>
+          <pre>
+localStorage.removeItem("username");
+
+// Removes Only: username
+</pre
+          >
+        </code>
+        <h4>🧹 6. CLEAR EVERYTHING</h4>
+        <code>
+          <pre>
+localStorage.clear();
+</pre
+          >
+        </code>
+        <p>
+          Deletes ALL localStorage data.
+          <br />
+          Use carefully ⚠️
+        </p>
+        <h4>🎮 7. REAL PROJECT (Remember User Name)</h4>
+        <code>
+          <pre>
+// HTML
+&lt;input id="nameInput">
+&lt;button id="saveBtn">Save&lt;/button>
+
+&lt;h2 id="output">&lt;/h2>
+
+
+// JavaScript
+const input = document.querySelector("#nameInput");
+const btn = document.querySelector("#saveBtn");
+const output = document.querySelector("#output");
+
+btn.addEventListener("click", () => {
+
+  localStorage.setItem("name", input.value);
+
+  output.textContent = input.value;
+});
+</pre
+          >
+        </code>
+        <p>
+          <strong>PROBLEM</strong> <br />
+          Refresh page... <br />
+          Saved data exists <br />
+          But UI doesn't show it
+        </p>
+        <h4>🔥 8. LOAD DATA ON PAGE START</h4>
+        <p>Professional apps alwaysdo this:</p>
+        <code>
+          <pre>
+const savedName = localStorage.getItem("name");
+
+if (savedName) {
+  output.textContent = savedName;
+}
+
+// Now: 
+Refresh
+↓
+Data appears automatically
+</pre
+          >
+        </code>
+        <p>Perfect ✅</p>
+        <h4>🧠 9. IMPORTANT CONCEPT</h4>
+        <p>localStorage stores ONLY STRINGS</p>
+        <br />
+        <p>This works:</p>
+        <code>
+          <pre>
+localStorage.setItem("name", "Naseeb");
+</pre
+          >
+        </code>
+        <p>This also works:</p>
+        <code>
+          <pre>
+localStorage.setItem("age", 25);
+
+// But internally: "25" Stored as string.
+</pre
+          >
+        </code>
+        <h4>⚠️ BIGGEST BEGINNER MISTAKE</h4>
+        <p>Trying to store objects directly.</p>
+        <code>
+          <pre>
+// ❌ Wrong
+const user = {
+  name: "Naseeb",
+  age: 25
+};
+
+localStorage.setItem("user", user);
+
+// Result: [object Object]
+</pre
+          >
+        </code>
+        <h4>🔥 10. JSON.stringify()</h4>
+        <p>Convert object → string</p>
+        <code>
+          <pre>
+// JavaScript Code 
+const user = {
+  name: "Naseeb",
+  age: 25
+};
+
+localStorage.setItem(
+  "user",
+  JSON.stringify(user)
+);
+
+
+// Stored as: JSON 
+{
+  "name": "Naseeb",
+  "age": 25
+}
+</pre
+          >
+        </code>
+        <h4>🔥 11. JSON.parse()</h4>
+        <p>Convert string → object</p>
+        <code>
+          <pre>
+const user = JSON.parse(
+  localStorage.getItem("user")
+);
+
+console.log(user.name);
+
+// Output: Naseeb
+</pre
+          >
+        </code>
+        <h4>🧠 GOLDEN RULE</h4>
+        <code>
+          <pre>
+// 1. Saving 
+JSON.stringify()
+
+// 2. Reading: 
+JSON.parse()
+</pre
+          >
+        </code>
+        <h4>🎮 12. REAL TODO APP STORAGE</h4>
+        <code>
+          <pre>
+const todos = [
+  "Learn JS",
+  "Build Project"
+];
+
+localStorage.setItem(
+  "todos",
+  JSON.stringify(todos)
+);
+
+
+// Load Todos
+const todos = JSON.parse(
+  localStorage.getItem("todos")
+);
+
+// Output:
+[
+  "Learn JS",
+  "Build Project"
+]
+</pre
+          >
+        </code>
+        <h4>💾 13. POMODORO APP IMPROVEMENT</h4>
+        <p>Remember selected mode.</p>
+        <code>
+          <pre>
+// 1. Save: 
+localStorage.setItem(
+  "isWork",
+  JSON.stringify(isWork)
+);
+
+
+// 2. Load:
+const savedMode =
+  JSON.parse(localStorage.getItem("isWork"));
+</pre
+          >
+        </code>
+        <p>
+          Now user settings survive refresh.
+          <br />
+          Professional behavior 🔥
+        </p>
+        <h4>⚡ 14. ENGINEERING BEST PRACTICES</h4>
+        <code>
+          <pre>
+// 1. ✅ Always check if data exists
+const data = localStorage.getItem("user");
+
+if (data) {
+  // use it
+}
+
+
+// 2. ✅ Use constants for keys
+// instead of: 
+localStorage.setItem("user", data);
+// Use:
+const USER_KEY = "user"; // Large projects become easier to manage.
+
+
+// 3. ✅ Store structured data
+// Prefer:
+{
+  theme: "dark",
+  username: "Naseeb"
+} // Rather than dozens of separate keys. 
+
+
+// 4. ✅ Parse once
+// Avoid:
+JSON.parse(...)
+JSON.parse(...)
+JSON.parse(...)
+// repeatedly
+</pre
+          >
+        </code>
+        <h4>⚠️ COMMON MISTAKES</h4>
+        <code>
+          <pre>
+// 1. ❌ Forgetting stringify
+localStorage.setItem("user", user);
+
+
+// 2. ❌ Forgetting parse
+const user = localStorage.getItem("user"); // Now it's a string, not object.
+
+
+// 3. ❌ Saving huge data, localStorage is small.
+// Typically around: 5MB, Not for videos/images.
+
+
+// 4. ❌ Storing passwords: Never do this.
+</pre
+          >
+        </code>
+        <h2>Todo App</h2>
+        <p>This is where many learners move from:</p>
+        <code>
+          <pre>
+" I Know JavaScript "
+to 
+" I can build applications "
+</pre
+          >
+        </code>
+        <h4>A Todo App teaches:</h4>
+        <p>
+          ✅ DOM Manipulation <br />
+          ✅ Events <br />
+          ✅ Forms <br />
+          ✅ Arrays <br />
+          ✅ Objects <br />
+          ✅ localStorage <br />
+          ✅ CRUD Operations <br />
+          ✅ State Management
+        </p>
+        <h4>🧠 FIRST: THINK LIKE AN ENGINEER</h4>
+        <code>
+          <pre>
+// Most beginners do:
+Create Todo
+↓
+Immediately append to DOM
+
+
+// Professional developers think:
+State (Data)
+↓
+Save State
+↓
+Render UI from State 
+
+// This mindset is HUGE.
+</pre
+          >
+        </code>
+        <h4>🎯 APP FEATURES</h4>
+        <p>We will build:</p>
+        <p>
+          ✅ Add Todo <br />
+          ✅ Delete Todo <br />
+          ✅ Persist after refresh (localStorage) <br />
+          ✅ Mark Complete <br />
+          ✅ Clean Architecture
+        </p>
+        <h4>🧱 STEP 1: HTML and CSS:</h4>
+        <code>
+          <pre>
+// HTML
+&lt;div class="todo-app">
+
+  &lt;h1>Todo App&lt;/h1>
+
+  &lt;form id="todoForm">
+    &lt;input
+      type="text"
+      id="todoInput"
+      placeholder="Enter task..."
+    >
+
+    &lt;button>Add&lt;/button>
+  &lt;/form>
+
+  &lt;ul id="todoList">&lt;/ul>
+
+&lt;/div>
+
+
+// CSS 
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+</pre
+          >
+        </code>
+        <h4>🧠 STEP 2: SELECT DOM ELEMENTS</h4>
+        <code>
+          <pre>
+const form = document.querySelector("#todoForm");
+
+const input = document.querySelector("#todoInput");
+
+const list = document.querySelector("#todoList");
+</pre
+          >
+        </code>
+        <h4>🧠 STEP 3: APP STATE</h4>
+        <p>Professional apps always have state.</p>
+        <code>
+          <pre>
+let todos = [];
+
+// Think: "todos" is the source of truth 
+</pre
+          >
+        </code>
+        <h4>🎯 STEP 4: TODO DATA STRUCTURE</h4>
+        <code>
+          <pre>
+// Instead of:
+"Learn JavaScript"
+
+// Use Object: 
+{
+  id: 1,
+  text: "Learn JavaScript",
+  completed: false
+}
+</pre
+          >
+        </code>
+        <p>
+          <strong>Why?</strong>
+          Because later we can:
+          <br />
+          ✅ delete
+          <br />
+          ✅ edit
+          <br />
+          ✅ mark complete
+        </p>
+        <h4>💾 STEP 5: SAVE TO LOCALSTORAGE</h4>
+        <p>Create helper function.</p>
+        <code>
+          <pre>
+function saveTodos() {
+
+  localStorage.setItem(
+    "todos",
+    JSON.stringify(todos)
+  );
+
+}
+</pre
+          >
+        </code>
+        <h4>📖 STEP 6: LOAD TODOS</h4>
+        <code>
+          <pre>
+function loadTodos() {
+
+  const storedTodos =
+    localStorage.getItem("todos");
+
+  if (storedTodos) {
+
+    todos = JSON.parse(storedTodos);
+
+  }
+
+}
+</pre
+          >
+        </code>
+        <h4>🎨 STEP 7: RENDER TODOS</h4>
+        <p>THIS IS THE MOST IMPORTANT PART.</p>
+        <code>
+          <pre>
+// Professional mindset:
+State
+↓
+Render UI
+
+
+function renderTodos() {
+
+  list.innerHTML = "";
+
+  todos.forEach(todo => {
+
+    const li = document.createElement("li");
+
+    li.textContent = todo.text;
+
+    if (todo.completed) {
+      li.classList.add("completed");
+    }
+
+    list.append(li);
+
+  });
+
+}
+</pre
+          >
+        </code>
+        <h4>🧠 WHY CLEAR FIRST?</h4>
+        <code>
+          <pre>
+list.innerHTML = ""; // Without This: duplicate items 😭
+</pre
+          >
+        </code>
+        <h4>➕ STEP 8: ADD TODO</h4>
+        <code>
+          <pre>
+form.addEventListener("submit", (e) => {
+
+  e.preventDefault();
+
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  const newTodo = {
+
+    id: Date.now(),
+
+    text,
+
+    completed: false
+
+  };
+
+  todos.push(newTodo);
+
+  saveTodos();
+
+  renderTodos();
+
+  input.value = "";
+
+});
+</pre
+          >
+        </code>
+        <h4>🧠 WHAT IS Date.now()?</h4>
+        <p>
+          Generates unique ID.
+          <br />
+          Example: 1717500102030
+          <br />
+          Useful for delete/edit later.
+        </p>
+        <h4>🚀 TEST</h4>
+        <p>Now:</p>
+        <code>
+          <pre>
+Add Todo
+↓
+Refresh
+↓
+Still Exists
+</pre
+          >
+        </code>
+        <p>🎉 Success.</p>
+        <h4>❌ STEP 9: DELETE TODO</h4>
+        <p>First render delete button.</p>
+        <p>Update render:</p>
+        <code>
+          <pre>
+function renderTodos() {
+
+  list.innerHTML = "";
+
+  todos.forEach(todo => {
+
+    const li = document.createElement("li");
+
+    const deleteBtn =
+      document.createElement("button");
+
+    deleteBtn.textContent = "Delete";
+
+    li.textContent = todo.text;
+
+    li.append(deleteBtn);
+
+    list.append(li);
+
+  });
+
+}
+</pre
+          >
+        </code>
+        <p>But we need to know WHICH todo.</p>
+        <p>Store ID:</p>
+        <code>
+          <pre>
+li.dataset.id = todo.id;
+</pre
+          >
+        </code>
+        <h4>🎯 DATASET</h4>
+        <p>Creates:</p>
+        <code>
+          <pre>
+&lt;li data-id="123">&lt;/li> 
+</pre
+          >
+        </code>
+        <p>Very common in professional projects.</p>
+        <h4>🔥 STEP 11: EVENT DELEGATION</h4>
+        <p>Instead of:</p>
+        <code>
+          <pre>
+deleteBtn.addEventListener(...)
+</pre
+          >
+        </code>
+        <p>
+          for every item,
+          <br />
+          Use bubbling.
+        </p>
+        <code>
+          <pre>
+list.addEventListener("click", (e) => {
+
+  if (e.target.tagName === "BUTTON") {
+
+    const id =
+      Number(
+        e.target.parentElement.dataset.id
+      );
+
+    todos = todos.filter(todo => {
+
+      return todo.id !== id;
+
+    });
+
+    saveTodos();
+
+    renderTodos();
+
+  }
+
+});
+</pre
+          >
+        </code>
+        <h4>🧠 ENGINEERING GOLD</h4>
+        <p>This is Event Delegation, Used everywhere</p>
+        <h4>✅ STEP 12: TOGGLE COMPLETED</h4>
+        <p>click todo text.</p>
+        <code>
+          <pre>
+// Inside same listener:
+const li = e.target.closest("li");
+
+const id = Number(li.dataset.id);
+
+
+// Find todo:
+const todo = todos.find(todo => {
+
+  return todo.id === id;
+
+});
+
+
+// Toggle:
+todo.completed =
+  !todo.completed;
+
+
+// Save + Render:
+saveTodos();
+
+renderTodos();
+</pre
+          >
+        </code>
+        <h4>🚀 COMPLETE RENDER FUNCTION</h4>
+        <code>
+          <pre>
+function renderTodos() {
+
+  list.innerHTML = "";
+
+  todos.forEach(todo => {
+
+    const li =
+      document.createElement("li");
+
+    li.dataset.id = todo.id;
+
+    li.textContent = todo.text;
+
+    if (todo.completed) {
+      li.classList.add("completed");
+    }
+
+    const deleteBtn =
+      document.createElement("button");
+
+    deleteBtn.textContent = "Delete";
+
+    li.append(deleteBtn);
+
+    list.append(li);
+
+  });
+
+}
+</pre
+          >
+        </code>
+        <h4>🧠 FINAL APP FLOW</h4>
+        <code>
+          <pre>
+Add Todo
+↓
+Update State
+↓
+Save LocalStorage
+↓
+Render UI
+
+
+Delete Todo
+↓
+Update State
+↓
+Save LocalStorage
+↓
+Render UI
+
+
+Toggle Todo
+↓
+Update State
+↓
+Save LocalStorage
+↓
+Render UI
+</pre
+          >
+        </code>
+        <h2>Session Storage</h2>
+        <p>
+          Now that you understand localStorage, learning sessionStorage becomes
+          very easy because they are almost twins.
+        </p>
+        <p>The biggest difference is:</p>
+        <code>
+          <pre>
+localStorage  = remembers forever
+sessionStorage = remembers temporarily
+</pre
+          >
+        </code>
+        <h4>🧠 1. WHAT IS sessionStorage?</h4>
+        <p>
+          Think of it as a temporary notebook 📒.
+          <br />
+          <strong>It stores data:</strong>
+          <br />
+          ✅ While the tab is open
+          <br />
+          But when you close the tab:
+          <br />
+          ❌ Everything is gone
+        </p>
+        <h4>🎯 REAL LIFE ANALOGY</h4>
+        <p>
+          Imagine you're solving an exam.
+          <br />
+          You write answers on rough paper.
+        </p>
+        <code>
+          <pre>
+// While you're in the exam room:
+Data exists
+
+// When you leave:
+Paper destroyed
+</pre
+          >
+        </code>
+        <p>That's sessionStorage.</p>
+        <h4>🆚 2. localStorage VS sessionStorage</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>localStorage</th>
+                <th>sessionStorage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Refresh page</td>
+                <td>✅ survives</td>
+                <td>✅ survives</td>
+              </tr>
+              <tr>
+                <td>Close tab</td>
+                <td>✅ survives</td>
+                <td>❌ deleted</td>
+              </tr>
+              <tr>
+                <td>Close browser</td>
+                <td>✅ survives</td>
+                <td>❌ deleted</td>
+              </tr>
+              <tr>
+                <td>Storage size</td>
+                <td>~5MB</td>
+                <td>~5MB</td>
+              </tr>
+              <tr>
+                <td>Data type</td>
+                <td>Strings</td>
+                <td>Strings</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4>🎮 EXAMPLE</h4>
+        <p>
+          Suppose user is filling a long form.
+          <br />
+          You don't want them to lose progress after refresh.
+          <br />
+          But you also don't want to permanently save it.
+        </p>
+        <p>Perfect use case:</p>
+        <code>
+          <pre>
+sessionStorage
+</pre
+          >
+        </code>
+        <h4>🧱 3. SAVE DATA</h4>
+        <p>Exactly like localStorage.</p>
+        <code>
+          <pre>
+sessionStorage.setItem(
+  "username",
+  "Naseeb"
+);
+
+// Think:
+// JSON code 
+{
+  "username": "Naseeb"
+}
+</pre
+          >
+        </code>
+        <h4>📖 4. READ DATA</h4>
+        <code>
+          <pre>
+const user =
+  sessionStorage.getItem("username");
+
+console.log(user);
+
+// Output: Naseeb 
+</pre
+          >
+        </code>
+        <h4>❌ 5. DELETE ONE ITEM</h4>
+        <code>
+          <pre>
+sessionStorage.removeItem(
+  "username"
+);
+</pre
+          >
+        </code>
+        <h4>🧹 6. DELETE EVERYTHING</h4>
+        <code>
+          <pre>
+sessionStorage.clear();
+</pre
+          >
+        </code>
+        <p>Removes all session data.</p>
+        <h4>🧠 7. OBJECTS & ARRAYS</h4>
+        <p>Same rule as localStorage.</p>
+        <code>
+          <pre>
+// sessionStorage stores: Strings Only
+
+
+// ❌ Wrong
+const user = {
+  name: "Naseeb"
+};
+
+sessionStorage.setItem(
+  "user",
+  user
+);
+
+// Result: [object Object]
+
+
+// ✅ Correct
+sessionStorage.setItem(
+  "user",
+  JSON.stringify(user)
+);
+
+
+// 📖 Reading Back
+const user =
+  JSON.parse(
+    sessionStorage.getItem("user")
+  );
+</pre
+          >
+        </code>
+        <h4>🎮 8. PRACTICAL PROJECT</h4>
+        <p>Remember user's name while tab is open.</p>
+        <code>
+          <pre>
+&lt;input id="nameInput">
+
+&lt;button id="saveBtn">
+  Save
+&lt;/button>
+
+&lt;h2 id="output">&lt;/h2>
+
+
+const input =
+  document.querySelector("#nameInput");
+
+const btn =
+  document.querySelector("#saveBtn");
+
+const output =
+  document.querySelector("#output");
+
+
+// Save
+btn.addEventListener("click", () => {
+
+  sessionStorage.setItem(
+    "name",
+    input.value
+  );
+
+});
+
+
+// Load
+const savedName =
+  sessionStorage.getItem("name");
+
+if (savedName) {
+
+  output.textContent =
+    savedName;
+
+}
+</pre
+          >
+        </code>
+        <h4>🧠 TEST IT</h4>
+        <code>
+          <pre>
+// Refresh Page: Data stays ✅
+// Close Tab: Data gone ❌
+</pre
+          >
+        </code>
+        <p>Exactly how sessionStorage works.</p>
+        <h4>🎯 9. WHEN SHOULD YOU USE IT?</h4>
+        <code>
+          <pre>
+// ✅ Multi-Step Forms Example:
+Step 1
+↓
+Step 2
+↓
+Step 3
+// User refreshes.
+// Progress remains.
+
+
+// ✅ OTP Verification: Store temporary values.
+// ✅ Checkout Process: Cart information during current session.
+// ✅ Temporary Filters: Example: Price Filter, Category Filter
+// Until tab closes.
+</pre
+          >
+        </code>
+        <h4>WHEN NOT TO USE IT</h4>
+        <code>
+          <pre>
+// User Preferences
+// Example:
+Dark Mode
+Language
+Theme
+// Use localStorage instead.
+
+// Long-Term Data 
+// Example: 
+Todos
+Notes
+Settings
+// use localStorage
+</pre
+          >
+        </code>
+        <h4>PROFESSIONAL COMPARISON</h4>
+        <code>
+          <pre>
+// Login Draft 
+sessionStorage
+// Because: 
+temporary
+
+// Dark Mode: 
+localStorage
+// Because:
+Permanent 
+</pre
+          >
+        </code>
+
+        <h2>🍪 Cookies</h2>
+        <p>
+          Before learning authentication, JWT, sessions, or backend development,
+          you should understand cookies.
+        </p>
+        <p>
+          Think of cookies as small notes that websites leave inside your
+          browser.
+        </p>
+        <h4>🧠 What are Cookies?</h4>
+        <p>Imagine you go to a restaurant.</p>
+        <p>The waiter gives you a token:</p>
+        <code>
+          <pre>
+Table Number: 7
+</pre
+          >
+        </code>
+        <p>Next time you call the waiter, he knows:</p>
+        <code>
+          <pre>
+"Oh, you're table 7."
+</pre
+          >
+        </code>
+        <p>Cookies work similarly.</p>
+        <p>A website gives your browser a small piece of information:</p>
+        <code>
+          <pre>
+username = Naseeb
+theme = dark
+language = English
+</pre
+          >
+        </code>
+        <p>
+          Then every time you visit that website again, the browser
+          automatically sends those cookies back.
+        </p>
+        <h4>🎯 Why Cookies Exist</h4>
+        <p>
+          <strong>Cookies are used for:</strong>
+          <br />
+          ✅ Login sessions <br />
+          ✅ Remember me feature <br />
+          ✅ User preferences <br />
+          ✅ Shopping carts <br />
+          ✅ Language settings <br />
+          ✅ Authentication
+        </p>
+        <h4>🧠 Cookie vs localStorage vs sessionStorage</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Cookies</th>
+                <th>localStorage</th>
+                <th>sessionStorage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Size</td>
+                <td>~4KB</td>
+                <td>~5MB</td>
+                <td>~5MB</td>
+              </tr>
+              <tr>
+                <td>Auto ent to server</td>
+                <td>✅Yes</td>
+                <td>❌No</td>
+                <td>❌No</td>
+              </tr>
+              <tr>
+                <td>Servives Refresh</td>
+                <td>✅Yes</td>
+                <td>✅Yes</td>
+                <td>✅Yes</td>
+              </tr>
+              <tr>
+                <td>Servives tab close</td>
+                <td>Depends</td>
+                <td>✅Yes</td>
+                <td>❌No</td>
+              </tr>
+              <tr>
+                <td>Mainly used for</td>
+                <td>Auth & sessions</td>
+                <td>Persistent client data</td>
+                <td>Temporary data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4>Creating Cookies</h4>
+        <p>Cookies are stored using:</p>
+        <code>
+          <pre>
+document.cookie
+
+// Example:
+document.cookie = "username=Naseeb";
+
+// Browser Now stores:
+username=Naseeb
+</pre
+          >
+        </code>
+        <h4>Multiple Cookies</h4>
+        <code>
+          <pre>
+document.cookie = "theme=dark";
+document.cookie = "language=en";
+
+// Now Browser Contains:
+username=Naseeb
+theme=dark
+language=en
+</pre
+          >
+        </code>
+        <h4>Reading Cookies</h4>
+        <code>
+          <pre>
+console.log(document.cookie);
+
+// Output:
+username=Naseeb; 
+theme=dark;
+language=en
+</pre
+          >
+        </code>
+        <p>
+          <strong>Notice:</strong>
+          All cookies come back as one string.
+        </p>
+        <h4>Setting Expiration</h4>
+        <p>Without expiration:</p>
+        <code>
+          <pre>
+document.cookie = "username=Naseeb";
+</pre
+          >
+        </code>
+        <p>Cookie disappears when browser session ends.</p>
+        <p>Set Expiration:</p>
+        <code>
+          <pre>
+document.cookie = "username=Naseeb; expires=Fri, 31 Dec 2030 23:59:59 UTC";
+</pre
+          >
+        </code>
+        <p>Now it survives browser restarts.</p>
+        <h4>Path</h4>
+        <code>
+          <pre>
+document.cookie = "theme=dark; path=/";
+</pre
+          >
+        </code>
+        <p>This makes the cookie available throughout the whole website.</p>
+        <h4>Updating Cookies</h4>
+        <p>Simply overwrite:</p>
+        <code>
+          <pre>
+document.cookie = "theme=light";
+</pre
+          >
+        </code>
+        <h4>Deleting Cookies</h4>
+        <p>Set Expiration to the past:</p>
+        <code>
+          <pre>
+document.cookie = "theme=; expires=Thu, 05 Jan 1970 00:00:00 UTC";
+</pre
+          >
+        </code>
+        <p>Browser removes it.</p>
+        <h4>Real Example: Remember User</h4>
+        <p>Save:</p>
+        <code>
+          <pre>
+document.cookie = "name=Naseeb";
+
+// Read:
+console.log(document.cookie);
+</pre
+          >
+        </code>
+        <h4>Why Cookies Matter in Login Systems</h4>
+        <p>Suppose user logs in.</p>
+
+        <code>
+          <pre>
+// Server Creates:
+sessionId = abc123xyz
+
+// Browser stores:
+sessionId=abc123xyz
+
+// Whenever user visits another page:
+Browser automatically sends: sessionId=abc123xyz
+
+// Server recognizes:
+"This is the same user."
+
+// This is how many login systems work.
+</pre
+          >
+        </code>
+        <h4>Cookies are Small</h4>
+        <p>Cookies are only around: 4KB</p>
+        <p>
+          <strong>Don't Store:</strong>
+          <br />
+          ❌ Images <br />
+          ❌ Videos <br />
+          ❌ Large objects
+        </p>
+        <h4>document.cookie Is Not Very Friendly</h4>
+        <p>Reading cookies gives:</p>
+        <code>
+          <pre>
+username=Naseeb; theme=dark; language=en
+</pre
+          >
+        </code>
+        <p>So developers often create helper functions.</p>
+        <code>
+          <pre>
+// Example:
+// Set Cookie
+function setCookie(name, value){
+  document.cookie = `${name}=${value}; path=/`;
+}
+</pre
+          >
+        </code>
+        <h4>Get Cookie</h4>
+        <code>
+          <pre>
+function getCookie(name) {
+  const cookies = document.cookie.split("; ");
+
+  for (const cookie of cookies) {
+    const [key, value] = cookie.split("=");
+
+    if (key === name) {
+      return value;
+    }
+  }
+
+  return null;
+}
+
+// Usage:
+setCookie("theme", "dark");
+
+console.log(getCookie("theme"));
+
+// Output: dark 
+</pre
+          >
+        </code>
+        <h4>Engineering mindset</h4>
+        <p>✅ Cookies for authentication/session data</p>
+        <code>
+          <pre>
+// Example: 
+sessionId
+accessToken
+refreshToken
+</pre
+          >
+        </code>
+        <p>✅localStorage for app data</p>
+        <code>
+          <pre>
+// Example: 
+theme 
+todos
+settings 
+</pre
+          >
+        </code>
+        <p>✅ sessionStorage for temporary data</p>
+        <code>
+          <pre>
+// Example: 
+OTP process 
+multi-step forms
+</pre
+          >
+        </code>
+        <p>THINK of theme like this:</p>
+        <p><strong>Cookies</strong> small note shared with server</p>
+        <p><strong>localStorage</strong> Permanent notebook inside browser</p>
+        <p>
+          <strong>sessionStorage</strong> Temporary notebook for current tab
+        </p>
+
+        <h2>EditThisCookie</h2>
+        <p>
+          We cannot directly see cookies inside the browser window. If you are
+          running your website using Live Server, look at the address bar and
+          click the icon located just to the left of your website URL.
+        </p>
+        <ol>
+          <li>Click the icon beside the URL</li>
+          <li>Select Manage Cookies and Site Data.</li>
+          <li>Click Manage On-Device Site Data.</li>
+          <li>
+            You will see your website's data and a Delete Option, which allows
+            you to remove stored cookies and site data.
+          </li>
+        </ol>
+        <p>
+          However, if you want to view the actual cookie values, edit them, or
+          delete specific cookies, install a browser extension called
+          EditThisCookie.
+        </p>
+        <p>With the EditThisCookie extension, you can:</p>
+        <ul>
+          <li>View all cookies stored by your website.</li>
+          <li>Read cookies names and values.</li>
+          <li>Edit existing cookies.</li>
+          <li>Add new cookies.</li>
+          <li>Delete Individual cookies or clear all cookies.</li>
+        </ul>
+        <p>
+          This extension is very useful when testing and debuggin web
+          applications that use cookies.
+        </p>
+        <p>
+          Think of cookies as small notes that websites save in your browser.
+          The browser stores these notes, but you cannot easily read them. Tools
+          like EditThisCookie act like a magnifying glass, allowing you to see,
+          modify, and remove those notes whenever you want.
+        </p>
+
+        <a
+          href="#"
+          style="
+            background-color: rgb(255, 255, 255);
+            display: block;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 3rem;
+          "
+          class="back-to-top"
+          >Back To Top</a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© Incellence • Made with ❤️</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

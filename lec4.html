@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 3</div>
+      <h2>Operators</h2>
+      <p>In JavaScript, operators are symbols or keywords that perform actions on values (like numbers or
+        variables) to create expressions. These expressions are used to implement logic or algorithms. Here’s a
+        simple breakdown of the different types of operators in JavaScript:</p>
+      <h4>Arithmetic Operators:</h4>
+      <p>
+        Used to perform basic math operations like addition (+), subtraction (-),
+        multiplication (*), and division (/).
+      </p>
+      <h4>Assignment Operators</h4>
+      <p>These operators are used to assign values to variables. For example, = is
+        used to assign a value, while += adds a value to an existing one.
+      </p>
+      <h4>Comparison Operators</h4>
+      <p>
+        Used to compare two values, such as checking if one is greater than the
+        other (>), equal (==), or not equal (!=).
+      </p>
+      <h4>Logical Operators</h4>
+      <p>
+        These operators help in combining multiple conditions, such as && (and), || (or),
+        and ! (not).
+      </p>
+      <h4>Bitwise Operators</h4>
+      <p>
+        These work with numbers at the binary level (0s and 1s), performing operations
+        like AND (&), OR (|), and XOR (^).
+      </p>
+      <p>Using these operators, you can write code that performs calculations, makes decisions, and solves
+        complex problems in JavaScript.
+      </p>
+      <h2>Arithmetic Operators</h2>
+      <p>
+        Arithmetic operators are symbols used in programming to perform basic math calculations, just like we do
+        in real life. Let’s go through them step by step:
+      </p>
+      <h4>Addition Operator (+)</h4>
+      <p>This operator adds two numbers together</p>
+      <code>
+<pre>
+let a = 20;
+let b = 30;
+console.log(a + b); // Output: 50
+</pre>
+</code>
+      <p>Here, a + b is an expression that adds 20 and 30, producing the result 50</p>
+      <h4>Subtraction Operator (-)</h4>
+      <p>This operator subtracts one number from another.</p>
+      <code>
+<pre>
+let a = 20;
+let b = 10;
+console.log(a - b); // Output: 10
+</pre>
+</code>
+      <h4>Multiplication Operator (*)</h4>
+      <p>This operator multiplies two numbers.</p>
+      <code>
+<pre>
+let a = 10;
+let b = 20;
+console.log(a * b); // Output: 200
+</pre>
+</code>
+      <h4>Division Operator (/)</h4>
+      <p>
+        This operator divides one number by another.
+      </p>
+      <code>
+<pre>
+let a = 100;
+let b = 10;
+console.log(a / b); // Output: 10
+</pre>
+</code>
+      <h4>Remainder (Modulus) Operator (%)</h4>
+      <p>This operator divides two numbers and returns the remainder (what’s left over).</p>
+      <code>
+<pre>
+let a = 10;
+let b = 3;
+console.log(a % b); // Output: 1
+</pre>
+</code>
+      <p>Here, 10 divided by 3 leaves a remainder of 1.</p>
+      <h4>Exponentiation Operator (**)</h4>
+      <p>This operator raises one number (the base) to the power of another number.</p>
+      <code>
+<pre>
+let a = 2;
+let b = 4;
+console.log(a ** b); // Output: 16
+</pre>
+</code>
+      <p>This means 2 raised to the power of 4, which equals 16.</p>
+
+      <h2>Unary Operators</h2>
+      <h4>Increment Operator (++)</h4>
+      <p>This operator adds 1 to a number.</p>
+      <code>
+<pre>
+let a = 10;
+a++;
+console.log(a); // Output: 11
+
++"5" // converted to number 
+</pre>
+</code>
+      <p>After a++, the value of a becomes 11</p>
+      <h4>Decrement Operator (--)</h4>
+      <p>This operator subtracts 1 from a number.</p>
+      <code>
+<pre>
+let a = 10;
+a--;
+console.log(a); // Output: 9
+</pre>
+</code>
+      <p>After a--, the value of “a” becomes 9.</p>
+      <h2>Prefix and Postfix</h2>
+      <p>For increment (++) and decrement (--) operators, you can use them before or after the variable</p>
+      <ul>
+        <li>Prefix (++a or --a): The operator changes the value before it’s used in the expression.</li>
+        <li>Postfix (a++ or a--): The operator changes the value after it’s used in the expression.</li>
+        <li>Increment and decrement are only applied on a variable not a number</li>
+      </ul>
+      <code>
+<pre>
+let a = 10;
+console.log(++a); // Output: 11 (prefix, a is increased first)
+console.log(a++); // Output: 11 (postfix, a is increased after this line the previous addition is
+included)
+console.log(a); // Output: 12
+</pre>
+</code>
+      <h2>Assignment Operators</h2>
+      <p>Assignment operators are symbols used to assign values to variables. We have already seen a common
+        assignment operator:</p>
+      <code>
+<pre>
+let a = 10;
+</pre>
+</code>
+      <p>In this example, the = (equal sign) is an assignment operator. It assigns the value 10 to the variable a</p>
+      <h4>Other Assignment Operators</h4>
+      <p>
+        There are many other assignment operators that make it easier to update the value of a variable. Let’s look
+        at some of them:
+      </p>
+      <h4>Increment Operator (++):</h4>
+      <p>This adds 1 to a variable. For example:</p>
+      <code>
+<pre>
+n++; // This is the same as writing: n = n + 1;
+</pre>
+</code>
+      <p>The value of n is read, increased by 1, and then stored back in n.</p>
+      <h4>Addition Assignment Operator (+=):</h4>
+      <p>If you want to add a number other than 1, for example 5, you could write:</p>
+      <code>
+<pre>
+n = n + 5;
+</pre>
+</code>
+      <p>But there’s a shorter way using the += operator:</p>
+      <code>
+<pre>
+n += 5;
+</pre>
+</code>
+      <p>This adds 5 to the current value of n</p>
+      <h4>Subtraction Assignment Operator (-=):</h4>
+      <p>To subtract a number from n, you can use:</p>
+      <code>
+<pre>
+n -= 5;
+</pre>
+</code>
+      <p>This subtracts 5 from n.</p>
+      <h4>Multiplication Assignment Operator (*=):</h4>
+      <p>To multiply n by a number, use:
+      </p>
+      <code>
+<pre>
+n *= 5;
+</pre>
+</code>
+      <p>This multiplies n by 5.</p>
+      <h4>Division Assignment Operator (/=):</h4>
+      <p>To divide n by a number, use:</p>
+      <code>
+<pre>
+n /= 5;
+</pre>
+</code>
+      <p>This divides n by 5.</p>
+      <h4>Exponentiation Assignment Operator (=)**:</h4>
+      <p>If you want to raise n to the power of a number, use</p>
+      <code>
+<pre>
+n **= 5;
+</pre>
+</code>
+      <p>This raises n to the power of 5 (n = n^5).</p>
+      <h4>Remainder Assignment Operator (%=):</h4>
+      <p>To get the remainder of n divided by a number, use:</p>
+      <code>
+<pre>
+n %= 5;
+</pre>
+</code>
+      <p>This calculates the remainder when n is divided by 5.</p>
+
+      <h2>Comparison Operators</h2>
+      <p>Comparison operators are used to compare two values. As the name suggests, these operators check if
+        one value is larger, smaller, equal, or not equal to another value. The result of using comparison operators is
+        always a Boolean value, meaning the outcome is either true or false.</p>
+      <h4>Types of Comparison Operators</h4>
+      <p>There are two main types of comparison operators:</p>
+      <h4>Relational Comparison Operators</h4>
+      <p>These compare the size or order of two values.</p>
+      <p>Less than (&lt;): Checks if the value on the left is smaller than the value on the right</p>
+      <code>
+<pre>
+let a = 10;
+let b = 20;
+console.log(a &lt; b); // true
+</pre>
+</code>
+      <p>Greater than (>): Checks if the value on the left is larger than the value on the right.</p>
+      <code>
+<pre>
+console.log(a > b); // false
+</pre>
+</code>
+      <p>Less than or equal to (&lt;=): Checks if the value on the left is smaller than or equal to the value on the
+        right.</p>
+      <code>
+<pre>
+console.log(a &lt;= b); // true
+</pre>
+</code>
+      <p>Greater than or equal to (>=): Checks if the value on the left is larger than or equal to the value on
+        the right</p>
+      <code>
+<pre>
+console.log(a >= b); // false
+</pre>
+</code>
+      <h4>Equality Comparison Operators</h4>
+      <p>These operators check if two values are equal or not, with a focus on both value and data type.</p>
+      <p>Lose Equality or Equal (==): Checks if the values on both sides are the same, regardless of data
+        type.</p>
+      <code>
+<pre>
+console.log(a == b); // false, it checks only value not type
+console.log(1 == 1); // true
+console.log(‘1’ == 1); // true
+console.log(true == 1); // true, it automatically change the right side to true
+</pre>
+</code>
+      <p>Strict equal (===): Checks if both the value and the data type are the same.</p>
+      <code>
+<pre>
+console.log(a === b); // false, it checks the value + type 
+</pre>
+</code>
+      <p>Not equal (!=): Checks if the values are different.</p>
+      <code>
+<pre>
+console.log(a != b); // true
+</pre>
+</code>
+      <p>Strict not equal (!==): Checks if the value or data type are different.
+      </p>
+      <code>
+<pre>
+console.log(a !== b); // true
+</pre>
+</code>
+      <p>These operators help in decision-making in programming by comparing values and giving you a true or
+        false outcome based on the comparison.</p>
+      <h2>Ternary or Conditional Operators</h2>
+      <p>A ternary operator, also known as a conditional operator, allows you to simplify if-else statements in your
+        code. It is a quick way to check a condition and return one value if the condition is true and another value if
+        it's false, all in one line</p>
+      <h4>Example of Ternary Operator</h4>
+      <p>Let’s say you want to mark customers as gold or silver based on their points. If a customer has more than
+        100 points, they should be marked as a gold customer. Otherwise, they are marked as silver.
+      </p>
+      <p>Here’s how you can do that with a ternary operator:</p>
+      <code>
+<pre>
+let points = 110;
+let type = points > 100 ? 'gold' : 'silver';
+
+<span class="t-r">Another Example:</span>
+let marks = 90;
+let result = marks >= 90 ? "A Grad" : marks >= 80 ? "B" : marks >= 70 ? "C" : "Pass";
+</pre>
+</code>
+      <ul>
+        <li>points > 100 creates a boolean value (true or false).</li>
+        <li>
+          The question mark (?) checks if the condition is true.
+          <ul>
+            <li>If true, it assigns 'gold' to the type variable.</li>
+            <li>If false, it assigns 'silver'.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>In simple terms:</p>
+      <ul>
+        <li>The code starts with a condition (points > 100)</li>
+        <li>The question mark (?) checks if that condition is true.</li>
+        <li>If true, the first value ('gold') is used.</li>
+        <li>If false, the value after the colon ('silver') is used.</li>
+      </ul>
+      <p>This is a ternary operator because it involves three parts: condition, true value, and false value. It’s a
+        compact way of writing an if-else statement!</p>
+      <h2>Logical Operators</h2>
+      <p>Logical operators in JavaScript help us make decisions based on multiple conditions. There are three main
+        logical operators:</p>
+      <ol>
+        <li>Logical AND (&&)</li>
+        <li> Logical OR (||)</li>
+        <li>Logical NOT (!)</li>
+      </ol>
+      <p>Let's break down how each of these works with easy-to-understand examples.</p>
+      <h4>Logical AND (&&)</h4>
+      <p>The && (AND) operator returns true only when both conditions on the left and right sides are true. If either
+        or both are false, it returns false.</p>
+      <code>
+<pre>
+console.log(true && true); // Output: true
+console.log(true && false); // Output: false
+console.log(false && true); // Output: false
+console.log(false && false); // Output: false
+</pre>
+</code>
+      <p>In the second example, since one condition is false, the result is false. The && operator looks for at least
+        one false to return false.
+      </p>
+      <h4>Where to use it:</h4>
+      <p>Imagine we are building a loan approval app. To approve a loan, the applicant must have both a high
+        income and a good credit score. If both are true, the loan will be approved.</p>
+      <code>
+<pre>
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome && goodCreditScore;
+console.log(eligibleForLoan); // Output: true
+</pre>
+</code>
+      <h4>Logical OR (||)</h4>
+      <p>The || (OR) operator returns true if either condition on the left or right side is true. Even if only one
+        condition
+        is true, it will return true. If both conditions are false, only then will it return false.</p>
+      <code>
+<pre>
+console.log(true || false); // Output: true
+console.log(false || false); // Output: false
+console.log(false || true); // Output: true
+console.log(true || true); // Output: true
+</pre>
+</code>
+      <p>In the first example, one condition is true, so the result is true. The || operator looks for at least one true
+        to
+        return true</p>
+      <h4>Where to use it:</h4>
+      <p>Using the same loan approval example, if either the applicant has a high income or a good credit score,
+        they can still be approved for a loan.</p>
+      <code>
+<pre>
+let highIncome = false;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome || goodCreditScore;
+console.log(eligibleForLoan); // Output: true
+</pre>
+</code>
+      <p>Even though the income is low, the applicant has a good credit score, so they are still eligible.</p>
+      <h4>Logical NOT (!)</h4>
+      <p>The ! (NOT) operator simply reverses the value of a condition. If the condition is true, it makes it false, and
+        if
+        it's false, it makes it true.</p>
+      <code>
+<pre>
+console.log(!true); // Output: false
+console.log(!false); // Output: true
+</pre>
+</code>
+      <h4>Where to use it:</h4>
+      <p>Let’s say we want to reject the loan application if the applicant is not eligible. We can use the ! operator to
+        reverse the result of eligibleForLoan.</p>
+      <code>
+<pre>
+let highIncome = false;
+let goodCreditScore = false;
+let eligibleForLoan = highIncome || goodCreditScore;
+let applicationRefused = !eligibleForLoan;
+console.log(applicationRefused); // Output: true
+</pre>
+</code>
+      <p>In this case, since the applicant doesn't qualify for the loan (eligibleForLoan is false), we use ! to reverse
+        it,
+        and the loan application is refused (true).</p>
+      <h4>Overview:</h4>
+      <ul>
+        <li>&& (AND): All conditions must be true for the result to be true.</li>
+        <li> || (OR): At least one condition must be true for the result to be true.</li>
+        <li>! (NOT): Reverses the condition true becomes false, and false becomes true.</li>
+      </ul>
+      <p>
+        These operators are essential for making decisions in your code based on multiple conditions!
+      </p>
+      <h2>Logical Operators with non-Boolean values</h2>
+      <p>In JavaScript, logical operators like (|| and &&) don’t always return just true or false like in many other
+        languages. Instead, they return the actual value of the operands, which makes them very powerful.
+      </p>
+      <strong>Example 1:
+      </strong>
+      <code>
+<pre>console.log(false || true); // true</pre>
+</code>
+      <p>Here, false || true returns true because one of the values is true.</p>
+      <strong>Example 2:</strong>
+      <code>
+<pre>
+console.log(false || "Naseeb"); // "Naseeb"
+</pre>
+</code>
+      <strong>Example 3:</strong>
+      <code>
+<pre>
+console.log(false || 1); // 1
+</pre>
+</code>
+      <p>In this case, the result is 1 because 1 is a truthy value (it’s not zero or false).</p>
+      <h4>Key Concept: Truthy and Falsy</h4>
+      <ul>
+        <li>Falsy values are undefined, null, 0, false, "" (empty string), NaN (not a number), -0, 0n, and document.all.
+        </li>
+        <li>Truthy values are anything that is not falsy.</li>
+      </ul>
+      <p>
+        console trick to find truthy and falsy values by using !!.
+      </p>
+      <code>
+<pre>
+<span class="output">In Console:</span>
+!!"Naseeb Khan" // True
+!"Naseeb Khan" // False
+</pre>
+</code>
+
+      <p>So, when using logical operators, JavaScript evaluates each value. If it finds a truthy value, it returns that
+        value, not just true or false.</p>
+      <h2>Short-circuiting</h2>
+      <p>If you have multiple values in an expression like:</p>
+      <code>
+<pre>
+console.log(false || 1 || 2); // 1
+</pre>
+</code>
+      <p>Here, JavaScript starts with false, then moves to 1 (which is truthy), and stops there, returning 1. This
+        process is called short-circuiting because as soon as a truthy value is found, JavaScript stops checking the
+        rest.</p>
+      <h4>Real-life example:</h4>
+      <p>Imagine an app where users can pick a color for a t-shirt. If the user doesn’t select a color, you want to use
+        a default color:</p>
+      <code>
+<pre>
+let userColor = 'red';
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+console.log(currentColor); // red
+</pre>
+</code>
+      <p>Here, the user selected "red", so the result is "red".</p>
+      <h4>If the user didn’t choose a color:</h4>
+      <code>
+<pre>
+let userColor = undefined;
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+console.log(currentColor); // blue
+</pre>
+</code>
+      <p>Now, since userColor is undefined (a falsy value), it returns the default color "blue".</p>
+      <p>In short, logical operators in JavaScript can handle more than just true or false. They work with truthy and
+        falsy values and stop evaluating as soon as they find a truthy value. This feature allows for flexible code,
+        like setting default values when no user input is provided.
+      </p>
+      <h2>Operator Precedence</h2>
+      <p>When we work with complex expressions, we have to know the "precedence" or "priority" of different
+        operators. Operator precedence tells us the order in which operations are performed in a mathematical
+        expression. If we don’t understand this, we might get unexpected results.
+      </p>
+      <strong>Here’s an example to illustrate:</strong>
+      <code>
+<pre>
+let a = 2 + 2 / 2;
+</pre>
+</code>
+      <p>What do you think the result of this expression is? If you guessed 3, you’re correct! Here’s why:</p>
+      <p>In JavaScript (and many other programming languages), operators have different levels of precedence. The
+        division (/) has a higher precedence than addition (+). This means the division part will be calculated first,
+        not the addition.</p>
+      <h4>To understand the order, we can use a rule called BODMAS:</h4>
+      <ol>
+        <li>B: Brackets – solve anything in brackets first.</li>
+        <li>O: Orders (exponents, powers).</li>
+        <li>D: Division.</li>
+        <li>M: Multiplication.</li>
+        <li>A: Addition.</li>
+        <li>A: Addition.</li>
+      </ol>
+      <h4>Using BODMAS, we solve expressions in this order:</h4>
+      <ol>
+        <li>Brackets</li>
+        <li>Division</li>
+        <li>Multiplication</li>
+        <li>Addition</li>
+        <li>Subtraction</li>
+      </ol>
+      <h4>PEMDAS:</h4>
+      <ol>
+        <li>Parenthesis ()</li>
+        <li>Exponentiation **</li>
+        <li>Multiplication *</li>
+        <li>Division /</li>
+        <li>Addition +</li>
+        <li>Subtraction –</li>
+      </ol>
+      <p>Multiplication and division have the same priority but always start from left to right.
+        <br> Addition and subtraction have the same priority no matter to solve which the first but always go from left
+        to
+        right.
+      </p>
+      <strong>In our example, there are no brackets, so we start with division:</strong>
+      <ol>
+        <li>First, solve 2 / 2, which is 1.</li>
+        <li>Then, add 2 + 1, giving us 3.</li>
+      </ol>
+      <p>So, a will be equal to 3.</p>
+      <strong>If you want an addition to happen before division, you will use brackets like this:</strong>
+      <code>
+<pre>
+let a = (2 + 2) / 2;
+</pre>
+</code>
+      <p>Now, the result will be 2 because we do the addition inside the brackets first.</p>
+      <p>In summary, operator precedence is all about knowing the order in which operations are performed. Using
+        BODMAS can help us solve complex calculations step by step.</p>
+
+      <h2>Nullish coalescing operator</h2>
+      <p>The nullish coalescing operator is written as two question marks ??.</p>
+      <p>As it treats null and undefined similarly, we’ll use a special term here, in this article. For brevity, we’ll
+        say that
+        a value is “defined” when it’s neither null nor undefined.</p>
+      <h4>The result of a ?? b is:</h4>
+      <ul>
+        <li>if a is defined, then a,</li>
+        <li> if a isn’t defined, then b.</li>
+      </ul>
+      <p>In other words, ?? returns the first argument if it’s not null/undefined. Otherwise, the second one.</p>
+      <p>The nullish coalescing operator isn’t anything completely new. It’s just a nice syntax to get the first
+        “defined”
+        value of the two.</p>
+
+      <strong>We can rewrite result = a ?? b using the operators that we already know, like this:</strong>
+      <code>
+<pre>
+result = (a !== null && a !== undefined) ? a : b;
+</pre>
+</code>
+      <p>Now it should be absolutely clear what ?? does. Let’s see where it helps. <br>
+        The common use case for ?? is to provide a default value.</p>
+      <strong>For example, here we show user if its value isn’t null/undefined, otherwise Anonymous:</strong>
+      <code>
+<pre>
+let user;
+alert(user ?? "Anonymous"); // Anonymous (user is undefined)
+</pre>
+</code>
+      <strong>Here’s the example with user assigned to a name:</strong>
+      <code>
+<pre>
+let user = "Naseeb";
+alert(user ?? "Anonymous"); //Naseeb (user is not null/undefined)
+</pre>
+</code>
+      <p>We can also use a sequence of ?? to select the first value from a list that isn’t null/undefined.</p>
+      <p>Let’s say we have a user’s data in variables firstName, lastName or nickName. All of them may be not
+        defined, if the user decided not to fill in the corresponding values.
+      </p>
+      <p>We’d like to display the user name using one of these variables, or show “Anonymous” if all of them
+        are null/undefined.</p>
+      <h4>
+        Let’s use the ?? operator for that:
+      </h4>
+      <code>
+<pre>
+let firstName = null;
+let lastName = null;
+let nickName = "Supercoder";
+</pre>
+</code>
+      <h4>Shows the first defined value:</h4>
+      <code>
+<pre>
+alert(firstName ?? lastName ?? nickName ?? "Anonymous"); // Supercoder
+</pre>
+</code>
+      <p>Here, the result is "Naseeb". The first value is false, so JavaScript checks the next value. Since "Naseeb" is
+        a
+        non-empty string (a "truthy" value), it returns "Naseeb".</p>
+      <h3>Exercise</h3>
+      <p>Let's solve a simple interview question! Imagine we have two variables with colors assigned to them:</p>
+      <code>
+<pre>
+let a = "Red";
+let b = "Black";
+</pre>
+</code>
+      <p>Now, we want to swap the values of these variables so that:</p>
+      <ul>
+        <li>a will store "Black"</li>
+        <li>b will store "Red"</li>
+      </ul>
+      <p>To do this, we'll need a third temporary variable. This extra variable helps us hold onto the value of a while
+        we switch the values around. Here’s how it works step-by-step:</p>
+      <p>1. Save the value of a into a new variable, c, so we don’t lose it:</p>
+      <code>
+<pre>
+let c = a; // c now holds "Red"
+</pre>
+</code>
+      <p>2. Set the value of a to b:</p>
+      <code>
+<pre>
+a = b; // a now holds "Black"
+</pre>
+</code>
+      <p>3. Assign the original value of a (stored in c) to b:</p>
+      <code>
+<pre>
+b = c; // b now holds "Red"
+</pre>
+</code>
+      <strong>Now we’ve successfully swapped the values, and our variables look like this:</strong>
+      <code>
+<pre>
+a = "Black";
+b = "Red";
+</pre>
+</code>
+      <p>This approach works because the temporary variable c acts as a "container" to hold one value while we
+        swap the other two.</p>
+
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

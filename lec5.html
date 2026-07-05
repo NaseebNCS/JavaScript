@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="Incellence.jpeg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Naseeb Khan" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Naseeb Khan, Incellence, JavaScript course, JavaScript complete course, JavaScript notes, JavaScript for beginners, learn JavaScript from scratch, JavaScript basics, advanced JavaScript, JavaScript OOP, JavaScript DSA, data structures in JavaScript, algorithms in JavaScript, JavaScript programming, web development JavaScript, JavaScript logic building, JavaScript tutorial, free JavaScript course, online JavaScript learning, NaseebCodeStudio, JavaScript roadmap, modern JavaScript"
+    />
+    <meta
+      name="description"
+      content="Incellence offers complete JavaScript course notes for beginners starting from zero to advanced level. Learn JavaScript fundamentals, break barriers like a pro, master OOP concepts, understand DSA, logic building, real-world examples, and modern JavaScript for web development success."
+    />
+    <title>Incellence JavaScript</title>
+    <link rel="stylesheet" href="lec_style.css" />
+  </head>
+
+  <body>
+    <!-- logo link -->
+    <a
+      href="https://www.youtube.com/@Incellence/playlists"
+      target="_blank"
+    >
+      <div class="ncs-logo-icon ncs-shadow-box"></div>
+    </a>
+    <header class="site-header small flex">
+      <div class="brand">
+        <h1>Incellence</h1>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+  <main class="container two-column">
+    <section>
+      <div class="h-1">Chapter 4</div>
+      <h2>Conditional Statements / Control Flow</h2>
+      <p>In the last section, you learned about expressions and operators. Now, we’ll see how to combine these with
+        conditional statements / Control Flow to make your applications more interactive. Conditional statements
+        allow your program to make decisions based on certain conditions. In JavaScript, there are two main types:
+        if...else and switch...case.</p>
+      <strong>Example Scenario</strong>
+      <p>Imagine you’re building an app where you need to greet users based on the time of day. Here’s how it will
+        work:</p>
+      <ul>
+        <li>If the hour is between 6 am and 12 pm, we’ll say, “Good Morning.”
+        </li>
+        <li>If it’s between 12 pm and 6 pm, we’ll say, “Good Afternoon.”</li>
+        <li>For any other time, we’ll say, “Good Evening.”</li>
+      </ul>
+      <p>To create this type of logic in your application, we use if...else statements.</p>
+      <h2>Structure of if...else</h2>
+      <p>The structure of an if...else statement is simple. Here’s how it works:</p>
+      <ul>
+        <li>if (condition) { ... }: If the condition is true, the code inside { ... } will run.</li>
+        <li>else if (another condition) { ... }: If the first condition is false but this condition is true, this code
+          will run. You can have as many else if statements as needed.</li>
+        <li>else { ... }: If none of the previous conditions are true, the code here will run. This is optional.
+        </li>
+      </ul>
+      <p>Note: When you have only one line of code, the { ... } brackets can be left out.</p>
+      <h2>Writing the Code</h2>
+      <p>
+        Here’s how we would write this greeting example in code:
+      </p>
+      <code>
+<pre>
+let hour = 10; // Example hour value
+
+if (hour >= 6 && hour &lt; 12) {
+ console.log("Good Morning");
+} else if (hour >= 12 && hour &lt; 18) {
+ console.log("Good Afternoon");
+} else {
+ console.log("Good Evening");
+}
+</pre>
+</code>
+      <strong>In this example:</strong>
+      <ul>
+        <li>hour >= 6 && hour &lt; 12 checks if the hour is between 6 am and 12 pm.</li>
+        <li>hour >= 12 && hour &lt; 18 checks if the hour is between 12 pm and 6 pm. </li>
+        <li>The else statement handles all other cases.</li>
+      </ul>
+      <p>
+        This code will print "Good Morning" if hour is 10, "Good Afternoon" if hour is 14, and "Good Evening" for any
+        other time outside those ranges.
+      </p>
+      <strong>Overview</strong>
+      <ul>
+        <li>if checks the first condition.</li>
+        <li>else if adds more conditions if the first one is false.</li>
+        <li>else is the default action if none of the conditions are met.</li>
+      </ul>
+      <p>
+        This is how we use if...else to add logic to our applications, making them smarter and more interactive!
+      </p>
+      <h2>switch…case</h2>
+      <p>
+        Imagine you want to check the role of a current user, which could be a guest, moderator, or admin. While
+        you could handle this using multiple if...else statements, there's another way to manage it more neatly: by
+        using switch...case.
+      </p>
+      <h4>How switch...case Works</h4>
+      <p><strong>1. Starting the Switch Statement:</strong></p>
+      <ul>
+        <li>Begin with the switch keyword, then add parentheses () and put the variable you’re checking (like
+          role) inside them. This variable will be checked against different values in the switch statement.</li>
+      </ul>
+      <code>
+<pre>
+switch (role) {}
+</pre>
+</code>
+      <strong>2. Adding Cases:</strong>
+      <ul>
+        <li>Inside the switch block (within {}), you can define different cases to handle each possible value
+          of role.</li>
+        <li>Each case is like a test: it compares the variable’s value to a specific option.</li>
+      </ul>
+      <code>
+<pre>
+case 'guest':
+ console.log("Guest User");
+ break;
+</pre>
+</code>
+      <ul>
+        <li>This checks if role is 'guest'. If it is, it will print "Guest User". Then, the break keyword stops the
+          program from continuing to the next case. Without break, the code will keep running through all
+          cases, even if they don’t match, which we usually don’t want.
+        </li>
+      </ul>
+      <strong>3. Using the Default Case:</strong>
+      <ul>
+        <li>If none of the case values match the role, you can use default to run code for any unknown role:</li>
+      </ul>
+      <code>
+<pre>
+default:
+ console.log("Unknown User");
+</pre>
+</code>
+      <p>The default case is optional but helpful for catching unexpected values</p>
+      <strong>Here’s a complete example:</strong>
+      <code>
+<pre>
+let role = 'guest';
+switch (role) {
+ case 'guest':
+ console.log("Guest User");
+ break;
+ case 'moderator':
+ console.log("Moderator User");
+ break;
+ default:
+ console.log("Unknown User");
+}
+</pre>
+</code>
+      <strong>In this example:</strong>
+      <ul>
+        <li>If role is 'guest', it will print "Guest User".</li>
+        <li> If role is 'moderator', it will print "Moderator User".</li>
+        <li>If role has any other value, it will print "Unknown User".</li>
+      </ul>
+      <h4>Comparison with if...else</h4>
+      <p>You can achieve the same logic using if...else:</p>
+      <code>
+<pre>
+if (role === 'guest') {
+ console.log("Guest User");
+} else if (role === 'moderator') {
+ console.log("Moderator User");
+} else {
+ console.log("Unknown User");
+}
+</pre>
+</code>
+      <p>
+        Both switch...case and if...else do the same thing. switch...case can be a bit cleaner for multiple specific
+        values, while if...else may feel simpler.
+      </p>
+      <h2>Loops / Iterations </h2>
+      <p>
+        Sometimes, we need to repeat the same task multiple times. For example, if we want to display "Hello
+        World" five times in the console, we could write this:
+      </p>
+      <code>
+<pre>
+console.log("Hello Naseeb");
+console.log("Hello Naseeb");
+console.log("Hello Naseeb");
+console.log("Hello Naseeb");
+console.log("Hello Naseeb");
+</pre>
+</code>
+      <p>
+        This works, but it’s not efficient. There’s a better way to do it that’s where loops come in. Loops let us
+        repeat an action without having to write the same code over and over.
+      </p>
+      <strong>In JavaScript, we have different types of loops, like:</strong>
+      <ul>
+        <li>for loop</li>
+        <li>while loop</li>
+        <li>do...while loop</li>
+        <li>for...in loop</li>
+        <li>for...of loop</li>
+      </ul>
+      <p>All these loops essentially do the same thing they help us repeat an action a specific number of times.
+        The difference between them is mainly in how they start and end. Here, we’ll focus on the for loop.
+      </p>
+      <h2>For Loop</h2>
+      <p>To print "Hello World" five times using a for loop, we can write:</p>
+      <code>
+<pre>
+for (let i = 0; i &lt; 5; i++) {
+ console.log("Hello World");
+}
+</pre>
+</code>
+      <strong>This code will display "Hello World" five times. Let's break down how it works:</strong>
+      <ol>
+        <li>Start with for: A for loop starts with the keyword for.</li>
+        <li>Parentheses (): Inside the parentheses, we set up three parts:
+          <ul>
+            <li>Initialization: We declare a variable, let i = 0;, where i is a counter that starts at 0.</li>
+            <li>Condition: We set a condition, i &lt; 5;, which keeps the loop going as long as this condition
+              is true.</li>
+            <li>Increment: We increase i by 1 each time the loop runs with i++.</li>
+          </ul>
+        </li>
+        <li>Curly Braces {}: Inside the curly braces, we put the code we want to repeat. In this case, it’s
+          console.log("Hello World");.</li>
+      </ol>
+      <h4>Step-by-Step</h4>
+      <p>Here's how this loop runs:</p>
+      <ol>
+        <li>Initialization: i is set to 0.</li>
+        <li>Condition Check: It checks if i &lt; 5. If true, the code inside the braces runs.</li>
+        <li>Execute and Increment: After printing, i increases by 1 (increment). The loop checks the condition
+          again.</li>
+        <li>Loop End: Once i reaches 5, the condition becomes false, and the loop stops.</li>
+      </ol>
+      <h4>More programs with for loop:</h4>
+      <p>Print i value with hello world:</p>
+      <code>
+<pre>
+for (let i = 0; i &lt; 5; i++) {
+ console.log("Hello World", i);
+}
+</pre>
+</code>
+      <p>Prnt number:</p>
+      <code>
+<pre>
+for (let i = 0; i &lt; 10; i++) {
+ console.log(i);
+}
+</pre>
+</code>
+      <p>Print in numbers in reverse:</p>
+      <code>
+<pre>
+for (let i = 10; i > 0; i--) {
+ console.log(i);
+}
+</pre>
+</code>
+      <h2>While Loop</h2>
+      <p>In the original for loop:</p>
+      <code>
+<pre>
+for (let i = 0; i &lt; 5; i++) {
+ console.log("Hello World");
+}
+</pre>
+</code>
+      <ul>
+        <li>We start with i set to 1.</li>
+        <li>The loop will run as long as i is less than or equal to 10.</li>
+        <li>Each time through the loop, it checks if i is odd (i.e., i % 2 !== 0). If i is odd, it logs the value of i.
+        </li>
+        <li>After each loop cycle, i is increased by 1 (i++).</li>
+      </ul>
+      <h4>Translating to a while Loop</h4>
+      <p>To write this in a while loop, we need to declare i separately since, in a for loop, the variable i is
+        defined within the loop itself. This difference is a key feature of how while loops and for loops
+        work.</p>
+      <strong>Here’s the while loop version:</strong>
+      <code>
+<pre>
+let i = 0;
+while (i &lt; 5) {
+ console.log(“Hello World”);
+ i++;
+}
+</pre>
+</code>
+      <strong>Key Points to Understand</strong>
+      <ol>
+        <li>Variable Declaration: In a while loop, the loop variable i is defined outside the loop (let i = 0;). It’s
+          not
+          a part of the loop structure itself, so we manage it manually.</li>
+        <li>Loop Condition: The while loop runs as long as i < 5 is true. The condition is checked at the start of each
+            loop cycle.</li>
+        <li>Loop Increment: Inside the while loop, we increment i manually with i++ at the end of each loop. If we
+          forget this, the loop could run indefinitely.</li>
+        <li>Scope: In the for loop, i is only accessible within the loop. In a while loop, i was declared outside the
+          loop, so it can still be used outside the loop if needed.</li>
+      </ol>
+      <h2>do…while loop</h2>
+      <p>The do...while loop is the third type of loop in JavaScript. It’s very similar to the while loop, but there’s
+        one
+        key difference. In a do...while loop, the code inside the loop will run at least once, even if the condition is
+        false.</p>
+      <strong>Here’s how the do...while loop works:</strong>
+      <ul>
+        <li>You start by declaring any variables outside the loop.</li>
+        <li>The do keyword begins the loop and is followed by a block of code inside {} braces</li>
+        <li>After the code block, the while keyword checks if the condition is true.
+        </li>
+        <li>If the condition is true, the loop runs again. If it’s false, the loop stops.</li>
+      </ul>
+      <strong>Let’s rewrite a while loop as a do...while loop.</strong>
+      <p>With the while loop:</p>
+      <code>
+<pre>
+let i = 0;
+while (i &lt; 5) {
+ console.log("NaseebCodeStudio");
+ i++;
+}
+</pre>
+</code>
+      <p>With the do...while loop:</p>
+      <code>
+<pre>
+let i = 0;
+do {
+ console.log(“Hello World”);
+ i++;
+ }
+while (i &lt; 5);
+</pre>
+</code>
+      <h4>Key Difference</h4>
+      <p>In the do...while loop, the code inside {} will run at least once, no matter what. This happens because the
+        condition is checked after the code block runs.
+      </p>
+      <code>
+<pre>
+let i = 9;
+do {
+ console.log(i);
+ i++;
+} while (i &lt;= 5);
+</pre>
+</code>
+      <p>Here, even though i starts at 9 (which is greater than 5), the code will run once and print 9 before the
+        condition is checked. If this were a while loop, it wouldn’t run at all because the condition isn’t true from
+        the
+        start.</p>
+      <h4>When to Use do...while</h4>
+      <p>In real projects, we don’t use do...while loops very often. Most of the time, for or while loops are more
+        practical. But it’s important to know the difference and understand that do...while guarantee at least one run
+        of the code inside, which can be useful in some specific situations.
+      </p>
+      <p>This explanation simplifies the process and makes it easy to see how do...while differs from other loops!</p>
+
+      <h2>Infinite loops</h2>
+      <p>An infinite loop is a loop in programming that keeps running forever because it never meets the condition
+        to stop. Accidentally creating an infinite loop can make your program freeze or even crash your computer.
+        Here’s a simple breakdown of how it happens and examples to help you avoid it.
+      </p>
+      <h4>What is an Infinite Loop?</h4>
+      <p>An infinite loop is a loop that never ends because the exit condition is never met. For example, if you’re
+        using a loop to count numbers from 1 to 5 but forget to tell it when to stop, it will keep counting forever.
+        This can cause problems like making your browser spin endlessly, slowing down your system, or even
+        freezing your computer.
+      </p>
+
+      <strong>Example of an Infinite Loop in JavaScript</strong>
+      <p>Here’s a simple example of how an infinite loop can happen:</p>
+      <code>
+<pre>
+let i = 0;
+while (i &lt; 5) {
+ console.log(i);
+}
+</pre>
+</code>
+      <p>In this example, i is set to 0, and the condition says to keep running while i is less than 5. But if we forget
+        to
+        increase i (like i++), it stays at 0 forever, causing the loop to keep running without end.</p>
+      <strong>To fix it, add i++ inside the loop:</strong>
+      <code>
+<pre>
+let i = 0;
+while (i &lt; 5) {
+ console.log(i);
+ i++;
+}
+</pre>
+</code>
+      <h4>Other Common Infinite Loop Examples</h4>
+      <p>1. Using true in the Condition: This type of loop will never stop since true is always true</p>
+      <code>
+<pre>
+while (true) {
+ console.log("This will run forever");
+}
+</pre>
+</code>
+      <p>This loop will run endlessly. To stop it, add a condition or break statement within the loop.</p>
+      <p>2. Infinite Loop in do...while:</p>
+      <code>
+<pre>
+let i = 0;
+do {
+ console.log(i);while (true);
+}
+</pre>
+</code>
+      <p>Similar to while (true), this loop will keep running since the condition true never changes.
+      </p>
+      <p>3. Infinite for Loop:</p>
+      <code>
+<pre>
+for (let i = 0; i &lt; 10; ) {
+ console.log(i);
+}
+</pre>
+</code>
+      <p>Here, we forgot to increment i, so it will stay the same, causing the loop to run forever.</p>
+      <h4>Why Avoid Infinite Loops?</h4>
+      <p>Infinite loops take up a lot of system resources, which can slow down or crash your browser or computer. If
+        you find your program or browser is frozen due to an infinite loop, you might need to force close it using the
+        Task Manager (Ctrl + Shift + Esc on Windows) or by closing the tab or browser window.</p>
+
+      <h2>for…in Loop</h2>
+      <p>
+        For...in loop: We have learned about three types of loops in JavaScript: for, while, and do...while. These
+        loops are used to repeat an action as many times as needed. However, there are two additional types of
+        loops specifically for iterating over the properties of objects or elements in an array: the for...in loop and
+        the
+        for...of loop.
+      </p>
+      <p>Let's print all the properties of an object using the for...in loop. Here's an example:
+      </p>
+      <code>
+<pre>
+const person = { 
+  name: "Naseeb", 
+  age: 24 
+};
+</pre>
+</code>
+      <h4>Using for...in loop:</h4>
+      <p>With the for...in loop, we still use the for keyword and parentheses, but we don’t have the typical
+        initialization, condition, and increment parts as we do with other loops. Instead, it looks a little different:
+      </p>
+      <code>
+<pre>
+for (let key in person) {
+ console.log(key);
+}
+</pre>
+</code>
+
+      <p>In each iteration, the key will hold one of the properties of the person object. For example, with the person
+        object above, the output will be: name and age.
+      </p>
+      <p>What if we want to print the value of each property next to its key? We already know that there are two ways
+        to access an object's property: using dot notation (e.g., person.name) or bracket notation (e.g.,
+        person['name']).</p>
+      <h4>Why Use Bracket Notation in for...in Loop?</h4>
+      <p>When we don't know ahead of time which property we’ll access, we use bracket notation because the
+        property name is determined at runtime. Therefore, in the for...in loop, we can't use dot notation, and we
+        must use bracket notation to display each property’s value. Here’s the corrected code:</p>
+      <code>
+<pre>
+for (let key in person) {
+ console.log(key, person[key]);
+}
+</pre>
+</code>
+      <p>This is the correct way to use the for...in loop.</p>
+      <h4>Using for...in with Arrays</h4>
+      <p>Although we can use for...in with arrays, it is not recommended. Here’s an example with an array:
+      </p>
+      <code>
+<pre>
+const colors = ['red', 'green', 'blue'];
+for (let index in colors) {
+ console.log(index);
+}
+</pre>
+</code>
+      <p>In this loop, index represents each index number of the colors array. The output will be: 0, 1, and 2. If we
+        want to get the element at each index, we can use bracket notation as follows:
+      </p>
+      <code>
+<pre>
+for (let index in colors) {
+ console.log(index, colors[index]);
+}
+If(“objKey” in obj){
+console.log(“this object has this key”);
+}
+</pre>
+</code>
+      <h4>To get all the keys of Object:</h4>
+      <code>
+<pre>
+const keys = Object.keys(obj);
+</pre>
+</code>
+      <h2>for...of Loop</h2>
+      <p>Starting from ES6 (also known as ECMAScript 6), we have a new loop called the for...of loop, which is the
+        preferred way to iterate over arrays.
+      </p>
+
+      <p>As we learned in the last lecture, starting from ECMAScript 6 (or ES6), we have a new way to iterate
+        over an array, which is by using the for...of loop. It is very similar to the for...in loop, but instead of the
+        “in”
+        keyword, we use the “of” keyword.</p>
+      <code>
+<pre>
+const colors = ['red', 'green', 'blue'];
+for (let color of colors) {
+ console.log(color);
+}
+</pre>
+</code>
+      <p>In this for...of loop, we don’t have to deal with the index number system or access elements by a specific
+        index like we did in the for...in loop:
+      </p>
+      <code>
+<pre>
+for (let index in colors) {
+ console.log(index, colors[index]);
+}
+</pre>
+</code>
+      <p>In each iteration of the for...of loop, the color variable represents each element of the array, so we get
+        'red',
+        'green', and 'blue' directly. We use the for...in loop to iterate over the properties of an object, while
+        for...of
+        loop is used to iterate through the elements of an array."</p>
+      <h4>For of loop we can also use for strings:</h4>
+      <code>
+<pre>
+const channel = “NaseebCodeStudio”;
+for (const char of channel){
+ console.log(char);
+ }
+</pre>
+</code>
+      <h2>Nested Loop</h2>
+      <p>In JavaScript, we can use loops inside other loops (nested loops) to make our code more efficient and
+        concise, depending on our program's needs. For example, if we want to print the multiplication table of 2,
+        we could write the following code with complete syntax:
+      </p>
+      <code>
+<pre>
+for (let n = 1; n &lt;= 10; n++) {
+ console.log("2 x " + n + " = " + n * 2);
+}
+</pre>
+</code>
+      <p>If we want to print tables 3, 4, 5, 6... up to 10, we would have to write this code multi times. However, by
+        using a nested loop, we can make our code shorter and more efficient. The outer loop can iterate over each
+        number for which we want the table, and the inner loop can handle the multiplication for each table.</p>
+      <p>Here’s how we could print the tables from 1 to 10:</p>
+      <code>
+<pre>
+for (let n = 1; n &lt;= 10; n++) {
+ console.log("Table of " + n);
+ for (let nn = 1; nn &lt;= 10; nn++) {
+ console.log(n + " x " + nn + " = " + n * nn);
+ }
+ console.log(""); // Adding a blank line for better readability between tables
+}
+
+<span class="output">OR</span>
+for (let n = 1; n&lt;= 10; n++){
+for (let nn = 1; nn&lt;=10; nn++){
+console.log(n+ ' x '+ nn + ' = ' + n * nn);
+}
+console.log("");
+}
+</pre>
+</code>
+      <h4>Explanation of How the Nested Loop Works</h4>
+      <p><strong>1. Outer Loop (for (let n = 1; n &lt;= 10; n++)):</strong></p>
+      <ul>
+        <li>
+          This loop iterates from 1 to 10, representing each number for which we want to print a
+          multiplication table.
+        </li>
+        <li>For each iteration of n, the inner loop will execute 10 times, printing the full table for the
+          current value of n.</li>
+      </ul>
+      <strong>2. Inner Loop (for (let nn = 1; nn &lt;= 10; nn++)):</strong>
+      <ul>
+        <li>The inner loop handles the multiplication for each table. For each value of “n” (from the
+          outer loop), “nn” will iterate from 1 to 10.</li>
+        <li>During each inner loop iteration, console.log(n + " x " + nn + " = " + n * nn); prints a line of
+          the table, showing n multiplied by “nn” with the resulting product.</li>
+      </ul>
+      <h4>For example, when n is 2:</h4>
+      <ul>
+        <li>The inner loop runs with “nn” from 1 to 10, producing the multiplication table for 2 (2 x 1 = 2, 2 x
+          2 = 4, ..., 2 x 10 = 20).</li>
+        <li> After completing 10 iterations of the inner loop, the outer loop moves to the next value, n = 3,
+          and the inner loop runs again to print the table for 3, and so on.
+        </li>
+      </ul>
+      <p>By using nested loops, we efficiently print each table from 1 to 10 without having to repeat our code for
+        each number</p>
+      <h3>Exercise </h3>
+      <p>Now, let’s use a for loop to print only odd or only even numbers between 1 and 10. Here’s how:
+      </p>
+      <strong>Odd numbers:</strong>
+      <code>
+<pre>
+for (let i = 1; i &lt;= 10; i++) {
+ if (i % 2 !== 0) {
+ console.log(i);
+ }
+}
+</pre>
+</code>
+      <strong>Even Numbers:</strong>
+      <code>
+<pre>
+for(let i = 0; i &lt;= 10; i++){
+if(i % 2 === 0)
+console.log(i);
+}
+</pre>
+</code>
+      <h4>Explanation:</h4>
+      <ul>
+        <li>
+          The loop starts at i = 1 and runs while i &lt;= 10.
+        </li>
+        <li>Inside the loop, we check if i is odd by using i % 2 !== 0 (the modulus operator % gives the
+          remainder, so i % 2 !== 0 means i is not evenly divisible by 2, making it odd).</li>
+        <li>If i is odd, we print it.</li>
+      </ul>
+      <h4>Going in Reverse</h4>
+      <p>We can also count down by starting from a higher number and decreasing with each loop. Here’s
+        how to print odd numbers from 5 down to 1:
+      </p>
+      <code>
+<pre>
+for (let i = 10; i >= 1; i--) {
+ if (i % 2 !== 0) {
+ console.log(i);
+ }
+}
+</pre>
+</code>
+      <h4>In this example:</h4>
+      <ul>
+        <li>We start with “I” = 10 and run the loop while i >= 1.
+        </li>
+        <li>Each loop, “I” is decreased by 1 (using i--).</li>
+        <li>If “I” is odd, we print it.</li>
+      </ul>
+      <h4>Overview:</h4>
+      <p>
+        Loops help us repeat actions efficiently, saving time and code space. We can customize loops to count up,
+        count down, and only print specific values, making them powerful tools in programming!
+      </p>
+
+      <h2>Array & for Loop</h2>
+      <p>Array & Loop: We can also use loops with objects and arrays to print an array's elements or an object's
+        properties. Let's see the code for iterating through an array:</p>
+      <code>
+<pre>
+let colors = ["Red", "Green", "Yellow"];
+for (let index = 0; index &lt; colors.length; index++) {
+ const element = colors[index];
+ console.log(element);
+}
+</pre>
+</code>
+      <p>Here, you will get "Red", "Green", and "Yellow" in the output.
+      </p>
+
+      <h2>Break and Continue</h2>
+      <p>
+        You have learned about loops. Now, there are two keywords used with loops to change their behavior: break
+        and continue. These keywords can be used with any loop, and each serves a specific purpose in controlling
+        loop execution.
+      </p>
+      <h4>Break Keyword</h4>
+      <p>Sometimes, we need to jump out of a loop for specific reasons or conditions that occur during runtime. In
+        such cases, we use the break keyword to exit the loop immediately.</p>
+      <p>Example: Suppose we have a loop that increments a variable, “I”, and we want to stop the loop when “I”
+        reaches 5.</p>
+      <code>
+<pre>
+let i = 0;
+while (i &lt; 9) {
+ if (i === 5) break;
+ console.log(i);
+ i++;
+}
+</pre>
+</code>
+
+      <p>In this example, when “I” becomes equal to 5, the break keyword will terminate the loop. Therefore, the
+        output will include values from 0 to 4, and the loop stops when it reaches 5.</p>
+      <h4>Continue Keyword</h4>
+      <p>The “continue” keyword is used when, at a certain point in a loop, you want to skip the current iteration and
+        move directly to the next one without completing the remaining code in that iteration. This is useful when
+        you want to "jump over" a certain condition.
+      </p>
+      <p>Example: Suppose we want to print only the odd numbers from 1 to 10. We can use the “continue” keyword
+        to skip even numbers.
+      </p>
+      <code>
+<pre>
+let i = 0;
+while (i &lt;= 10) {
+ if (i % 2 === 0) {
+ i++;
+ continue;
+ }
+ console.log(i);
+ i++;
+}
+</pre>
+</code>
+
+      <p>In this example, when “I” is an even number, it increments and moves to the next iteration, effectively
+        skipping the even numbers in the output. Therefore, the console will display 1, 3, 5, 7, and 9.
+      </p>
+      <p>When the JavaScript engine encounters the “continue” keyword, it jumps to the beginning of the
+        loop, bypassing any remaining statements in that iteration. For example, when “I” is 2, it's even, so i++
+        makes “I” 3. The loop then skips directly to the next iteration without executing console.log(i), resulting in
+        the display of only odd numbers.</p>
+
+      <h3>Practice with Break:</h3>
+      <code>
+<pre>
+for (let n = 0; n &lt; 10; n++){
+if(n === 7){
+console.log("7 Here");
+break;
+}
+console.log("n is Equals to: ", n);
+}
+</pre>
+</code>
+      <p>Output is going to be: 0,1,2,3,4,5,6 <br>
+        Break the program at point no 7
+      </p>
+      <h3>Practice with continue:</h3>
+      <code>
+<pre>
+for (let n = 0; n &lt; 10; n++){
+  if(n === 7){
+console.log("7 Here");
+continue;
+}
+  console.log("n is Equals to: ", n);
+}
+</pre>
+</code>
+      <p>
+        Output is going to be: 0,1,2,3,4,5,6,8,9 <br>
+        Jump over at point no 7
+      </p>
+
+      <h4>Note on Usage</h4>
+      <p>
+        The continue keyword is not frequently used in modern JavaScript programming and is considered a legacy
+        feature. It can make code less readable and is often avoided in favor of cleaner, more efficient code
+        structures.
+      </p>
+
+      <h3>Exercise 1</h3>
+      <p>Write a program that takes two numbers and returns the maximum of the two.</p>
+      <strong>Solution:</strong>
+      <code>
+<pre>
+let number = max(1, 2);
+console.log(number);
+function max(a, b) {
+ if (a > b) return a;
+ return b;
+}
+</pre>
+</code>
+      <p>
+        In this example, if any argument is greater, our function will work as expected. To test this function with
+        different arguments, we can call it with various test cases. First, let's assume the second argument is
+        greater. Then, we assume the first argument is greater. Finally, we test if both arguments are equal.
+      </p>
+      <p>When writing code or functions, it's important to test different values to ensure the function
+        behaves as expected. However, this code can be improved for better readability and good coding practice.
+      </p>
+      <h4>Improving the Code</h4>
+      <ol>
+        <li>Removing the else Keyword: Since the return statement exits the function immediately, there is no
+          need to use the else keyword. We can simply return “a” if a > b; otherwise, return b.
+        </li>
+        <li>Using a Ternary Operator: We can make this code even simpler by using a ternary operator. This
+          way, the function returns the maximum value in a single line.
+        </li>
+      </ol>
+      <strong>Here's the improved code:</strong>
+      <code>
+<pre>
+function max(a, b) {
+ return (a > b) ? a : b;
+}
+</pre>
+</code>
+      <strong>Or more improved for true and false: </strong>
+      <code>
+<pre>
+function max(a, b) {
+ return (a > b);
+}
+</pre>
+</code>
+      <p>
+        Now, our function is more concise and still works correctly. This version has only the return statement,
+        making it a cleaner and more efficient solution. In this case the return keyword always return the value of
+        condition which is going to be Boolean like true or false so no need to use “a : b” from ternary operator.
+      </p>
+      <h3>Exercise 2</h3>
+      <p>Write a program to check if an image is in landscape orientation or not. This is similar to the previous
+        exercise you just learned.
+      </p>
+      <code>
+<pre>
+function isLandscape(width, height) {
+ if (width > height) return true;
+ return false;
+}
+</pre>
+</code>
+      <p>
+        In this example, we check if the width is greater than height. If it is, the function returns true, indicating a
+        landscape image. Otherwise, it returns false.
+      </p>
+      <strong>However, we just learned that we could use a ternary operator for this:
+      </strong>
+      <code>
+<pre>
+(width > height) ? true : false;
+</pre>
+</code>
+      <p>
+        Both approaches are functionally the same. However, writing code like this is considered very basic and
+        amateurish. We don’t want to explicitly return true or false in this way, as it makes the code less readable.
+        Instead, we can simplify the program by removing the explicit true and false return values.
+      </p>
+      <h4>Improved Version</h4>
+      <p>In JavaScript, a conditional expression like (width > height) evaluates directly to true or false. So, we don’t
+        need to explicitly write return true or return false. The function can be written simply as:
+      </p>
+      <code>
+<pre>
+function isLandscape(width, height) {
+ return (width > height);
+}
+</pre>
+</code>
+      <p>This version will automatically return true if width is greater than height (indicating a landscape
+        orientation)
+        or false otherwise. There’s no need to manually specify the return values of true and false, making the code
+        more concise and professional.</p>
+      <h4>Testing the Function</h4>
+      <p>Let's test this function with a console log to confirm it works as expected:
+      </p>
+      <code>
+<pre>
+console.log(isLandscape(800, 600)); // Expected output: true
+</pre>
+</code>
+      <p>If we change 800 to 300, making the image a vertical orientation, we should get false:
+      </p>
+      <code>
+<pre>
+console.log(isLandscape(300, 600)); // Expected output: false
+</pre>
+</code>
+      <p>This approach makes the code cleaner and more efficient, without any unnecessary parts.
+      </p>
+
+      <h3>Exercise 3</h3>
+      <p>
+        Write a program to check if an image is in landscape orientation or not. This is similar to the previous
+        exercise you just learned.
+      </p>
+      <code>
+<pre>
+function isLandscape(width, height) {
+ if (width > height) return true;
+ return false;
+}
+</pre>
+</code>
+      <p>
+        In this example, we check if the width is greater than height. If it is, the function returns true, indicating a
+        landscape image. Otherwise, it returns false.
+      </p>
+      <strong>However, we just learned that we could use a ternary operator for this:
+      </strong>
+      <code>
+<pre>
+(width > height) ? true : false;
+</pre>
+</code>
+      <p>
+        Both approaches are functionally the same. However, writing code like this is considered very basic and
+        amateurish. We don’t want to explicitly return true or false in this way, as it makes the code less readable.
+        Instead, we can simplify the program by removing the explicit true and false return values.
+      </p>
+      <h4>Improved Version</h4>
+      <p>
+        In JavaScript, a conditional expression like (width > height) evaluates directly to true or false. So, we don’t
+        need to explicitly write return true or return false. The function can be written simply as:
+      </p>
+      <code>
+<pre>
+function isLandscape(width, height) {
+ return (width > height);
+}
+</pre>
+</code>
+      <p>This version will automatically return true if width is greater than height (indicating a landscape
+        orientation)
+        or false otherwise. There’s no need to manually specify the return values of true and false, making the code
+        more concise and professional.</p>
+      <h4>Testing the Function</h4>
+      <p>Let's test this function with a console log to confirm it works as expected:
+      </p>
+      <code>
+<pre>
+console.log(isLandscape(800, 600)); // Expected output: true
+</pre>
+</code>
+      <p>If we change 800 to 300, making the image a vertical orientation, we should get false:
+      </p>
+      <code>
+<pre>
+console.log(isLandscape(300, 600)); // Expected output: false
+</pre>
+</code>
+      <p>This approach makes the code cleaner and more efficient, without any unnecessary parts.
+      </p>
+      <h3>Exercise 4</h3>
+      <p>This exercise is a very popular interview question called “FizzBuzz Algorithm." The goal is to create a
+        function that takes an input and returns a specific output as a string based on certain conditions:</p>
+      <ol>
+        <li>If the number passed as input is divisible by 3, we get "Fizz."</li>
+        <li>If the number is divisible by 5, we get "Buzz."</li>
+        <li>If the number is divisible by both 3 and 5 (like 15), we get "FizzBuzz."</li>
+        <li>If the number is not divisible by either 3 or 5, we get the same number as output.</li>
+        <li>If we don't pass a number (e.g., we pass a string or other non-numeric data), we should get the
+          message: "Not a Number."
+        </li>
+      </ol>
+      <p>
+        These are the five types of output generated by this program. Now, let’s see the solution. Change the value
+        according to your choice in the fizzBuzz parentheses (this will act as an argument to store your input).
+      </p>
+
+      <code>
+<pre>
+const output = fizzBuzz(5);
+console.log(output);
+function fizzBuzz(input) {
+ if (typeof input !== 'number') return 'Not a Number';
+ if (input % 3 === 0) return 'Fizz';
+ if (input % 5 === 0) return 'Buzz';
+ if (input % 3 === 0 && input % 5 === 0) return 'FizzBuzz';
+ return input;
+}
+</pre>
+</code>
+      <p>
+        In this program, initially, you may encounter an issue were passing 15 only returns "Fizz" instead of
+        "FizzBuzz." This happens because the if statement for input divisible by 3 is placed before the one checking
+        divisibility by both 3 and 5. To fix this, we moved the condition (input % 3 === 0 && input % 5 === 0) to the
+        top of the function
+      </p>
+      <strong>You can also replace the string "Not a Number" with the special JavaScript value NaN to
+        represent non-numeric input, like so:
+      </strong>
+      <code>
+<pre>
+function fizzBuzz(input) {
+ if (typeof input !== 'number') return NaN;
+ if (input % 3 === 0 && input % 5 === 0) return 'FizzBuzz'; // corrected
+ if (input % 3 === 0) return 'Fizz';
+ if (input % 5 === 0) return 'Buzz';
+ return input;
+}
+</pre>
+</code>
+      <p>In JavaScript, NaN stands for "Not a Number" and can be used instead of the string "Not a Number" in your
+        program.</p>
+
+      <h3>Exercise 5</h3>
+      <p>Task: Car Speed Checker</p>
+      <h4>Objective:</h4>
+      <p>Create a function, checkSpeed, that assesses a car's speed. If the speed exceeds the limit, points are
+        assigned for every 5 km/h above the speed limit. If the driver accumulates 12 or more points, their license
+        is suspended.Code Explanation and Walkthrough
+      </p>
+
+      <h4>The program will:</h4>
+      <ol>
+        <li>Check if the car speed is within the allowed limit.</li>
+        <li>Print "OK" if the speed is within or equal to the limit.</li>
+        <li>Award 1 point for every 5 km/h above the speed limit.</li>
+        <li>Suspend the license if the driver has 12 or more points.</li>
+      </ol>
+
+      <strong>Here is the solution:</strong>
+      <code>
+<pre>
+function checkSpeed(speed) {
+ const speedLimit = 70;
+ const kmPerPoint = 5;
+
+if (speed &lt;= speedLimit) {
+    console.log('OK');
+ }
+ else {
+ let points = Math.floor((speed - speedLimit) / kmPerPoint);
+ if (points >= 12) {
+    console.log("License suspended");
+ } else {
+    console.log('Points', points);
+ }
+ }
+}
+
+<span class="output">Example usage:</span>
+checkSpeed(50); // Expected: "OK"
+checkSpeed(75); // Expected: "Points 1"
+</pre>
+</code>
+
+      <h4>Explanation of Code Logic</h4>
+      <ol>
+        <li>Defining Variables
+          <ul>
+            <li>speedLimit: The speed limit, set to 70.</li>
+            <li>kmPerPoint: Points are awarded every 5 km/h above the speed limit.</li>
+          </ul>
+        </li>
+        <li>
+          Checking the Speed
+          <ul>
+            <li>If speed is below speedLimit + kmPerPoint (i.e., 75 km/h), we print "OK".</li>
+            <li>
+              If speed is 75 or higher, we calculate points:
+              <ul>
+                <li>Subtract speedLimit from speed and divide by kmPerPoint.</li>
+                <li>Use Math.floor() to round down to the nearest whole number, giving us the number of
+                  points.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>License Suspension
+          <ul>
+            <li>If points is 12 or more, the output is "License suspended".</li>
+            <li>Otherwise, we print the points.</li>
+          </ul>
+        </li>
+      </ol>
+      <h4>Example Output</h4>
+      <ul>
+        <li>checkSpeed(50); — Output: "OK" (speed is below the limit)</li>
+        <li>checkSpeed(75); — Output: "Points 1" (5 km/h over the limit, gives 1 point)</li>
+        <li>checkSpeed(135); — Output: "License suspended" (65 km/h over the limit, which results in more
+          than 12 points)</li>
+      </ul>
+      <h4>Issues in the Initial Program</h4>
+      <ol>
+        <li>Incorrect Speed Calculation for Borderline Cases
+          <ul>
+            <li>If the car speed is just above the limit (e.g., 71-74 km/h), the program mistakenly calculates
+              points as 0 because it floors the result, making the program incorrectly output "Points 0".</li>
+          </ul>
+        </li>
+        <li>
+          Limited Readability
+          <ul>
+            <li>The code lacks comments and explanations, which can make it hard to understand why
+              certain values, such as 70 or 5, are used.</li>
+          </ul>
+        </li>
+      </ol>
+      <h4>Explanation of Why We Calculate Points</h4>
+      <p><strong>The reason for calculating points:</strong></p>
+      <ul>
+        <li> Points are awarded to encourage safe driving by penalizing speeds over the limit.</li>
+        <li>For every 5 km/h above the speed limit, the driver gets 1 point.</li>
+        <li>If a driver accumulates 12 points, their license is suspended.</li>
+      </ul>
+      <p>
+        This calculation ensures a consistent penalty based on how far the speed exceeds the limit, helping to
+        promote safe driving.
+      </p>
+      <h4>Improved Program</h4>
+      <p>Here’s an improved version of the program with corrections and added explanations.
+      </p>
+      <code>
+<pre>
+function checkSpeed(speed) {
+ const speedLimit = 70; <span class="t-r">// Define speed limit</span>
+ const kmPerPoint = 5; <span class="t-r">// Define km per point above speed limit</span>
+
+ <span class="t-r">// If speed is within the limit + kmPerPoint (e.g., 70–74), print "OK"</span>
+ if (speed &lt; speedLimit + kmPerPoint) {
+ console.log('OK');
+ }
+
+ <span class="t-r">// Otherwise, calculate points based on speed above the limit</span>
+ else {
+ <span class="t-r">// Calculate points by flooring the result of (speed - speedLimit) / kmPerPoint</span>
+ let points = Math.floor((speed - speedLimit) / kmPerPoint);
+ <span class="t-r">// Check if points reach or exceed 12 to suspend the license</span>
+ if (points >= 12) {
+ console.log("License suspended");
+ }
+ <span class="t-r">// Otherwise, print the points</span>
+ else {
+ console.log('Points', points);
+ }
+ }
+}
+
+<span class="output">Example usage:</span>
+checkSpeed(50); // Output: "OK"
+checkSpeed(75); // Output: "Points 1"
+checkSpeed(135); // Output: "License suspended"
+</pre>
+</code>
+      <h4>Explanation of the Improved Code</h4>
+      <ol>
+        <li>Defining Constants
+          <ul>
+            <li>speedLimit is set to 70 (the assumed maximum speed limit).</li>
+            <li>kmPerPoint is set to 5, meaning 1 point is given for every 5 km/h above the speed limit.</li>
+          </ul>
+        </li>
+        <li>Using the Correct Condition to Handle Borderline Cases
+          <ul>
+            <li> By checking if speed is less than speedLimit + kmPerPoint, the code avoids awarding a point
+              for borderline speeds (71-74 km/h).</li>
+            <li>This corrects the error where the program previously outputted "Points 0" for speeds just
+              over the limit.</li>
+          </ul>
+        </li>
+        <li>Calculating Points
+          <ul>
+            <li>For speeds above the limit, points are calculated as: <br>
+              let points = Math.floor((speed - speedLimit) / kmPerPoint);
+            </li>
+            <li>Math.floor() ensures that the calculation rounds down, giving an integer point value.
+            </li>
+          </ul>
+        </li>
+        <li>License Suspension
+          <ul>
+            <li>If “points” are 12 or more, the program prints "License suspended"</li>
+            <li>Otherwise, it prints the point value.</li>
+          </ul>
+        </li>
+      </ol>
+      <h3>Exercise 6</h3>
+      <p>Write a function named `showNumbers` that takes a parameter called `limit`.
+      </p>
+      <p>When we pass a number (e.g., 10) as the limit, the function will display all numbers from 0 to the limit
+        (inclusive).</p>
+      <p>For each number, if it is even, it should display the label 'EVEN', and if it is odd, it should display the
+        label
+        'ODD'.</p>
+      <h4>Solution:</h4>
+      <code>
+<pre>
+function showNumbers(limit) {
+ for (let i = 0; i &lt;= limit; i++) {
+ <span class="t-r">// Corrected condition to `&lt;=` so it includes the limit</span>
+ if (i % 2 === 0) {
+    console.log(i, 'EVEN');
+ } else {
+    console.log(i, 'ODD');
+ }
+ }
+}
+</pre>
+</code>
+      <p>
+        Improved version to reduce redundant code by using a single `console.log` statement:
+      </p>
+      <code>
+<pre>
+function showNumbers(limit) {
+ for (let i = 0; i &lt;= limit; i++) { 
+<span class="t-r">// Corrected condition to `&lt;=` so it includes the limit</span>
+ const message = (i % 2 === 0) ? 'EVEN' : 'ODD';
+ console.log(i, message);
+ }
+}
+</pre>
+</code>
+      <h4>Explanation of Changes</h4>
+      <ol>
+        <li>Changed the loop condition i &lt; limit to i &lt;= limit to ensure the function includes the limit in the
+          output.</li>
+        <li>Improved the if statement by creating a variable message with a ternary operator to assign
+          either 'EVEN' or 'ODD', allowing a single console.log statement in the improved version.</li>
+      </ol>
+      <p>With these corrections, the function will now display each number up to the limit, labeling each as either
+        EVEN or ODD.</p>
+      <h3>Exercise 7</h3>
+      <p>
+        Solve the Logical problem of the following program:
+      </p>
+      <code>
+<pre>
+function ncs(i){
+   if(i &lt; 100) return "A Grade";
+   else if(i &lt; 80) return "B Grade";
+   else if(i &lt; 70) return "C Grade";
+   else return "D Grade";
+}
+
+console.log(ncs(10))
+</pre>
+</code>
+      <h3>Exercise 8</h3>
+      <p><strong>Count Truthy Values in an Array</strong>
+        <br>
+        Objective: Create a function called countTruthy that takes an array as input and returns the count of truthy
+        elements in that array.
+      </p>
+      <p>In JavaScript, certain values are considered falsy:
+      </p>
+      <ul>
+        <li>Undefined</li>
+        <li>null</li>
+        <li>" " (Empty String)</li>
+        <li>False</li>
+        <li>0</li>
+        <li>NaN</li>
+      </ul>
+      <p>All other values are considered truthy.</p>
+      <p>When we call this function, it should return the number of truthy values in the array passed to it.
+      </p>
+      <code>
+<pre>
+const array = [0, null, undefined, ‘’, 1, 2, 3];
+console.log(countTruthy(array)); // output: 3
+
+function countTruthy(array) {
+ let count = 0;
+ for (let value of array) {
+ if (value) count++;
+ }
+ return count;
+}
+</pre>
+</code>
+      <strong>Explanation:</strong>
+      <ol>
+        <li>Initialize Counter: let count = 0; This variable will store the count of truthy values.
+        </li>
+        <li>Loop Through Array: for (let value of array) Iterates through each element in the array</li>
+        <li>Check for Truthy Value: if (value) count++; If the value is truthy, increment the counter.
+        </li>
+        <li>Return Result: return count; Returns the total count of truthy values.</li>
+      </ol>
+      <p>This function will now correctly count and return the number of truthy values in any array passed to it.
+      </p>
+
+      <h3>Exercise 9</h3>
+      <p>
+        Find the Sum of 1 to 10.
+      </p>
+      <code>
+<pre>
+let total = 0;
+
+for(let n = 0; n &lt;= 10; n++){
+  sum += n;
+}
+
+console.log(total);
+</pre>
+</code>
+
+      <h3>Exercise 10</h3>
+      <p>
+        print Even Numbers only between 1 to 10 using continue keyword.
+      </p>
+      <code>
+<pre>
+for(let n = 0; n &lt;= 10; n++){
+    if(n%2 === 0) continue;
+    console.log(n);
+}
+</pre>
+</code>
+      <a href="#"
+        style="background-color: rgb(255, 255, 255); display: block; text-align: center; color: rgb(255, 0, 0); font-weight: bold; text-decoration: none; margin-top: 3rem;"
+        class="back-to-top">Back
+        To Top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© NaseebCodeStudio • Made with ❤️</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
